@@ -5,6 +5,7 @@
     "sdk": "org.gnome.Sdk",
     "command": "lifeograph",
     "finish-args": [ "--socket=x11",
+                     "--share=ipc",
                      "--socket=wayland",
                      "--filesystem=host" ],
     "cleanup": [ "/include",
@@ -100,6 +101,7 @@
         {
             "name": "lifeograph",
             "buildsystem": "meson",
+            "config-opts": [ "--buildtype=release" ],
             "sources": [
                 {
                     "type": "archive",
