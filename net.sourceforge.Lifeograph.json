@@ -1,7 +1,7 @@
 {
     "app-id": "net.sourceforge.Lifeograph",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "3.38",
+    "runtime-version": "42",
     "sdk": "org.gnome.Sdk",
     "command": "lifeograph",
     "finish-args": [ "--share=ipc",
@@ -23,36 +23,25 @@
                  "*.a" ],
     "modules": [
         {
-           "name": "mm-common",
-           "cleanup": [ "/" ],
-           "sources": [
-               {
-                   "type": "archive",
-                   "url": "http://ftp.gnome.org/pub/GNOME/sources/mm-common/1.0/mm-common-1.0.2.tar.xz",
-                   "sha256": "a2a99f3fa943cf662f189163ed39a2cfc19a428d906dd4f92b387d3659d1641d"
-               }
-           ]
+            "name": "mm-common",
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/mm-common/1.0/mm-common-1.0.4.tar.xz",
+                    "sha256": "e954c09b4309a7ef93e13b69260acdc5738c907477eb381b78bb1e414ee6dbd8"
+                }
+            ],
+            "cleanup": [ "*" ]
         },
         {
-            "name": "sigc++",
+            "name": "sigc++-2",
             "config-opts": [ "--disable-documentation" ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "http://ftp.gnome.org/pub/GNOME/sources/libsigc++/2.10/libsigc++-2.10.6.tar.xz",
-                    "sha256": "dda176dc4681bda9d5a2ac1bc55273bdd381662b7a6d49e918267d13e8774e1b"
-                }
-            ]
-        },
-        {
-            "name": "glibmm",
-            "buildsystem": "meson",
-            "config-opts": [ "-Dbuild_man=false" ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "http://ftp.gnome.org/pub/GNOME/sources/glibmm/2.64/glibmm-2.64.5.tar.xz",
-                    "sha256": "508fc86e2c9141198aa16c225b16fd6b911917c0d3817602652844d0973ea386"
+                    "url": "https://download.gnome.org/sources/libsigc++/2.10/libsigc++-2.10.8.tar.xz",
+                    "sha256": "235a40bec7346c7b82b6a8caae0456353dc06e71f14bc414bcc858af1838719a"
                 }
             ]
         },
@@ -68,51 +57,75 @@
             ]
         },
         {
-            "name": "pangomm",
-            "config-opts": [ "--disable-documentation" ],
+            "name": "glibmm",
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Dbuild-documentation=false",
+                "-Dbuild-examples=false"
+            ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "http://ftp.gnome.org/pub/GNOME/sources/pangomm/2.42/pangomm-2.42.1.tar.xz",
-                    "sha256": "14bf04939930870d5cfa96860ed953ad2ce07c3fd8713add4a1bfe585589f40f"
+                    "url": "https://download.gnome.org/sources/glibmm/2.66/glibmm-2.66.2.tar.xz",
+                    "sha256": "b2a4cd7b9ae987794cbb5a1becc10cecb65182b9bb841868625d6bbb123edb1d"
+                }
+            ]
+        },
+        {
+            "name": "pangomm",
+            "buildsystem": "meson",
+            "config-opts": [ "-Dbuild-documentation=false" ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/pangomm/2.46/pangomm-2.46.2.tar.xz",
+                    "sha256": "57442ab4dc043877bfe3839915731ab2d693fc6634a71614422fb530c9eaa6f4"
                 }
             ]
         },
         {
             "name": "atkmm",
-            "config-opts": [ "--disable-documentation" ],
+            "buildsystem": "meson",
+            "config-opts": [ "-Dbuild-documentation=false" ],
+            "cleanup": [ "/lib/atkmm-1.6" ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "http://ftp.gnome.org/pub/GNOME/sources/atkmm/2.28/atkmm-2.28.0.tar.xz",
-                    "sha256": "4c4cfc917fd42d3879ce997b463428d6982affa0fb660cafcc0bc2d9afcedd3a"
+                    "url": "https://download.gnome.org/sources/atkmm/2.28/atkmm-2.28.2.tar.xz",
+                    "sha256": "a0bb49765ceccc293ab2c6735ba100431807d384ffa14c2ebd30e07993fd2fa4"
                 }
             ]
         },
         {
             "name": "gtkmm",
-            "config-opts": [ "--disable-documentation" ],
-            "build-options" : { "cxxflags": "-O2 -g -std=c++11" },
+            "buildsystem": "meson",
+            "config-opts": [ "-Dbuild-documentation=false" ],
+            "cleanup": [ "/lib/gtkmm-3.0" ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "http://ftp.gnome.org/pub/GNOME/sources/gtkmm/3.24/gtkmm-3.24.2.tar.xz",
-                    "sha256": "6d71091bcd1863133460d4188d04102810e9123de19706fb656b7bb915b4adc3"
+                    "url": "https://download.gnome.org/sources/gtkmm/3.24/gtkmm-3.24.5.tar.xz",
+                    "sha256": "856333de86689f6a81c123f2db15d85db9addc438bc3574c36f15736aeae22e6"
                 }
             ]
         },
+        "clutter.json",
         {
             "name": "libchamplain",
             "buildsystem": "meson",
-            "config-opts": [ "-Dbuild_man=false" ],
+            "config-opts": [ "-Dvapi=false" ],
             "sources": [
                 {
                     "type": "archive",
                     "url": "https://download.gnome.org/sources/libchamplain/0.12/libchamplain-0.12.20.tar.xz",
-                    "sha256": "0232b4bfcd130a1c5bda7b6aec266bf2d06e701e8093df1886f1e26bc1ba3066"
+                    "sha256": "0232b4bfcd130a1c5bda7b6aec266bf2d06e701e8093df1886f1e26bc1ba3066",
+                    "x-checker-data": {
+                        "type": "gnome",
+                        "name": "libchamplain"
+                    }
                 }
             ]
-        },  
+        },
 
         {
             "name": "lifeograph",
@@ -121,8 +134,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://launchpad.net/lifeograph/trunk/2.0.1/+download/lifeograph-2.0.1.1.tar.xz",
-                    "sha256": "8ede8246aa2751907bef88f52b3a1a0c77e1b57ceb648dc18dae7699f06adae6"
+                    "url": "https://launchpad.net/lifeograph/trunk/2.0.3/+download/lifeograph-2.0.3.tar.xz",
+                    "sha256": "570cac2cb944094da7e4e979849a9f08814da1ee8781e3e5bab9024e9e3a8c4a"
                 }
             ]
         }
