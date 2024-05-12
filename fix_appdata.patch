@@ -1,0 +1,35 @@
+diff --git a/net.sourceforge.Lifeograph.metainfo.xml.in b/net.sourceforge.Lifeograph.metainfo.xml.in
+index 4588d9e..d1563b4 100644
+--- a/net.sourceforge.Lifeograph.metainfo.xml.in
++++ b/net.sourceforge.Lifeograph.metainfo.xml.in
+@@ -42,21 +42,24 @@
+     <screenshots>
+         <screenshot type="default">
+             <caption>Editing screen</caption>
+-            <image>http://lifeograph.sourceforge.net/w/images/b/b7/Lifeograph-2.0.0-edit.png</image>
++            <image>https://lifeograph.sourceforge.net/lib/exe/fetch.php?media=wiki:lifeograph-2.0.0-edit.png</image>
+         </screenshot>
+         <screenshot>
+             <caption>Integrated map</caption>
+-            <image>http://lifeograph.sourceforge.net/w/images/a/a9/Lifeograph-edit-2.0.0-map.png</image>
++            <image>https://lifeograph.sourceforge.net/lib/exe/fetch.php?media=wiki:lifeograph-edit-2.0.0-map.png</image>
+         </screenshot>
+         <screenshot>
+-            <caption>Tag charts</caption>
+-            <image>http://lifeograph.sourceforge.net/w/images/b/b4/Lifeograph-1.6.0-tag.png</image>
++            <caption>File synchronization</caption>
++            <image>https://lifeograph.sourceforge.net/lib/exe/fetch.php?media=wiki:lifeograph-1.6.0-sync.png</image>
+         </screenshot>
+     </screenshots>
+ 
+-    <url type="homepage">http://lifeograph.sourceforge.net</url>
++    <url type="homepage">https://lifeograph.sourceforge.net</url>
++    <url type="vcs-browser">https://git.launchpad.net/lifeograph</url>
++    <developer_name>Ahmet Öztürk</developer_name>
++    <launchable type="desktop-id">net.sourceforge.Lifeograph.desktop</launchable>
+ 
+-    <content_rating type="oars-1.0" />
++    <content_rating type="oars-1.1" />
+ 
+     <releases>
+         <release version="2.0.3" date="2022-04-24">
