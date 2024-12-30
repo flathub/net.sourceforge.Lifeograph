@@ -1,71 +1,59 @@
 {
     "app-id": "net.sourceforge.Lifeograph",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "46",
+    "runtime-version": "47",
     "sdk": "org.gnome.Sdk",
     "command": "lifeograph",
-    "finish-args": [
-        "--share=ipc",
-        "--socket=x11",
-        "--socket=fallback-x11",
-        "--socket=wayland",
-        "--device=dri",
-        "--share=network",
-        "--filesystem=host"
-    ],
-    "cleanup": [
-        "/include",
-        "/lib/*/include",
-        "/lib/pkgconfig",
-        "/share/pkgconfig",
-        "/share/aclocal",
-        "/man",
-        "/share/man",
-        "/share/info",
-        "/share/gtk-doc",
-        "*.la",
-        "*.a"
-    ],
+    "finish-args": [ "--share=ipc",
+                     "--socket=x11",
+                     "--socket=fallback-x11",
+                     "--socket=wayland",
+                     "--device=dri",
+                     "--share=network",
+                     "--filesystem=host" ],
+    "cleanup": [ "/include",
+                 "/lib/*/include",
+                 "/lib/pkgconfig",
+                 "/share/pkgconfig",
+                 "/share/aclocal", "/man",
+                 "/share/man",
+                 "/share/info",
+                 "/share/gtk-doc",
+                 "*.la",
+                 "*.a" ],
     "modules": [
-        "shared-modules/clutter/clutter.json",
-        "shared-modules/libsoup/libsoup-2.4.json",
         {
             "name": "mm-common",
             "buildsystem": "meson",
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/mm-common/1.0/mm-common-1.0.4.tar.xz",
-                    "sha256": "e954c09b4309a7ef93e13b69260acdc5738c907477eb381b78bb1e414ee6dbd8"
+                    "url": "https://download.gnome.org/sources/mm-common/1.0/mm-common-1.0.6.tar.xz",
+                    "sha256": "b55c46037dbcdabc5cee3b389ea11cc3910adb68ebe883e9477847aa660862e7"
                 }
             ],
-            "cleanup": [
-                "*"
-            ]
+            "cleanup": [ "*" ]
         },
         {
             "name": "sigc++-2",
-            "config-opts": [
-                "--disable-documentation"
-            ],
+            "config-opts": [ "--disable-documentation" ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/libsigc++/2.10/libsigc++-2.10.8.tar.xz",
-                    "sha256": "235a40bec7346c7b82b6a8caae0456353dc06e71f14bc414bcc858af1838719a"
+                    "url": "https://download.gnome.org/sources/libsigc++/3.6/libsigc++-3.6.0.tar.xz",
+                    "sha256": "c3d23b37dfd6e39f2e09f091b77b1541fbfa17c4f0b6bf5c89baef7229080e17"
                 }
             ]
         },
         {
             "name": "cairomm",
-            "config-opts": [
-                "--disable-documentation"
-            ],
+            "buildsystem": "meson",
+            "config-opts": [ "-Dbuild-documentation=false" ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "http://ftp.gnome.org/pub/GNOME/sources/cairomm/1.12/cairomm-1.12.0.tar.xz",
-                    "sha256": "a54ada8394a86182525c0762e6f50db6b9212a2109280d13ec6a0b29bfd1afe6"
+                    "url": "https://www.cairographics.org/releases/cairomm-1.18.0.tar.xz",
+                    "sha1": "c24fa0e127303964d948a79016cfe4438e791dfa"
                 }
             ]
         },
@@ -79,88 +67,109 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/glibmm/2.66/glibmm-2.66.2.tar.xz",
-                    "sha256": "b2a4cd7b9ae987794cbb5a1becc10cecb65182b9bb841868625d6bbb123edb1d"
+                    "url": "https://download.gnome.org/sources/glibmm/2.82/glibmm-2.82.0.tar.xz",
+                    "sha256": "38684cff317273615c67b8fa9806f16299d51e5506d9b909bae15b589fa99cb6"
                 }
             ]
         },
         {
             "name": "pangomm",
             "buildsystem": "meson",
-            "config-opts": [
-                "-Dbuild-documentation=false"
-            ],
+            "config-opts": [ "-Dbuild-documentation=false" ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/pangomm/2.46/pangomm-2.46.2.tar.xz",
-                    "sha256": "57442ab4dc043877bfe3839915731ab2d693fc6634a71614422fb530c9eaa6f4"
-                }
-            ]
-        },
-        {
-            "name": "atkmm",
-            "buildsystem": "meson",
-            "config-opts": [
-                "-Dbuild-documentation=false"
-            ],
-            "cleanup": [
-                "/lib/atkmm-1.6"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://download.gnome.org/sources/atkmm/2.28/atkmm-2.28.2.tar.xz",
-                    "sha256": "a0bb49765ceccc293ab2c6735ba100431807d384ffa14c2ebd30e07993fd2fa4"
+                    "url": "https://download.gnome.org/sources/pangomm/2.54/pangomm-2.54.0.tar.xz",
+                    "sha256": "4a5b1fd1b7c47a1af45277ea82b5abeaca8e08fb10a27daa6394cf88d74e7acf"
                 }
             ]
         },
         {
             "name": "gtkmm",
             "buildsystem": "meson",
-            "config-opts": [
-                "-Dbuild-documentation=false"
-            ],
-            "cleanup": [
-                "/lib/gtkmm-3.0"
-            ],
+            "config-opts": [ "-Dbuild-documentation=false" ],
+            "cleanup": [ "/lib/gtkmm-4.0" ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gtkmm/3.24/gtkmm-3.24.5.tar.xz",
-                    "sha256": "856333de86689f6a81c123f2db15d85db9addc438bc3574c36f15736aeae22e6"
+                    "url": "https://download.gnome.org/sources/gtkmm/4.16/gtkmm-4.16.0.tar.xz",
+                    "sha256": "3b23fd3abf8fb223b00e9983b6010af2db80e38c89ab6994b8b6230aa85d60f9"
                 }
             ]
         },
+
         {
-            "name": "libchamplain",
+            "name": "geocode-glib",
             "buildsystem": "meson",
+            "builddir": true,
             "config-opts": [
-                "-Dvapi=false"
+                "--libdir=/app/lib",
+                "-Denable-gtk-doc=false",
+                "-Dsoup2=false"
             ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/libchamplain/0.12/libchamplain-0.12.21.tar.xz",
-                    "sha256": "a915cd172a0c52944c5579fcb4683f8a878c571bf5e928254b5dafefc727e5a7",
+                    "url": "https://download.gnome.org/sources/geocode-glib/3.26/geocode-glib-3.26.4.tar.xz",
+                    "sha256": "2d9a6826d158470449a173871221596da0f83ebdcff98b90c7049089056a37aa",
                     "x-checker-data": {
                         "type": "gnome",
-                        "name": "libchamplain"
+                        "name": "geocode-glib"
                     }
                 }
             ]
         },
         {
-            "name": "lifeograph",
-            "buildsystem": "meson",
+            "name": "protobuf-c",
+            "buildsystem": "autotools",
             "config-opts": [
-                "--buildtype=release"
+                "--disable-protoc"
             ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://launchpad.net/lifeograph/trunk/2.0.3/+download/lifeograph-2.0.3.tar.xz",
-                    "sha256": "b13cf8012a3fa948852d2fdf9c11dab250065e25cd473ca182f1ba32eb537c42"
+                    "url": "https://github.com/protobuf-c/protobuf-c/releases/download/v1.5.0/protobuf-c-1.5.0.tar.gz",
+                    "sha256": "7b404c63361ed35b3667aec75cc37b54298d56dd2bcf369de3373212cc06fd98",
+                    "x-checker-data": {
+                        "type": "json",
+                        "url": "https://api.github.com/repos/protobuf-c/protobuf-c/releases/latest",
+                        "version-query": ".tag_name | sub(\"^v\"; \"\")",
+                        "url-query": ".assets[] | select(.name==\"protobuf-c-\" + $version + \".tar.gz\") | .browser_download_url"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "libshumate",
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Ddemos=false",
+                "-Dgtk_doc=false",
+                "-Dvapi=false"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/libshumate/1.3/libshumate-1.3.0.tar.xz",
+                    "sha256": "8227a6e8281cde12232894fef83760d44fa66b39ef033c61ed934a86c6dc75d4",
+                    "x-checker-data": {
+                        "type": "gnome",
+                        "stable-only": false,
+                        "name": "libshumate"
+                    }
+                }
+            ]
+        },
+
+        {
+            "name": "lifeograph",
+            "buildsystem": "meson",
+            "config-opts": [ "--buildtype=release" ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://launchpad.net/lifeograph/trunk/3.0.0/+download/lifeograph-3.0.0.tar.xz",
+                    "sha256": "9e173be4c8c251f4394805ad1b7f10b416a48c9deca833316bd53aeda1cc4e09"
                 },
                 {
                     "type": "patch",
