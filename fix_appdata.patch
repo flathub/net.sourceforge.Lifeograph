@@ -1,12 +1,25 @@
 diff --git a/net.sourceforge.Lifeograph.metainfo.xml.in b/net.sourceforge.Lifeograph.metainfo.xml.in
-index ff60a6c7..5d5aa074 100644
+index ff60a6c7..e7b9f55c 100644
 --- a/net.sourceforge.Lifeograph.metainfo.xml.in
 +++ b/net.sourceforge.Lifeograph.metainfo.xml.in
-@@ -57,7 +57,7 @@
+@@ -40,6 +40,8 @@
+         </ul>
+     </description>
+ 
++    <launchable type="desktop-id">net.sourceforge.Lifeograph.desktop</launchable>
++
+     <screenshots>
+         <screenshot type="default">
+             <caption>Editing screen</caption>
+@@ -57,7 +59,11 @@
  
      <url type="homepage">http://lifeograph.sourceforge.net</url>
  
 -    <content_rating type="oars-1.0" />
++    <developer id="net.sourceforge.lifeograph">
++        <name>Ahmet Öztürk</name>
++    </developer>
++
 +    <content_rating type="oars-1.1" />
  
      <releases>
