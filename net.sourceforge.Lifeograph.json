@@ -169,7 +169,7 @@
                     "sha256": "a57b97dbbda55bcb07c6f0197ff006128518c2b2c88fbee8bea5168acbc9baee",
                     "x-checker-data": {
                         "type": "gnome",
-                        "stable-only": false,
+                        "stable-only": true,
                         "name": "libshumate"
                     }
                 }
@@ -184,12 +184,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://launchpad.net/lifeograph/trunk/3.0.0/+download/lifeograph-3.0.0.tar.xz",
-                    "sha256": "9e173be4c8c251f4394805ad1b7f10b416a48c9deca833316bd53aeda1cc4e09"
-                },
-                {
-                    "type": "patch",
-                    "path": "fix_appdata.patch"
+                    "url": "https://launchpad.net/lifeograph/trunk/3.0.1/+download/lifeograph-3.0.1.tar.xz",
+                    "sha256": "f11899c611a200ed4531d8dda428f4c76611b972df8db1e125a509a530b23a52"
                 }
             ]
         }
