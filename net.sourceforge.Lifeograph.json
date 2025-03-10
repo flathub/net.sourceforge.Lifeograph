@@ -165,8 +165,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/libshumate/1.4/libshumate-1.4.rc.tar.xz",
-                    "sha256": "a57b97dbbda55bcb07c6f0197ff006128518c2b2c88fbee8bea5168acbc9baee",
+                    "url": "https://download.gnome.org/sources/libshumate/1.3/libshumate-1.3.2.tar.xz",
+                    "sha256": "f8762bbc6e296d78be1f8422f56da4c40bc8d12afc7002a324172a9198eeed5c",
                     "x-checker-data": {
                         "type": "gnome",
                         "stable-only": true,
