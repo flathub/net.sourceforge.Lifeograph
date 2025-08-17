@@ -184,8 +184,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://launchpad.net/lifeograph/trunk/3.0.3/+download/lifeograph-3.0.3.tar.xz",
-                    "sha256": "c8d798bf17cee4a6ad452376e703a323de3fa1b2e9858016c2f9c96965039c32"
+                    "url": "https://launchpad.net/lifeograph/trunk/3.0.4/+download/lifeograph-3.0.4.tar.xz",
+                    "sha256": "6316334f71b3c6aa68ee6cf0c726429f6017c99deb74b8ec418324ab54be027d"
                 }
             ]
         }
