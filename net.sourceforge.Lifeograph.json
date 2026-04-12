@@ -27,23 +27,10 @@
     ],
     "modules": [
         {
-            "name": "mm-common",
-            "buildsystem": "meson",
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://download.gnome.org/sources/mm-common/1.0/mm-common-1.0.6.tar.xz",
-                    "sha256": "b55c46037dbcdabc5cee3b389ea11cc3910adb68ebe883e9477847aa660862e7"
-                }
-            ],
-            "cleanup": [
-                "*"
-            ]
-        },
-        {
             "name": "sigc++-2",
+            "buildsystem": "meson",
             "config-opts": [
-                "--disable-documentation"
+                "-Dbuild-documentation=false"
             ],
             "sources": [
                 {
