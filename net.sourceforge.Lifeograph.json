@@ -1,7 +1,7 @@
 {
     "app-id": "net.sourceforge.Lifeograph",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "48",
+    "runtime-version": "50",
     "sdk": "org.gnome.Sdk",
     "command": "lifeograph",
     "finish-args": [
@@ -14,23 +14,25 @@
     ],
     "cleanup": [
         "/include",
-        "/lib/*/include",
         "/lib/pkgconfig",
-        "/share/pkgconfig",
-        "/share/aclocal",
-        "/man",
+        "/lib/girepository-1.0",
+        "/share/gir-1.0",
         "/share/man",
-        "/share/info",
-        "/share/gtk-doc",
         "*.la",
         "*.a"
     ],
     "modules": [
         {
-            "name": "sigc++-2",
+            "name": "sigc++-3",
             "buildsystem": "meson",
             "config-opts": [
-                "-Dbuild-documentation=false"
+                "-Dmaintainer-mode=false",
+                "-Dbuild-documentation=false",
+                "-Dbuild-examples=false",
+                "-Dbuild-tests=false"
+            ],
+            "cleanup": [
+                "/lib/sigc++-3.0"
             ],
             "sources": [
                 {
@@ -44,13 +46,19 @@
             "name": "cairomm",
             "buildsystem": "meson",
             "config-opts": [
-                "-Dbuild-documentation=false"
+                "-Dmaintainer-mode=false",
+                "-Dbuild-documentation=false",
+                "-Dbuild-examples=false",
+                "-Dbuild-tests=false"
+            ],
+            "cleanup": [
+                "/lib/cairomm-1.??"
             ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://www.cairographics.org/releases/cairomm-1.18.0.tar.xz",
-                    "sha256": "b81255394e3ea8e8aa887276d22afa8985fc8daef60692eb2407d23049f03cfb"
+                    "url": "https://www.cairographics.org/releases/cairomm-1.19.0.tar.xz",
+                    "sha256": "8b14f03a0e5178c7ff8f7b288cb342a61711c84c9fbed6e663442cfcc873ce5b"
                 }
             ]
         },
@@ -58,14 +66,19 @@
             "name": "glibmm",
             "buildsystem": "meson",
             "config-opts": [
+                "-Dmaintainer-mode=false",
                 "-Dbuild-documentation=false",
                 "-Dbuild-examples=false"
+            ],
+            "cleanup": [
+                "/lib/giomm-2.??",
+                "/lib/glibmm-2.??"
             ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/glibmm/2.84/glibmm-2.84.0.tar.xz",
-                    "sha256": "56ee5f51c8acfc0afdf46959316e4c8554cb50ed2b6bc5ce389d979cbb642509"
+                    "url": "https://download.gnome.org/sources/glibmm/2.88/glibmm-2.88.0.tar.xz",
+                    "sha256": "a6549da3a6c43de83b8717dae5413c57a60d92f6ecc624615c612d0bb0ad0fe2"
                 }
             ]
         },
@@ -73,7 +86,11 @@
             "name": "pangomm",
             "buildsystem": "meson",
             "config-opts": [
+                "-Dmaintainer-mode=false",
                 "-Dbuild-documentation=false"
+            ],
+            "cleanup": [
+                "/lib/pangomm-2.??"
             ],
             "sources": [
                 {
@@ -87,7 +104,10 @@
             "name": "gtkmm",
             "buildsystem": "meson",
             "config-opts": [
-                "-Dbuild-documentation=false"
+                "-Dmaintainer-mode=false",
+                "-Dbuild-documentation=false",
+                "-Dbuild-demos=false",
+                "-Dbuild-tests=false"
             ],
             "cleanup": [
                 "/lib/gtkmm-4.0"
@@ -95,8 +115,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gtkmm/4.18/gtkmm-4.18.0.tar.xz",
-                    "sha256": "2ee31c15479fc4d8e958b03c8b5fbbc8e17bc122c2a2f544497b4e05619e33ec"
+                    "url": "https://download.gnome.org/sources/gtkmm/4.19/gtkmm-4.19.1.tar.xz",
+                    "sha256": "2b443ddfbf0cf28c4bece447a5bba62028c49df45ccb1b3f438a3a3e0bca31aa"
                 }
             ]
         },
@@ -106,6 +126,7 @@
             "builddir": true,
             "config-opts": [
                 "--libdir=/app/lib",
+                "-Denable-installed-tests=false",
                 "-Denable-gtk-doc=false",
                 "-Dsoup2=false"
             ],
@@ -152,8 +173,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/libshumate/1.5/libshumate-1.5.2.tar.xz",
-                    "sha256": "a69565c1eb5dd9ecd39268bbf1435eaa51a5b028ed0c652a0b6b9367e04c9386",
+                    "url": "https://download.gnome.org/sources/libshumate/1.6/libshumate-1.6.1.tar.xz",
+                    "sha256": "b36aad34500791785f546684d0f2ed644e4819ff4e85ae67a2245f159eccb2d4",
                     "x-checker-data": {
                         "type": "gnome",
                         "stable-only": true,
