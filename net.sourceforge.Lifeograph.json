@@ -184,6 +184,50 @@
             ]
         },
         {
+            "name": "pybind11",
+            "buildsystem": "cmake",
+            "builddir": true,
+            "config-opts": [
+                "-DPYBIND11_TEST=OFF"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/pybind/pybind11/archive/refs/tags/v3.0.4.tar.gz",
+                    "sha256": "74b6a2c2b4573a400cafb6ecbf60c98df300cd3d0041296b913d02b2cbbb2676"
+                }
+            ]
+        },
+        {
+            "name": "python3-jedi",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --no-index --find-links=\"file://${PWD}\" --prefix=/app jedi"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/source/s/setuptools/setuptools-82.0.1.tar.gz",
+                    "sha256": "7d872682c5d01cfde07da7bccc7b65469d3dca203318515ada1de5eda35efbf9"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/source/w/wheel/wheel-0.46.3.tar.gz",
+                    "sha256": "e3e79874b07d776c40bd6033f8ddf76a7dad46a7b8aa1b2787a83083519a1803"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/source/p/parso/parso-0.8.6.tar.gz",
+                    "sha256": "2b9a0332696df97d454fa67b81618fd69c35a7b90327cbe6ba5c92d2c68a7bfd"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/source/j/jedi/jedi-0.19.2.tar.gz",
+                    "sha256": "4770dc3de41bde3966b02eb84fbcf557fb33cce26ad23da12c742fb50ecb11f0"
+                }
+            ]
+        },
+        {
             "name": "lifeograph",
             "buildsystem": "meson",
             "config-opts": [
@@ -192,8 +236,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://launchpad.net/lifeograph/trunk/3.0.4/+download/lifeograph-3.0.4.tar.xz",
-                    "sha256": "6316334f71b3c6aa68ee6cf0c726429f6017c99deb74b8ec418324ab54be027d"
+                    "url": "https://launchpad.net/lifeograph/trunk/3.1.0/+download/lifeograph-3.1.0.tar.xz",
+                    "sha256": "e8c57d9082e270cb1699c784a646799dd59a772a5501a1fa489176b75d719e39"
                 }
             ]
         }
