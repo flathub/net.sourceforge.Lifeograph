@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <object class="GtkBox" id="Bx_container">
+    <property name="orientation">vertical</property>
+    <property name="spacing">5</property>
+    <child>
+      <object class="GtkBox">
+        <property name="spacing">15</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="sensitive">0</property>
+            <property name="label" translatable="yes">Type</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkComboBoxText" id="CB_date_type">
+            <property name="hexpand">1</property>
+            <property name="halign">end</property>
+            <items>
+              <item translatable="yes">Start Date</item>
+              <item translatable="yes">Creation Date</item>
+              <item translatable="yes">Last Change Date</item>
+              <item translatable="yes">Finish Date</item>
+            </items>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkBox">
+        <property name="spacing">15</property>
+        <child>
+          <object class="GtkCheckButton" id="ChB_custom_format">
+            <property name="label" translatable="yes">Customize Format</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkEntry" id="E_custom_format">
+            <property name="hexpand">1</property>
+            <property name="tooltip-text" translatable="yes">Y: year
+M: month number
+n: month name
+D: day
+d: week day
+W: week no
+h: hour
+m: minute
+s: second
+F: date
+T: time</property>
+            <property name="width-chars">15</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

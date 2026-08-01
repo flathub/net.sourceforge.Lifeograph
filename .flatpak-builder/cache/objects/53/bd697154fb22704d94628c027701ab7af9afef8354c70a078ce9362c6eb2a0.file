@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2025 Ahmet Öztürk aoz_2@yahoo.com -->
+<component type="desktop-application">
+  <id>net.sourceforge.Lifeograph</id>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-3.0</project_license>
+  <name>Lifeograph</name>
+  <name xml:lang="uk">Lifeograph</name>
+  <name xml:lang="tr">Lifeograph</name>
+  <name xml:lang="sr">Lifeograph</name>
+  <name xml:lang="si">Lifeoraph</name>
+  <name xml:lang="ro">Lifeograph</name>
+  <name xml:lang="pt_BR">Lifeograph</name>
+  <name xml:lang="pl">Lifeograph</name>
+  <name xml:lang="it">Lifeograph</name>
+  <name xml:lang="hu">Lifeograph</name>
+  <name xml:lang="he">Lifeograph</name>
+  <name xml:lang="gl">Lifeograph</name>
+  <name xml:lang="fr">Lifeograph</name>
+  <name xml:lang="eu">Lifeograph</name>
+  <name xml:lang="es">Lifeograph</name>
+  <name xml:lang="de">Lifeograph</name>
+  <name xml:lang="cs">Lifeograph</name>
+  <name xml:lang="ar">Lifeograph</name>
+  <summary>Advanced personal note taking application</summary>
+  <summary xml:lang="tr">Gelişmiş şahsi not tutma programı</summary>
+  <summary xml:lang="pt_BR">Avançada aplicação de notas</summary>
+  <summary xml:lang="ar">تطبيق تدوين الملاحظات الشخصية المتقدمة</summary>
+  <description>
+    <p>
+            Lifeograph is a powerful note-taking application that can be used to keep an encrypted diary,
+            to plan a journey, to manage todos and long term goals, to write down
+            ideas in an organized way, to track regular activities and many more. Lifeograph
+            strives to deliver an abundance of advanced features in a clean and streamlined user interface.
+        </p>
+    <p xml:lang="tr">Lifeograph, günlük tutmak, seyahat planlamak, yapılacakları ve uzun vadeli hedefleri takip etmek, fikirleri organize bir şekilde yazıya geçirmek, düzenli faaliyetleri kaydetmek ve daha birçok amaçla kullanılabilecek güçlü bir not alma programıdır. Lifeograph bu çok sayıdaki gelişmiş özelliği sade ve kullanışlı bir arayüzde sunmaya gayret etmektedir.</p>
+    <p>
+            Main features of Lifeograph:
+        </p>
+    <p xml:lang="tr">Lifeograph'ın temel özellikleri:</p>
+    <p xml:lang="pt_BR">Principais funcionalidades do Lifeograph:</p>
+    <p xml:lang="de">Hauptmerkmale von Lifeograph</p>
+    <ul>
+      <li>Completely local workflow: all data is owned solely by the user</li>
+      <li xml:lang="tr">Tamamıyla dışa kapalı çalışma: bütün bilgileri sadece kullanıcıya ait kalır</li>
+      <li xml:lang="pt_BR">Fluxo de trabalho completamente local: todos os dados pertencem apenas ao usuário</li>
+      <li>Encrypted (with AES256) and unencrypted diaries</li>
+      <li xml:lang="tr">Şifrelenmiş (AES256 ile) veya şifrlenememiş günlükler</li>
+      <li xml:lang="pt_BR">Diários criptografado (com AES256) e descriptografados</li>
+      <li>Powerful and intuitive parametric tagging system</li>
+      <li xml:lang="tr">Güçlü ve sezilebilir parametrik yaftalama sistemi</li>
+      <li xml:lang="pt_BR">Sistema de tags poderoso e intuitivo</li>
+      <li>Todo management system</li>
+      <li xml:lang="tr">Yapılacaklar listesi tutma</li>
+      <li xml:lang="pt_BR">Sistema de gerenciamento de afazeres</li>
+      <li>WYSIWYG rich text formatting (i.e. no separate edit &amp; preview modes)</li>
+      <li xml:lang="tr">WYSIWYG zengin metin biçimlendirme (yani ayrı ayrı düzenleme ve ön görünüm modları yok)</li>
+      <li>Image thumbnails, tables, and charts in entries</li>
+      <li xml:lang="tr">Girişlerin içinde küçük resimler, tablolar ve grafikler</li>
+      <li xml:lang="pt_BR">Imagens, tabelas, e gráficos em entradas</li>
+      <li>Searching and replacing of text</li>
+      <li xml:lang="tr">Metin arama ve değiştirme</li>
+      <li xml:lang="pt_BR">Busca e substituição de texto</li>
+      <li>Advanced filtering of entries</li>
+      <li xml:lang="tr">Gelişmiş giriş süzme</li>
+      <li xml:lang="pt_BR">Filtragem avançada de entradas</li>
+      <li>Integrated map for travel notes and planning</li>
+      <li xml:lang="tr">Syahat notları ve panlaması için dahili harita</li>
+      <li xml:lang="pt_BR">Mapa integrado para notas de viagens e planejamento</li>
+      <li>Live tables that are created on the fly based on the user defined rules which can also be pasted into spread-sheet programs</li>
+      <li xml:lang="tr">Kullanıcının tariflediği kaidelere göre canlı olarak oluşturulan ve tablo programlarına da yapıştırılabilen tablolar</li>
+      <li>Live statistical charts that are created from the values in the tables</li>
+      <li xml:lang="tr">Tablolardaki değerlernden canlı oarak oluşturulan istatistiki grafikler</li>
+      <li>Themes in text editor, including background images</li>
+      <li xml:lang="tr">Metin düzenleyici temaları ve arka plan resimleri</li>
+      <li xml:lang="pt_BR">Temas no editor, incluindo imagens de fundo</li>
+      <li>Favorite entries</li>
+      <li xml:lang="tr">Sevilen girişler</li>
+      <li xml:lang="pt_BR">Entradas favoritas</li>
+      <li xml:lang="ar">الإدخالات المفضلة</li>
+      <li>Spell checking</li>
+      <li xml:lang="tr">Yazım denetimi</li>
+      <li xml:lang="pt_BR">Corretor ortográfico</li>
+      <li xml:lang="de">Rechtschreibprüfung</li>
+      <li>Links between entries and to URIs</li>
+      <li xml:lang="tr">Girşler arasında ve URI'lere linkler</li>
+      <li xml:lang="pt_BR">Links entre notas e para URIs</li>
+      <li>Automatically created back-links to entries referring to the current entry</li>
+      <li xml:lang="tr">Görüntülenen girişlere atıfta bulunan girişlerin otomatik listelenmesi</li>
+      <li>Printing individual entries or whole diaries</li>
+      <li xml:lang="tr">Teker teker girişleri veya bütün günlüğü yazdırma</li>
+      <li xml:lang="pt_BR">Impressão para entradas individuais ou todos os diários</li>
+      <li>Automatically logs out when not used for some time (to protect your diary when you forget to log out)</li>
+      <li xml:lang="tr">Belli bir müddet kullanılmadığında kendiliğinden kapanma (mahremiyeti kormak için)</li>
+      <li>Multiple automatic backups to prevent data loss</li>
+      <li xml:lang="tr">Bilgi kaybını önlemek birçok için kendiliğinden yedekleme</li>
+    </ul>
+  </description>
+  <launchable type="desktop-id">net.sourceforge.Lifeograph.desktop</launchable>
+  <screenshots>
+    <screenshot type="default">
+      <caption>Editing screen</caption>
+      <caption xml:lang="tr">Düzenleme ekranı</caption>
+      <image>https://lifeograph.sourceforge.net/lib/exe/fetch.php?media=wiki:lifeograph-edit-3.0.0.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Integrated map</caption>
+      <caption xml:lang="tr">Dahili harita</caption>
+      <image>https://lifeograph.sourceforge.net/lib/exe/fetch.php?media=wiki:lifeograph-edit-3.0.0-map.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Charts</caption>
+      <caption xml:lang="tr">Grafikler</caption>
+      <caption xml:lang="pt_BR">Gráficos</caption>
+      <caption xml:lang="de">Grafiken</caption>
+      <caption xml:lang="ar">المخططات البيانية</caption>
+      <image>https://lifeograph.sourceforge.net/lib/exe/fetch.php?media=wiki:lifeograph-edit-3.0.0-stats.png</image>
+    </screenshot>
+  </screenshots>
+  <url type="homepage">http://lifeograph.sourceforge.net</url>
+  <developer id="net.sourceforge.lifeograph">
+    <name>Ahmet Öztürk</name>
+  </developer>
+  <content_rating type="oars-1.1"/>
+  <releases>
+    <release version="3.0.4" date="2025-08-17">
+      <description>
+        <p>Added current entry options to the filter button in the export dialog</p>
+        <p>In the entry list, when the current entry is not visible, highlight the first exposed parent of it in gray</p>
+        <p>Removed the exemption for non-indented paragraphs when parenting plain paras to bullet paras</p>
+        <p>Updated Brazilian Portuguese translation</p>
+        <p>Fixed some glitches in moving entries around the list</p>
+        <p>Fixed keeping selection when a parent is expanded/collapsed</p>
+        <p>Fixed crash on printing when an image is not found</p>
+        <p>Fixed and a bit optimized saving filtered entries</p>
+        <p>Fixed clearing background images of themes</p>
+        <p>Fixed loading theme icons that don't have a path</p>
+        <p>Fixed some glitches in the table view scrollbar</p>
+        <p>Fixed listing multiple matches in the same paragraph on search view</p>
+      </description>
+    </release>
+    <release version="3.0.3" date="2025-06-15">
+      <description>
+        <p>Generalize list type changes of paragraphs to the sibling paragraphs that already have the same list type</p>
+        <p>Added keyboard shortcuts for adding child and sibling entries that use the events to determine the relative entry</p>
+        <p>Added keyboard shortcuts for going up and down in the entry list without visiting filtered-out entries</p>
+        <p>Fixed opening non-writable diaries</p>
+        <p>Fixed dropping charts and tables into entry text</p>
+        <p>Fixed subheading suggestions in the smart add dialogs</p>
+        <p>Fixed and improved behavior of backspace in lists and indented paragraphs</p>
+        <p>Disabled dropping onto the text editor in read-only mode</p>
+        <p>Fixed issues related to the password popover</p>
+        <p>Many more</p>
+      </description>
+    </release>
+    <release version="3.0.2" date="2025-05-18">
+      <description>
+        <p>Fixed crash when collapsing entries in the list</p>
+        <p>Fixed setting status of multiple paragraphs at once</p>
+        <p>Fixed joining paragraphs</p>
+        <p>Fixed crash in upgrading old diaries</p>
+        <p>Some improvements in drag and drop in the entry list especially</p>
+        <p>Reenabled clear icon in related Entry Widgets</p>
+        <p>Add space after the cursor with Shift+Space</p>
+        <p>Implemented cycling through siblings of a tag via Alt +/-</p>
+        <p>Lifeograph can run on MacOS now</p>
+        <p>Some cleanup</p>
+        <p>Many more</p>
+      </description>
+    </release>
+    <release version="3.0.1" date="2025-03-02">
+      <description>
+        <p>Various fixes related to undo/redo</p>
+        <p>Fixed and improved upgrading old diaries</p>
+        <p>Scroll the text to ensure that the cursor line is visible while moving paragraphs</p>
+        <p>Fixes and fine tunings in gantt columns in tables</p>
+        <p>Fixes in tagging system</p>
+        <p>Fixes in filtering system</p>
+        <p>Include link URIs (if any) in the text columns in tables when the field is URI</p>
+      </description>
+    </release>
+    <release version="3.0.0" date="2024-12-29">
+      <description>
+        <p>New main icon that reflects the improved functionality as a second brain</p>
+        <p xml:lang="pt_BR">Novo ícone principal que reflete o funcionamento melhorado como segundo cérebro</p>
+        <p>UI upgraded to GTK4 replacing the deprecated UI elements with new ones</p>
+        <p xml:lang="pt_BR">Atualização de interface para GTK4 substituindo elementos obsoletos por novos</p>
+        <p>All file I/O is moved to Gio for compatibility with network addresses and virtual drives, etc...</p>
+        <p>Wiki style formatting markup is largely omitted in favor of a WYSIWYG style formatting system [[inline comments are an exception]]</p>
+        <p>Paragraph folding that creates folds automatically based on heading and indentation levels</p>
+        <p>New references button that pops up a list of referencing entries/paragraphs for the current entry (a.k.a back-links)</p>
+        <p>Context-sensitive right-click menu that displays specific options for tags, images, dates, etc. based on the cursor location</p>
+        <p>Tables can also be inserted into the entries now</p>
+        <p>Added buttons for visiting link items to the right-click popover menu</p>
+        <p>Added horizontal rules which can also be combined with text</p>
+        <p>Entries can now be ordered, grouped, and arranged freely, irrespective of the their types</p>
+        <p>Added an option to merge selected entries</p>
+        <p xml:lang="tr">Seçili girişleri birleştirme özelliği eklendi</p>
+        <p>Added many new filterers</p>
+        <p xml:lang="tr">Birçok yeni filtre eklendi</p>
+        <p>All filters can be negated now</p>
+        <p>Table columns are resizable now</p>
+        <p>Many new column types added</p>
+        <p>Group lines in a hierarchical view by any column</p>
+        <p>Conditional coloring of cell values</p>
+        <p>Completion columns show a progress bar in the background</p>
+        <p>Option to combine identical consequent cells in a column to get cleaner tables</p>
+        <p>Added a new vertical bars style to charts</p>
+        <p>A basic inline table was added to allow creation of basic charts without creating a table first</p>
+        <p>Added navigation icons to the calendar widget</p>
+        <p>Added the ability to mark custom days as holidays</p>
+        <p>Added the ability to change the first day of the week</p>
+        <p>Searching is multi-threaded now for speed gains and responsiveness</p>
+        <p>Migrated from libchamplain to libshumate which also works under Windows</p>
+        <p>Many many more</p>
+        <p xml:lang="tr">Ve daha fazlası</p>
+      </description>
+    </release>
+    <release version="2.0.3" date="2022-04-24">
+      <description>
+        <p>Bug fixes</p>
+        <p xml:lang="tr">Hata gidermeler</p>
+        <p xml:lang="pt_BR">Correção de bugs</p>
+        <p xml:lang="fr">Correction de bogues</p>
+        <p>Added Danish translation</p>
+        <p xml:lang="pt_BR">Adição da tradução para dinamarquês</p>
+        <p>Updated Simplified Chinese, Dutch, French, and Italian translations</p>
+        <p xml:lang="pt_BR">Atualização da tradução do chinês simplificado, holandês, francês e italiano</p>
+      </description>
+    </release>
+    <release version="2.0.2" date="2021-06-29">
+      <description>
+        <p>Bug fixes</p>
+        <p xml:lang="tr">Hata gidermeler</p>
+        <p xml:lang="pt_BR">Correção de bugs</p>
+        <p xml:lang="fr">Correction de bogues</p>
+        <p>Updated Italian translation</p>
+        <p xml:lang="pt_BR">Atualização da tradução italiana</p>
+      </description>
+    </release>
+    <release version="2.0.1" date="2021-04-09">
+      <description>
+        <p>Bug fixes</p>
+        <p xml:lang="tr">Hata gidermeler</p>
+        <p xml:lang="pt_BR">Correção de bugs</p>
+        <p xml:lang="fr">Correction de bogues</p>
+      </description>
+    </release>
+    <release version="2.0.0" date="2020-12-06">
+      <description>
+        <p>Unified different elements such as chapters and tags into entry</p>
+        <p xml:lang="tr">Fasıl ve yafta gibi farklı unsurlar giriş altında toplandı</p>
+        <p>New inline tags that are assigned to the paragraphs as well as entries</p>
+        <p xml:lang="tr">Yeni metin-içi yaftalar ile, girişlerin yanı sıra paragrafların yaftalanması imkanı</p>
+        <p>New integrated map to assign locations and travel paths to entries</p>
+        <p xml:lang="tr">Yeni dahili harita ile girişlere konum ve seyahat güzergahlarının eklenmesi</p>
+        <p>New custom calendar widget that integrates with the program more nicely</p>
+        <p xml:lang="tr">Programa daha iyi uyum sağlayan ve yeni imkanlar getiren yeni takvim</p>
+        <p>New table view for very basic spreadsheet like functionality</p>
+        <p xml:lang="tr">Çizelge benzeri işlevler sunan yeni tablo paneli</p>
+        <p>Completion percentages for entries</p>
+        <p xml:lang="tr">Girişler için tamamlanma yüzdeleri</p>
+        <p>Support for background images in the entry editor</p>
+        <p xml:lang="tr">Giriş düzenleyiciye arka plan resmi atayabilme</p>
+        <p>a new toolbar-like right-click popover that replaced the toolbar</p>
+        <p xml:lang="tr">Araç çubuğu tarzı bir sağ tıklama menüsü</p>
+        <p>Vastly more capable text search and entry list filtering</p>
+        <p xml:lang="tr">Büyük ölçüde geliştirilmiş metin arama ve süzme sistemi</p>
+        <p>Printing system improvements</p>
+        <p xml:lang="tr">Yazdırma sistemi geliştirmeleri</p>
+        <p>Both functionally and visually improved charts</p>
+        <p xml:lang="tr">Hem işlev hem görünüş yönünden geliştirilmiş grafikler</p>
+        <p>Many many more</p>
+        <p xml:lang="tr">Ve daha fazlası</p>
+      </description>
+    </release>
+  </releases>
+  <kudos>
+    <kudo>HiDpiIcon</kudo>
+    <kudo>ModernToolkit</kudo>
+  </kudos>
+</component>

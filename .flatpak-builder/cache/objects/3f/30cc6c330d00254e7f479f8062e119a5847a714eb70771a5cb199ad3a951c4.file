@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <object class="GtkBox" id="Bx_edit_tag">
+    <property name="orientation">vertical</property>
+    <property name="spacing">3</property>
+    <child>
+      <object class="GtkBox">
+        <property name="margin-top">3</property>
+        <property name="spacing">5</property>
+        <property name="hexpand">1</property>
+        <child>
+          <object class="GtkSeparator">
+            <property name="valign">center</property>
+            <property name="hexpand">1</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="label" translatable="yes">Edit Tag</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkSeparator">
+            <property name="valign">center</property>
+            <property name="hexpand">1</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="B_remove">
+            <property name="tooltip-text" translatable="yes">Remove tag</property>
+            <property name="has-frame">False</property>
+            <property name="icon-name">edit-delete-symbolic</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkBox">
+        <property name="spacing">5</property>
+        <child>
+          <object class="GtkComboBoxText" id="CB_tag">
+            <property name="hexpand">1</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="B_go_to">
+            <property name="receives-default">1</property>
+            <property name="tooltip-text" translatable="yes">Go to tag</property>
+            <property name="icon-name">go-next</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

@@ -1,0 +1,3041 @@
+/***********************************************************************************
+
+    Copyright (C) 2007-2024 Ahmet Öztürk (aoz_2@yahoo.com)
+
+    This file is part of Lifeograph.
+
+    Lifeograph is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Lifeograph is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Lifeograph.  If not, see <http://www.gnu.org/licenses/>.
+
+***********************************************************************************/
+
+
+#include "gdk/gdkkeysyms.h"
+#include "src/diaryelements/diarydata.hpp"
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
+#include "../lifeograph.hpp"
+#include "../app_window.hpp"
+#include "../ui_entry.hpp"
+#include "widget_textviewedit.hpp"
+#include "../dialogs/dialog_gettext.hpp"
+
+
+using namespace LIFEO;
+
+// TEXTBUFFERDIARY =================================================================================
+// EVENT HANDLERS
+bool
+TextviewDiaryEdit::handle_backspace()
+{
+    auto&&      iter        { m_r2buffer->get_iter_at_mark( m_r2buffer->get_insert() ) };
+    const int   offset_cur  { iter.get_offset() };
+    Paragraph*  para        { m_p2entry->get_paragraph( offset_cur, true ) };
+    const int   indent_lvl  { para ? para->get_indent_level() : -1 };
+    bool        ret_value   { false };
+
+    if( para && offset_cur == para->get_bgn_offset_in_host() &&
+        m_para_sel_end == nullptr ) // no selection
+    {
+        if( indent_lvl == 0 && para->is_list() )
+        {
+            para->clear_list_type();
+            ret_value = true;
+        }
+        if( para->unindent() )
+            ret_value = true;
+
+        if ( ret_value )
+            update_text_formatting( para, para );
+
+        return ret_value;
+    }
+
+    return false;
+}
+
+bool
+TextviewDiaryEdit::handle_replace_str( const Ustring& str_triggerer )
+{
+    auto&& kv_replace{ s_auto_replaces.find( str_triggerer ) };
+    if( kv_replace != s_auto_replaces.end() )
+    {
+        auto&& it_bgn { m_r2buffer->get_iter_at_offset( m_pos_cursor ) };
+        auto   it_end { it_bgn };
+        it_bgn.backward_chars( kv_replace->second.first.length() );
+
+        if( m_r2buffer->get_slice( it_bgn, it_end ) == kv_replace->second.first )
+        {
+            m_ongoing_operation_depth++;
+            it_bgn = m_r2buffer->erase( it_bgn, it_end );
+            m_ongoing_operation_depth--;
+            m_r2buffer->insert( it_bgn, kv_replace->second.second );
+            return true;
+        }
+    }
+
+    return false;
+}
+
+void
+TextviewDiaryEdit::size_allocate_vfunc( int w, int h, int b )
+{
+    Gtk::TextView::size_allocate_vfunc( w, h, b );
+    AppWindow::p->UI_entry->update_PoEntry_size();
+}
+
+void
+TextviewDiaryEdit::on_insert( Gtk::TextIter& iter, const Ustring& text, int bytes )
+{
+    String&& text2{ text }; // to drop constness
+
+    if( m_edit_operation_type != EOT::USER )
+    {
+        return;
+    }
+    // get rid of unwanted chars that may lurk within copied texts:
+    else if( m_F_paste_operation )
+    {
+        std::replace( text2.begin(), text2.end(), '\r', '\n' );
+        bytes -= STR::replace( text2, "\302\240", " " ); // nbr space (space is 1 byte less)
+        m_F_paste_operation = false;
+    }
+
+    PRINT_DEBUG( "TextviewDiaryEdit::on_insert()" );
+
+    const UstringSize pos_end { ( UstringSize ) iter.get_offset() };
+    const UstringSize pos_bgn { pos_end - text.length() };
+
+    m_Sg_changed_before_parse.emit();
+
+    if( m_p2entry )
+        m_p2entry->insert_text( pos_bgn, text2, nullptr, m_F_inherit_para_style, true );
+    m_F_inherit_para_style = true;
+
+    // on mark set cannot be relied on but this is not elegant!:
+    m_pos_cursor = iter.get_offset();
+    update_cursor_dependent_positions();
+
+    m_Sg_changed.emit();  // do this before update_text_formatting else HFT_MATCH doesn't work
+
+    // text2 does not have a length() method and using text is OK here:
+    update_text_formatting( pos_bgn, pos_end + 1 );
+    // +1 is useful when a '\n' is inserted in the middle of a paragraph...
+    // ...so that the part after the split is also updated
+
+    if( m_completion && ( m_completion->is_on_display() ||
+        m_para_sel_bgn->get_format_at( VT::HFT_TAG, m_pos_cursor_in_para,
+                                                    m_pos_cursor_in_para ) ) )
+        show_Po_completion(); // updates the completion
+}
+
+void
+TextviewDiaryEdit::on_erase( Gtk::TextIter& it_bgn, Gtk::TextIter& it_end )
+{
+    if( m_edit_operation_type != EOT::USER )
+        return;
+    else if( it_end.is_end() ) // op type == EOT::USER is guarantied here
+    {
+        m_r2buffer->m_F_skip_gtk_handlers = true;
+        return;
+    }
+
+    PRINT_DEBUG( "TextbufferDiary::on_erase()" );
+
+    const UstringSize offset_bgn { ( UstringSize ) it_bgn.get_offset() };
+
+    // needs to be calculated before erase_text():
+    m_F_show_Po_completion = (
+            m_completion && ( m_completion->is_on_display() ||
+                              m_para_sel_bgn->get_format_at( VT::HFT_TAG,
+                                                              it_bgn.get_line_offset() + 1,
+                                                              it_end.get_line_offset() ) ) );
+
+    m_Sg_changed_before_parse.emit();
+
+    if( m_p2entry )
+        m_p2entry->erase_text( offset_bgn, it_end.get_offset(), true );
+
+    // on mark set cannot be relied on but this is not elegant!:
+    m_pos_cursor = offset_bgn;
+}
+void
+TextviewDiaryEdit::handle_after_erase( Gtk::TextIter& it_bgn, Gtk::TextIter& it_end )
+{
+    update_cursor_dependent_positions();
+
+    if( m_edit_operation_type != EOT::USER ) return;
+
+    m_Sg_changed.emit();
+
+    update_text_formatting( m_pos_para_sel_bgn, m_pos_para_sel_end );
+
+    if( m_F_show_Po_completion )
+    {
+        m_F_show_Po_completion = false;
+        show_Po_completion(); // updates the completion
+    }
+}
+
+void
+TextviewDiaryEdit::on_mark_set( const Gtk::TextIter& iter,
+                                const Glib::RefPtr< Gtk::TextBuffer::Mark >& mark )
+{
+    // disable going past the last '\n':
+    if( iter.is_end() && iter.get_offset() > 0 )
+    {
+        auto&& it_new{ m_r2buffer->get_iter_at_offset( iter.get_offset() - 1 ) };
+        if( mark == m_r2buffer->get_insert() || mark == m_r2buffer->get_selection_bound() )
+            m_r2buffer->move_mark( mark, it_new );
+        PRINT_DEBUG( "signal_mark_set() PREVENTED going past end" );
+        return;
+    }
+
+    if( mark == m_r2buffer->get_insert() )
+    {
+        m_pos_cursor = iter.get_offset();
+
+        if( m_max_thumbnail_w > 0 && m_ongoing_operation_depth == 0 &&
+            m_edit_operation_type == EOT::USER )
+        {
+            update_cursor_dependent_positions();
+
+#if LIFEOGRAPH_DEBUG_BUILD
+            if( m_para_sel_bgn )
+            {
+                PRINT_DEBUG( "indentation: ", m_para_sel_bgn->get_indent_level() );
+                PRINT_DEBUG( "order: ", m_para_sel_bgn->m_order_in_host );
+                for( auto format : m_para_sel_bgn->m_formats )
+                    PRINT_DEBUG( "format: ", STR::format_hex( format->type ),
+                                 " at ", format->pos_bgn, "..", format->pos_end );
+            }
+#endif
+
+            if( m_completion && m_completion->is_on_display() )
+                m_completion->popdown();
+        }
+    }
+}
+
+// FORMATTING
+bool
+TextviewDiaryEdit::toggle_format( int type, bool F_check_only )
+{
+    if( Lifeograph::is_internal_operations_ongoing() && !F_check_only ) return false;
+
+    Gtk::TextIter it_bgn, it_end;
+    calculate_token_bounds( it_bgn, it_end, type );
+
+    auto para_bgn         { m_para_sel_bgn };
+    auto para_end         { m_para_sel_end ? m_para_sel_end : para_bgn };
+    const auto pos_bgn    { it_bgn.get_offset() - para_bgn->get_bgn_offset_in_host() };
+    const auto pos_end    { it_end.get_offset() - para_end->get_bgn_offset_in_host() };
+    const auto pos_undo   { it_end.get_offset() };
+    const bool F_already  { m_para_cursor->get_format_at( type, m_pos_cursor_in_para ) != nullptr };
+
+    if( !F_check_only )
+    {
+        m_p2entry->add_undo_action( UndoableType::MODIFY_FORMAT, para_bgn,
+                                    para_end->m_order_in_host - para_bgn->m_order_in_host + 1,
+                                    pos_undo, pos_undo );
+
+        for( Paragraph* p = para_bgn; p; p = p->get_next() )
+        {
+            if( type & VT::HFT_F_V_POS ) // remove both sub and sup as they cannot coexist:
+                p->remove_format( VT::HFT_F_V_POS, p == para_bgn ? pos_bgn : 0,
+                                                   p == para_end ? pos_end : p->get_size() );
+            if( F_already )
+                p->remove_format( type, p == para_bgn ? pos_bgn : 0,
+                                        p == para_end ? pos_end : p->get_size() );
+            else
+                p->add_format( type, "", p == para_bgn ? pos_bgn : 0,
+                                         p == para_end ? pos_end : p->get_size() );
+
+            if( p == para_end ) break;
+        }
+
+        update_text_formatting( para_bgn, para_end );
+    }
+
+    return F_already;
+}
+
+void
+TextviewDiaryEdit::remove_tag_at_cursor()
+{
+    m_Po_context->hide();
+    m_Sg_changed_before_parse.emit();
+
+    m_p2entry->add_undo_action( UndoableType::MODIFY_FORMAT, m_para_sel_bgn, 1,
+                                m_pos_cursor, m_pos_cursor );
+
+    m_para_sel_bgn->remove_format(
+            m_para_sel_bgn->get_format_at( VT::HFT_TAG,
+                                           m_pos_cursor_in_para ) );
+
+    m_p2diary->m_parser_bg.parse( m_para_sel_bgn );
+
+    update_text_formatting( m_para_sel_bgn, m_para_sel_bgn );
+
+    m_Sg_changed.emit();
+}
+
+// REPLACE
+void
+TextviewDiaryEdit::replace_tag_at_cursor( const Entry* tag )
+{
+    Gtk::TextIter it_bgn, it_end;
+    Paragraph*    para      { m_para_sel_bgn }; // shortcut
+    const bool    has_sel   { m_r2buffer->get_has_selection() };
+
+    m_Sg_changed_before_parse.emit();
+
+    m_r2buffer->get_selection_bounds( it_bgn, it_end );
+    if( !has_sel )
+        calculate_token_bounds( it_bgn, it_end, VT::HFT_TAG );
+
+    const auto pos_bgn_g    { it_bgn.get_offset() };
+    const auto pos_bgn_p    { pos_bgn_g - m_pos_para_sel_bgn };
+    const auto pos_end_p    { m_F_popover_link && has_sel ? it_end.get_offset() - m_pos_para_sel_bgn
+                                                          : pos_bgn_p + tag->get_name().length() };
+    const auto len_erase    { it_end.get_offset() - m_pos_para_sel_bgn - pos_bgn_p };
+    const bool F_add_equal  { !m_F_popover_link && tag->has_unit() && it_end.get_char() != '=' };
+    const auto text_insert  { F_add_equal ? tag->get_name() + '=' : tag->get_name() };
+
+    m_p2entry->add_undo_action( UndoableType::MODIFY_FORMAT, para, 1,
+                                it_end.get_offset(),
+                                pos_bgn_g + text_insert.length() );
+
+    para->remove_format( VT::HFT_TAG, pos_bgn_p, pos_bgn_p + len_erase );
+    para->remove_format( VT::HFT_LINK_ID, pos_bgn_p, pos_bgn_p + len_erase );
+
+    if( !( m_F_popover_link && has_sel ) )
+        para->replace_text( pos_bgn_p, len_erase, text_insert, nullptr );
+
+    if( m_F_popover_link )
+        para->add_format( VT::HFT_LINK_ID,
+                          "",
+                          pos_bgn_p,
+                          pos_end_p )->ref_id = tag->get_id();
+    else
+        para->add_format_tag( tag, pos_bgn_p );
+
+    m_p2diary->m_parser_bg.parse( para );
+
+    update_entry_name_if_needed( para );
+    update_para_region_cur( pos_end_p + m_pos_para_sel_bgn + int( F_add_equal ) );
+
+    AppWindow::p->UI_diary->update_entry_list();
+}
+
+// void
+// TextviewDiaryEdit::replace_word_at_cursor( const Ustring& new_text )
+// {
+//     Gtk::TextIter iter_bgn, iter_end;
+//     m_r2buffer->get_selection_bounds( iter_bgn, iter_end );
+//
+//     if( ! iter_bgn.backward_find_char( s_predicate_blank ) )
+//         iter_bgn.set_offset( 0 );
+//     else
+//         iter_bgn++;
+//
+//     if( !iter_end.ends_line() )
+//         if( !iter_end.forward_find_char( s_predicate_blank ) )
+//             iter_end.forward_to_end();
+//
+//     iter_bgn = m_r2buffer->erase( iter_bgn, iter_end );
+//     m_r2buffer->insert( iter_bgn, new_text );
+// }
+
+void
+TextviewDiaryEdit::replace_date_at_cursor( DateV date_new )
+{
+    auto        format    { m_para_sel_bgn->get_format_at( VT::HFT_DATE, m_pos_cursor_in_para ) };
+
+    if( !format ) return;
+
+    const auto  date_str  { Date::format_string( date_new ) };
+    const auto  pos_end   { m_pos_para_sel_bgn + format->pos_bgn + date_str.length() };
+
+    m_p2entry->add_undo_action( UndoableType::MODIFY_TEXT, m_para_sel_bgn, 1,
+                                m_pos_cursor, pos_end );
+
+    m_Sg_changed_before_parse.emit();
+
+    m_para_sel_bgn->replace_text( format->pos_bgn,
+                                  format->pos_end - format->pos_bgn,
+                                  date_str,
+                                  &m_p2diary->m_parser_bg );
+
+    m_p2entry->update_inline_dates();
+
+    update_entry_name_if_needed( m_para_sel_bgn );
+    update_para_region_cur( pos_end );
+}
+
+void
+TextviewDiaryEdit::modify_numeric_field( int offset )
+{
+    Gtk::TextIter it_bgn;
+    Gtk::TextIter it_end;
+    const auto    pos_cur_p { m_pos_cursor - m_pos_para_sel_bgn };
+    const auto    format    { m_para_sel_bgn->get_format_oneof_at( VT::HFT_F_NUMERIC|VT::HFT_F_LINK,
+                                                                   pos_cur_p ) };
+    // bool          F_date    { false };
+    String        str_new;
+
+    if( !format ) return;
+
+    calculate_token_bounds( it_bgn, it_end, format->type );
+
+    switch( format->type )
+    {
+        // TODO: 3.1 or later:
+        // case VT::HFT_TAG_VALUE:
+        // {
+        //     double value { double( format->var_i ) };
+        //
+        //     value += offset;
+        //
+        //     str_new = STR::format_number( value );
+        //
+        //     break;
+        // }
+        case VT::HFT_DATE:
+        {
+            DateV date{ format->ref_id };
+
+            if( offset > 0 )
+                Date::forward_days( date, offset );
+            else
+                Date::backward_days( date, -offset );
+
+            str_new = Date::format_string( date );
+            // F_date = true; for now it is always true
+
+            break;
+        }
+        case VT::HFT_TAG:
+        {
+            Entry* tag  { m_p2diary->get_entry_by_id( format->ref_id ) };
+            if( !tag ) return;
+            Entry* tag2 { offset > 0 ? tag->get_next_cyclic() : tag->get_prev_cyclic() };
+            if( tag2 ) replace_tag_at_cursor( tag2 );
+            return;
+        }
+        case VT::HFT_TIME:
+            // TODO: 3.1 or later:
+            //break;
+        default:
+            return;
+    }
+
+    m_p2entry->add_undo_action( UndoableType::MODIFY_TEXT, m_para_sel_bgn, 1,
+                                m_pos_cursor, m_pos_cursor );
+
+    m_Sg_changed_before_parse.emit();
+
+    m_para_sel_bgn->replace_text( format->pos_bgn,
+                                  format->pos_end - format->pos_bgn,
+                                  str_new,
+                                  &m_p2diary->m_parser_bg );
+
+    // if( F_date )
+        m_p2entry->update_inline_dates();
+
+    update_entry_name_if_needed( m_para_sel_bgn );
+    update_para_region_cur();
+}
+
+// CODE-EDITOR LIKE FORMATTING
+void
+TextviewDiaryEdit::add_empty_line_above()
+{
+    const auto  pos_bgn   { m_para_cursor->get_bgn_offset_in_host() };
+    const auto  pos_end   { m_para_cursor->get_end_offset_in_host() };
+    auto        para      { m_p2entry->add_paragraph_before( "",  m_para_cursor ) };
+    auto        undo_edit { m_p2entry->add_undo_action( UndoableType::INSERT_TEXT,
+                                                        para, 0,
+                                                        m_pos_cursor, m_pos_cursor + 1 ) };
+    undo_edit->m_n_paras_after = 1;
+
+    m_Sg_changed_before_parse.emit();
+
+    update_para_region( pos_bgn, pos_end, para, m_para_cursor, m_pos_cursor + 1 );
+
+    // TODO: 3.1: check if everything is OK if( m_para_cursor->m_p2prev->is_visible() )
+}
+
+void
+TextviewDiaryEdit::remove_empty_line_above()
+{
+    auto        para      { m_para_cursor->m_p2prev };
+
+    if( !para || !para->is_empty() || !para->is_visible() ) return;
+
+    const auto  pos_bgn   { para->get_bgn_offset_in_host() };
+    auto        undo_edit { m_p2entry->add_undo_action( UndoableType::ERASE_TEXT,
+                                                        para, 1,
+                                                        m_pos_cursor, m_pos_cursor - 1 ) };
+    undo_edit->m_n_paras_after = 0;
+
+    m_Sg_changed_before_parse.emit();
+
+    m_p2entry->remove_paragraphs( para );
+    delete para;
+
+    update_para_region( pos_bgn, pos_bgn, nullptr, nullptr, m_pos_cursor - 1 );
+}
+
+void
+TextviewDiaryEdit::open_paragraph_below()
+{
+    auto        para_vis  { m_para_cursor->get_next_visible() };
+    auto        para      { m_p2entry->add_paragraph_before( "", para_vis, nullptr, true ) };
+    const auto  pos       { para->get_bgn_offset_in_host() };
+    auto        undo_edit { m_p2entry->add_undo_action( UndoableType::INSERT_TEXT,
+                                                        para, 0,
+                                                        m_pos_cursor, pos ) };
+    undo_edit->m_n_paras_after = 1;
+
+    m_Sg_changed_before_parse.emit();
+
+    update_para_region( pos - 1, 0, para, para, pos );
+}
+
+void
+TextviewDiaryEdit::join_paragraphs()
+{
+    Paragraph* para_bgn, * para_end;
+    calculate_sel_bounding_paras( para_bgn, para_end );
+
+    if( !para_bgn || para_bgn->is_last_in_host() ) return;
+
+    if( para_end == para_bgn )
+        para_end = para_end->m_p2next;
+
+    const int pos_erase_bgn { para_bgn->get_bgn_offset_in_host() };
+    const int pos_erase_end { para_end->get_end_offset_in_host() };
+    const int n_paras       { para_end->m_order_in_host - para_bgn->m_order_in_host + 1 };
+    int       i             { 1 }; // i.e. n_paras - 1 rounds
+    auto      undo_edit     { m_p2entry->add_undo_action( UndoableType::MODIFY_TEXT,
+                                                          para_bgn, n_paras,
+                                                          m_pos_cursor, m_pos_cursor ) };
+    undo_edit->m_n_paras_after = 1;
+
+    m_Sg_changed_before_parse.emit();
+
+    for( Paragraph* p = para_bgn->m_p2next; p && i < n_paras; p = p->m_p2next )
+    {
+        if( !( STR::begins_with( p->get_text(), " " ) ||
+               STR::ends_with( para_bgn->get_text(), " " ) ||
+               para_bgn->is_empty() || p->is_empty() ) )
+            para_bgn->append( " ", nullptr );
+
+        // erase \n char
+        const auto pos_end{ para_bgn->get_end_offset_in_host() };
+        m_p2entry->erase_text( pos_end, pos_end + 1, false );
+        ++i;
+    }
+
+    update_entry_name_if_needed( para_bgn );
+    m_p2entry->set_date_edited( Date::get_now() );
+    m_p2entry->update_inline_dates();
+
+    // forward to the last newly visible paragraph:
+    for( para_end = para_bgn;
+         para_end->m_p2next && !para_end->m_p2next->is_visible()
+                            && para_end->m_p2next->is_visible_recalculate();
+         para_end = para_end->m_p2next )
+    {
+        para_end->m_p2next->set_visible( true );
+    }
+
+    update_para_region( pos_erase_bgn, pos_erase_end, para_bgn, para_end, m_pos_cursor );
+}
+
+void
+TextviewDiaryEdit::move_paragraphs_up()
+{
+    Paragraph* para_bgn, * para_end;
+    calculate_sel_bounding_paras( para_bgn, para_end );
+
+    if( !para_bgn || !para_bgn->m_p2prev ) return;
+
+    auto      para_prev_vis { para_bgn->get_prev_visible() };
+    const int offset        { para_prev_vis->get_size() + 1 }; // +1 for \n
+    const int pos_erase_bgn { para_prev_vis->get_bgn_offset_in_host() };
+    const int pos_erase_end { para_end->get_end_offset_in_host() };
+
+    m_p2entry->add_undo_action( UndoableType::MODIFY_TEXT,
+                                para_prev_vis,
+                                para_end->m_order_in_host - para_prev_vis->m_order_in_host + 1,
+                                m_pos_cursor, m_pos_cursor - offset );
+
+    m_Sg_changed_before_parse.emit();
+
+    m_p2entry->move_paras_up( para_bgn, para_end );
+
+    save_selection( -offset );
+    update_para_region( pos_erase_bgn, pos_erase_end, para_bgn, para_end->get_next_visible() );
+    restore_selection();
+    scroll_to_cursor_min();
+}
+
+void
+TextviewDiaryEdit::move_paragraphs_down()
+{
+    Paragraph* para_bgn, * para_end;
+    calculate_sel_bounding_paras( para_bgn, para_end );
+
+    if( !para_end ) return;
+
+    Paragraph*  para_replace_bgn  { para_end->get_next_visible() };
+
+    if( !para_replace_bgn ) return;
+
+    Paragraph*  para_before_ins   { para_replace_bgn->is_expanded() ? para_replace_bgn
+                                    : para_replace_bgn->get_sub_last() };
+    const int   offset            { para_replace_bgn->get_size() + 1 }; // +1 for \n
+    const int   pos_erase_bgn     { para_bgn->get_bgn_offset_in_host() };
+    const int   pos_erase_end     { para_replace_bgn->get_end_offset_in_host() };
+
+    m_p2entry->add_undo_action( UndoableType::MODIFY_TEXT,
+                                para_bgn,
+                                para_before_ins->m_order_in_host - para_bgn->m_order_in_host + 1,
+                                m_pos_cursor, m_pos_cursor + offset );
+
+    m_Sg_changed_before_parse.emit();
+
+    m_p2entry->move_paras_down( para_bgn, para_end );
+
+    save_selection( offset );
+    update_para_region( pos_erase_bgn, pos_erase_end, para_replace_bgn, para_end );
+    restore_selection();
+    scroll_to_cursor_min();
+}
+
+void
+TextviewDiaryEdit::delete_paragraphs( Paragraph* para_bgn, Paragraph* para_end )
+{
+    const bool  F_first_para  { !para_bgn->m_p2prev };
+    const int   pos_bgn       { para_bgn->get_bgn_offset_in_host() };
+    const int   pos_cur       { para_end->m_p2next ? pos_bgn
+                                                   : ( para_bgn->m_p2prev ? pos_bgn - 1 : 0 ) };
+    Paragraph*  p2update_bgn  { para_end->m_p2next };
+    Paragraph*  p2update_end  { p2update_bgn };
+    int         pos_erase_end { p2update_bgn ? para_end->m_p2next->get_end_offset_in_host()
+                                             : para_end->get_end_offset_in_host() };
+    const int   n_paras       { para_end->m_order_in_host - para_bgn->m_order_in_host // + 1 };
+                                                          + ( p2update_bgn ? 2 : 1 ) };
+    auto        undo_edit     { m_p2entry->add_undo_action( UndoableType::MODIFY_TEXT,
+                                                            para_bgn, n_paras,
+                                                            m_pos_cursor, pos_cur ) };
+    undo_edit->m_n_paras_after = ( p2update_bgn ? 1 : 0 );
+
+    m_Sg_changed_before_parse.emit();
+
+    m_p2entry->remove_paragraphs( para_bgn, para_end );
+
+    for( Paragraph* p = para_bgn; p && p != para_end->m_p2next; p = p->m_p2next )
+        delete p;
+
+    // forward to the last newly visible paragraph:
+    for( Paragraph* p = p2update_end;
+         p && !p->is_visible() && p->is_visible_recalculate();
+         p = p->m_p2next )
+    {
+        p2update_end = p;
+        p2update_end->set_visible( true );
+    }
+
+    update_para_region( pos_bgn, pos_erase_end, p2update_bgn, p2update_end, pos_cur );
+
+    if( F_first_para )
+    {
+        AppWindow::p->UI_diary->handle_entry_title_changed( m_p2entry );
+        AppWindow::p->UI_entry->handle_title_edited();
+    }
+}
+
+void
+TextviewDiaryEdit::duplicate_paragraphs()
+{
+    Paragraph*    para_bgn, * para_end, * para_before;
+    int           offset    { 0 };
+
+    calculate_sel_bounding_paras( para_bgn, para_end );
+    para_before = ( !para_end->is_expanded() && para_end->has_subs() ) ? para_end->get_sub_last()
+                                                                       : para_end;
+
+    const int     n_paras   { para_end->m_order_in_host - para_bgn->m_order_in_host + 1 };
+    auto          undo_edit { m_p2entry->add_undo_action( UndoableType::MODIFY_TEXT,
+                                                          para_bgn, n_paras,
+                                                          m_pos_cursor, 0 ) };
+    undo_edit->m_n_paras_after = 2 * n_paras;
+
+    m_Sg_changed_before_parse.emit();
+
+    for( Paragraph* p = para_bgn; p; p = p->m_p2next )
+    {
+        para_before = m_p2entry->add_paragraph_after( new Paragraph( p ), para_before );
+        m_p2diary->m_parser_bg.parse( para_before ); // to ensure tags are processed
+        offset += ( p->get_size() + 1 );
+        if( p == para_end ) break;
+    }
+
+    undo_edit->m_offset_cursor_1 = m_pos_cursor + offset;
+
+    // reparse needs to start from para_end to work on the last para
+    update_para_region( para_end->get_bgn_offset_in_host(),
+                        para_end->get_end_offset_in_host(),
+                        para_end, para_before, m_pos_cursor + offset );
+}
+
+void
+TextviewDiaryEdit::beautify_text( bool F_selected_only )
+{
+    if( m_p2entry->is_empty() ) return;
+
+    Paragraph*  para_bgn, * para_end;
+
+    // init the begin and end paragraphs:
+    if( !F_selected_only )
+    {
+        para_bgn = m_p2entry->get_paragraph_1st();
+        para_end = m_p2entry->get_paragraph_last();
+    }
+    else if( m_para_menu &&
+             ( !m_para_sel_end || // no selection
+               m_para_menu->m_order_in_host < m_para_sel_bgn->m_order_in_host ||
+               m_para_menu->m_order_in_host > m_para_sel_end->m_order_in_host ) )
+    {
+        para_bgn = para_end = m_para_menu;
+    }
+    else
+    {
+        para_bgn = m_para_sel_bgn;
+        para_end = ( m_para_sel_end ? m_para_sel_end : para_bgn );
+    }
+
+    const int   pos_erase_bgn { para_bgn->get_bgn_offset_in_host() };
+    const int   pos_erase_end { para_end->get_end_offset_in_host() };
+    const int   n_paras       { para_end->m_order_in_host - para_bgn->m_order_in_host + 1 };
+    auto        undo_edit     { m_p2entry->add_undo_action( UndoableType::MODIFY_TEXT,
+                                                            para_bgn, n_paras,
+                                                            m_pos_cursor, pos_erase_bgn ) };
+
+    para_end = m_p2entry->beautify_text( para_bgn, para_end, &m_p2diary->m_parser_bg );
+
+    undo_edit->m_n_paras_after = ( para_end->m_order_in_host - para_bgn->m_order_in_host + 1 );
+
+    m_Sg_changed_before_parse.emit();
+
+    update_para_region( pos_erase_bgn, pos_erase_end, para_bgn, para_end, pos_erase_bgn );
+}
+
+void
+TextviewDiaryEdit::calculate_selection_range( Paragraph*& para_bgn, Paragraph*& para_end )
+{
+    if( m_para_menu && m_Po_paragraph->get_visible() && // only when the para po is open
+        ( !m_para_sel_end || // no selection
+          m_para_menu->m_order_in_host < m_para_sel_bgn->m_order_in_host ||
+          m_para_menu->m_order_in_host > m_para_sel_end->m_order_in_host ) )
+    {
+        para_bgn = para_end = m_para_menu;
+    }
+    else
+    {
+        para_bgn = m_para_sel_bgn;
+        para_end = ( m_para_sel_end ? m_para_sel_end : para_bgn );
+    }
+}
+
+void
+TextviewDiaryEdit::do_for_each_sel_para( const FuncParagraph& process_para, bool F_recursive )
+{
+    if( Lifeograph::is_internal_operations_ongoing() ) return;
+
+    Paragraph* para_bgn, * para_end, * para_end_process;
+
+    calculate_selection_range( para_bgn, para_end );
+
+    if( F_recursive && para_end->is_foldable() && !para_end->is_expanded() )
+        para_end_process = para_end->get_sub_last();
+    else
+        para_end_process = para_end;
+
+    const int   pos_erase_bgn { para_bgn->get_bgn_offset_in_host() };
+    const int   pos_erase_end { para_end_process->get_end_offset_in_host() };
+    const int   n_paras       { para_end_process->m_order_in_host - para_bgn->m_order_in_host + 1 };
+    auto        p2undo        { m_p2entry->add_undo_action( UndoableType::MODIFY_TEXT,
+                                                            para_bgn, n_paras,
+                                                            m_pos_cursor, m_pos_cursor ) };
+
+    m_Sg_changed_before_parse.emit();
+
+    for( Paragraph* p = para_bgn; p; p = p->get_next() )
+    {
+        process_para( p );
+        if( p == para_end_process ) break;
+    }
+
+    p2undo->m_n_paras_after = n_paras;
+
+    save_selection();
+    update_para_region( pos_erase_bgn, pos_erase_end, para_bgn, para_end );
+    restore_selection();
+}
+
+void
+TextviewDiaryEdit::do_for_paras( const ListParagraphs& paras, const FuncParagraph& process_para )
+{
+    if( Lifeograph::is_internal_operations_ongoing() ) return;
+
+    Paragraph*  para_bgn      { paras.front() };
+    Paragraph*  para_end      { paras.back() };
+    const int   pos_erase_bgn { para_bgn->get_bgn_offset_in_host() };
+    const int   pos_erase_end { para_end->get_end_offset_in_host() };
+    const int   n_paras       { para_end->m_order_in_host - para_bgn->m_order_in_host + 1 };
+    auto        p2undo        { m_p2entry->add_undo_action( UndoableType::MODIFY_TEXT,
+                                                            para_bgn, n_paras,
+                                                            m_pos_cursor, m_pos_cursor ) };
+
+    m_Sg_changed_before_parse.emit();
+
+    for( Paragraph* p : paras )
+        process_para( p );
+
+    p2undo->m_n_paras_after = n_paras;
+
+    save_selection();
+    update_para_region( pos_erase_bgn, pos_erase_end, para_bgn, para_end );
+    restore_selection();
+}
+
+void
+TextviewDiaryEdit::save_selection( int offset )
+{
+    Gtk::TextIter it_sel_bgn, it_sel_end;
+    m_r2buffer->get_selection_bounds( it_sel_bgn, it_sel_end );
+    m_saved_sel_bgn = ( it_sel_bgn.get_offset() + offset );
+    m_saved_sel_end = ( it_sel_end.get_offset() + offset );
+}
+void
+TextviewDiaryEdit::restore_selection()
+{
+    if( m_saved_sel_bgn >= 0 )
+        m_r2buffer->select_range( m_r2buffer->get_iter_at_offset( m_saved_sel_bgn ),
+                                  m_r2buffer->get_iter_at_offset( m_saved_sel_end ) );
+    m_saved_sel_bgn = m_saved_sel_end = -1;
+}
+
+// INSERTS
+void
+TextviewDiaryEdit::insert_comment()
+{
+    if( m_r2buffer->get_has_selection() )
+    {
+        Gtk::TextIter it_bgn, it_end;
+        m_r2buffer->get_selection_bounds( it_bgn, it_end );
+        const auto pos_bgn = it_bgn.get_offset();
+        const auto pos_end = it_end.get_offset() + 4;
+
+        UndoEdit::s_F_force_absorb = true;
+        m_r2buffer->insert( it_end, "]]" );
+        m_r2buffer->insert( m_r2buffer->get_iter_at_offset( pos_bgn ), "[[" );
+        UndoEdit::s_F_force_absorb = false;
+
+        m_r2buffer->select_range( m_r2buffer->get_iter_at_offset( pos_bgn ),
+                                  m_r2buffer->get_iter_at_offset( pos_end ) );
+    }
+    else
+    {
+        auto&& iter{ m_r2buffer->get_insert()->get_iter() };
+        iter = m_r2buffer->insert( iter, "[[]]" );
+        iter.backward_chars( 2 );
+        m_r2buffer->place_cursor( iter );
+    }
+}
+
+void
+TextviewDiaryEdit::insert_link( int pos, Entry* entry )
+{
+    Paragraph*  para      { m_p2entry->get_paragraph( pos, true ) };
+
+    if( !para ) return;
+
+    auto        tag_l     { entry->get_name().length() };
+    const int   size_prev { para->get_size() };
+    const int   pos_para  { pos - para->get_bgn_offset_in_host() };
+
+    m_p2entry->add_undo_action( UndoableType::MODIFY_TEXT, para, 1, m_pos_cursor, pos + tag_l );
+
+    const auto  ofst_bgn  { std::get< 0 >(
+                                    para->insert_text_with_spaces( pos_para,
+                                                                   entry->get_name(),
+                                                                   &m_p2diary->m_parser_bg ) ) };
+
+    para->add_link( entry->get_id(), pos_para + ofst_bgn, pos_para + ofst_bgn + tag_l );
+
+    update_para_region( para->get_size() - size_prev, para, pos + tag_l );
+}
+
+void
+TextviewDiaryEdit::add_link_to_sel( const String& uri )
+{
+    Gtk::TextIter it_bgn, it_end;
+    m_r2buffer->get_selection_bounds( it_bgn, it_end );
+
+    auto      para_bgn  { m_para_sel_bgn };
+    auto      para_end  { m_para_sel_end ? m_para_sel_end : para_bgn };
+    auto      pos_bgn   { it_bgn.get_offset() - para_bgn->get_bgn_offset_in_host() };
+    auto      pos_end   { it_end.get_offset() - para_end->get_bgn_offset_in_host() };
+
+    m_p2entry->add_undo_action( UndoableType::MODIFY_FORMAT,
+                                para_bgn,
+                                para_end->m_order_in_host - para_bgn->m_order_in_host + 1,
+                                m_pos_cursor, m_pos_cursor );
+
+    for( Paragraph* p = para_bgn; p; p = p->get_next() )
+    {
+        m_p2hflink_hovered = p->add_link( uri,
+                                          p == para_bgn ? pos_bgn : 0,
+                                          p == para_end ? pos_end : p->get_size() );
+
+        if( p == para_end ) break;
+    }
+
+    update_text_formatting( para_bgn, para_end );
+
+    m_B_insert_link->set_visible( false );
+    update_hidden_link_options();
+    m_Po_context->present(); // TODO: 3.1: this is a very hackish way of resizing the popover
+    m_E_edit_link_uri->grab_focus();
+}
+
+void
+TextviewDiaryEdit::add_link_to_sel_interactive()
+{
+    Gtk::TextIter it_bgn, it_end;
+    calculate_token_bounds( it_bgn, it_end, VT::HFT_LINK_ID );
+
+    if( it_bgn.get_line() != it_end.get_line() )
+    {
+        print_info( "Selection spans multiple paragraphs!" );
+        return;
+    }
+
+    auto para     { m_para_sel_bgn };
+    auto pos_bgn  { para->get_bgn_offset_in_host() };
+    auto pos_end  { it_end.get_offset() - pos_bgn };
+    pos_bgn = ( it_bgn.get_offset() - pos_bgn );
+
+    if( para->get_format_at( VT::HFT_LINK_ID, pos_bgn, pos_end ) )
+    {
+        print_info( "Selection already has link!" );
+        return;
+    }
+
+    m_p2entry->add_undo_action( UndoableType::MODIFY_FORMAT, para, 1, m_pos_cursor, m_pos_cursor );
+
+    m_p2hflink_hovered = para->add_link( DEID_UNSET, pos_bgn, pos_end );
+
+    update_text_formatting( para, para );
+
+    m_F_popover_link = true;
+    show_Po_context( -1 );
+
+    m_WEP_edit_link_deid->grab_focus();
+}
+
+void
+TextviewDiaryEdit::insert_tag( int pos, Entry* entry )
+{
+    Paragraph*  para      { m_p2entry->get_paragraph( pos, true ) };
+
+    if( !para ) return;
+
+    auto        pos_end   { pos + entry->get_name().length() };
+    const int   size_prev { para->get_size() };
+    const int   pos_para  { pos - para->get_bgn_offset_in_host() };
+
+    m_p2entry->add_undo_action( UndoableType::MODIFY_FORMAT, para, 1, m_pos_cursor, pos_end );
+
+    m_Sg_changed_before_parse.emit();
+
+    const auto ofst_bgn {
+            std::get< 0 >(
+                    para->insert_text_with_spaces( pos_para, entry->get_name(), nullptr ) ) };
+
+    if( entry->get_id() != m_p2entry->get_id() )  // do not tag itself
+        para->add_format_tag( entry, pos_para + ofst_bgn );
+
+    m_p2diary->m_parser_bg.parse( para );
+
+    update_para_region( para->get_size() - size_prev, para, pos_end );
+}
+
+void
+TextviewDiaryEdit::make_selection_entry_tag()
+{
+    Gtk::TextIter it_bgn, it_end;
+    calculate_token_bounds( it_bgn, it_end, VT::HFT_TAG );
+
+    if( it_bgn.get_line() != it_end.get_line() )
+    {
+        print_info( "Selection spans multiple paragraphs!" );
+        return;
+    }
+
+    auto para     { m_para_sel_bgn };
+    auto pos_bgn  { para->get_bgn_offset_in_host() };
+    auto pos_end  { it_end.get_offset() - pos_bgn };
+    pos_bgn = ( it_bgn.get_offset() - pos_bgn );
+
+    if( para->get_format_at( VT::HFT_TAG, pos_bgn, pos_end ) )
+    {
+        print_info( "Selection already has tags!" );
+        return;
+    }
+
+    m_p2entry->add_undo_action( UndoableType::MODIFY_FORMAT, para, 1, m_pos_cursor, m_pos_cursor );
+
+    auto entry    { m_p2diary->create_entry( nullptr,
+                                             true,
+                                             Date::get_today(),
+                                             m_r2buffer->get_slice( it_bgn, it_end ),
+                                             VT::ETS::NAME_ONLY::I ) };
+    para->add_format_tag( entry, pos_bgn );
+
+    if( m_r2buffer->get_has_selection() )
+        m_r2buffer->place_cursor( it_end ); // remove the selection
+
+    update_text_formatting( para, para );
+    AppWindow::p->UI_diary->update_entry_list();
+}
+
+void
+TextviewDiaryEdit::insert_date_stamp( bool F_add_time )
+{
+    // just replace the date if there is one already:
+    if( m_para_sel_bgn->get_format_at( VT::HFT_DATE, m_pos_cursor_in_para ) )
+    {
+        replace_date_at_cursor( Date::get_now() );
+        return;
+    }
+
+    auto p2undo { m_p2entry->add_undo_action( UndoableType::MODIFY_TEXT,
+                                              m_para_sel_bgn, 1,
+                                              m_pos_cursor, 0 ) };
+
+    m_Sg_changed_before_parse.emit();
+
+    m_pos_cursor +=
+            std::get< 2 >( m_para_sel_bgn->insert_text_with_spaces(
+                               m_pos_cursor_in_para,
+                               Date::format_string_adv( Date::get_now(), F_add_time ? "F, T"
+                                                                                    : "F" ),
+                               &m_p2diary->m_parser_bg,
+                                // only add space before if the previous char is not ellipsis:
+                               m_pos_cursor_in_para > 0 &&
+                                    !m_para_sel_bgn->get_format_at( VT::HFT_DATE_ELLIPSIS,
+                                                                    m_pos_cursor_in_para - 1 ),
+                               false  ) );
+
+    p2undo->m_offset_cursor_1 = m_pos_cursor;
+
+    m_p2entry->update_inline_dates();
+
+    update_para_region_cur();
+}
+
+void
+TextviewDiaryEdit::insert_hrule()
+{
+    Paragraph*  para   { m_p2entry->add_paragraph_before( "", m_para_sel_bgn->m_p2next ) };
+    const int   offset { para->get_bgn_offset_in_host() };
+    auto        p2undo { m_p2entry->add_undo_action( UndoableType::INSERT_TEXT,
+                                                     para, 0, m_pos_cursor, offset + 1 ) };
+    p2undo->m_n_paras_after = 1;
+
+    para->set_para_type_raw( VT::PS_HRULE_0 );
+
+    update_para_region( offset, 0, para, para, offset + 1 );
+}
+
+void
+TextviewDiaryEdit::insert_image()
+{
+    auto dlg = Gtk::FileDialog::create();
+
+    dlg->set_accept_label( _( "Open" ) );
+    FileChooserButton::add_image_file_filters( dlg );
+
+    dlg->open( *AppWindow::p,
+               sigc::bind( sigc::mem_fun( *this, &TextviewDiaryEdit::insert_image1 ), dlg ) );
+}
+void
+TextviewDiaryEdit::insert_image1( Glib::RefPtr< Gio::AsyncResult >& result,
+                                  const Glib::RefPtr< Gtk::FileDialog >& dlg )
+{
+    try
+    {
+        auto file{ dlg->open_finish( result ) };
+        insert_image2( file->get_uri(), VT::PS_IMAGE_FILE );
+    }
+    catch( const Gtk::DialogError& err )
+    {
+        print_info( "No file selected: ", err.what() );
+    }
+    catch( const Glib::Error& err )
+    {
+        print_error( "Unexpected exception: ", err.what() );
+    }
+}
+void
+TextviewDiaryEdit::insert_image2( const String& uri, int subtype )
+{
+    Paragraph*  para   { m_p2entry->add_paragraph_before( "", m_para_sel_bgn->m_p2next ) };
+    const int   offset { para->get_bgn_offset_in_host() };
+    auto        p2undo { m_p2entry->add_undo_action( UndoableType::INSERT_TEXT,
+                                                     para, 0, m_pos_cursor, offset + 1 ) };
+    p2undo->m_n_paras_after = 1;
+
+    para->set_uri( uri );
+    para->set_image_type( subtype );
+
+    update_para_region( offset, 0, para, para, offset + 1 );
+}
+
+void
+TextviewDiaryEdit::insert_chart()
+{
+    if( m_p2diary->get_charts().empty() )
+        return;
+    else
+        insert_image2( std::to_string( m_p2diary->get_chart_active()->get_id() ),
+                       VT::PS_IMAGE_CHART );
+
+    m_Po_context->popdown();
+}
+
+void
+TextviewDiaryEdit::insert_table()
+{
+    if( m_p2diary->get_tables().empty() )
+        return;
+    else
+        insert_image2( std::to_string( m_p2diary->get_table_active()->get_id() ),
+                       VT::PS_IMAGE_TABLE );
+
+    m_Po_context->popdown();
+}
+
+void
+TextviewDiaryEdit::paste_clipboard2()
+{
+    auto&& cb{ get_clipboard() };
+    auto formats { cb->get_formats() };
+
+    if( formats->contain_mime_type( MIME_TEXT_LOG ) && cb->is_local() )
+    {
+        m_F_paste_operation = true;
+        m_F_inherit_para_style = false;
+        paste_clipboard_entry_text();
+    }
+    else
+    if( formats->contain_mime_type( MIME_TEXT_PLAIN ) )
+    {
+        m_F_paste_operation = true;
+        m_F_inherit_para_style = false;
+        m_r2buffer->paste_clipboard( cb );
+        // m_F_paste_operation is unset in on_insert()
+    }
+    else
+    if( is_the_main_editor() && formats->contain_gtype( GDK_TYPE_PIXBUF ) )
+    {
+        Gdk::Rectangle rect;
+
+        get_selection_rect( rect );
+
+        DialogGetText::launch( &rect,
+                               this,
+                               [ this ]( const Ustring& text ){ paste_clipboard_img( text ); },
+                               []{},
+                               m_p2entry->get_name() + "_" + _( "image" ) );
+    }
+}
+void
+TextviewDiaryEdit::paste_clipboard_entry_text()
+{
+    Paragraph*    p_chain_undo  { Lifeograph::p->get_entry_text_register_cb() };
+    const int     p_chain_n_p   { p_chain_undo->get_chain_para_count() - 1 };
+    Gtk::TextIter it_bgn, it_end;
+    m_r2buffer->get_selection_bounds( it_bgn, it_end );
+    const auto    pos_sel_end   { it_end.get_offset() };
+
+    m_Sg_changed_before_parse.emit();
+    // undo is handled within replace_text_with_styles()
+    m_p2entry->replace_text_with_styles( it_bgn.get_offset(), pos_sel_end, p_chain_undo );
+
+
+    update_para_region( m_pos_para_sel_bgn, m_pos_para_sel_end,
+                        m_para_sel_bgn, m_para_sel_bgn->get_nth_next( p_chain_n_p ),
+                        pos_sel_end + p_chain_undo->get_chain_length() );
+}
+void
+TextviewDiaryEdit::paste_clipboard_img( const Ustring& name )
+{
+    get_clipboard()->read_texture_async(
+            sigc::bind( sigc::mem_fun( *this, &TextviewDiaryEdit::paste_clipboard_img2 ),
+                        name ) );
+}
+void
+TextviewDiaryEdit::paste_clipboard_img2( Glib::RefPtr< Gio::AsyncResult >& result,
+                                         const Ustring& name )
+{
+    auto      texture         { get_clipboard()->read_texture_finish( result ) };
+    auto&&    rel_folder_name { "[" + m_p2diary->get_name() + "]" };
+    auto      file_diary      { Gio::File::create_for_uri( m_p2diary->get_uri() ) };
+    auto      dir_rel         { file_diary->get_parent()->get_child( rel_folder_name ) };
+    auto      file_img
+    {
+        Gio::File::create_for_uri(
+                STR::create_unique_name(
+                        dir_rel->get_child( name )->get_uri(),
+                        [ & ]( const Ustring& uri_new )
+                        { return Gio::File::create_for_uri( uri_new + ".png" )->query_exists(); } )
+                + ".png" )
+    };
+    auto&&    iter            { m_r2buffer->get_iter_at_mark( m_r2buffer->get_insert() ) };
+
+    if( not( iter.ends_line() ) )
+        iter.forward_to_line_end();
+    iter++; // past the line end
+
+    try
+    {
+// #ifndef _WIN32
+        // create the directory if needed:
+        if( !dir_rel->query_exists() && !dir_rel->make_directory() )
+        {
+            print_error( "Cannot create the relative directory" );
+            return;
+        }
+// #else
+//         CreateDirectory( PATH( path_dir ).c_str(), nullptr );
+// #endif
+        // save the file:
+        texture->save_to_png( file_img->get_path() );
+    }
+    catch( Gio::Error& error )
+    {
+        print_error( "Image save failed: ", error.what() );
+        return;
+    }
+
+    insert_image2( "rel://" + rel_folder_name + "/" + file_img->get_basename(), VT::PS_IMAGE_FILE );
+}
+
+// LETTER CASES
+void
+TextviewDiaryEdit::change_letter_cases( LetterCase lc )
+{
+    if( !m_r2buffer->get_has_selection() ) return;
+
+    Gtk::TextIter it_bgn, it_end;
+    m_r2buffer->get_selection_bounds( it_bgn, it_end );
+    const auto  pos_bgn   { UstringSize( it_bgn.get_offset() ) };
+    const auto  pos_end   { UstringSize( it_end.get_offset() ) };
+    Paragraph*  para_end  { m_para_sel_end ? m_para_sel_end : m_para_sel_bgn };
+
+    m_p2entry->add_undo_action( UndoableType::MODIFY_TEXT,
+                                m_para_sel_bgn,
+                                para_end->m_order_in_host - m_para_sel_bgn->m_order_in_host + 1,
+                                m_pos_cursor, pos_end );
+
+    for( Paragraph* p = m_para_sel_bgn; p; p = p->m_p2next )
+    {
+        const auto pos_p_bgn{ p->get_bgn_offset_in_host() };
+
+        p->change_letter_cases(
+                m_pos_para_sel_bgn >= pos_bgn ? 0 : pos_bgn - m_pos_para_sel_bgn,
+                m_pos_para_sel_end < pos_end ? -1 : pos_end - pos_p_bgn,
+                lc );
+
+        if( p == m_para_sel_end ) break;
+    }
+
+    update_entry_name_if_needed( m_para_sel_bgn );
+    update_para_region_cur();
+
+    // in some corner cases char count of the selection may change but ignore for now:
+    m_r2buffer->select_range( m_r2buffer->get_iter_at_offset( pos_bgn ),
+                              m_r2buffer->get_iter_at_offset( pos_end ) );
+}
+
+void
+TextviewDiaryEdit::copy_image_file_to_rel() // not undoable for now
+{
+    const auto&&  rel_folder_name { "[" + m_p2diary->get_name() + "]" };
+    auto          file_diary      { Gio::File::create_for_uri( m_p2diary->get_uri() ) };
+    auto          dir_rel         { file_diary->get_parent()->get_child( rel_folder_name ) };
+    auto          file_src        { Gio::File::create_for_uri( m_para_sel_bgn->get_uri() ) };
+    auto          file_dest       { dir_rel->get_child( file_src->get_basename() ) };
+
+// #ifndef _WIN32
+
+    try
+    {
+        // create the directory if needed:
+        if( !dir_rel->query_exists() && !dir_rel->make_directory() )
+        {
+            print_error( "Cannot create the relative directory" );
+            return;
+        }
+        // copy the file if not already existed:
+        if( !file_dest->query_exists() )
+            file_src->copy( file_dest );
+        else
+        {
+            print_error( "Target file already exists!" );
+            return;
+        }
+    }
+    catch( Gio::Error& error )
+    {
+        print_error( "Copy failed: ", error.what() );
+        return;
+    }
+/*#else
+    CreateDirectory( PATH( path_dir_dest ).c_str(), nullptr );
+    // following does not work for some reason:
+    //char* fname_src = new char[ MAX_PATH ];
+    //DWORD size;
+    //PathCreateFromUrl( PATH( uri_src ).c_str(), fname_src, &size, 0 );
+    // so we resort to a simpler alternative:
+    std::string fname_src = uri_src.substr( 7, uri_src.size() - 7 );
+    CopyFile( PATH( fname_src ).c_str(), PATH( path_dest ).c_str(), true );
+#endif*/
+
+    // TODO: 3.1: add an undo here
+    m_para_sel_bgn->set_uri( "rel://" + rel_folder_name + "/" + file_dest->get_basename() );
+}
+
+// OTHERS
+Ustring
+TextviewDiaryEdit::get_text_to_save()
+{
+    return m_r2buffer->get_text();
+}
+
+void
+TextviewDiaryEdit::go_to_link()
+{
+    m_link_hovered_go = nullptr;
+
+    process_link_uri( m_para_sel_bgn, m_pos_cursor_in_para );
+
+    if( m_link_hovered_go )
+        m_link_hovered_go();
+}
+
+void
+TextviewDiaryEdit::update_for_spell_check_change()
+{
+    // check the entire buffer again              (true: only if needed)
+    if( m_p2entry->parse( &m_p2diary->m_parser_bg, true ) )
+    {
+        m_edit_operation_type = EOT::SET_TEXT;
+        update_text_formatting();
+        m_edit_operation_type = EOT::USER;
+    }
+}
+
+Ustring
+TextviewDiaryEdit::get_misspelled_word_cur() const
+{
+    Gtk::TextIter&& it_bgn  { m_r2buffer->get_iter_at_offset( m_spell_suggest_offset ) };
+    Gtk::TextIter   it_end  { it_bgn };
+    if( !it_bgn.starts_tag( m_tag_misspelled ) )
+        it_bgn.backward_to_tag_toggle( m_tag_misspelled );
+    it_end.forward_to_tag_toggle( m_tag_misspelled );
+    return m_r2buffer->get_text( it_bgn, it_end );
+}
+
+void
+TextviewDiaryEdit::update_spell_suggestions()
+{
+    const Ustring&& word  { get_misspelled_word_cur() };
+    size_t          n_suggs;
+    char**          suggestions;
+
+//    if (!spell->speller)
+//        return;
+
+    m_FBx_spell->remove_all();
+    m_spell_suggestions.clear();
+
+    suggestions = enchant_dict_suggest( m_p2diary->m_parser_bg.m_enchant_dict,
+                                        word.c_str(), word.size(), &n_suggs );
+
+    // STANDARD ITEMS
+    m_FBx_spell->append( *Gtk::make_managed< Gtk::Label >(
+            Ustring::compose( _( "Add \"%1\" to Dictionary" ), word ) ) );
+    m_FBx_spell->append( *Gtk::make_managed< Gtk::Label >( _( "Ignore All" ) ) );
+
+    // SUGGESTIONS
+    if ( !suggestions || n_suggs == 0 )
+    {
+        m_FBx_spell->append( *Gtk::make_managed< Gtk::Label >( _( "no suggestions" ) ) );
+        m_FBx_spell->get_child_at_index( 2 )->set_sensitive( false );
+    }
+    else
+    {
+        // TODO: 3.1: consider adding a way to display remaining suggestions
+        for( size_t i = 0; i < n_suggs && i < 14; i++ )
+        {
+            m_FBx_spell->append( *Gtk::make_managed< Gtk::Label >( suggestions[ i ] ) );
+            m_spell_suggestions.push_back( suggestions[ i ] );
+            m_FBx_spell->get_child_at_index( i + 2 )->add_css_class( "spell-suggestion" );
+        }
+
+        enchant_dict_free_string_list( m_p2diary->m_parser_bg.m_enchant_dict, suggestions );
+    }
+}
+
+void
+TextviewDiaryEdit::handle_spell_correction( Gtk::FlowBoxChild* child )
+{
+    const auto  index { child->get_index() };
+
+    switch( index )
+    {
+        case 0:   add_word_to_dictionary(); break;
+        case 1:   ignore_misspelled_word(); break;
+        default:  replace_misspelled_word( m_spell_suggestions[ index - 2 ] ); break;
+    }
+
+    m_Po_context->popdown();
+}
+
+void
+TextviewDiaryEdit::add_word_to_dictionary()
+{
+    const auto&& word { get_misspelled_word_cur() };
+    enchant_dict_add( m_p2diary->m_parser_bg.m_enchant_dict, word.c_str(), word.size() );
+    update_for_spell_check_change();
+}
+
+void
+TextviewDiaryEdit::ignore_misspelled_word()
+{
+    const auto&& word { get_misspelled_word_cur() };
+    enchant_dict_add_to_session( m_p2diary->m_parser_bg.m_enchant_dict, word.c_str(), word.size() );
+    update_for_spell_check_change();
+}
+
+void
+TextviewDiaryEdit::replace_misspelled_word( const Ustring& new_word )
+{
+//    if (!spell->speller)
+//        return;
+
+    // this function calculates the old word itself rather than relying on get_misspelled_word_cur:
+    auto&&        iter_bgn  { m_r2buffer->get_iter_at_offset( m_spell_suggest_offset ) };
+
+    if( !iter_bgn.has_tag( m_tag_misspelled ) )
+    {
+        PRINT_DEBUG( "No misspelled word found at suggestion offset" );
+        return;
+    }
+
+    Gtk::TextIter iter_end      { iter_bgn };
+    iter_bgn.backward_to_tag_toggle( m_tag_misspelled );
+    iter_end.forward_to_tag_toggle( m_tag_misspelled );
+    const auto    pos_bgn       { iter_bgn.get_offset() };
+    const auto    pos_end_0     { iter_end.get_offset() };
+    const auto    pos_end_1     { pos_bgn + new_word.length() };
+    Paragraph*    para          { m_p2entry->get_paragraph( pos_bgn, true ) };
+    const int     pos_erase_bgn { para->get_bgn_offset_in_host() };
+    const int     pos_erase_end { para->get_end_offset_in_host() };
+
+#ifdef LIFEOGRAPH_DEBUG_BUILD
+    const Ustring old_word      { m_r2buffer->get_text( iter_bgn, iter_end ) };
+    PRINT_DEBUG( "Old word: \"" + old_word + "\"" );
+    PRINT_DEBUG( "New word: \"" + new_word + "\"" );
+#endif
+
+    m_p2entry->add_undo_action( UndoableType::MODIFY_TEXT, para, 1, m_pos_cursor, pos_end_1 );
+
+    para->replace_text( pos_bgn - para->get_bgn_offset_in_host(), pos_end_0 - pos_bgn, new_word );
+    m_p2diary->m_parser_bg.parse( para );
+
+    update_para_region( pos_erase_bgn, pos_erase_end, para, para, pos_end_1 );
+
+    // why?
+    enchant_dict_store_replacement( m_p2diary->m_parser_bg.m_enchant_dict,
+                                    old_word.c_str(), old_word.size(),
+                                    new_word.c_str(), new_word.size() );
+}
+
+// UNDO/REDO
+bool
+TextviewDiaryEdit::process_undo( UndoEdit* p2undo, bool F_redo )
+{
+    if( !p2undo ) return false;
+
+    auto        para_before   { m_p2diary->get_element2< Paragraph >( p2undo->m_id_para_before ) };
+    Paragraph*  para_bgn      { nullptr };
+    Paragraph*  para_end      { nullptr };
+    int         pos_erase_bgn { -1 };
+    int         pos_erase_end { -1 };
+    // store the following 2 vars before undo_edit evaporates:
+    const int   p_offset_end  { p2undo->m_n_paras_before - 1 };  // -1 as para_end is inclusive
+    const int   offset_cursor { p2undo->m_offset_cursor_0 };
+
+    if( p2undo->m_n_paras_after > 0 )
+    {
+        // para_bgn and para_end are temporarily used to determine the erase boundaries:
+        para_bgn = ( para_before ? para_before->m_p2next : m_p2entry->get_paragraph_1st() );
+        para_end = para_bgn->get_nth_next( p2undo->m_n_paras_after - 1 );
+                                           // -1 as para_end is inclusive
+        pos_erase_bgn = para_bgn->get_bgn_offset_in_host();
+        pos_erase_end = para_end->get_end_offset_in_host();
+    }
+
+    m_Sg_changed_before_parse.emit();
+
+    if( F_redo )
+        m_p2entry->get_undo_stack()->redo();
+    else
+        m_p2entry->get_undo_stack()->undo();
+
+    // update bgn and end paras to point to the updated region in the entry:
+    if( p_offset_end >= 0 )  // i.e. there were paras to insert
+    {
+        para_bgn = ( para_before ? para_before->m_p2next : m_p2entry->get_paragraph_1st() );
+        para_end = para_bgn->get_nth_next( p_offset_end );
+        if( pos_erase_bgn < 0 ) // mark the insertion point for update_para_region() if needed
+            pos_erase_bgn = para_bgn->get_bgn_offset_in_host();
+    }
+    else
+        para_bgn = para_end = nullptr;
+
+    update_para_region( pos_erase_bgn, pos_erase_end, para_bgn, para_end, offset_cursor );
+
+    return true;
+}
+
+// TEXTVIEW ========================================================================================
+std::map< const Ustring, std::pair< const Ustring, const Ustring > >
+TextviewDiaryEdit::s_auto_replaces { { "-", { "--", "—" } },
+                                     { ">", { "--", "➡" } } };
+TextviewDiaryEdit::TextviewDiaryEdit( BaseObjectType* cobject,
+                                      const Glib::RefPtr< Gtk::Builder >& parent_builder,
+                                      int text_margin )
+:   TextviewDiary( cobject, parent_builder, text_margin )
+{
+    Gtk::Button* B_case_sentence, * B_case_title, * B_case_lower, * B_case_upper;
+    Gtk::Button* B_comment;
+
+    auto builder { Lifeograph::create_gui( Lifeograph::SHAREDIR + "/ui/tv_diary.ui" ) };
+
+    m_Po_context        = builder->get_widget< Gtk::Popover >( "Po_context" );
+    m_Bx_context        = builder->get_widget< Gtk::Box >( "Bx_context" );
+    m_Bx_context_edit_1 = builder->get_widget< Gtk::Box >( "Bx_context_edit_only_1" );
+    m_Bx_context_edit_2 = builder->get_widget< Gtk::Box >( "Bx_context_edit_only_2" );
+    m_B_expand_sel      = builder->get_widget< Gtk::Button >( "B_expand_sel" );
+    m_B_search_sel      = builder->get_widget< Gtk::Button >( "B_search_sel" );
+    m_B_cut             = builder->get_widget< Gtk::Button >( "B_cut" );
+    m_B_copy            = builder->get_widget< Gtk::Button >( "B_copy" );
+    m_B_paste           = builder->get_widget< Gtk::Button >( "B_paste" );
+    m_B_insert_link     = builder->get_widget< Gtk::Button >( "B_insert_link" );
+    m_B_insert_emoji    = builder->get_widget< Gtk::Button >( "B_insert_emoji" );
+    m_B_insert_image    = builder->get_widget< Gtk::Button >( "B_insert_image" );
+    m_B_insert_chart    = builder->get_widget< Gtk::Button >( "B_insert_chart" );
+    m_B_insert_table    = builder->get_widget< Gtk::Button >( "B_insert_table" );
+    m_Bx_spell_seprtor  = builder->get_widget< Gtk::Box >( "Bx_spell_separator" );
+    m_FBx_spell         = builder->get_widget< Gtk::FlowBox >( "FBx_spell" );
+    m_B_context_extras  = builder->get_widget< Gtk::Button >( "B_extras" );
+    m_St_context_extras = builder->get_widget< Gtk::Stack >( "St_extras" );
+
+    m_B_undo            = builder->get_widget< Gtk::Button >( "B_undo" );
+    m_B_redo            = builder->get_widget< Gtk::Button >( "B_redo" );
+    m_TB_bold           = builder->get_widget< Gtk::ToggleButton >( "TB_bold" );
+    m_TB_italic         = builder->get_widget< Gtk::ToggleButton >( "TB_italic" );
+    m_TB_underline      = builder->get_widget< Gtk::ToggleButton >( "TB_underline" );
+    m_TB_strkthru       = builder->get_widget< Gtk::ToggleButton >( "TB_strikethru" );
+    m_TB_highlight      = builder->get_widget< Gtk::ToggleButton >( "TB_highlight" );
+    m_L_highlight       = builder->get_widget< Gtk::Label >( "L_highlight" );
+    m_TB_subscript      = builder->get_widget< Gtk::ToggleButton >( "TB_subscript" );
+    m_TB_superscript    = builder->get_widget< Gtk::ToggleButton >( "TB_superscript" );
+
+    // extra options:
+    B_case_sentence     = builder->get_widget< Gtk::Button >( "B_case_sentence" );
+    B_case_title        = builder->get_widget< Gtk::Button >( "B_case_title" );
+    B_case_lower        = builder->get_widget< Gtk::Button >( "B_case_lower" );
+    B_case_upper        = builder->get_widget< Gtk::Button >( "B_case_upper" );
+    B_comment           = builder->get_widget< Gtk::Button >( "B_comment" );
+
+    m_Po_paragraph      = builder->get_widget< Gtk::Popover >( "Po_paragraph" );
+    m_RB_align_left     = builder->get_widget< Gtk::ToggleButton >( "RB_para_align_left" );
+    m_RB_align_center   = builder->get_widget< Gtk::ToggleButton >( "RB_para_align_center" );
+    m_RB_align_right    = builder->get_widget< Gtk::ToggleButton >( "RB_para_align_right" );
+    m_B_indent          = builder->get_widget< Gtk::Button >( "B_para_indent" );
+    m_B_unindent        = builder->get_widget< Gtk::Button >( "B_para_unindent" );
+
+    m_RB_para_hoff      = builder->get_widget< Gtk::ToggleButton >( "RB_para_hoff" );
+    m_RB_para_subh      = builder->get_widget< Gtk::ToggleButton >( "RB_para_subh" );
+    m_RB_para_ssbh      = builder->get_widget< Gtk::ToggleButton >( "RB_para_subsubh" );
+
+    m_RB_para_plai      = builder->get_widget< Gtk::ToggleButton >( "RB_para_plai" );
+    m_RB_para_todo      = builder->get_widget< Gtk::ToggleButton >( "RB_para_todo" );
+    m_RB_para_prog      = builder->get_widget< Gtk::ToggleButton >( "RB_para_prog" );
+    m_RB_para_done      = builder->get_widget< Gtk::ToggleButton >( "RB_para_done" );
+    m_RB_para_cncl      = builder->get_widget< Gtk::ToggleButton >( "RB_para_cncl" );
+    m_RB_para_bllt      = builder->get_widget< Gtk::ToggleButton >( "RB_para_bllt" );
+    m_RB_para_nmbr      = builder->get_widget< Gtk::ToggleButton >( "RB_para_nmbr" );
+    m_RB_para_cltr      = builder->get_widget< Gtk::ToggleButton >( "RB_para_cltr" );
+    m_RB_para_crmn      = builder->get_widget< Gtk::ToggleButton >( "RB_para_crmn" );
+    m_Bx_para_sltr      = builder->get_widget< Gtk::Box >( "Bx_para_sltr" );
+    m_Sw_para_sltr      = builder->get_widget< Gtk::Switch >( "Sw_para_sltr" );
+
+    m_Sw_para_hrule     = builder->get_widget< Gtk::Switch >( "Sw_para_hrule" );
+    m_Sw_para_code      = builder->get_widget< Gtk::Switch >( "Sw_para_code" );
+    m_Sw_para_quote     = builder->get_widget< Gtk::Switch >( "Sw_para_quote" );
+
+    m_Po_context->set_parent( *this );
+    m_Po_paragraph->set_parent( *this );
+
+    signal_query_tooltip().connect(
+            sigc::mem_fun( *this, &TextviewDiaryEdit::handle_query_tooltip ), false );
+
+    m_r2buffer->signal_mark_set().connect(
+            sigc::mem_fun( *this, &TextviewDiaryEdit::on_mark_set ) );
+
+    m_r2buffer->signal_insert().connect(
+            sigc::mem_fun( *this, &TextviewDiaryEdit::on_insert ) );
+    m_r2buffer->signal_erase().connect(
+            sigc::mem_fun( *this, &TextviewDiaryEdit::on_erase ), false );
+    m_r2buffer->signal_erase().connect(
+            sigc::mem_fun( *this, &TextviewDiaryEdit::handle_after_erase ), true );
+
+    // CONTROLLERS
+    m_controller_key = Gtk::EventControllerKey::create();
+    m_controller_key->signal_key_pressed().connect(
+            sigc::mem_fun( *this, &TextviewDiaryEdit::on_key_press_event ), false );
+    m_controller_key->signal_key_released().connect(
+            sigc::mem_fun( *this, &TextviewDiaryEdit::on_key_release_event ), false );
+    add_controller( m_controller_key );
+
+    m_drop_target = Gtk::DropTarget::create( G_TYPE_INVALID, Gdk::DragAction::COPY );
+    m_drop_target->set_gtypes( { Glib::Value< Ustring >::value_type(),
+                                 Theme::GValue::value_type(),
+                                 ChartElem::GValue::value_type(),
+                                 TableElem::GValue::value_type(),
+                                 Entry::GValue::value_type() } );
+    // m_drop_target->signal_accept().connect(
+    //         sigc::mem_fun( *this, &TextviewDiaryEdit::handle_drop_accept ), false );
+    m_drop_target->signal_motion().connect(
+            sigc::mem_fun( *this, &TextviewDiaryEdit::handle_drop_motion ), false );
+    m_drop_target->signal_drop().connect(
+            sigc::mem_fun( *this, &TextviewDiaryEdit::handle_drop ), true );
+
+    m_gesture_click->set_propagation_phase( Gtk::PropagationPhase::CAPTURE );
+    m_gesture_click->signal_pressed().connect(
+            sigc::mem_fun( *this, &TextviewDiaryEdit::on_button_press_event ), false );
+
+    // PO CONTEXT
+    m_B_cut->signal_clicked().connect(
+            [ this ]()
+            { copy_clipboard( true ); m_Po_context->popdown(); } );
+    m_B_copy->signal_clicked().connect(
+            [ this ]()
+            { copy_clipboard(); m_Po_context->popdown(); } );
+    m_B_paste->signal_clicked().connect(
+            [ this ]()
+            { paste_clipboard2(); m_Po_context->popdown(); } );
+    m_B_insert_link->signal_clicked().connect(
+            [ this ](){ add_link_to_sel( "http://" ); } );
+    m_B_insert_emoji->signal_clicked().connect(
+            [ this ](){ m_Po_context->popdown();
+                        g_signal_emit_by_name( gobj(), "insert-emoji" ); } );
+    m_B_insert_image->signal_clicked().connect(
+            [ this ](){ m_Po_context->popdown(); insert_image(); } );
+    m_B_insert_chart->signal_clicked().connect(
+            [ this ](){ insert_chart(); } );
+    m_B_insert_table->signal_clicked().connect(
+            [ this ](){ insert_table(); } );
+
+    m_B_expand_sel->signal_clicked().connect( [ this ](){ expand_selection(); } );
+    m_B_search_sel->signal_clicked().connect(
+            [ this ](){ AppWindow::p->UI_extra->focus_searching( get_selected_text() ); } );
+    m_TB_bold->signal_toggled().connect(
+            [ this ](){ toggle_format( VT::HFT_BOLD ); } );
+    m_TB_italic->signal_toggled().connect(
+            [ this ](){ toggle_format( VT::HFT_ITALIC ); } );
+    m_TB_underline->signal_toggled().connect(
+            [ this ](){ toggle_format( VT::HFT_UNDERLINE ); } );
+    m_TB_strkthru->signal_toggled().connect(
+            [ this ](){ toggle_format( VT::HFT_STRIKETHRU ); } );
+    m_TB_highlight->signal_toggled().connect(
+            [ this ](){ toggle_format( VT::HFT_HIGHLIGHT ); } );
+    m_TB_subscript->signal_toggled().connect(
+            [ this ]()
+            {
+                Lifeograph::START_INTERNAL_OPERATIONS();
+                m_TB_superscript->set_active( false );
+                Lifeograph::FINISH_INTERNAL_OPERATIONS();
+                toggle_format( VT::HFT_SUBSCRIPT );
+            } );
+    m_TB_superscript->signal_toggled().connect(
+            [ this ]()
+            {
+                Lifeograph::START_INTERNAL_OPERATIONS();
+                m_TB_subscript->set_active( false );
+                Lifeograph::FINISH_INTERNAL_OPERATIONS();
+                toggle_format( VT::HFT_SUPERSCRIPT );
+            } );
+
+    // extra options:
+    m_B_context_extras->signal_clicked().connect(
+            [ this ]()
+            {
+                const bool F_p0{ m_St_context_extras->get_visible_child_name() == "p0" };
+
+                m_St_context_extras->set_visible_child( F_p0 ? "p1" : "p0" );
+                m_B_context_extras->set_icon_name( F_p0 ? "pan-start-symbolic"
+                                                        : "pan-end-symbolic" );
+            } );
+    B_case_sentence->signal_clicked().connect(
+            [ this ](){ change_letter_cases( LetterCase::CASE_SENTENCE ); } );
+    B_case_title->signal_clicked().connect(
+            [ this ](){ change_letter_cases( LetterCase::CASE_TITLE ); } );
+    B_case_lower->signal_clicked().connect(
+            [ this ](){ change_letter_cases( LetterCase::CASE_LOWER ); } );
+    B_case_upper->signal_clicked().connect(
+            [ this ](){ change_letter_cases( LetterCase::CASE_UPPER ); } );
+    B_comment->signal_clicked().connect( [ this ](){ insert_comment(); } );
+
+    // spellchecking:
+    m_FBx_spell->signal_child_activated().connect(
+            sigc::mem_fun( *this, &TextviewDiaryEdit::handle_spell_correction ) );
+
+    // PO PARAGRAPH
+    m_RB_align_left->signal_toggled().connect(
+            [ this ]() { do_for_each_sel_para(
+                            []( Paragraph* para )
+                            { para->set_alignment( VT::PS_ALIGN_L ); }, true ); } );
+    m_RB_align_center->signal_toggled().connect(
+            [ this ]() { do_for_each_sel_para(
+                            []( Paragraph* para )
+                            { para->set_alignment( VT::PS_ALIGN_C ); }, true ); } );
+    m_RB_align_right->signal_toggled().connect(
+            [ this ]() { do_for_each_sel_para(
+                            []( Paragraph* para )
+                            { para->set_alignment( VT::PS_ALIGN_R ); }, true ); } );
+    m_B_indent->signal_clicked().connect(
+            [ this ]() { change_para_indentation( true ); } );
+    m_B_unindent->signal_clicked().connect(
+            [ this ]() { change_para_indentation( false ); } );
+
+    m_RB_para_hoff->signal_toggled().connect(
+            [ this ]() { change_para_type( VT::PS_HEADER_GEN, m_RB_para_hoff ); } );
+    m_RB_para_subh->signal_toggled().connect(
+            [ this ]() { change_para_type( VT::PS_SUBHDR, m_RB_para_subh ); } );
+    m_RB_para_ssbh->signal_toggled().connect(
+            [ this ]() { change_para_type( VT::PS_SSBHDR, m_RB_para_ssbh ); } );
+
+    m_RB_para_todo->signal_toggled().connect(
+            [ this ]() { change_para_type( VT::PS_TODO, m_RB_para_todo ); } );
+    m_RB_para_prog->signal_toggled().connect(
+            [ this ]() { change_para_type( VT::PS_PROGRS, m_RB_para_prog ); } );
+    m_RB_para_done->signal_toggled().connect(
+            [ this ]() { change_para_type( VT::PS_DONE, m_RB_para_done ); } );
+    m_RB_para_cncl->signal_toggled().connect(
+            [ this ]() { change_para_type( VT::PS_CANCLD, m_RB_para_cncl ); } );
+
+    m_RB_para_plai->signal_toggled().connect(
+            [ this ]() { change_para_type( VT::PS_LIST_GEN, m_RB_para_plai ); } );
+    m_RB_para_bllt->signal_toggled().connect(
+            [ this ]() { change_para_type( VT::PS_BULLET, m_RB_para_bllt ); } );
+    m_RB_para_nmbr->signal_toggled().connect(
+            [ this ]() { change_para_type( VT::PS_NUMBER, m_RB_para_nmbr ); } );
+    m_RB_para_cltr->signal_toggled().connect(
+            [ this ]() { change_para_type( get_para_letter_type(), m_RB_para_cltr ); } );
+    m_RB_para_crmn->signal_toggled().connect(
+            [ this ]() { change_para_type( get_para_letter_type(), m_RB_para_crmn ); } );
+    m_Sw_para_sltr->property_active().signal_changed().connect(
+            [ this ]() { change_para_type( get_para_letter_type() ); } );
+
+    m_Sw_para_hrule->property_active().signal_changed().connect(
+            [ this ]() { do_for_each_sel_para(
+                            [ this ]( Paragraph* para )
+                            { para->set_hrule( m_Sw_para_hrule->property_active() ); },
+                            true ); } );
+    m_Sw_para_code->property_active().signal_changed().connect(
+            [ this ]() { do_for_each_sel_para(
+                            [ this ]( Paragraph* para )
+                            { para->set_code( m_Sw_para_code->property_active() ); },
+                            true ); } );
+
+    m_Sw_para_quote->property_active().signal_changed().connect(
+            [ this ]() { do_for_each_sel_para(
+                            [ this ]( Paragraph* para )
+                            { para->set_quote( m_Sw_para_quote->property_active() ); },
+                            true ); } );
+
+    // PO COMPLETION
+    EntryPickerCompletion::s_F_offer_new = true;
+    m_completion = new EntryPickerCompletion( *this );
+    m_completion->signal_entry_activated().connect(
+            [ this ]( LIFEO::Entry* e ){ replace_tag_at_cursor( e ); } );
+
+    // DEFAULT CURSOR
+    m_cursor_default = Gdk::Cursor::create( "text" );
+}
+
+void
+TextviewDiaryEdit::disband()
+{
+    m_Po_context->unparent();
+    m_Po_paragraph->unparent();
+
+    if( m_completion )
+        delete m_completion;
+}
+
+void
+TextviewDiaryEdit::set_entry( Entry* entry )
+{
+    set_hovered_link( ( HiddenFormat* ) nullptr );
+
+    TextviewDiary::set_entry( entry );
+
+    update_highlight_button();
+
+    m_completion->set_diary( m_p2diary );
+}
+
+void
+TextviewDiaryEdit::set_editable( bool F_editable )
+{
+    Gtk::TextView::set_editable( F_editable ); // must come first
+
+    if( F_editable )
+        add_controller( m_drop_target );
+    else if( m_drop_target->get_widget() ) // if actually assigned to the widget
+        remove_controller( m_drop_target );
+
+    m_Bx_context_edit_1->set_visible( F_editable );
+    m_Bx_context_edit_2->set_visible( F_editable );
+    m_B_context_extras->set_visible( F_editable );
+
+    m_B_cut->set_sensitive( F_editable );
+    m_B_paste->set_sensitive( F_editable );
+
+    if( !m_p2entry ) return;
+
+    if( F_editable )
+        update_for_spell_check_change();
+}
+
+void
+TextviewDiaryEdit::update_highlight_button()
+{
+    const Theme* theme{ get_theme() };
+    m_L_highlight->set_markup(
+        STR::compose( "<span color='",  convert_gdkcolor_to_html( theme->color_text ),
+                      "' bgcolor='",    convert_gdkcolor_to_html( theme->color_highlight ),
+                      "'>H</span>" ) );
+}
+void
+TextviewDiaryEdit::update_image_options_scale( Glib::RefPtr< Gtk::Builder >& builder )
+{
+    m_Sc_edit_image_size = builder->get_widget< Gtk::Scale >( "Sc_size" );
+
+    m_Sc_edit_image_size->add_mark( 0, Gtk::PositionType::TOP, "" );
+    m_Sc_edit_image_size->add_mark( 1, Gtk::PositionType::TOP, "" );
+    m_Sc_edit_image_size->add_mark( 2, Gtk::PositionType::TOP, "" );
+    m_Sc_edit_image_size->add_mark( 3, Gtk::PositionType::TOP, "" );
+    m_Sc_edit_image_size->set_increments( 1.0, 1.0 );
+
+    m_Sc_edit_image_size->set_value( m_para_sel_bgn->get_image_size() );
+
+    m_Sc_edit_image_size->signal_value_changed().connect(
+            [ this ]()
+            {
+                m_para_sel_bgn->set_image_size( m_Sc_edit_image_size->get_value() );
+                update_text_formatting( m_para_sel_bgn, m_para_sel_bgn );
+            } );
+    m_Sc_edit_image_size->signal_value_changed().connect(
+            [ this ]()
+            {
+                const double v{ m_Sc_edit_image_size->get_value() };
+                // snapping to whole numbers
+                if( v <= 0.5 )  m_Sc_edit_image_size->set_value( 0.0 );
+                else
+                if( v <= 1.5 )  m_Sc_edit_image_size->set_value( 1.0 );
+                else
+                if( v <= 2.5 )  m_Sc_edit_image_size->set_value( 2.0 );
+                else            m_Sc_edit_image_size->set_value( 3.0 );
+            } );
+}
+void
+TextviewDiaryEdit::update_image_options_buttons( Glib::RefPtr< Gtk::Builder >& builder )
+{
+    Gtk::Button* B_remove, * B_open;
+
+    B_remove    = builder->get_widget< Gtk::Button >( "B_remove" );
+    B_open      = builder->get_widget< Gtk::Button >( "B_open" );
+
+    m_Bx_context_edit_1->set_visible( false );
+    m_B_context_extras->set_visible( false );
+
+    B_remove->signal_clicked().connect(
+            [ this ]()
+            {
+                delete_paragraphs( m_para_sel_bgn, m_para_sel_bgn );
+                m_para_sel_bgn = nullptr;
+                m_Po_context->popdown();
+            } );
+    B_open->signal_clicked().connect(
+            [ this ]()
+            {
+                handle_para_uri( m_para_sel_bgn );
+                m_Po_context->popdown();
+            } );
+}
+void
+TextviewDiaryEdit::update_image_options()
+{
+    // do not add another one if Bx_edit_special is already set:
+    if( !m_p2Bx_edit_special && m_para_sel_bgn && m_para_sel_bgn->is_image( VT::PS_IMAGE_FILE ) )
+    {
+        auto&&      builder  { Lifeograph::create_gui( Lifeograph::SHAREDIR +
+                                                       "/ui/tv_diary_edit_image.ui" ) };
+        const bool  F_is_rel { STR::begins_with( m_para_sel_bgn->get_uri(), "rel:" ) };
+
+        update_image_options_scale( builder );
+        update_image_options_buttons( builder );
+
+        m_Bx_edit_image         = builder->get_widget< Gtk::Box >( "Bx_edit_image" );
+        m_E_edit_image_uri      = builder->get_widget< Gtk::Entry >( "E_uri" );
+        m_FCB_select_image      = Gtk::Builder::get_widget_derived< FileChooserButton >(
+                                        builder, "FCB_select" );
+        m_MoB_copy_img_to_rel   = builder->get_widget< Gtk::Button >( "MoB_copy_to_rel" );
+
+        if( F_is_rel )
+            m_E_edit_image_uri->set_text( m_para_sel_bgn->get_uri() );
+        else
+        {
+            m_FCB_select_image->set_uri( m_para_sel_bgn->get_uri() );
+            m_FCB_select_image->add_image_file_filters();
+        }
+
+        m_E_edit_image_uri->set_visible( F_is_rel );
+        m_FCB_select_image->set_visible( !F_is_rel );
+        m_MoB_copy_img_to_rel->set_visible( !F_is_rel );
+
+        m_E_edit_image_uri->signal_changed().connect(
+                [ this ]()
+                {
+                    m_para_sel_bgn->set_uri( m_E_edit_image_uri->get_text() );
+                    update_text_formatting( m_para_sel_bgn, m_para_sel_bgn );
+                } );
+        m_FCB_select_image->m_signal_file_set.connect(
+                [ this ]( const String& uri )
+                {
+                    m_para_sel_bgn->set_uri( uri );
+                    update_text_formatting( m_para_sel_bgn, m_para_sel_bgn );
+                } );
+
+        m_MoB_copy_img_to_rel->signal_clicked().connect(
+                [ this ](){ copy_image_file_to_rel(); } );
+
+        m_Bx_context->append( *m_Bx_edit_image );
+        m_p2Bx_edit_special = m_Bx_edit_image;
+    }
+}
+void
+TextviewDiaryEdit::update_chart_options()
+{
+    // do not add another one if Bx_edit_special is already set:
+    if( !m_p2Bx_edit_special && m_para_sel_bgn && m_para_sel_bgn->is_image( VT::PS_IMAGE_CHART ) )
+    {
+        auto&& builder{ Lifeograph::create_gui( Lifeograph::SHAREDIR +
+                                                "/ui/tv_diary_edit_chart.ui" ) };
+
+        update_image_options_scale( builder );
+        update_image_options_buttons( builder );
+
+        m_Bx_edit_chart = builder->get_widget< Gtk::Box >( "Bx_edit_chart" );
+        m_CB_chart      = builder->get_widget< Gtk::ComboBoxText >( "CB_chart" );
+
+        for( const auto& chart : m_p2diary->get_charts() )
+            m_CB_chart->append( std::to_string( chart.second->get_id() ), chart.first );
+
+        m_CB_chart->set_active_id( m_para_sel_bgn->get_uri() );
+
+        m_CB_chart->signal_changed().connect(
+                [ this ]()
+                {
+                    m_para_sel_bgn->set_uri( m_CB_chart->get_active_id() );
+                    update_text_formatting( m_para_sel_bgn, m_para_sel_bgn );
+                } );
+
+        m_Bx_context->append( *m_Bx_edit_chart );
+        m_p2Bx_edit_special = m_Bx_edit_chart;
+    }
+}
+void
+TextviewDiaryEdit::update_table_options()
+{
+    // do not add another one if Bx_edit_special is already set:
+    if( !m_p2Bx_edit_special && m_para_sel_bgn && m_para_sel_bgn->is_image( VT::PS_IMAGE_TABLE ) )
+    {
+        auto&& builder{ Lifeograph::create_gui( Lifeograph::SHAREDIR +
+                                                "/ui/tv_diary_edit_table.ui" ) };
+
+        update_image_options_buttons( builder );
+
+        m_Bx_edit_table         = builder->get_widget< Gtk::Box >( "Bx_edit_table" );
+        m_CB_chart              = builder->get_widget< Gtk::ComboBoxText >( "CB_table" );
+        m_CB_table_expand_all   = builder->get_widget< Gtk::CheckButton >( "CB_expand_all" );
+
+        for( const auto& table : m_p2diary->get_tables() )
+            m_CB_chart->append( std::to_string( table.second->get_id() ), table.first );
+
+        m_CB_chart->set_active_id( m_para_sel_bgn->get_uri() );
+
+        m_CB_table_expand_all->set_active( m_para_sel_bgn->m_style & VT::PS_IMAGE_EXPND );
+        m_CB_table_expand_all->signal_toggled().connect(
+                [ this ]()
+                {
+                    if( m_para_sel_bgn->m_style & VT::PS_IMAGE_EXPND )
+                        m_para_sel_bgn->m_style &= ~VT::PS_IMAGE_EXPND;
+                    else
+                        m_para_sel_bgn->m_style |= VT::PS_IMAGE_EXPND;
+                    m_para_sel_bgn->get_diary()->clear_table_images( m_para_sel_bgn->get_uri() );
+                    update_text_formatting( m_para_sel_bgn, m_para_sel_bgn );
+                } );
+
+        m_CB_chart->signal_changed().connect(
+                [ this ]()
+                {
+                    m_para_sel_bgn->set_uri( m_CB_chart->get_active_id() );
+                    update_text_formatting( m_para_sel_bgn, m_para_sel_bgn );
+                } );
+
+        m_Bx_context->append( *m_Bx_edit_table );
+        m_p2Bx_edit_special = m_Bx_edit_table;
+    }
+}
+void
+TextviewDiaryEdit::update_date_options()
+{
+    if( get_hovered_link_type() == VT::HFT_DATE )
+    {
+        auto&& builder{ Lifeograph::create_gui( Lifeograph::SHAREDIR +
+                                                "/ui/tv_diary_edit_date.ui" ) };
+
+        m_Bx_edit_date = builder->get_widget< Gtk::Box >( "Bx_edit_date" );
+        m_WCal_date_edit = Gtk::manage( new WidgetCalendar );
+        m_WCal_date_edit->show();
+        m_Bx_edit_date->append( *m_WCal_date_edit );
+
+        m_WCal_date_edit->set_date( m_p2hflink_hovered->ref_id );
+        m_WCal_date_edit->set_day_highlighted( m_p2hflink_hovered->ref_id );
+
+        m_WCal_date_edit->signal_day_selected().connect(
+                [ this ]( DateV d )
+                { replace_date_at_cursor( d ); m_Po_context->popdown(); } );
+
+        m_Bx_context->append( *m_Bx_edit_date );
+        m_p2Bx_edit_special = m_Bx_edit_date;
+    }
+}
+
+inline void
+TextviewDiaryEdit::update_evaluated_link_label( const HiddenFormat* link )
+{
+    m_L_edit_link_uri->set_text(
+            HELPERS::evaluate_path( m_para_sel_bgn->get_substr( link->pos_bgn, link->pos_end ) ) );
+}
+
+bool
+TextviewDiaryEdit::update_hidden_link_options()
+{
+    const auto link_type { get_hovered_link_type() };
+
+    // do not add another one if Bx_edit_special is already set:
+    if( !m_p2Bx_edit_special && ( ( link_type & VT::HFT_F_LINK_MANUAL ) == VT::HFT_F_LINK_MANUAL ) )
+    {
+        auto&&       builder  { Lifeograph::create_gui( Lifeograph::SHAREDIR +
+                                                        "/ui/tv_diary_edit_link.ui" ) };
+        Gtk::Button* B_remove, * B_go_to;
+
+        m_Bx_edit_link          = builder->get_widget< Gtk::Box >( "Bx_edit_link" );
+        m_St_edit_link          = builder->get_widget< Gtk::Stack >( "St_type" );
+        m_L_edit_link_uri       = builder->get_widget< Gtk::Label >( "L_evaluated" );
+        m_E_edit_link_uri       = builder->get_widget< Gtk::Entry >( "E_uri" );
+        m_WEP_edit_link_deid    = Gtk::Builder::get_widget_derived< WidgetEntryPicker >(
+                builder, "WEP_deid" );
+        B_remove                = builder->get_widget< Gtk::Button >( "B_remove" );
+        B_go_to                 = builder->get_widget< Gtk::Button >( "B_go_to" );
+
+        m_WEP_edit_link_deid->set_diary( m_p2diary );
+        m_WEP_edit_link_deid->set_name( "noncustom" );
+        m_E_edit_link_uri->set_name( "noncustom" );
+
+        if     ( link_type == VT::HFT_LINK_ID )
+        {
+            m_St_edit_link->set_visible_child( "deid" );
+            m_WEP_edit_link_deid->set_entry(
+                    m_p2diary->get_entry_by_id( m_p2hflink_hovered->ref_id ) );
+        }
+        else if( link_type == VT::HFT_LINK_EVAL )
+        {
+            m_St_edit_link->set_visible_child( "evaluated" );
+            update_evaluated_link_label( m_p2hflink_hovered );
+        }
+        else
+        {
+            m_St_edit_link->set_visible_child( "uri" );
+            m_E_edit_link_uri->set_text( m_p2hflink_hovered->uri );
+        }
+
+        m_St_edit_link->property_visible_child().signal_changed().connect(
+                [ this ]()
+                {
+                    if( Lifeograph::is_internal_operations_ongoing() ) return;
+
+                    auto          link  { const_cast< HiddenFormat* >( m_p2hflink_hovered ) };
+                    const auto&&  vcn   { m_St_edit_link->get_visible_child_name() };
+                    if      ( vcn == "uri" )    link->type = VT::HFT_LINK_URI;
+                    else if ( vcn == "deid" )
+                    {
+                        link->type = VT::HFT_LINK_ID;
+                        link->ref_id = DEID_UNSET;
+                        m_E_edit_link_uri->set_text( "" );
+                    }
+                    else
+                    {
+                        link->type = VT::HFT_LINK_EVAL;
+                        link->ref_id = m_para_cursor->get_id();
+                        update_evaluated_link_label( link );
+                    }
+                } );
+
+        m_E_edit_link_uri->signal_changed().connect(
+                [ this ]()
+                {
+                    auto link { const_cast< HiddenFormat* >( m_p2hflink_hovered ) };
+                    if( link )
+                         link->uri = HELPERS::evaluate_path( m_E_edit_link_uri->get_text() );
+                } );
+        m_WEP_edit_link_deid->signal_updated().connect(
+                [ this ]( Entry* e )
+                {
+                    auto link { const_cast< HiddenFormat* >( m_p2hflink_hovered ) };
+                    if( link && e )
+                        link->ref_id = e->get_id();
+                } );
+
+        B_remove->signal_clicked().connect(
+                [ this ]()
+                {
+                    m_para_sel_bgn->remove_format(
+                            m_para_sel_bgn->get_format_oneof_at( VT::HFT_F_LINK,
+                                                                 m_pos_cursor_in_para ) );
+                    m_Po_context->popdown();
+                    update_text_formatting( m_para_sel_bgn, m_para_sel_bgn );
+                } );
+
+        B_go_to->signal_clicked().connect(
+                [ this ]()
+                {
+                    m_Po_context->popdown();
+                    if     ( m_p2hflink_hovered->type == VT::HFT_LINK_ID )
+                        handle_link_id( m_p2hflink_hovered->ref_id );
+                    else if( m_p2hflink_hovered->type == VT::HFT_LINK_EVAL )
+                        handle_link_uri( HELPERS::evaluate_path(
+                                m_para_sel_bgn->get_substr( m_p2hflink_hovered->pos_bgn,
+                                                            m_p2hflink_hovered->pos_end ) ) );
+                    else
+                        handle_link_uri( m_p2hflink_hovered->uri );
+                } );
+
+        m_Bx_context->append( *m_Bx_edit_link );
+        m_p2Bx_edit_special = m_Bx_edit_link;
+
+        return true;
+    }
+
+    return false;
+}
+void
+TextviewDiaryEdit::update_tag_options()
+{
+    // do not add another one if Bx_edit_special is already set:
+    if( !m_p2Bx_edit_special && get_hovered_link_type() == VT::HFT_TAG )
+    {
+        auto&&       builder { Lifeograph::create_gui( Lifeograph::SHAREDIR +
+                                                       "/ui/tv_diary_edit_tag.ui" ) };
+        Gtk::Button* B_remove, * B_go_to;
+
+        m_Bx_edit_tag   = builder->get_widget< Gtk::Box >( "Bx_edit_tag" );
+        m_CB_edit_tag   = builder->get_widget< Gtk::ComboBoxText >( "CB_tag" );
+        B_remove        = builder->get_widget< Gtk::Button >( "B_remove" );
+        B_go_to         = builder->get_widget< Gtk::Button >( "B_go_to" );
+
+        Entry* e_sib_1st{ m_p2diary->get_entry_by_id( m_p2hflink_hovered->ref_id ) };
+
+        if( e_sib_1st )
+            for( const Entry* e = e_sib_1st->get_sibling_1st(); e; e = e->get_next() )
+                m_CB_edit_tag->append( std::to_string( e->get_id() ), e->get_name() );
+                // TODO: 3.1: ellipsize entry name as some of them might be too long
+
+        m_CB_edit_tag->set_active_id( std::to_string( m_p2hflink_hovered->ref_id ) );
+
+        m_CB_edit_tag->signal_changed().connect(
+                [ this ]()
+                {
+                    replace_tag_at_cursor(
+                            m_p2diary->get_entry_by_id(
+                                    std::stoul( m_CB_edit_tag->get_active_id() ) ) );
+                } );
+
+        B_go_to->signal_clicked().connect(
+                [ this ]()
+                {
+                    handle_link_id( m_p2hflink_hovered->ref_id );
+                } );
+
+        B_remove->signal_clicked().connect(
+                [ this ]()
+                {
+                    remove_tag_at_cursor();
+                } );
+
+        m_Bx_context->append( *m_Bx_edit_tag );
+        m_p2Bx_edit_special = m_Bx_edit_tag;
+    }
+}
+
+void
+TextviewDiaryEdit::change_para_type( int ps, Gtk::ToggleButton* RB )
+{
+    if( Lifeograph::is_internal_operations_ongoing() ) return;
+
+    if( !RB || RB->get_active() )
+    {
+        auto process_para =
+                [ & ]( Paragraph* para )
+                {
+                    const bool was_list{ para->is_list() };
+                    para->set_para_type2( ps );
+                    if( !was_list && ( ps & VT::PS_LIST_GEN ) && para->get_indent_level() == 0 &&
+                        para->get_heading_level() != VT::PS_SUBHDR ) // do not indent subheadings
+                    {
+                        para->set_indent_level( 1 );
+                        //para->set_visible( true );
+                    }
+                };
+
+        if( m_r2buffer->get_has_selection() ||
+            !( ps & VT::PS_LIST_GEN ) || ( ps & VT::PS_TODO_GEN )  )
+            // do not generalize todo statuses
+            do_for_each_sel_para( process_para, false );
+        else
+        {
+            Paragraph*        para_bgn;
+            calculate_selection_range( para_bgn, para_bgn ); // as there is no range in this case
+            ListParagraphs&&  siblings            { para_bgn->get_siblings() };
+            const int         ps_bgn              { para_bgn->get_list_type() };
+            bool              F_homogeneous_block { ps_bgn && !( ps_bgn & VT::PS_TODO_GEN ) };
+            // do not generalize to siblings if they are not already non-todo list items
+
+            if( F_homogeneous_block )
+            {
+                for( Paragraph* p : siblings )
+                {
+                    if( p->get_list_type() != ps_bgn )
+                    {
+                        F_homogeneous_block = false;
+                        break;
+                    }
+                }
+            }
+
+            if( F_homogeneous_block )
+                do_for_paras( siblings, process_para );
+            else
+                do_for_paras( { para_bgn }, process_para );
+        }
+
+        if( RB )
+        {
+            const int lt { m_para_menu->get_list_type() };
+            m_Bx_para_sltr->set_visible( lt == VT::PS_SLTTR  || lt == VT::PS_CLTTR ||
+                                         lt == VT::PS_SROMAN || lt == VT::PS_CROMAN );
+        }
+
+        if( m_p2entry->get_todo_status() & ES::NOT_TODO )
+            m_p2entry->update_todo_status();
+
+        refresh_entry_icons();
+        AppWindow::p->UI_diary->refresh_row( m_p2entry );
+    }
+}
+
+int
+TextviewDiaryEdit::get_para_letter_type() const
+{
+    int letter_type { 0 };
+
+    if( m_RB_para_cltr->get_active() )      letter_type = VT::PS_CLTTR;
+    else if( m_RB_para_crmn->get_active() ) letter_type = VT::PS_CROMAN;
+
+    if( letter_type != 0 )
+    {
+        if( m_Sw_para_sltr->get_active() )
+            letter_type += 0x10;  // capital and small letter types are consequtive
+    }
+
+    return letter_type;
+}
+
+void
+TextviewDiaryEdit::change_para_todo_status()
+{
+    PollMap< int >  poll;
+    int             next_status;
+    Paragraph*      para_bgn, * para_end;
+
+    calculate_selection_range( para_bgn, para_end );
+
+    for( Paragraph* p = para_bgn; p; p = p->get_next() )
+    {
+        poll.increase( p->get_todo_status_ps() );
+        if( p == para_end ) break;
+    }
+
+    switch( poll.get_key_max() )
+    {
+        case VT::PS_TODO:   next_status = VT::PS_PROGRS; break;
+        case VT::PS_PROGRS: next_status = VT::PS_DONE; break;
+        case VT::PS_DONE:   next_status = VT::PS_CANCLD; break;
+        // case VT::PS_CANCLD: next_status = VT::PS_LIST_GEN; break; // no need to clear
+        default:            next_status = VT::PS_TODO; break;
+    }
+    change_para_type( next_status );
+}
+
+void
+TextviewDiaryEdit::change_para_ordered_list_type()
+{
+    PollMap< int >  poll;
+    Paragraph*      para_bgn, * para_end;
+
+    calculate_selection_range( para_bgn, para_end );
+
+    for( Paragraph* p = para_bgn; p; p = p->get_next() )
+    {
+        poll.increase( p->get_list_type() );
+        if( p == para_end ) break;
+    }
+
+    const int       lt { poll.get_key_max() };
+
+    if( !( lt & VT::PS_ORDERED_GEN ) || lt == VT::PS_SROMAN )
+        change_para_type( VT::PS_NUMBER );
+    else
+        change_para_type( lt + 0x10 );
+}
+
+void
+TextviewDiaryEdit::change_para_hrule()
+{
+    const bool new_hrule_status { !m_para_sel_bgn->is_hrule() };
+    do_for_each_sel_para( [ & ]( Paragraph* p ) { p->set_hrule( new_hrule_status ); }, false );
+}
+
+void
+TextviewDiaryEdit::change_para_indentation( bool F_increase )
+{
+    do_for_each_sel_para(
+            [ & ]( Paragraph* para )
+            {
+                if( F_increase )
+                {
+                    para->indent();
+                    //para->set_visible( true );
+                }
+                else
+                    para->unindent();
+            },
+            true );
+}
+
+void
+TextviewDiaryEdit::show_Po_context( int x, int y )
+{
+    Gtk::TextIter   iter;
+    Gdk::Rectangle  rect      { x, y, 0, 0 };
+    const bool      F_has_sel { m_r2buffer->get_has_selection() };
+
+    if( x < 0 )
+    {
+        iter = m_r2buffer->get_iter_at_offset( m_pos_cursor );
+    }
+    else
+    {
+        bool F_move_cursor { true };
+
+        window_to_buffer_coords( Gtk::TextWindowType::TEXT, x, y, x, y );
+        get_iter_at_location( iter, x, y );
+
+        if( F_has_sel )
+        {
+            Gtk::TextIter it_bgn, it_end;
+            m_r2buffer->get_selection_bounds( it_bgn, it_end );
+            // if hover is outside the selection:
+            F_move_cursor = ( iter.get_offset() < it_bgn.get_offset() ||
+-                             iter.get_offset() > it_end.get_offset() );
+        }
+
+        if( F_move_cursor )
+        {
+            //m_ongoing_operation_depth++; // disable on_mark_set
+            m_r2buffer->place_cursor( iter );
+            //m_ongoing_operation_depth--;
+        }
+    }
+
+    m_B_undo->set_sensitive( can_undo() );
+    m_B_redo->set_sensitive( can_redo() );
+
+    m_B_search_sel->set_visible( F_has_sel );
+
+    remove_Po_context_special();
+
+    if( get_editable() )
+    {
+        // CLIPBOARD
+        m_B_cut->set_sensitive( F_has_sel );
+
+        auto formats{ get_clipboard()->get_formats() };
+        bool F_has_link{ false };
+        PRINT_DEBUG( formats->to_string() );
+        m_B_paste->set_sensitive( formats->contain_mime_type( MIME_TEXT_PLAIN ) ||
+                                  formats->contain_mime_type( MIME_TEXT_LOG ) ||
+                                  formats->contain_mime_type( "image/png" ) );
+
+        // CONTEXT DEPENDENT OPTIONS
+        Lifeograph::START_INTERNAL_OPERATIONS();
+        m_TB_bold->set_active( toggle_format( VT::HFT_BOLD, true ) );
+        m_TB_italic->set_active( toggle_format( VT::HFT_ITALIC, true ) );
+        m_TB_underline->set_active( toggle_format( VT::HFT_UNDERLINE, true ) );
+        m_TB_strkthru->set_active( toggle_format( VT::HFT_STRIKETHRU, true ) );
+        m_TB_highlight->set_active( toggle_format( VT::HFT_HIGHLIGHT, true ) );
+        m_TB_subscript->set_active( toggle_format( VT::HFT_SUBSCRIPT, true ) );
+        m_TB_superscript->set_active( toggle_format( VT::HFT_SUPERSCRIPT, true ) );
+        Lifeograph::FINISH_INTERNAL_OPERATIONS();
+
+        const auto pos  { iter.get_offset() };
+        auto para       { m_p2entry->get_paragraph( pos, true ) };
+        set_hovered_link( para->get_format_oneof_at(
+                                VT::HFT_F_LINK, pos - para->get_bgn_offset_in_host() ) );
+        update_image_options();
+        update_chart_options();
+        update_table_options();
+        update_date_options();
+        F_has_link = update_hidden_link_options();
+        update_tag_options();
+
+        m_Bx_context_edit_1->set_visible( true );
+        m_B_context_extras->set_visible( true );
+        m_B_insert_link->set_visible( F_has_sel && !F_has_link );
+        m_B_insert_image->set_visible( !F_has_sel && is_the_main_editor() );
+        m_B_insert_emoji->set_visible( !F_has_sel );
+        m_B_insert_chart->set_visible( !F_has_sel && is_the_main_editor() &&
+                                       !m_p2diary->get_charts().empty() );
+        m_B_insert_table->set_visible( !F_has_sel && is_the_main_editor() &&
+                                       !m_p2diary->get_tables().empty() );
+
+        // SPELL SUGGESTIONS (created by using GtkSpell as a template)
+        if( iter.has_tag( m_tag_misspelled ) )
+        {
+            m_spell_suggest_offset = iter.get_offset();
+            m_Bx_spell_seprtor->set_visible( true );
+            m_FBx_spell->set_visible( true );
+            update_spell_suggestions();
+        }
+        else
+        {
+            m_Bx_spell_seprtor->set_visible( false );
+            m_FBx_spell->set_visible( false );
+        }
+    }
+
+    m_B_copy->set_sensitive( F_has_sel );
+
+    if( F_has_sel || !m_para_sel_bgn->is_image() )
+        get_selection_rect( rect );
+
+    m_Po_context->set_pointing_to( rect );
+    m_Po_context->show();
+}
+
+void
+TextviewDiaryEdit::show_Po_paragraph( int x, int y )
+{
+    if( !get_editable() ) return;
+    if( !m_para_menu ) return;
+
+    Lifeograph::START_INTERNAL_OPERATIONS();
+
+    // PARA ALIGNMENT
+    switch( m_para_menu->get_alignment() )
+    {
+        case VT::PS_ALIGN_L: m_RB_align_left->set_active( true ); break;
+        case VT::PS_ALIGN_C: m_RB_align_center->set_active( true ); break;
+        case VT::PS_ALIGN_R: m_RB_align_right->set_active( true ); break;
+    }
+
+    // HEADING STYLE
+    switch( m_para_menu->get_heading_level() )
+    {
+        default:            m_RB_para_hoff->set_active( true ); break;
+        case VT::PS_SUBHDR: m_RB_para_subh->set_active( true ); break;
+        case VT::PS_SSBHDR: m_RB_para_ssbh->set_active( true ); break;
+    }
+
+    // LIST STYLE
+    const int list_type { m_para_menu->get_list_type() };
+    switch( list_type )
+    {
+        default:            m_RB_para_plai->set_active( true ); break;
+        case VT::PS_BULLET: m_RB_para_bllt->set_active( true ); break;
+        case VT::PS_NUMBER: m_RB_para_nmbr->set_active( true ); break;
+        case VT::PS_CLTTR:  m_RB_para_cltr->set_active( true );
+                            m_Sw_para_sltr->set_active( false );
+        case VT::PS_SLTTR:  m_RB_para_cltr->set_active( true );
+                            m_Sw_para_sltr->set_active( true ); break;
+        case VT::PS_CROMAN: m_RB_para_crmn->set_active( true );
+                            m_Sw_para_sltr->set_active( false ); break;
+        case VT::PS_SROMAN: m_RB_para_crmn->set_active( true );
+                            m_Sw_para_sltr->set_active( true ); break;
+        case VT::PS_TODO:   m_RB_para_todo->set_active( true ); break;
+        case VT::PS_PROGRS: m_RB_para_prog->set_active( true ); break;
+        case VT::PS_DONE:   m_RB_para_done->set_active( true ); break;
+        case VT::PS_CANCLD: m_RB_para_cncl->set_active( true ); break;
+    }
+
+    m_Bx_para_sltr->set_visible( list_type == VT::PS_SLTTR || list_type == VT::PS_CLTTR ||
+                                 list_type == VT::PS_SROMAN || list_type == VT::PS_CROMAN );
+
+    if( m_para_menu->is_todo_status_forced() )
+    {
+        const auto v{ m_para_menu->get_completion() };
+        m_RB_para_todo->set_sensitive( v == 0.0 );
+        m_RB_para_prog->set_sensitive( is_value_in_range_excl( v, 0.0,  1.0 ) );
+        m_RB_para_done->set_sensitive( v == 1.0 );
+        m_RB_para_cncl->set_sensitive( false );
+    }
+    else
+    {
+        m_RB_para_todo->set_sensitive( true );
+        m_RB_para_prog->set_sensitive( true );
+        m_RB_para_done->set_sensitive( true );
+        m_RB_para_cncl->set_sensitive( true );
+    }
+
+    // ATTRIBUTES
+    // Lifeograph::p->change_action_state( "para_style_code",
+    //                 Glib::Variant< bool >::create( m_para_menu->is_code() ) );
+    // Lifeograph::p->change_action_state( "para_style_quote",
+    //                 Glib::Variant< bool >::create( m_para_menu->is_quote() ) );
+    m_Sw_para_hrule->set_active( m_para_menu->is_hrule() );
+    m_Sw_para_code->set_active( m_para_menu->is_code() );
+    m_Sw_para_quote->set_active( m_para_menu->is_quote() );
+
+    Lifeograph::FINISH_INTERNAL_OPERATIONS();
+
+    Gdk::Rectangle rect{ PAGE_MARGIN, y - 1, BULLET_COL_WIDTH, 2 };
+    m_Po_paragraph->set_pointing_to( rect );
+    m_Po_paragraph->show();
+}
+
+void
+TextviewDiaryEdit::show_Po_completion()
+{
+    if( !m_completion )
+        return;
+
+    Gdk::Rectangle rect;
+    Gtk::TextIter it_bgn, it_end;
+    calculate_token_bounds( it_bgn, it_end, VT::HFT_TAG );
+    get_selection_rect( rect );
+    m_completion->popup( rect, m_r2buffer->get_slice( it_bgn, it_end ) );
+}
+
+void
+TextviewDiaryEdit::update_per_replaced_match( const HiddenFormat* match, int pos_cursor_new )
+{
+    auto      para     { m_p2entry->get_paragraph_by_no( match->var_i ) };
+    const int pos_para { para->get_bgn_offset_in_host() };
+    // NOTE: undo is handled in the UIExtra
+
+    update_para_region( pos_para, para->get_end_offset_in_host(), para, para, pos_cursor_new );
+}
+
+/* this used to be used adjust the thumbnail resize on size events
+void
+TextviewDiaryEdit::check_resize()
+{
+    if( update_image_width() )
+    {
+        if( m_F_set_text_queued )
+        {
+            Lifeograph::START_INTERNAL_OPERATIONS();
+            // this queuing should only happen while logging in, hence always internal
+            set_entry( m_p2entry );
+            // word count needs to be updated:
+            AppWindow::p->UI_entry->refresh_extra_info();
+            //update_highlight_button();
+            m_F_set_text_queued = false;
+            Lifeograph::FINISH_INTERNAL_OPERATIONS();
+        }
+        else
+            update_text_formatting();
+    }
+}*/
+
+void
+TextviewDiaryEdit::on_button_press_event( int n_press, double x, double y )
+{
+    const int link_type{ get_hovered_link_type() };
+
+    if( m_gesture_click->get_current_button() == 3 )
+    {
+        m_gesture_click->set_state( Gtk::EventSequenceState::CLAIMED );
+        if( link_type == VT::HFT_ENTRY_MENU )
+            return;
+        else
+        if( m_para_menu )
+            show_Po_paragraph( x, y );
+        else
+            show_Po_context( x, y );
+        //m_gesture_click->set_state( Gtk::EventSequenceState::DENIED ); -apparently not needed?
+    }
+}
+
+bool
+TextviewDiaryEdit::on_key_press_event( guint keyval, guint, Gdk::ModifierType state )
+{
+    if( get_editable() )
+    {
+        switch( int( state ) & CTRL_ALT_SHIFT_MASK )
+        {
+            case 0:
+                if( m_completion && m_completion->handle_key( keyval, false, false ) )
+                    return true;
+
+                switch( keyval )
+                {
+                    case GDK_KEY_BackSpace:
+                        if( handle_backspace() )
+                            return true;
+                        break;
+                    //case GDK_KEY_space: handle_space(); break;
+                    case GDK_KEY_minus:
+                        if( handle_replace_str( "-" ) ) return true;
+                        break;
+                    case GDK_KEY_greater:
+                        if( handle_replace_str( ">" ) ) return true;
+                        break;
+                    case GDK_KEY_Control_L:
+                    case GDK_KEY_Control_R:
+                        if( bool( get_hovered_link_type() & VT::HFT_F_LINK ) )
+                        {
+                            double cx, cy;
+                            m_controller_key->get_current_event()->get_position( cx, cy );
+                            update_link( cx, cy, state );
+                        }
+                        break;
+                    case GDK_KEY_Escape:
+                        m_Po_context->hide();
+                        return true;
+                    case GDK_KEY_Menu:
+                        show_Po_context( -1 );
+                        return true;
+                }
+                break;
+            case int( Gdk::ModifierType::CONTROL_MASK ):
+                if( m_completion && m_completion->handle_key( keyval, true, false ) )
+                    return true;
+
+                switch( keyval )
+                {
+                    //case GDK_KEY_Return:    m_F_inherit_para_style = false; break;
+                    case GDK_KEY_space:
+                        m_F_popover_link = false;
+                        show_Po_completion();
+                        return true;
+                    case GDK_KEY_B:
+                    case GDK_KEY_b:     toggle_format( VT::HFT_BOLD ); return true;
+                    case GDK_KEY_H:
+                    case GDK_KEY_h:     toggle_format( VT::HFT_HIGHLIGHT ); return true;
+                    case GDK_KEY_Iabovedot: // Turkish İ
+                    case GDK_KEY_idotless:  // Turkish ı
+                    case GDK_KEY_I:
+                    case GDK_KEY_i:     toggle_format( VT::HFT_ITALIC ); return true;
+                    case GDK_KEY_L:
+                    case GDK_KEY_l:     add_link_to_sel( "" ); return true;
+                    case GDK_KEY_S:
+                    case GDK_KEY_s:     toggle_format( VT::HFT_STRIKETHRU ); return true;
+                    case GDK_KEY_U:
+                    case GDK_KEY_u:     toggle_format( VT::HFT_UNDERLINE ); return true;
+                    case GDK_KEY_V:
+                    case GDK_KEY_v:     paste_clipboard2(); return true;
+                    case GDK_KEY_X:
+                    case GDK_KEY_x:     copy_clipboard( true ); return true;
+                    case GDK_KEY_less:
+                        m_F_popover_link = true;
+                        show_Po_completion();
+                        return true;
+                    case GDK_KEY_greater: add_link_to_sel_interactive(); return true;
+                }
+                break;
+            case int( Gdk::ModifierType::SHIFT_MASK ):
+                if( m_completion && m_completion->handle_key( keyval, false, true ) )
+                    return true;
+
+                switch( keyval )
+                {
+                    case GDK_KEY_greater:
+                        if( handle_replace_str( ">" ) ) return true;
+                        break;
+                    case GDK_KEY_space:
+                    {
+                        auto iter { m_r2buffer->get_iter_at_offset( m_pos_cursor ) };
+                        if( iter.ends_line() || STR::is_char_space( iter.get_char() ) )
+                            break;
+                        m_r2buffer->insert( iter, " " );
+                        set_cursor_position( m_pos_cursor - 1 );
+                        return true;
+                    }
+                }
+                break;
+#ifdef __APPLE__
+            case HELPERS::CTRL_META_MASK:
+#else
+            case int( Gdk::ModifierType::ALT_MASK ):
+#endif // __APPLE__
+                switch( keyval )
+                {
+                    case GDK_KEY_Return:        open_paragraph_below(); return true;
+                    case GDK_KEY_0:
+                        do_for_each_sel_para(
+                            []( Paragraph* p ){ p->clear_para_type(); }, true );
+                        return true;
+                    case GDK_KEY_1:             change_para_ordered_list_type(); return true;
+                    case GDK_KEY_2:             duplicate_paragraphs(); return true;
+                    case GDK_KEY_C:
+                    case GDK_KEY_c:             insert_comment(); return true;
+                    case GDK_KEY_D:
+                    case GDK_KEY_d:             insert_date_stamp(); return true;
+                    case GDK_KEY_E:
+                    case GDK_KEY_e:             make_selection_entry_tag(); return true;
+                    case GDK_KEY_F:
+                    case GDK_KEY_f:             beautify_text( true ); return true;
+                    case GDK_KEY_H:
+                    case GDK_KEY_h:
+                        do_for_each_sel_para(
+                            []( Paragraph* p )
+                            { p->change_heading_level(); /*p->set_visible( true );*/ },
+                            false );
+                        return true;
+                    case GDK_KEY_Iabovedot: // Turkish İ
+                    case GDK_KEY_idotless:  // Turkish ı
+                    case GDK_KEY_I:
+                    case GDK_KEY_i:             change_para_indentation( true ); return true;
+                    case GDK_KEY_J:
+                    case GDK_KEY_j:             join_paragraphs(); return true;
+                    case GDK_KEY_L:
+                    case GDK_KEY_l:             add_empty_line_above(); return true;
+                    case GDK_KEY_Q:
+                    case GDK_KEY_q:
+                        do_for_each_sel_para(
+                            []( Paragraph* p ){ p->set_quote( !p->is_quote() ); },
+                            true );
+                        return true;
+                    case GDK_KEY_R:
+                    case GDK_KEY_r:             change_para_hrule(); return true;
+                    case GDK_KEY_T:
+                    case GDK_KEY_t:             change_para_todo_status(); return true;
+                    case GDK_KEY_U:
+                    case GDK_KEY_u:             change_para_indentation( false ); return true;
+                    case GDK_KEY_X:
+                    case GDK_KEY_x:
+                        delete_paragraphs( m_para_sel_bgn, m_para_sel_end ? m_para_sel_end
+                                                                          : m_para_sel_bgn );
+                        return true;
+                    case GDK_KEY_Up:            move_paragraphs_up(); return true;
+                    case GDK_KEY_Down:          move_paragraphs_down(); return true;
+                    case GDK_KEY_asterisk:      change_para_type( VT::PS_BULLET ); return true;
+                    case GDK_KEY_minus:
+                    case GDK_KEY_KP_Subtract:   modify_numeric_field( -1 ); return true;
+                    case GDK_KEY_plus:
+                    case GDK_KEY_KP_Add:        modify_numeric_field( 1 ); return true;
+                    default: PRINT_DEBUG( "keyval: ",  keyval ); break;
+                }
+                break;
+            case CTRL_SHIFT_MASK:
+                switch( keyval )
+                {
+                    case GDK_KEY_space:   show_Po_context( -1 ); return true;
+                    case GDK_KEY_greater: add_link_to_sel_interactive(); return true;
+                }
+                break;
+#ifdef __APPLE__
+            case HELPERS::CTRL_META_SHIFT_MASK:
+#else
+            case ALT_SHIFT_MASK:
+#endif
+                switch( keyval )
+                {
+                    case GDK_KEY_D:
+                    case GDK_KEY_d:             insert_date_stamp( true ); return true;
+                    case GDK_KEY_F:
+                    case GDK_KEY_f:             beautify_text( false ); return true;
+                    case GDK_KEY_L:
+                    case GDK_KEY_l:             remove_empty_line_above(); return true;
+                    case GDK_KEY_R:
+                    case GDK_KEY_r:             insert_hrule(); return true;
+                    // to support keyboard layouts where a Shift is needed for these characters:
+                    case GDK_KEY_asterisk:      change_para_type( VT::PS_BULLET ); return true;
+                    // case GDK_KEY_underscore: use Alt + T
+                    //     handle_para_type_changed( nullptr, VT::PS_TODO );
+                    //     break;
+                    case GDK_KEY_plus:          modify_numeric_field( 1 ); return true;
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    // key combinations that can be used in read-only mode, too:
+    switch( int( state ) & CTRL_ALT_SHIFT_MASK )
+    {
+//        case 0:
+//            break;
+       case int( Gdk::ModifierType::CONTROL_MASK ):
+            switch( keyval )
+            {
+                case GDK_KEY_C:
+                case GDK_KEY_c:     copy_clipboard(); return true;
+            }
+           break;
+#ifdef __APPLE__
+        case HELPERS::CTRL_META_MASK:
+#else
+        case int( Gdk::ModifierType::ALT_MASK ):
+#endif // __APPLE__
+            switch( keyval )
+            {
+                case GDK_KEY_A:
+                case GDK_KEY_a:             toggle_fold( m_para_sel_bgn ); return true;
+                case GDK_KEY_G:
+                case GDK_KEY_g:             go_to_link(); return true;
+                case GDK_KEY_S:
+                case GDK_KEY_s:
+                    AppWindow::p->UI_extra->focus_searching( get_selected_text() );
+                    return true;
+                case GDK_KEY_M:
+                case GDK_KEY_m:             expand_selection(); return true;
+#ifdef LIFEOGRAPH_DEBUG_BUILD
+                case GDK_KEY_F11:
+                    PRINT_DEBUG( "[[[ DEBUG OUTPUT [[[" );
+                    m_p2entry->get_undo_stack()->print_debug_info();
+                    PRINT_DEBUG( "]]] END OF DEBUG OUTPUT ]]]" );
+                    return true;
+#endif
+            }
+            break;
+#ifdef __APPLE__
+        case HELPERS::CTRL_META_SHIFT_MASK:
+#else
+        case HELPERS::ALT_SHIFT_MASK:
+#endif // __APPLE__
+            if( keyval == GDK_KEY_A || keyval == GDK_KEY_a )
+                toggle_collapse_all_subheaders();
+            return true;
+        default:
+            break;
+    }
+
+    return false;
+}
+
+void
+TextviewDiaryEdit::on_key_release_event( guint keyval, guint, Gdk::ModifierType state )
+{
+    if( keyval == GDK_KEY_Control_L || keyval == GDK_KEY_Control_R )
+        if( bool( get_hovered_link_type() & VT::HFT_F_LINK ) )
+        {
+            double cx, cy;
+            m_controller_key->get_current_event()->get_position( cx, cy );
+            update_link( cx, cy, state );
+        }
+}
+
+// bool
+// TextviewDiaryEdit::handle_drop_accept( const Glib::RefPtr< Gdk::Drop >& drop )
+// {
+    // TODO: check if this is really needed
+    // auto&& formats{ drop->get_formats() };
+    // PRINT_DEBUG( "handle_drop_accept: ", formats->to_string() );
+    // return( get_editable() && ( formats->contain_mime_type( "text/uri-list" ) ||
+    //                             formats->contain_gtype( Glib::Value< Ustring >::value_type() ) ||
+    //                             formats->contain_gtype( Theme::GValue::value_type() ) ||
+    //                             formats->contain_gtype( Entry::GValue::value_type() ) ) );
+//     return false;
+// }
+
+Gdk::DragAction
+TextviewDiaryEdit::handle_drop_motion( double x, double y )
+{
+    const auto formats { m_drop_target->get_drop()->get_formats() };
+
+    if     ( formats->contain_gtype( Glib::Value< Ustring >::value_type() ) )
+        return Gdk::DragAction::MOVE;
+    // else if( formats->contain_gtype( Entry::GValue::value_type() ) ||
+    //          formats->contain_gtype( ChartElem::GValue::value_type() ) )
+    {
+        int             buf_x, buf_y;
+        Gtk::TextIter   iter;
+
+        window_to_buffer_coords( Gtk::TextWindowType::TEXT, x, y, buf_x, buf_y );
+        get_iter_at_location( iter, buf_x, buf_y );
+
+        grab_focus();
+        set_cursor_position( iter.get_offset() );
+    }
+
+    return Gdk::DragAction::COPY;
+}
+
+bool
+TextviewDiaryEdit::handle_drop( const Glib::ValueBase& value, double x, double y )
+{
+    if     ( G_VALUE_HOLDS( value.gobj(), Entry::GValue::value_type() ) )
+    {
+        int             buf_x, buf_y;
+        Gtk::TextIter   iter;
+        Entry::GValue   value_entry;
+        // auto            modifiers   { m_drop_target->get_current_event_state() };
+
+        value_entry.init( value.gobj() );
+        window_to_buffer_coords( Gtk::TextWindowType::TEXT, x, y, buf_x, buf_y );
+        get_iter_at_location( iter, buf_x, buf_y );
+        if( iter.is_end() ) --iter; // prevent using the disabled last line
+
+
+        // does not work due to GNOME/gtk#5469 :
+        // if( bool( modifiers & Gdk::ModifierType::CONTROL_MASK ) )
+        //     insert_link( iter.get_offset(), value_entry.get() );
+        // else
+            insert_tag( iter.get_offset(), value_entry.get() );
+    }
+    else if( G_VALUE_HOLDS( value.gobj(), Theme::GValue::value_type() ) )
+    {
+        Theme::GValue value_theme;
+        value_theme.init( value.gobj() );
+
+        AppWindow::p->UI_entry->set_theme( value_theme.get() );
+    }
+    else if( G_VALUE_HOLDS( value.gobj(), ChartElem::GValue::value_type() ) )
+    {
+        // the following is not needed as there is only one source for charts:
+        // ChartElem::GValue value_chart;
+        // value_chart.init( value.gobj() );
+        // const ChartElem* chart { value_chart.get() };
+
+        insert_image2( std::to_string( Diary::d->get_chart_active()->get_id() ),
+                                       VT::PS_IMAGE_CHART );
+    }
+    else if( G_VALUE_HOLDS( value.gobj(), TableElem::GValue::value_type() ) )
+    {
+        insert_image2( std::to_string( Diary::d->get_table_active()->get_id() ),
+                                       VT::PS_IMAGE_TABLE );
+    }
+    else if( G_VALUE_HOLDS( value.gobj(), Glib::Value< Ustring >::value_type() ) )
+    {
+        int                     buf_x, buf_y;
+        Gtk::TextIter           iter;
+        Glib::Value< Ustring >  value_str;
+
+        value_str.init( value.gobj() );
+        const Ustring           text { value_str.get() };
+
+        window_to_buffer_coords( Gtk::TextWindowType::TEXT, x, y, buf_x, buf_y );
+        get_iter_at_location( iter, buf_x, buf_y );
+
+        const auto  offset_cur    { iter.get_offset() };
+        Paragraph*  p2para        { m_p2entry->get_paragraph( offset_cur, true ) };
+        const auto  pos_erase_end { p2para->get_end_offset_in_host() };
+
+        // TODO: 3.2: separate with spaces if needed:
+        m_p2entry->insert_text( offset_cur, text, nullptr, true, true );
+
+        auto      undo_last { m_p2entry->get_undo_stack()->get_undo_cur() };
+        const int p_count   { dynamic_cast< UndoEdit* >( undo_last )->m_n_paras_after - 1 };
+
+        update_para_region( p2para->get_bgn_offset_in_host(), pos_erase_end,
+                            p2para, p2para->get_nth_next( p_count ),
+                            text.size() );
+    }
+// TODO: 3.0 check necessity on gtkmm4:
+// #ifdef _WIN32
+//     else if( drag_dest_find_target( dc ) == "text/uri-list" )
+//     {
+//         int                     buf_x, buf_y;
+//         Gtk::TextIter           iter;
+
+//         window_to_buffer_coords( Gtk::TextWindowType::TEXT, x, y, buf_x, buf_y );
+
+//         String                  str_uri { sel_data.get_data_as_string() };
+//         str_uri = str_uri.substr( 0, str_uri.find( '\r' ) );
+
+//         m_para_sel_bgn->insert_text_with_spaces( m_pos_cursor_in_para,
+//                                                  str_uri,
+//                                                  &m_p2diary->m_parser_bg );
+//         update_para_region_cur();
+//     }
+// #endif
+    else
+    {
+        PRINT_DEBUG( "Received unexpected data type: ", G_VALUE_TYPE_NAME( value.gobj() ) );
+        return false;
+    }
+
+    return true;
+}

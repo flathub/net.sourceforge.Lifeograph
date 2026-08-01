@@ -1,0 +1,388 @@
+/***********************************************************************************
+
+    Copyright (C) 2007-2024 Ahmet Öztürk (aoz_2@yahoo.com)
+
+    This file is part of Lifeograph.
+
+    Lifeograph is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Lifeograph is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Lifeograph.  If not, see <http://www.gnu.org/licenses/>.
+
+***********************************************************************************/
+
+
+#include "dialog_smartadd.hpp"
+#include "../app_window.hpp"
+
+namespace LIFEO
+{
+
+// STATIC MEMBERS
+DialogSmartAdd *DialogSmartAdd::ptr;
+
+void
+DialogSmartAdd::create()
+{
+    if( !Diary::d->is_in_edit_mode() ) return;
+
+    if( ptr  == nullptr )
+    {
+        auto&& builder{ Lifeograph::create_gui( Lifeograph::SHAREDIR + "/ui/dlg_smartadd.ui" ) };
+        ptr = Gtk::Builder::get_widget_derived< DialogSmartAdd >( builder, "D_smartadd" );
+
+        ptr->m_p2para = ptr->m_Tv_para->get_paragraph();
+    }
+    else
+    {
+        ptr->m_Tv_para->clear();
+        ptr->reset();
+    }
+
+    ptr->set_transient_for( *AppWindow::p );
+    ptr->show();
+}
+void
+DialogSmartAdd::disband()
+{
+    if( ptr )
+        ptr->m_Tv_para->disband();
+}
+
+DialogSmartAdd::DialogSmartAdd( BaseObjectType* cobject,
+                                const Glib::RefPtr< Gtk::Builder >& builder )
+:   Gtk::Window( cobject )
+{
+    Gtk::Button* B_cancel, * B_clear;
+
+    m_L_path            = builder->get_widget< Gtk::Label >( "L_path" );
+    m_Tv_para           = Gtk::Builder::get_widget_derived< TextviewDiaryPara >( builder,
+                                                                                 "Tv_para" );
+    m_LB_suggestions    = builder->get_widget< Gtk::ListBox >( "LB_suggestions" );
+    B_cancel            = builder->get_widget< Gtk::Button >( "B_cancel" );
+    B_clear             = builder->get_widget< Gtk::Button >( "B_clear"  );
+
+    m_L_path->set_text( _( "No entry selected" ) );
+
+    B_cancel->signal_clicked().connect(     [ this ]() { hide(); } );
+    B_clear->signal_clicked().connect(      [ this ]() { m_Tv_para->clear(); } );
+    m_Tv_para->signal_changed().connect(    [ this ]()
+    {
+        //if( has_changed() ) // try not to update unless necessary to avoid flicker
+            update_suggestions();
+    } );
+
+    m_LB_suggestions->signal_row_activated().connect( [ this ]( Gtk::ListBoxRow* )
+    {
+        apply_suggestion( get_selected() );
+    } );
+    // m_LB_suggestions->signal_row_selected().connect( [ this ]( Gtk::ListBoxRow* row )
+    // {
+    //     if( row )
+    //         PRINT_DEBUG( "ROW SELECTED: " );
+    // } );
+
+    // CONTROLLERS
+    auto controller_key { Gtk::EventControllerKey::create() };
+    controller_key->signal_key_pressed().connect(
+            sigc::mem_fun( *this, &DialogSmartAdd::on_key_press_event ), false );
+    controller_key->set_propagation_phase( Gtk::PropagationPhase::CAPTURE );
+    add_controller( controller_key );
+}
+
+bool
+DialogSmartAdd::on_key_press_event( guint keyval, guint, Gdk::ModifierType state )
+{
+    switch( int( state ) & CTRL_ALT_SHIFT_MASK )
+    {
+        case 0:
+            switch( keyval )
+            {
+                case GDK_KEY_Escape:
+                    hide();
+                    return true;
+                case GDK_KEY_Return:
+                    if( has_selection() ) apply_suggestion( get_selected() );
+                    return true;
+                case GDK_KEY_Tab:
+                case GDK_KEY_Down:
+                    select_LB_item_next( m_LB_suggestions );
+                    return true;
+                case GDK_KEY_Up:
+                    select_LB_item_prev( m_LB_suggestions );
+                    return true;
+            }
+            break;
+        case int( Gdk::ModifierType::CONTROL_MASK ):
+            if( keyval == GDK_KEY_BackSpace )
+            {
+                reset();
+                return true;
+            }
+            break;
+        case int( Gdk::ModifierType::SHIFT_MASK ):
+            if( keyval == GDK_KEY_ISO_Left_Tab )
+            {
+                select_LB_item_prev( m_LB_suggestions );
+                return true;
+            }
+            break;
+    }
+    return false;
+}
+
+void
+DialogSmartAdd::clear_suggestions()
+{
+    remove_all_children_from_LBx( m_LB_suggestions );
+    m_suggestions.clear();
+}
+
+void
+DialogSmartAdd::reset()
+{
+    m_p2entry_parent = nullptr;
+    m_p2para_parent = nullptr;
+
+    m_L_path->set_text( _( "No entry selected" ) );
+    update_suggestions();
+    m_Tv_para->grab_focus();
+}
+
+void
+DialogSmartAdd::update_suggestions()
+{
+    const Ustring&      description     { m_p2para->get_text() };
+    const Ustring&&     filter_l        { STR::lowercase( description ) };
+    int                 count           { 0 };
+    VecEntries          partial_matches;
+    Entry*              p2e_exact       { nullptr };
+    static const int    MAX_SUGGESTIONS { 8 };
+
+    clear_suggestions();
+
+    if( description.empty() )
+    {
+        if( m_p2entry_parent )
+        {
+            for( Entry* p2ec = m_p2entry_parent->get_child_1st(); p2ec; p2ec = p2ec->get_next() )
+                add_suggestion( p2ec );
+        }
+        else
+            return;
+    }
+
+    for( Entry* e = Diary::d->get_entry_1st(); e; e = e->get_next_straight() )
+    {
+        if( m_p2entry_parent && !e->is_descendant_of( m_p2entry_parent ) )
+            continue;
+
+        const Ustring&& entry_name_l{ STR::lowercase( e->get_name() ) };
+
+        if( entry_name_l.find( filter_l ) != Ustring::npos )
+        {
+            if( entry_name_l == filter_l )
+                p2e_exact = e;
+            else
+                partial_matches.push_back( e );
+        }
+    }
+
+    // GOTOS
+    if( p2e_exact )
+    {
+        add_suggestion( p2e_exact );
+        for( Entry* p2ec = p2e_exact->get_child_1st(); p2ec; p2ec = p2ec->get_next() )
+            add_suggestion( p2ec );
+    }
+
+    for( Entry* p2e : partial_matches )
+    {
+        if( ++count > MAX_SUGGESTIONS )
+            break;
+        add_suggestion( p2e );
+    }
+
+    if( m_p2entry_parent )
+    {
+        int subh_count{ 0 };
+
+        add_suggestion( SuggestionType::AS_A_NEW_PARA,
+                        _( "Add to the End of the Entry" ),
+                        m_p2entry_parent->get_paragraph_last() );
+
+        for( Paragraph* ph = m_p2entry_parent->get_paragraph_1st();
+             ph && subh_count < MAX_SUGGESTIONS;
+             ph = ph->get_next() )
+        {
+            if( ph->get_heading_level() > 0 )
+            {
+                subh_count++;
+                add_suggestion( SuggestionType::AS_A_NEW_PARA,
+                                STR::compose( _( "Add as a new Paragraph under" ),
+                                              ": <b>",
+                                              Glib::Markup::escape_text( ph->get_text() ),
+                                              "</b>" ),
+                                ph );
+            }
+        }
+
+        add_suggestion( SuggestionType::GO_UP, _( "Go up" ), nullptr );
+    }
+    else
+    {
+        // NEW ENTRY / PARA
+        if( Diary::d->get_entry_today() )
+            add_suggestion( SuggestionType::APPEND_TO_TODAY,
+                            _( "Add as a new Paragraph to Today" ),
+                            description );
+
+        add_suggestion( SuggestionType::AS_A_NEW_ENTRY, _( "Add as a new Entry" ), description );
+    }
+
+
+    m_LB_suggestions->select_row( * m_LB_suggestions->get_row_at_index( 0 ) );
+}
+
+void
+DialogSmartAdd::add_suggestion( SuggestionType  type,
+                                const Ustring&  name,
+                                const Ustring&  description,
+                                const Ustring&  contents,
+                                Entry*          p2ep,
+                                Paragraph*      p2pp )
+{
+    auto Bx_item     { Gtk::manage( new Gtk::Box( Gtk::Orientation::HORIZONTAL, 5 ) ) };
+    auto I_item_icon { Gtk::make_managed< Gtk::Image >() };
+    auto L_item_name { Gtk::manage( new Gtk::Label( name, Gtk::Align::START ) ) };
+
+    switch( type )
+    {
+        default:
+            I_item_icon->set_from_icon_name( "entry-16" );
+            break;
+        case SuggestionType::AS_A_NEW_PARA:
+        case SuggestionType::APPEND_TO_TODAY:
+            I_item_icon->set_from_icon_name( "format-justify-left-symbolic" );
+            break;
+        case SuggestionType::SET_PARENT_ENTRY:
+            I_item_icon->set_from_icon_name( "go-next-symbolic" );
+            break;
+        case SuggestionType::GO_UP:
+            I_item_icon->set_from_icon_name( "go-up-symbolic" );
+            break;
+    }
+
+    Bx_item->set_margin_bottom( 5 ); // this makes it look better
+    L_item_name->set_ellipsize( Pango::EllipsizeMode::END );
+    L_item_name->set_use_markup( true );
+
+    Bx_item->append( *I_item_icon );
+
+    if( !description.empty() )
+    {
+        auto Bx_item_desc { Gtk::manage( new Gtk::Box( Gtk::Orientation::VERTICAL, 2 ) ) };
+        auto L_item_desc  { Gtk::manage( new Gtk::Label( description, Gtk::Align::START ) ) };
+
+        L_item_desc->set_ellipsize( Pango::EllipsizeMode::END );
+        Pango::AttrList attrlist;
+        auto&& attrscale{ Pango::Attribute::create_attr_scale( 0.8 ) };
+        attrlist.insert( attrscale );
+        L_item_desc->set_attributes( attrlist );
+
+        Bx_item_desc->append( *L_item_name );
+        Bx_item_desc->append( *L_item_desc );
+        Bx_item->append( *Bx_item_desc );
+    }
+    else
+        Bx_item->append( *L_item_name );
+
+    m_LB_suggestions->append( *Bx_item );
+
+    m_suggestions.push_back( { type, name, contents, p2ep, p2pp } );
+}
+
+void
+DialogSmartAdd::apply_suggestion( const Suggestion& suggestion )
+{
+    switch( suggestion.type )
+    {
+        case SuggestionType::GO_UP:
+            reset();
+            break;
+        case SuggestionType::SET_PARENT_ENTRY:
+            m_p2entry_parent = suggestion.p2entry_parent;
+            AppWindow::p->show_entry( m_p2entry_parent );
+            m_Tv_para->clear();
+            m_L_path->set_markup( m_p2entry_parent->get_title_ancestral() );
+            update_suggestions();
+            break;
+        case SuggestionType::APPEND_TO_TODAY:
+            append_to_today();
+            hide();
+            break;
+        case SuggestionType::AS_A_NEW_ENTRY:
+            add_as_a_new_entry();
+            hide();
+            break;
+        case SuggestionType::AS_A_NEW_PARA:
+            m_p2para_parent = suggestion.p2para_parent;
+            add_as_a_new_para();
+            hide();
+            break;
+    }
+}
+
+void
+DialogSmartAdd::append_to_today()
+{
+    Entry* entry_today{ Diary::d->get_entry_today() };
+
+    if( entry_today )
+        entry_today->add_paragraph_after( new Paragraph( m_p2para ),
+                                          entry_today->get_paragraph_last() );
+    else
+    {
+        auto para_new{ new Paragraph( m_p2para ) };
+        para_new->set_heading_level( VT::PS_HEADER );
+        entry_today = AppWindow::p->UI_diary->add_today();
+
+        entry_today->add_paragraph_after( para_new, nullptr );
+        AppWindow::p->UI_diary->update_entry_list();
+    }
+
+    AppWindow::p->show_entry( entry_today );
+}
+
+void
+DialogSmartAdd::add_as_a_new_entry()
+{
+    Entry* entry_new { Diary::d->create_entry( nullptr, false, Date::get_today(), "" ) };
+    auto   para_new  { new Paragraph( m_p2para ) };
+    para_new->set_heading_level( VT::PS_HEADER );
+    entry_new->add_paragraph_after( para_new, nullptr );
+
+    AppWindow::p->UI_diary->update_entry_list();
+    AppWindow::p->show_entry( entry_new );
+}
+
+void
+DialogSmartAdd::add_as_a_new_para()
+{
+    Paragraph* p{ m_p2entry_parent->add_paragraph_after( new Paragraph( m_p2para ),
+                                                         m_p2para_parent ) };
+
+    AppWindow::p->UI_entry->refresh(); // a bit costly! try to refreshh the changed part only
+    //AppWindow::p->show_entry( entry_new );
+    AppWindow::p->UI_entry->show( p );
+}
+
+} // end of namespace LIFEO

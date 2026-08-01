@@ -1,0 +1,593 @@
+/***********************************************************************************
+
+    Copyright (C) 2007-2024 Ahmet Öztürk (aoz_2@yahoo.com)
+
+    This file is part of Lifeograph.
+
+    Lifeograph is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Lifeograph is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Lifeograph.  If not, see <http://www.gnu.org/licenses/>.
+
+***********************************************************************************/
+
+
+#ifndef LIFEOGRAPH_ENTRY_HEADER
+#define LIFEOGRAPH_ENTRY_HEADER
+
+
+#include "../undo.hpp"
+#include "diarydata.hpp"
+#include "paragraph.hpp"
+#include <cstdint>
+
+
+namespace LIFEO
+{
+
+using FuncVoidEntry             = std::function< void( LIFEO::Entry* ) >;
+using SignalVoidEntry           = sigc::signal< void( LIFEO::Entry* ) >;
+using SignalVoidEntryInt        = sigc::signal< void( LIFEO::Entry*, int ) >;
+using EntryComparer             = std::function< int64_t( LIFEO::Entry*, LIFEO::Entry* ) > ;
+
+static const char LANG_INHERIT_DIARY[] = "d";
+
+class Entry;
+
+// UNDO ============================================================================================
+class UndoEdit : public Undoable
+{
+    public:
+        static constexpr int    UNDO_MERGE_TIMEOUT = 3;
+
+                                        UndoEdit( UndoableType, Entry*, Paragraph*, int, int, int );
+                                        ~UndoEdit();
+
+        bool                            can_absorb( const Undoable* ) const override;
+        void                            absorb( Undoable* ) override;
+        static bool                     s_F_force_absorb;
+
+        void                            set_n_paras_to_remove( int n_paras )
+        { m_n_paras_after = n_paras; }
+
+#ifdef LIFEOGRAPH_DEBUG_BUILD
+        void                            print_debug_info() override
+        {
+            using namespace HELPERS;
+            PRINT_DEBUG( "n: ", get_name(), " | time: ", m_time,
+                         " | id_p_bfr: ", m_id_para_before,
+                         " | orig_p_1st: ", m_p2original_para_1st->get_text(),
+                         " | orig_p_id: ", m_p2original_para_1st->get_id() ); }
+#endif
+
+        //Ustring                         m_name;
+        Entry*                          m_p2entry;
+        DEID                            m_id_para_before; // UNSET if the first para
+        Paragraph*                      m_p2original_para_1st;  // chain of original paragraphs
+        int                             m_n_paras_before; // length of the original para chain
+        int                             m_n_paras_after           { -1 };
+        int                             m_offset_cursor_0         { -1 };
+        int                             m_offset_cursor_1         { -1 };
+        bool                            m_F_inhibit_para_deletion { false };
+
+    protected:
+        Undoable*                       execute() override;
+};
+
+// ENTRY ===========================================================================================
+class Entry : public DiaryElemDataSrc
+{
+    public:
+        using GValue = Glib::Value< LIFEO::Entry* >;
+
+                                Entry( Diary* const,
+                                       const DateV,
+                                       ElemStatus = ES::ENTRY_DEFAULT );
+        virtual                 ~Entry();
+
+        SKVVec                  get_as_skvvec() const override;
+
+        // HIERARCHY
+        Entry*                  get_parent() const    { return m_p2parent; }
+        Entry*                  get_parent_unfiltered( FiltererContainer* fc ) const;
+        Entry*                  get_child_1st() const { return m_p2child_1st; }
+        Entry*                  get_prev() const      { return m_p2prev; }
+        Entry*                  get_prev_cyclic()
+        { return( m_p2prev ? m_p2prev : ( m_p2next ? get_sibling_last() : nullptr ) ); }
+        Entry*                  get_prev_or_up() const
+        { return( m_p2prev ? m_p2prev : m_p2parent ); }
+        Entry*                  get_next() const      { return m_p2next; }
+        Entry*                  get_next_cyclic()
+        { return( m_p2next ? m_p2next : ( m_p2prev ? get_sibling_1st() : nullptr ) ); }
+        Entry*                  get_prev_unfiltered( FiltererContainer* fc ) const;
+        Entry*                  get_prev_straight( bool = true ) const;
+        Entry*                  get_next_straight( bool = true ) const;
+        Entry*                  get_next_straight( const Entry*, bool = true ) const;
+        Entry*                  get_sibling_1st();
+        Entry*                  get_sibling_last();
+        int                     get_offset_from_1st_sibling() const;
+        bool                    is_descendant_of( const Entry* ) const;
+        void                    set_parent( Entry* );
+        void                    add_child_1st( Entry* );
+        void                    add_child_last( Entry* );
+        void                    add_sibling_before( Entry* );
+        void                    add_sibling_after( Entry* );
+        void                    add_sibling_chain_after( Entry* );
+        void                    append_entry_as_paras( Entry* );
+        static int64_t          compare_names( Entry* e1, Entry* e2 )
+        { return( e1->m_name.compare( e2->m_name ) ); }
+        static int64_t          compare_dates( Entry* e1, Entry* e2 )
+        { return( e1->m_date - e2->m_date ); }
+        static int64_t          compare_sizes( Entry* e1, Entry* e2 )
+        { return( e1->get_size() - e2->get_size() ); }
+
+        void                    do_for_each_descendant( const FuncVoidEntry& );
+
+        bool                    has_children() const
+        { return( m_p2child_1st != nullptr ); }
+        int                     get_child_count() const;
+        VecEntries              get_descendants() const;
+        int                     get_generation() const;
+        int                     get_descendant_depth() const;
+        bool                    is_expanded() const override
+        { return( m_p2child_1st && DiaryElemDataSrc::is_expanded() ); }
+
+        // if not under a collapsed parent:
+        bool                    is_exposed_in_list() const
+        {
+            return( m_p2parent ? ( m_p2parent->is_expanded() ? m_p2parent->is_exposed_in_list()
+                                                             : false )
+                               : true );
+        }
+        // get the first exposed entry in the hierarchical chain upwards:
+        const Entry*            get_first_exposed_upwards() const
+        {
+            for( const Entry* e = this; ; e = e->m_p2parent )
+            {
+                // if its parent is expanded or nonexistent it is exposed:
+                if( !e->m_p2parent || e->m_p2parent->is_expanded() )
+                    return e;
+            }
+        }
+        // non-const version:
+        Entry*                  get_first_exposed_upwards()
+        {
+            return const_cast< Entry* >(
+                    const_cast< const Entry* >( this )->get_first_exposed_upwards() );
+        }
+
+        // FILTERING
+        bool                    is_filtered_out() const
+        { return( m_status & ES::FILTERED_OUT ); }
+        char                    is_filtered_out_completely() const
+        {
+            // NOTE: the return value { h, o, _ } is directly used in the diary file
+            if( m_status & ES::FILTERED_OUT )
+                return( bool( m_status & ES::HAS_VSBL_DESCENDANT ) ? 'h' : 'o' );
+            else
+                return( '_' );
+        }
+        void                    set_filtered_out( bool filteredout )
+        {
+            // for the following to work always call this function in a parent-to-child order:
+            m_status &= ~ES::HAS_VSBL_DESCENDANT;
+
+            if( filteredout )
+            {
+                m_status |= ES::FILTERED_OUT;
+            }
+            else
+            {
+                for( auto parent = get_parent(); parent; parent = parent->get_parent() )
+                {
+                    if( parent->is_filtered_out_completely() == 'o' )
+                        parent->m_status |= ES::HAS_VSBL_DESCENDANT;
+                    else
+                        break;
+                }
+                if( m_status & ES::FILTERED_OUT )
+                    m_status &= ~ES::FILTERED_OUT;
+            }
+        }
+        void                    set_filtered_out( bool filteredout, bool has_visible_children )
+        {
+            if( filteredout )
+                m_status |= ES::FILTERED_OUT;
+            else if( m_status & ES::FILTERED_OUT )
+                m_status &= ~ES::FILTERED_OUT;
+
+            if( has_visible_children )
+                m_status |= ES::HAS_VSBL_DESCENDANT;
+            else if( m_status & ES::HAS_VSBL_DESCENDANT )
+                m_status &= ~ES::HAS_VSBL_DESCENDANT;
+        }
+
+        // TEXTUAL CONTENT
+        UstringSize             translate_to_visible_pos( UstringSize ) const;
+
+        bool                    is_empty() const
+        {
+            if( !m_p2para_1st )
+                return true;
+            else if( !m_p2para_1st->m_p2next && m_p2para_1st->is_empty() )
+                return true;
+            else
+                return false;
+        }
+        Ustring                 get_text() const;
+        Ustring                 get_text_visible( bool = true ) const;
+        Ustring                 get_text_partial( Paragraph*, Paragraph*, bool = false ) const;
+        Ustring                 get_text_partial( const UstringSize, UstringSize,
+                                                  bool = false ) const; // bool: decorated
+        Paragraph*              get_text_partial_paras( const UstringSize,
+                                                        const UstringSize ) const;
+        FormattedText           get_formatted_text( UstringSize, UstringSize ) const;
+        void                    clear_text();
+        void                    set_text( const Ustring&, ParserBackGround* );
+        void                    insert_text( UstringSize, const Ustring&, const ListHiddenFormats*,
+                                             bool, bool );
+        void                    insert_text( UstringSize pos, const Ustring& text, bool F_inherit )
+        { insert_text( pos, text, nullptr, F_inherit, false ); }
+        void                    erase_text( const UstringSize, const UstringSize, bool );
+        void                    replace_text_with_styles( UstringSize, UstringSize, Paragraph* );
+        bool                    parse( ParserBackGround*, bool = false );
+        Paragraph*              beautify_text( Paragraph*, Paragraph*, ParserBackGround* );
+
+        unsigned int            get_paragraph_count()
+        {
+            return( m_p2para_last->m_order_in_host + 1 );
+        }
+        bool                    get_paragraph( UstringSize, Paragraph*&, UstringSize&, bool ) const;
+        Paragraph*              get_paragraph( UstringSize, bool = false ) const;
+        Paragraph*              get_paragraph_by_no( unsigned int ) const;
+        Paragraph*              get_paragraph_1st() const
+        { return m_p2para_1st; }
+        void                    set_paragraph_1st( Paragraph* );
+        Paragraph*              get_paragraph_last() const
+        { return m_p2para_last; }
+        Paragraph*              add_paragraph_before( const Ustring&, Paragraph*,
+                                                      ParserBackGround* = nullptr,
+                                                      bool = false );
+        Paragraph*              add_paragraph_after( Paragraph*, Paragraph*, bool = false );
+        void                    remove_paragraphs( Paragraph*, Paragraph* = nullptr );
+        void                    insert_paragraphs( Paragraph*, Paragraph* );
+        void                    do_for_each_para( const FuncParagraph& );
+        void                    do_for_each_para( const FuncParagraph& ) const;
+        Paragraph*              move_paras_up( Paragraph*, Paragraph* );
+        Paragraph*              move_paras_down( Paragraph*, Paragraph* );
+
+        Paragraph*              get_description_para() const // returns 2nd paragraph
+        { return( m_p2para_1st ? m_p2para_1st->m_p2next : nullptr ); }
+        Ustring                 get_description() const // returns 2nd paragraph
+        {
+            Paragraph* pd{ get_description_para() };
+            return( pd ? pd->get_text() : "" );
+        }
+
+        Ustring                 get_info_str() const;
+
+        DateV                   get_date_created() const override { return m_date_created; }
+        Ustring                 get_date_created_str() const;
+
+        DateV                   get_date_edited() const override { return m_date_edited; }
+        Ustring                 get_date_edited_str() const;
+        void                    set_date_edited( DateV d ) { m_date_edited = d; }
+
+        //Ustring                 get_date_status_str() const;
+        void                    update_inline_dates();
+
+        String                  get_number_str() const
+        {
+            String&& number{ std::to_string( m_sibling_order ) };
+            for( Entry* ep = m_p2parent; ep != nullptr; ep = ep->m_p2parent )
+            {
+                number.insert( 0, STR::compose( ep->m_sibling_order, '.' ) );
+            }
+            return number;
+        }
+        std::list< int >        get_number_array() const
+        {
+            std::list< int > number;
+            for( auto ep = this; ep != nullptr; ep = ep->m_p2parent )
+            {
+                number.push_front( ep->m_sibling_order );
+            }
+            return number;
+        }
+        void                    update_sibling_orders();
+        int                     get_sibling_order() const
+        { return m_sibling_order; }
+
+        int                     get_size() const override
+        {
+            int size{ 0 };
+            for( Paragraph* para = m_p2para_1st; para; para = para->m_p2next )
+                size += ( para->get_size() + 1 );
+
+            return( size > 0 ? size - 1 : 0 );
+        }
+        int                     get_size_adv( char type ) const
+        {
+            switch( type )
+            {
+                default: return get_size();
+                // case VT::SO::WORD_COUNT::C: return 0; // TODO: 3.1 or later
+                case VT::SO::PARA_COUNT::C:
+                    return( m_p2para_last ? ( m_p2para_last->m_order_in_host + 1 ) : 0 );
+            }
+        }
+
+        virtual Type            get_type() const override
+        { return ET_ENTRY; }
+
+        virtual const R2Pixbuf& get_icon() const override;
+        virtual const R2Pixbuf& get_icon32() const override;
+
+        bool                    has_name() const
+        { return( m_p2para_1st && not( m_p2para_1st->is_empty() ) ); }
+        Ustring                 get_name_pure() const
+        { return( m_p2para_1st ? m_p2para_1st->get_text() : "" ); }
+        void                    set_name( const Ustring& ) override;
+        void                    update_name();
+
+        // NOTE: for some reason Glib::ustring::at() is rather slow
+        // so, use std::string wherever possible
+
+        bool                    update_todo_status();
+        double                  get_completion() const;
+        double                  get_completed() const;
+        double                  get_workload() const;
+
+        Ustring                 get_list_str() const override;
+        Ustring                 get_title_ancestral() const;
+        Ustring                 get_ancestry_path() const;
+
+        bool                    is_favorite() const { return( m_status & ES::FAVORED ); }
+        void                    set_favored( bool favored )
+        {
+            m_status -= ( m_status & ES::FILTER_FAVORED );
+            m_status |= ( favored ? ES::FAVORED : ES::NOT_FAVORED );
+        }
+        void                    toggle_favored()
+        { m_status ^= ES::FILTER_FAVORED; }
+
+        String                  get_lang() const { return m_language; }
+        String                  get_lang_final() const;
+        void                    set_lang( const String& lang )
+        { m_language = lang; }
+
+        bool                    is_trashed() const { return( m_status & ES::TRASHED ); }
+        void                    set_trashed( bool trashed )
+        {
+            m_status -= ( m_status & ES::FILTER_TRASHED );
+            m_status |= ( trashed ? ES::TRASHED : ES::NOT_TRASHED );
+        }
+
+        // TAGS
+        bool                    has_tag( const Entry* ) const;
+        bool                    has_tag_broad( const Entry* ) const;
+        Value                   get_tag_value( const Entry*, bool ) const;
+        Value                   get_tag_value_planned( const Entry*, bool ) const;
+        Value                   get_tag_value_remaining( const Entry*, bool ) const;
+        Entry*                  get_sub_tag_first( const Entry* ) const;
+        Entry*                  get_sub_tag_last( const Entry* ) const;
+        Entry*                  get_sub_tag_lowest( const Entry* ) const;
+        Entry*                  get_sub_tag_highest( const Entry* ) const;
+        ListEntries             get_sub_tags( const Entry* ) const;
+        void                    add_tag( Entry*, Value = 1.0 );
+
+        SetDiaryElemsByName
+        get_references() const
+        {
+            SetDiaryElemsByName set;
+            for( auto& e : m_referring_elems )
+                set.insert( e );
+            return set;
+        }
+
+        int
+        get_reference_count() const { return int( m_referring_elems.size() ); }
+        //void                    update_reference_count();
+
+        void
+        clear_references() { m_referring_elems.clear(); }
+
+        void
+        add_referring_elem( DiaryElemDataSrc* elem ) { m_referring_elems.insert( elem ); }
+        void
+        remove_referring_elem( DiaryElemDataSrc* elem )
+        {
+            // checking existence is crucial for the cases when there are multiple instances of
+            // the same tag and removal has already been carried out before
+            if( m_referring_elems.find( elem ) != m_referring_elems.end() )
+                m_referring_elems.erase( elem );
+        }
+
+        // UNITS
+        bool                    has_unit() const         { return( !m_unit.empty() ); }
+        Ustring                 get_unit() const         { return m_unit; }
+        void                    set_unit( Ustring unit ) { m_unit = unit; }
+
+        // THEMES
+        void                    set_theme( const Theme* theme )
+        { m_p2theme = theme; }
+        const Theme*            get_theme() const;
+        bool                    is_theme_set() const
+        { return( m_p2theme != nullptr ); }
+        bool                    has_theme( const Ustring& name ) const
+        { return( get_theme()->get_name() == name ); }
+
+        // OTHER OPTIONS
+        int                     get_title_style() const
+        { return( m_style & VT::ETS::FILTER ); } // no separate index func needed
+        void                    set_title_style( const int ts )
+        { m_style = ( ( m_style & ~VT::ETS::FILTER ) | ts ); }
+
+        int                     get_comment_style() const
+        { return( m_style & VT::CS::FILTER ); }
+        void                    set_comment_style( const int cs )
+        { m_style = ( ( m_style & ~VT::CS::FILTER ) | cs ); }
+
+        Color                   get_color() const override
+        { return m_color; }
+        void                    set_color( const Color& color )
+        { m_color = color; }
+
+        // LOCATION
+        bool                    is_map_path_old() const
+        { return m_F_map_path_old; }
+        void                    update_map_path() const;
+        bool                    has_location() const
+        {
+            if( m_F_map_path_old ) update_map_path();
+
+            return( !m_map_path.empty() );
+        }
+        Coords                  get_location() const
+        {
+            if( m_F_map_path_old ) update_map_path();
+
+            if( m_map_path.empty() )
+                return( Coords() );
+            else
+                return m_map_path.front()->m_location;
+        }
+        Paragraph*              get_location_para() const
+        {
+            if( m_F_map_path_old ) update_map_path();
+
+            if( m_map_path.empty() )
+                return( nullptr );
+            else
+                return m_map_path.front();
+        }
+        const ListLocations&    get_map_path() const
+        {
+            if( m_F_map_path_old ) update_map_path();
+
+            return m_map_path;
+        }
+        void                    clear_map_path();
+        Paragraph*              add_map_path_point( double, double, Paragraph*, bool = true );
+        void                    remove_map_path_point( Paragraph* );
+        double                  get_map_path_length() const;
+
+        // REMEMBERING POSITIONS
+        // double                  get_scroll_pos() const        { return m_scroll_pos; }
+        // void                    set_scroll_pos( double pos )  { m_scroll_pos = pos; }
+        int                     get_cursor_pos() const     { return m_cursor_pos; }
+        void                    set_cursor_pos( int pos )  { m_cursor_pos = pos; }
+
+        // UNDO/REDO
+        UndoStack*              get_undo_stack()
+        { return &m_session_edits; }
+        UndoEdit*               add_undo_action( UndoableType ut, Paragraph* p_bgn, int n_paras,
+                                                 int pos0, int pos1 )
+        {
+            auto p2undo { new UndoEdit( ut, this, p_bgn ? p_bgn->m_p2prev : nullptr,
+                                        n_paras, pos0, pos1 ) };
+            m_session_edits.add_action( p2undo );
+            return p2undo;
+        }
+
+    protected:
+        void                    digest_text( const Ustring&, ParserBackGround* );
+
+        DateV                   m_date_created;
+        DateV                   m_date_edited;
+        int                     m_sibling_order { 1 };  // starts from 1
+        Paragraph*              m_p2para_1st    { nullptr };
+        Paragraph*              m_p2para_last   { nullptr };
+        mutable ListLocations   m_map_path;
+        mutable bool            m_F_map_path_old{ true };
+        const Theme*            m_p2theme       { nullptr }; // nullptr means theme is not set
+        Ustring                 m_unit;
+        int                     m_style         { VT::ETS::DATE_AND_NAME::I |
+                                                  VT::CS::NORMAL::I };
+        String                  m_language      { LANG_INHERIT_DIARY };  // empty means off
+        Color                   m_color         { "White" }; // used in milestones
+
+        // HIERARCHY
+        Entry*                  m_p2parent      { nullptr };
+        Entry*                  m_p2child_1st   { nullptr };
+        Entry*                  m_p2prev        { nullptr };
+        Entry*                  m_p2next        { nullptr };
+
+        // ON-THE-FLY VALUES
+        SetDiaryElemSrcByID     m_referring_elems;
+        // double                  m_scroll_pos    { 0.0 };
+        int                     m_cursor_pos    { 0 };
+
+        UndoStack               m_session_edits;
+
+    friend class Diary;
+};
+
+// MAIN ENTRY POOL =================================================================================
+class PoolEntries : public std::multimap< DateV, Entry*, FuncCompareDates >
+{
+    public:
+                                PoolEntries()
+    :   std::multimap< DateV, Entry*, FuncCompareDates >( compare_dates ) {}
+                                ~PoolEntries();
+
+        void                    clear();
+        void                    clear_but_keep()
+        { std::multimap< DateV, Entry*, FuncCompareDates >::clear(); }
+};
+
+typedef PoolEntries::iterator               EntryIter;
+typedef PoolEntries::reverse_iterator       EntryIterReverse;
+typedef PoolEntries::const_iterator         EntryIterConst;
+typedef PoolEntries::const_reverse_iterator EntryIterConstRev;
+
+typedef std::multimap< Ustring, Entry*, FuncCmpStrings > PoolEntryNames;
+
+// A SUBSET OF ENTRIES =============================================================================
+class SetEntries : public std::set< Entry*, FuncCmpDiaryElemById >
+{
+    public:
+        SetEntries() {}
+        SetEntries( std::initializer_list< Entry* > list )
+        : std::set< Entry*, FuncCmpDiaryElemById >( list ) {}
+
+        using GValue = Glib::Value< LIFEO::SetEntries* >;
+
+        bool                has_entry( Entry* entry ) const
+        { return( find( entry ) != end() ); }
+};
+
+using SetEntriestIter = SetEntries::iterator;
+
+struct FuncCmpEntriesByOrder
+{
+    bool operator()( Entry* const& l, Entry* const& r ) const
+    { return( l->get_number_str() < r->get_number_str() ); }
+};
+
+class EntrySelection : public std::set< Entry*, FuncCmpEntriesByOrder >
+{
+    public:
+        EntrySelection() {}
+        EntrySelection( std::initializer_list< Entry* > list )
+        : std::set< Entry*, FuncCmpEntriesByOrder >( list ) {}
+
+        using GValue = Glib::Value< LIFEO::EntrySelection* >;
+
+        bool                has_entry( Entry* entry ) const
+        { return( find( entry ) != end() ); }
+};
+
+using EntrySelectionIter = EntrySelection::iterator;
+
+} // end of namespace LIFEO
+
+#endif

@@ -1,0 +1,588 @@
+/***********************************************************************************
+
+    Copyright (C) 2007-2024 Ahmet Öztürk (aoz_2@yahoo.com)
+
+    This file is part of Lifeograph.
+
+    Lifeograph is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Lifeograph is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Lifeograph.  If not, see <http://www.gnu.org/licenses/>.
+
+***********************************************************************************/
+
+
+#ifndef LIFEOGRAPH_PARAGRAPH_HEADER
+#define LIFEOGRAPH_PARAGRAPH_HEADER
+
+
+#include <gtkmm/treemodel.h>
+#include <set>
+#include <vector>
+
+#include "../helpers.hpp"  // i18n headers
+#include "diarydata.hpp"
+
+namespace LIFEO
+{
+
+using namespace HELPERS;
+
+// FORWARD DECLARATIONS
+class Entry;
+class ParserBackGround;
+
+struct HiddenFormat
+{
+    HiddenFormat( int t, const String& u, StringSize b, StringSize e )
+    : type( t ), uri( u ), pos_bgn( b ), pos_end( e ) { }
+
+    int         type;
+    String      uri;
+    int64_t     ref_id { DEID_UNSET }; // equals to link target id or host para id for eval links
+    int         var_i  { 0 }; // extra variable
+    DateV       var_d  { 0 }; // extra variable
+    StringSize  pos_bgn;
+    StringSize  pos_end;
+
+    static int  get_type_from_char( char c )
+    {
+        switch( c )
+        {
+            case 'B': return VT::HFT_BOLD;
+            case 'I': return VT::HFT_ITALIC;
+            case 'H': return VT::HFT_HIGHLIGHT;
+            case 'S': return VT::HFT_STRIKETHRU;
+            case 'U': return VT::HFT_UNDERLINE;
+            case 'C': return VT::HFT_SUBSCRIPT;
+            case 'P': return VT::HFT_SUPERSCRIPT;
+            case 'T': return VT::HFT_TAG;
+            case 'L': return VT::HFT_LINK_URI;
+            case 'E': return VT::HFT_LINK_EVAL;
+            case 'D': return VT::HFT_LINK_ID;
+        }
+        return 0; // mostly to silence the compiler
+    }
+
+    Ustring   get_as_human_readable_str() const
+    {
+        Ustring str;
+
+        switch( type )
+        {
+            case VT::HFT_BOLD:          str = _( "Bold" ); break;
+            case VT::HFT_ITALIC:        str = _( "Italic" ); break;
+            case VT::HFT_HIGHLIGHT:     str = _( "Highlight" ); break;
+            case VT::HFT_STRIKETHRU:    str = _( "Strikethrough" ); break;
+            case VT::HFT_UNDERLINE:     str = _( "Underline" ); break;
+            case VT::HFT_SUBSCRIPT:     str = _( "Subscript" ); break;
+            case VT::HFT_SUPERSCRIPT:   str = _( "Superscript" ); break;
+            case VT::HFT_TAG:           str = STR::compose( _( "Tag to" ), ": ", ref_id ); break;
+            case VT::HFT_LINK_URI:      str = STR::compose( _( "Link to URI" ), ": ", uri ); break;
+            case VT::HFT_LINK_EVAL:     str = STR::compose( _( "Link to evaluated text" ) ); break;
+            case VT::HFT_LINK_ID:       str = STR::compose( _( "Link to entry" ), ": ", ref_id );
+                 break;
+            default:                    str = "???"; break;
+        }
+
+        str += STR::compose( " @ ", pos_bgn, "..", pos_end );
+
+        return str;
+    }
+};
+
+struct FuncCmpFormats
+{
+    bool operator()( HiddenFormat* const& l, HiddenFormat* const& r )
+    const { return( l->pos_bgn < r->pos_bgn ); }
+};
+
+using ListHiddenFormats = std::multiset< HiddenFormat*, FuncCmpFormats >;
+
+struct FormattedText
+{
+    FormattedText()
+    { }
+
+    FormattedText( const Ustring& text, const ListHiddenFormats* formats )
+    : m_text( text )
+    {
+        if( formats )
+            for( auto& f : *formats ) m_formats.insert( new HiddenFormat( *f ) );
+    }
+
+    ~FormattedText()
+    {
+        for( auto& f : m_formats ) delete f;
+    }
+
+    // keep until we switch to C++20:
+    static ListHiddenFormats::size_type erase_if( ListHiddenFormats& c,
+                                                  std::function< bool( HiddenFormat* ) >&& pred )
+    {
+        auto old_size = c.size();
+        for( auto first = c.begin(), last = c.end(); first != last; )
+        {
+            if ( pred( *first ) )
+                first = c.erase( first );
+            else
+                ++first;
+        }
+
+        return old_size - c.size();
+    }
+
+    Ustring             m_text;
+    ListHiddenFormats   m_formats;
+};
+
+// PARAGRAPH =======================================================================================
+class Paragraph : public DiaryElemDataSrc
+{
+    public:
+        Paragraph( Entry*, const Ustring&, ParserBackGround* = nullptr );
+        Paragraph( Paragraph*, Diary* = nullptr );
+        ~Paragraph()
+        {
+            remove_from_referred_entries(); // has to come before clear_formats()
+            clear_formats();
+        }
+
+        Paragraph*                  get_prev() const
+        { return m_p2prev; }
+        Paragraph*                  get_prev_visible() const;
+        Paragraph*                  get_prev_sibling() const;
+        Paragraph*                  get_next() const
+        { return m_p2next; }
+        Paragraph*                  get_next_visible() const;
+        Paragraph*                  get_next_sibling() const;
+        Paragraph*                  get_parent() const;
+        Paragraph*                  get_nth_next( int );
+        Paragraph*                  get_last() const;
+        Paragraph*                  get_sub_last() const;
+        Paragraph*                  get_sub_last_visible( bool = false ) const;
+        Paragraph*                  get_sub_last_invisible() const;
+        bool                        is_parent_of( const Paragraph* p_sub ) const
+        {
+            if( p_sub )
+            {
+                const auto sub_heading_lvl  { p_sub->get_heading_level() };
+                const auto ths_heading_lvl  { this->get_heading_level() };
+
+                // NOTE: heading values are inverse:
+                if( sub_heading_lvl > ths_heading_lvl ) return true;
+                if( sub_heading_lvl < ths_heading_lvl ) return false;
+                // empty paras cannot be parent by virtue of indentation:
+                if( m_text.empty() ) return false;
+                if( p_sub->get_indent_level() > this->get_indent_level() ) return true;
+                // bulleted paras are assumed to be parents of plain paras of same indent level:
+                if( p_sub->get_indent_level() == this->get_indent_level() &&
+                    p_sub->get_indent_level() > 0 && // exempt non-indented bullet paras
+                    p_sub->get_list_type() == 0 &&
+                    this->get_list_type() == VT::PS_BULLET) return true;
+            }
+
+            return false;
+        }
+        bool                        has_subs() const
+        { return( !is_header() && is_parent_of( m_p2next ) ); }
+
+        int                         get_para_no() const
+        { return m_order_in_host; }
+        int                         get_para_no_visible() const
+        { return( m_p2prev ? m_p2prev->get_para_no_visible() +
+                             ( m_p2prev->is_visible() ? 1 : 0 ) : 0 ); }
+        bool                        is_last_in_host() const;
+        int                         get_bgn_offset_in_host() const;
+        int                         get_end_offset_in_host() const;
+
+        int                         get_list_order() const;
+        String                      get_list_order_str( char = '-', bool = true ) const;
+        String                      get_list_order_full() const;
+
+        Ustring                     get_name() const override;
+        int                         get_size() const override
+        { return m_text.length(); }
+        int                         get_size_adv( char type ) const
+        {
+            switch( type )
+            {
+                default: return m_text.length();
+                // case VT::SO::WORD_COUNT::C: return 0; // TODO: 3.1 or later
+                case VT::SO::PARA_COUNT::C: return 1;
+            }
+        }
+        int                         get_chain_length() const;
+        int                         get_chain_para_count() const;
+        DiaryElement::Type          get_type() const override
+        { return ET_PARAGRAPH; }
+        Color                       get_color() const override;
+
+        // TEXTUAL CONTENTS
+        bool                        is_empty() const
+        { return m_text.empty(); }
+        gunichar                    get_char( UstringSize i ) const
+        { return m_text[ i ]; }
+        const Ustring&              get_text() const
+        { return m_text; }
+        const std::string           get_text_std() const // for file output
+        { return m_text; }
+        Ustring                     get_text_stripped( int ) const;
+        Ustring                     get_text_decorated() const;
+        Ustring                     get_substr( UstringSize i ) const
+        { return m_text.substr( i ); }
+        Ustring                     get_substr( UstringSize bgn, UstringSize end ) const
+        { return( end > bgn ? m_text.substr( bgn, end - bgn ) : ( end == bgn ? "" : "XXX" ) ); }
+        Paragraph*                  get_sub( UstringSize bgn, UstringSize end ) const;
+
+        void                        set_text( const Ustring& text, ParserBackGround* );
+        void                        append( Paragraph*, ParserBackGround* );
+        void                        append( const Ustring& text, ParserBackGround* );
+        HiddenFormat*               append( const Ustring& text, int, const String& uri );
+        void                        insert_text( UstringSize, Paragraph*, ParserBackGround* );
+        void                        insert_text( UstringSize, const Ustring&, ParserBackGround* );
+        std::tuple< UstringSize, UstringSize, UstringSize >
+                                    insert_text_with_spaces( UstringSize, Ustring,
+                                                             ParserBackGround*,
+                                                             bool = true, bool = false );
+        void                        erase_text( UstringSize pos,
+                                                UstringSize size,
+                                                ParserBackGround* = nullptr );
+        void                        replace_text( UstringSize pos,
+                                                  UstringSize size,
+                                                  const Ustring& text,
+                                                  ParserBackGround* = nullptr );
+
+        void                        change_letter_cases( int, int, LetterCase );
+
+        int                         predict_list_style_from_text();
+        int                         predict_indent_from_text();
+
+        void                        join_with_next();
+        Paragraph*                  split_at( UstringSize, ParserBackGround* = nullptr );
+
+        // STYLE
+        void                        inherit_style_from( const Paragraph*, bool = false );
+
+        // FOLDING
+        void                        set_expanded( bool ) override;
+        bool                        is_visible() const
+        { return( m_style & VT::PS_VISIBLE ); }
+        bool                        is_visible_recalculate() const;
+        void                        reset_visibility()
+        { set_visible( is_visible_recalculate() ); }
+        void                        set_visible( bool F_force )
+        {
+            if( F_force ) m_style |= VT::PS_VISIBLE;
+            else          m_style &= ~VT::PS_VISIBLE;
+        }
+        void                        make_accessible(); // expands collapsed parents recursively
+        bool                        is_foldable() const
+        {
+            return( !m_text.empty() && has_subs() );
+        }
+
+        // HEADING
+        int                         get_heading_level() const
+        { return( is_header() ? VT::PS_HEADER
+                              : ( ( m_style & VT::PS_HEADER_GEN ) ? ( m_style & VT::PS_FLT_HEADER )
+                                                                  : VT::PS_NOTHDR ) ); }
+        void                        clear_heading_level()
+        { m_style &= ~VT::PS_FLT_HEADER; }
+        void                        set_heading_level( int type )
+        { m_style = ( ( m_style & ~( VT::PS_FLT_HEADER ) ) | ( type & VT::PS_FLT_HEADER ) ); }
+        void                        change_heading_level()
+        {
+            switch( get_heading_level() )
+            {
+                case VT::PS_SUBHDR: set_heading_level( VT::PS_SSBHDR ); break;
+                case VT::PS_SSBHDR: clear_heading_level(); break;
+                default:            set_heading_level( VT::PS_SUBHDR ); break;
+            }
+        }
+        bool                        is_header() const
+        { return( !m_p2prev && !( m_style & VT::PS_REORDERED ) ); }
+        bool                        is_subheader() const
+        { return( m_p2prev && ( m_style & VT::PS_HEADER_GEN ) ); }
+
+        // LISTS
+        bool                        is_list() const
+        { return( m_style & VT::PS_LIST_GEN ); }
+        int                         get_list_type() const
+        { return( m_style & VT::PS_FLT_LIST ); }
+        void                        clear_list_type()
+        { m_style &= ~VT::PS_FLT_LIST; }
+        void                        set_list_type( int );
+
+        // ALIGNMENT
+        int                         get_alignment() const
+        { return( m_style & VT::PS_FLT_ALIGN ); }
+        void                        set_alignment( int align )
+        { m_style = ( ( m_style & ~VT::PS_FLT_ALIGN ) | ( align & VT::PS_FLT_ALIGN ) ); }
+        Pango::Alignment            get_pango_alignment() const
+        {
+            switch( m_style & VT::PS_FLT_ALIGN )
+            {
+                case VT::PS_ALIGN_C:  return Pango::Alignment::CENTER;
+                case VT::PS_ALIGN_R:  return Pango::Alignment::RIGHT;
+                //case VT::PS_ALIGN_L:
+                default:              return Pango::Alignment::LEFT;
+            }
+        }
+
+        // TO-DO STATUS
+        ElemStatus                  get_todo_status() const override
+        {
+            switch( m_style & VT::PS_FLT_LIST )
+            {
+                case VT::PS_TODO:   return ES::TODO;
+                case VT::PS_PROGRS: return ES::PROGRESSED;
+                case VT::PS_DONE:   return ES::DONE;
+                case VT::PS_CANCLD: return ES::CANCELED;
+                default:            return ES::NOT_TODO;
+            }
+        }
+        int                         get_todo_status_ps() const
+        {
+            const auto style { m_style & VT::PS_FLT_LIST };
+            return( ( style & VT::PS_TODO_GEN ) ? style : 0 );
+        }
+        bool                        is_todo_status_forced() const
+        { return( m_style & VT::PS_TODO_FORCED ); }
+        void                        set_todo_status_forced( bool F_forced )
+        {
+            m_style = ( F_forced ? ( m_style | VT::PS_TODO_FORCED )
+                                 : ( m_style & ~VT::PS_TODO_FORCED ) );
+        }
+        ElemStatus                  get_todo_status_effective() const = delete;
+        void                        set_todo_status( ElemStatus ) = delete;
+
+        // CODE
+        bool                        is_code() const
+        { return( m_style & VT::PS_CODE ); }
+        void                        set_code( bool F_code )
+        {
+            if( F_code ) m_style |= VT::PS_CODE;
+            else         m_style &= ~VT::PS_CODE;
+        }
+
+        // HORIZONTAL RULE
+        bool                        is_hrule() const
+        { return( m_style & VT::PS_HRULE_0 ); }
+        void                        set_hrule( bool F_hrule )
+        {
+            if( F_hrule ) m_style |= VT::PS_HRULE_0;
+            else          m_style &= ~VT::PS_HRULE_0;
+        }
+
+        // QUOTE
+        bool                        is_quote() const
+        { return( m_style & VT::PS_QUOTE ); }
+        void                        set_quote( bool F_quote )
+        {
+            if( F_quote )
+            {
+                if( get_indent_level() == 0 )
+                    set_indent_level( 1 );
+
+                m_style |= VT::PS_QUOTE;
+            }
+            else
+                m_style &= ~VT::PS_QUOTE;
+        }
+
+        // URI (used by image paragraphs)
+        String                      get_uri() const
+        { return m_uri; }
+        String                      get_uri_broad() const
+        {
+            Ustring uri { m_uri };
+            for( auto f : m_formats )
+            {
+                if( f->type == VT::HFT_LINK_URI )
+                {
+                    if( !uri.empty() ) uri += "; ";
+                    uri += f->uri;
+                }
+            }
+            return uri;
+        }
+        // String                      get_uri_unrel() const
+        // { return m_p2diary->convert_rel_uri( m_uri ); }
+        void                        set_uri( String uri )
+        { m_uri = uri; }
+
+        // IMAGE
+        bool                        is_image( int subtype = VT::PS_IMAGE ) const
+        {
+            return( bool( m_style & VT::PS_IMAGE ) &&
+                    ( subtype == VT::PS_IMAGE || ( m_style & VT::PS_FLT_IMAGE ) == subtype ) );
+        }
+        void                        set_image_type( int type )
+        {
+            m_style &= ~VT::PS_FLT_IMAGE;
+            m_style |= type;
+        }
+        int                         get_image_size() const
+        { return m_image_size; }
+        void                        set_image_size( int size )
+        { m_image_size = size; }
+        R2Pixbuf                    get_image( int, const Pango::FontDescription& );
+
+        // MAP LOCATION
+        bool                        has_location() const
+        { return m_location.is_set(); }
+        void                        set_location( double lat, double lon )
+        { m_location.latitude = lat; m_location.longitude = lon; }
+        void                        remove_location()
+        { m_location.unset(); }
+
+        // FORMATS
+        void                        add_to_referred_entry( DEID );
+        void                        remove_from_referred_entry( DEID );
+        void                        remove_from_referred_entries();
+
+        void                        clear_formats();
+        HiddenFormat*               add_format( int, const String&, UstringSize, UstringSize );
+        HiddenFormat*               add_format( HiddenFormat*, int );
+        void                        insert_format( HiddenFormat* );
+        HiddenFormat*               add_link( DEID id, UstringSize b, UstringSize e )
+        {
+            auto&& format{ add_format( VT::HFT_LINK_ID, "", b, e ) };
+            format->ref_id = id;
+            return format;
+        }
+        HiddenFormat*               add_link( const String& uri, UstringSize b, UstringSize e )
+        {
+            auto f { add_format( uri.empty() ? VT::HFT_LINK_EVAL : VT::HFT_LINK_URI, uri, b, e ) };
+            if( f->type == VT::HFT_LINK_EVAL ) f->ref_id = m_id; // store the host id
+            return f;
+        }
+        HiddenFormat*               add_format_tag( const Entry*, UstringSize );
+        void                        remove_format( int, UstringSize, UstringSize );
+        void                        remove_format( HiddenFormat* );
+        void                        remove_onthefly_formats();
+        void                        remove_formats_of_type( int );
+        HiddenFormat*               get_format_at( int, UstringSize, UstringSize ) const;
+        HiddenFormat*               get_format_at( int type, UstringSize pos ) const
+        { return get_format_at( type, pos, pos + 1 ); }
+        HiddenFormat*               get_format_oneof_at( const std::vector< int >&,
+                                                         UstringSize, UstringSize ) const;
+        HiddenFormat*               get_format_oneof_at( int, UstringSize ) const;
+
+        // TAGS
+        void                        clear_tags()
+        { m_tags.clear(); m_tags_planned.clear(); m_tags_in_order.clear(); }
+        const MapTags&              get_tags() const
+        { return m_tags; }
+        void                        set_tag( DEID, Value );
+        void                        set_tag( DEID, Value, Value );
+        bool                        has_tag( const Entry* ) const;
+        bool                        has_tag_planned( const Entry* ) const;
+        bool                        has_tag_broad( const Entry* ) const; // in broad sense
+        Value                       get_tag_value( const Entry*, int& ) const;
+        Value                       get_tag_value_planned( const Entry*, int& ) const;
+        Value                       get_tag_value_remaining( const Entry*, int& ) const;
+        //Value                       get_tag_value_completion( const Entry* ) const;
+        // return which sub tag of a parent tag is present in the map
+        Entry*                      get_sub_tag_first( const Entry* ) const;
+        Entry*                      get_sub_tag_last( const Entry* ) const;
+        Entry*                      get_sub_tag_lowest( const Entry* ) const;
+        Entry*                      get_sub_tag_highest( const Entry* ) const;
+        ListEntries                 get_sub_tags( const Entry* ) const;
+
+        // COMPLETION
+        double                      get_completion() const;
+        double                      get_completed() const;
+        double                      get_workload() const;
+
+        // DATE
+        void                        set_date( DateV date )  { m_date = date; }
+        DateV                       get_date_broad( bool = false ) const; // in broad sense
+        DateV                       get_date_finish_broad( bool = false ) const; // in broad sense
+        bool                        has_date() const
+        { return( Date::isolate_YMD( m_date ) != 0 ); }
+        bool                        has_date_finish() const
+        { return( Date::isolate_YMD( m_date_finish ) != 0 ); }
+        void                        add_date( DateV date )
+        {
+            if( Date::is_set( m_date ) && date > m_date && date > m_date_finish )
+                m_date_finish = date;
+            else
+            if( !Date::is_set( m_date ) || date < m_date )
+                m_date = date;
+        }
+        void                        add_time( DateV time )
+        {
+            if( Date::get_time( m_date ) ) // corner case: no way to distinguish 00:00 from NOT_SET
+                Date::set_time( m_date_finish, time );
+            else
+                Date::set_time( m_date, time );
+        }
+
+        // PARA TYPE
+        int                         get_para_type() const
+        { return( is_header() ? VT::PS_HEADER : ( m_style & VT::PS_FLT_TYPE ) ); }
+        void                        clear_para_type()
+        {
+            clear_list_type();
+            clear_heading_level();
+        }
+        void                        set_para_type_raw( int type )
+        { m_style = ( ( m_style & ~VT::PS_FLT_TYPE ) | ( type & VT::PS_FLT_TYPE ) ); }
+        void                        set_para_type2( int type );
+
+        void                        change_ordered_list_type();
+
+        // INDENTATION
+        int                         get_indent_level() const
+        { return( m_style & VT::PS_FLT_INDENT ) >> 24; }
+
+        bool                        set_indent_level( int );
+        void                        indent();
+        void                        unindent();
+
+        int                         m_style{ VT::PS_DEFAULT };
+        Entry*                      m_host;
+        Paragraph*                  m_p2prev        { nullptr };
+        Paragraph*                  m_p2next        { nullptr };
+        int                         m_order_in_host { -1 };
+        ListHiddenFormats           m_formats;
+        Coords                      m_location;
+
+    protected:
+        void                        update_formats( StringSize, int, int );
+
+        Ustring                     m_text;
+        String                      m_uri; // for image paragraphs
+        int                         m_image_size{ 3 };
+        MapTags                     m_tags;
+        MapTags                     m_tags_planned;
+        VecDEIDs                    m_tags_in_order;
+
+    friend class Diary;
+    friend class Entry;
+    friend class ParserUpgrader;
+};
+
+struct FuncCmpParagraphs
+{
+    bool operator()( const Paragraph* l, const Paragraph* r ) const;
+};
+
+using SetParagraphs   = std::set< Paragraph*, FuncCmpParagraphs >;
+using VecParagraphs   = std::vector< Paragraph* >;
+using ListParagraphs  = std::list< Paragraph* >;
+using FuncParagraph   = std::function< void( Paragraph* ) >;
+
+} // end of namespace LIFEO
+
+#endif

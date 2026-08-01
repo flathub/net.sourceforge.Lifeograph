@@ -1,0 +1,1732 @@
+LIFEOGRAPHDB
+V 3000
+E n
+Id3078619
+
+Do~~~
+Dp2
+Dsen_US
+Df10034
+Dl76769090
+
+ID1760047
+T ~Lifeograph
+TfSans 10
+Tb#FFFFFFFFFFFF
+Tt#000000000000
+Th#B7B725252525
+Ts#96963F3F3F3F
+Tl#FFFFBBBBBBBB
+
+ID5790303
+T ~stable
+TfCantarell 11
+Tb#CE70FFFFBB21
+Tt#16DD47075474
+Th#2626A2A26969
+Ts#BF4544B3BF45
+Tl#FCFCE9E54F4F
+
+ID8256614
+T ~unstable
+TfCantarell 11
+Tb#FFFFF968957E
+Tt#6F2900000000
+Th#EDED33333B3B
+Ts#E0E01B1B2424
+Tl#F6F6D3D32D2D
+
+ID7510766
+F A_Default
+F&
+FV1
+Fn~I~~~~~3441933
+F!
+
+ID5247579
+F __Releases
+F|
+FV1
+Fh~5790303
+Fh~8256614
+
+ID6505071
+G ADefault
+Gt100
+Gx100
+Gy1048576
+Gu1048576
+Gf1048576
+Gv
+Go_BYP
+
+ID5607967
+M ADefault
+Mci748#
+McoO~~~~~~__SO
+Mcw0.055411
+Mci100Date
+McoDS~~~~~__SO
+Mcd_
+Mcw0.149263
+McsA1
+Mci101Release
+McoX~~~~~~__SO
+Mcx____P_~~~~~~~~T
+Mcw0.795327
+Mf5247579
+Mo0E
+
+We1000001
+
+ID10032
+E __nEBN_~~~~~~~~202008030134827
+Ec202008030134827
+Ee202008030134827
+Ehr
+EpDGeneral Info
+
+ID10034
+E __n_BN_~~~~~~~~201206090125329
+Ec201206090125329
+Ee202505120223821
+Ehu10032
+EpDWelcome to Lifeograph
+EpD
+EpDThis is an example diary showcasing some features of Lifeograph. It also contains a most comprehensive release history of Lifeograph.
+EpD
+EpDEntry Basics (example entry)
+EfD0|28|10033
+EpD
+EpDWhat is new in this version (3.0.2)
+EfD0|35|76769090
+
+ID10033
+E F_P_BN_~~~~~~~~201203050000000
+Ec201206090124417
+Ee202408240091938
+Et201205100000000
+Eha10034
+EpDExample Entry (Basics)
+EpD
+EpDAs above, first paragraph of an entry is always formatted as heading
+EpD
+Ep<S_E_0_____~~~~~Subheadings
+EpDParagraphs can be formatted as a subheading
+EpD
+Ep<B_E_0_____~~~~~Subsubheadings
+EpDParagraphs can be formatted as a subsubheading
+EpD
+Ep<S_E_0_____~~~~~WYSIWYG richtext formatting
+Ep<_-E_1_____~~~~~By using the right click menu or the shortcuts, you can format text [[and add comments]]
+EfU37|47|
+EfH48|55|
+EfB56|62|
+EfI63|67|
+EpD
+Ep<S_E_0_____~~~~~Links to other entries
+EpDLinks to entries can be created by dragging and dropping entries from the list into editing area:
+Ep<_-E_1_____~~~~~ What is new in Lifeograph 3.0? 
+EfD1|31|84379401
+EpD
+Ep<S_E_0_____~~~~~Links to dates
+EpDDates entered in YEAR/MONTH/DAY format are converted into links:
+Ep<_-E_1_____~~~~~2012.05.10, 2012/03/05
+EpD
+Ep<S_E_0_____~~~~~Links to web sites, email addresses, etc...
+EpDweb and email addresses in the text are detected and automatically converted to links:
+EpDhttp://web.address     email@ddress.com
+EpD
+Ep<S_E_0_____~~~~~Checklist (clicking boxes changes the state)
+Ep<_+E_1_____~~~~~this is done
+Ep<_OE_1_____~~~~~this item consists of two phases
+Ep<_+E_2_____~~~~~phase 1
+Ep<_OE_2_____~~~~~phase 2
+Ep<_XE_1_____~~~~~this is canceled
+EpD
+EpDexample tag
+EfT0|11|10043
+
+ID63869137
+E __nEBN_~~~~~~~~202403100074624
+Ec202403100074624
+Ee202403100074635
+Eha10032
+EmLifeograph
+EpDRelease History
+
+ID76769090
+E __n_DN_~~~~~~~~202505180000000
+Ec202505120221117
+Ee202505120225712
+Ehu63869137
+Emstable
+EpD3.0.2 / in memory of Aaron Bushnell
+EpD2025-05-18
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Bug fixes, mainly:
+Ep<_-E_2_____~~~~~Fixed crash when collapsing entries in the list
+Ep<_-E_2_____~~~~~Redraw entry list upon completion of drag operations to remove the overlays immediately
+Ep<_-E_2_____~~~~~Fixed setting status of multiple paragraphs at once
+Ep<_-E_2_____~~~~~Fixed joining paragraphs
+Ep<_-E_2_____~~~~~Fixed background image of the main text editor theme leaking to its child entry widgets
+Ep<_-E_2_____~~~~~Fixed background color of the main text editor theme leaking to its child entry widgets
+Ep<_-E_2_____~~~~~Fixed selecting a collapsed entry from the list when the current entry is a child of it
+Ep<_-E_2_____~~~~~Fixed crash in upgrading old diaries
+Ep<_-E_2_____~~~~~Some improvements in drag and drop in the entry list especially prevention of dropping an entry onto itself
+Ep<_-E_2_____~~~~~Many more
+Ep<_-E_1_____~~~~~Reenabled clear icon in EntryClear
+Ep<_-E_1_____~~~~~Use native controls for Gtk 4.18 and above
+Ep<_-E_1_____~~~~~When duplicating, insert the copy after the last child of a collapsed paragraph
+Ep<_-E_1_____~~~~~Add space after the cursor on Shift+Space
+Ep<_-E_1_____~~~~~Scale up list number text for subheaders
+Ep<_-E_1_____~~~~~Do not indent subheading paragraphs when converting them into lists
+Ep<_-E_1_____~~~~~Implemented cycling through siblings of a tag via Alt +/-
+Ep<_-E_1_____~~~~~Lifeograph can run on MacOS now
+Ep<_-E_1_____~~~~~Some cleanup
+EpD
+EpDminor
+EfT0|5|10005
+EpDstable
+EfT0|6|10031
+
+ID84939979
+E __n_DN_~~~~~~~~202503020000000
+Ec202502230190039
+Ee202503020071805
+Eha76769090
+Emstable
+EpD3.0.1 / Be silent when children sleep not when they are massacred
+EpD2025-03-02 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Bug fixes, mainly:
+Ep<_-E_2_____~~~~~Various fixes related to undo/redo
+Ep<_-E_2_____~~~~~Fixed and improved upgrading old diaries
+Ep<_-E_2_____~~~~~Scroll the text to ensure that the cursor line is visible while moving paragraphs and some fixes in moving paragraph up/down
+Ep<_-E_2_____~~~~~Do not allow more than one gantt column in tables
+Ep<_-E_2_____~~~~~Use broad dates for paragraphs in gantt charts
+Ep<_-E_2_____~~~~~Update gantt column weights on resort to maintain vertical lines in those columns
+Ep<_-E_2_____~~~~~Update the tag cache properly when a tag is removed via the context menu
+Ep<_-E_2_____~~~~~Fixed dealing with tags that consist of punctuation only when auto-completing tags
+Ep<_-E_2_____~~~~~Somewhat simplified the filtering system while fixing some crashers
+Ep<_-E_2_____~~~~~Fixed listing siblings of the current tag in the context menu
+Ep<_-E_2_____~~~~~Include link URIs (if any) in the text columns in tables when the field is URI
+Ep<_-E_2_____~~~~~Some cleanup
+EpD
+EpDminor
+EfT0|5|10005
+EpDstable
+EfT0|6|10031
+
+ID84379401
+E __n_DN_~~~~~~~~202412290000000
+Ec202403090091235
+Ee202502230190244
+Eha84939979
+Emstable
+EpD3.0.0 / Babies are being killed before the eyes of the world
+EpD2024-12-29 
+Ep<S_E_0_____~~~~~What is new?
+EpDLifeograph 3.0 is a very huge update on top of the big changes introduced on Lifeograph 2.0. With this version, Lifeograph evolved form a diary/note taking application into a general purpose information management environment.
+EfB191|213|
+EpD
+Ep<B_E_0_____~~~~~General
+Ep<_-E_1_____~~~~~New main icon that reflects the improved functionality as a second brain
+EfB0|13|
+Ep<_-E_1_____~~~~~General UI changes to make the UI more compliant with the new trends
+EfB0|18|
+Ep<_-E_1_____~~~~~Time values in HH:MM[:SS] format in entries are detected and stored to be processed in tables, etc.
+EfB0|11|
+EfI15|25|
+Ep<_-E_1_____~~~~~UI upgraded to GTK4 replacing the deprecated UI elements with new ones
+EfB15|19|
+Ep<_-E_1_____~~~~~Append the parents of an entry to its name in the tool tips and other relevant places
+Ep<_-E_1_____~~~~~To speed up opening a diary, parse the entries asynchronously
+Ep<_-E_1_____~~~~~Entry dates are determined from the text now
+Ep<_-E_1_____~~~~~Replaced the Today button with the smart add button which provides more options for adding a new entry
+EfB35|51|
+Ep<_-E_1_____~~~~~Added a go forward button to the headerbar
+EfB8|18|
+Ep<_-E_1_____~~~~~All file I/O is moved to Gio for compatibility with network addresses and virtual drives, etc.
+EfB25|28|
+Ep<_-E_1_____~~~~~Several improvements in printing
+Ep<_-E_1_____~~~~~Any filter can be used while exporting the diary
+Ep<_-E_1_____~~~~~Added diary options and paragraph formats to the synchronization diff view
+Ep<_-E_1_____~~~~~Chapters are removed (Entries marked as milestone and filters together can provide the same functionality)
+Ep<_-E_1_____~~~~~Colors can now be assigned to entries now which is also used for boundaries of tags to those entries (this used to be possible only for chapters previously)
+Ep<_-E_1_____~~~~~Added an option to reformat all dates in the textual contents of all entries per the current  date separator
+Ep<B_E_0_____~~~~~Text editor
+Ep<_-E_1_____~~~~~Wiki style formatting markup is largely omitted in favor of a WYSIWYG style formatting system [[inline comments are an exception]]
+EfB62|75|
+Ep<_-E_1_____~~~~~Paragraph folding that creates folds automatically based on heading and indentation levels
+EfB0|17|
+Ep<_-E_1_____~~~~~Widened & colored side margins to improve readability
+EfB0|30|
+Ep<_-E_1_____~~~~~Moved the entry icon to the side margin for better contextual organization
+Ep<_-E_1_____~~~~~New references button that pops up a list of referencing entries/paragraphs for the current entry (a.k.a back-links)
+EfB105|115|
+Ep<_-E_1_____~~~~~Split paragraph options into a dedicated popover to prevent overcrowded menus
+Ep<_-E_1_____~~~~~Context-sensitive right-click menu that displays specific options for tags, images, dates, etc. based on the cursor location
+EfB0|34|
+Ep<_-E_1_____~~~~~Tables can also be inserted into the entries now
+EfB0|6|
+Ep<_-E_1_____~~~~~Improved dealing with inline tags
+Ep<_-E_1_____~~~~~To-do paragraph icons are real icons now
+Ep<_-E_1_____~~~~~Underline is added to the formatting options
+EfB0|9|
+EfU0|9|
+Ep<_-E_1_____~~~~~Subscript and Superscript formatting options
+EfC0|9|
+EfP14|25|
+Ep<_-E_1_____~~~~~Roman numbers is added to the numeric list types
+EfB0|13|
+Ep<_-E_1_____~~~~~Added buttons for visiting link items to the right-click popover menu
+Ep<_-E_1_____~~~~~Added horizontal rules which can also be combined with text
+EfB6|22|
+Ep<_-E_1_____~~~~~Allow any type of paragraph to attain a list  type
+Ep<_-E_1_____~~~~~Added options for changing the letter casing to the context menu
+EfB18|44|
+Ep<_-E_1_____~~~~~Drastically improved expand selection
+Ep<_-E_1_____~~~~~Added pixels above subheading lines for better visual differentiation
+Ep<B_E_0_____~~~~~Entry list
+Ep<_-E_1_____~~~~~Entries can now be ordered, grouped, and arranged freely, irrespective of the their types
+Ep<_-E_1_____~~~~~Dynamic sorting is removed as the position of an entry in the list is now a major property of it (but a subset of entries can still be statically sorted via the dedicated menu items )
+Ep<_-E_1_____~~~~~Added an option to merge selected entries
+Ep<B_E_0_____~~~~~Filtering
+Ep<_-E_1_____~~~~~Removed the filtering tab from the bottom panel. Filters are edited in the filter dialog now.
+Ep<_-E_1_____~~~~~Added stock filters for some standard tasks such as <Trashed>
+Ep<_-E_1_____~~~~~Show the usage counts of filters
+Ep<_-E_1_____~~~~~Added many new filterers:
+Ep<_-E_2_____~~~~~Size
+Ep<_-E_2_____~~~~~Has Unit
+Ep<_-E_2_____~~~~~Descendant
+Ep<_-E_2_____~~~~~Tag Value
+Ep<_-E_2_____~~~~~Has Subtag
+Ep<_-E_2_____~~~~~Contains Text
+Ep<_-E_2_____~~~~~Has Coordinates
+Ep<_-E_2_____~~~~~Title Style
+Ep<_-E_2_____~~~~~Is Image
+Ep<_-E_2_____~~~~~Heading Level
+Ep<_-E_2_____~~~~~Equals
+Ep<_-E_2_____~~~~~Child Filter
+Ep<_-E_1_____~~~~~All filters can be negated now
+Ep<_-E_1_____~~~~~It is possible to directly edit a filter by right-clicking the filter chooser button
+Ep<B_E_0_____~~~~~Tables
+Ep<_-E_1_____~~~~~Columns are resizable now
+EfB12|21|
+Ep<_-E_1_____~~~~~New column types added:
+EfB0|16|
+Ep<_-E_2_____~~~~~Duration
+Ep<_-E_2_____~~~~~Date & Time (replaced Date)
+Ep<_-E_2_____~~~~~Gantt Chart (very basic)
+Ep<_-E_2_____~~~~~Arithmetic
+Ep<_-E_2_____~~~~~Size
+Ep<_-E_2_____~~~~~Todo Status
+Ep<_-E_2_____~~~~~Number
+Ep<_-E_2_____~~~~~True/False
+Ep<_-E_2_____~~~~~Theme
+Ep<_-E_1_____~~~~~Group lines in a hierarchical view by any column
+EfB0|11|
+Ep<_-E_1_____~~~~~Conditional coloring of cell values
+EfB0|20|
+Ep<_-E_1_____~~~~~Completion columns show a progress bar in the background
+Ep<_-E_1_____~~~~~Option to combine identical consequent cells in a column to get cleaner tables  
+Ep<_-E_1_____~~~~~Option to show the parents of an entry in the name columns
+Ep<_-E_1_____~~~~~The summary function to be used in the total line can be customized now
+Ep<_-E_1_____~~~~~Try to update the current table in real time when the current entry is being edited
+Ep<_-E_1_____~~~~~Count column replaced as the new group lines always show the count now
+Ep<_-E_1_____~~~~~Added a completion percentage option to the tag value columns
+Ep<_-E_1_____~~~~~Implemented a delta mode for the columns
+EfB14|19|
+Ep<_-E_1_____~~~~~Conditional option converted into a "count if satisfies a selected filter" option
+Ep<B_E_0_____~~~~~Charts
+Ep<_-E_1_____~~~~~Added a new vertical bars style
+EfB12|31|
+Ep<_-E_1_____~~~~~Charts are now dependent upon tables which allows visualizing much more complex relationships
+Ep<_-E_1_____~~~~~A basic inline table was added to allow creation of basic charts without creating a table first
+Ep<B_E_0_____~~~~~Calendar
+Ep<_-E_1_____~~~~~Added navigation icons to the calendar widget
+EfB6|22|
+Ep<_-E_1_____~~~~~Added the ability to mark custom days as holidays
+EfB26|49|
+Ep<_-E_1_____~~~~~Added the ability to change the first day of the week
+EfB32|53|
+Ep<B_E_0_____~~~~~Searching
+Ep<_-E_1_____~~~~~Searching is multi-threaded now for speed gains and responsiveness
+Ep<_-E_1_____~~~~~Added an option to limit the search to those entries that satisfy a filter
+Ep<_-E_1_____~~~~~Search selected text within the diary
+Ep<B_E_0_____~~~~~Map
+Ep<_-E_1_____~~~~~Migrated from libchamplain to libshumate which also works under Windows
+EfB30|40|
+Ep<_-E_1_____~~~~~Location marks are tied to paragraphs now which allows adding notes, tags, etc to the locations
+EpD
+EpDAnd many many more...
+EpD
+EpDmajor
+EfT0|5|10008
+EpDstable
+EfT0|6|10031
+EpD
+
+ID92774865
+E __n_MN_~~~~~~~~202403100000000
+Ec202403090084614
+Ee202403090084658
+Eha84379401
+EpD3.X Era
+EpD2024.03.10 
+
+ID7504957
+E __n_DN_~~~~~~~~202204240000000
+Ec202204200215506
+Ee202204200215901
+Et202204200215506
+Eha92774865
+Emstable
+EpD2.0.3 / Spring of Goliath
+EpD2022.04.24 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Bug fixes
+Ep<_-E_1_____~~~~~Added Danish translation
+Ep<_-E_1_____~~~~~Updated Simplified Chinese, Dutch, French, and Italian translations
+EpDminor
+EfT0|5|10005
+EpDstable
+EfT0|6|10031
+
+ID5249638
+E __n_DN_~~~~~~~~202106290000000
+Ec202106280222438
+Ee202106280222756
+Et202106280222438
+Eha7504957
+Emstable
+EpD2.0.2 / freedom from trade...
+EpD2021.06.29 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Bug fixes
+Ep<_-E_1_____~~~~~Updated Italian translation
+EpDminor
+EfT0|5|10005
+EpDstable
+EfT0|6|10031
+
+ID2240545
+E __n_DN_~~~~~~~~202104090000000
+Ec202104080221923
+Ee202104080224433
+Et202104080221923
+Eha5249638
+Emstable
+EpD2.0.1 / let no one ignorant of geometry enter your heart
+EpD2021.04.09 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Bug fixes, mainly:
+Ep<_-E_2_____~~~~~Fixed crash on entry dismiss
+Ep<_-E_2_____~~~~~Fixed setting ids for new diaries
+Ep<_-E_2_____~~~~~Fixed locale related problems on Windows
+Ep<_-E_2_____~~~~~Fixed problem in finding matches that come after partial matches in the text editor
+Ep<_-E_2_____~~~~~Do not expand to a path in entries list unless all of its parents are expanded
+Ep<_-E_2_____~~~~~Do no repopulate the table while sorting to achieve fast sorting speed
+Ep<_-E_2_____~~~~~Ensure that the bottom panel's height is not unusably small
+EpDminor
+EfT0|5|10005
+EpDstable
+EfT0|6|10031
+
+ID3205837
+E __n_DN_~~~~~~~~202012060000000
+Ec202007260170220
+Ee202403100083132
+Eha2240545
+Emstable
+EpD2.0.0 / processing data is a delicious experience
+EpD2020.12.06 
+Ep<S_E_0_____~~~~~What is new?
+EpDEVERYTHING! —Lifeograph 2.0 is the culmination of months of hard work and constitutes the biggest improvement step so far in the history of the program. No part remained untouched; every aspect of the user experience received its share of boost.
+EpD
+EpDAlso, in this version many idiosyncrasies of the program replaced with more intuitive or widespread user interface paradigms.
+EpD
+EpDWatch a video about the main updates on YouTube
+EfL0|47|https://youtu.be/ubVz2Tnl0bM
+EpD
+EpD
+Ep<B_E_0_____~~~~~Everything is Entry!
+Ep<_-E_1_____~~~~~Numbered and free chapters, tags, and tag categories are removed and their functionality merged into entries. Chapters are also a special kind of entry now.
+Ep<_-E_1_____~~~~~This on one hand simplified the workflow but on the other hand also opened the door for new possibilities such as adding content to everything and creating links between them.
+Ep<_-E_1_____~~~~~Numbered and free entries can now be organized in a hierarchical way in the list, up to 3 levels. e.g. entry 1.1 will be listed under 1.0 and 1.1.1 will be listed under 1.1.
+EpD
+Ep<B_E_0_____~~~~~Text editor
+Ep<_-E_1_____~~~~~The entry text editor is ever-preset now. In the 1.X era, the central panel used to be used for displaying/editing many things in addition to entries. In 2.X paradigm, such functionality is done in the extra panel.
+Ep<_-E_1_____~~~~~Remember last scroll positions in entries during a session.
+Ep<_-E_1_____~~~~~The internals of dealing with embedded images overhauled resulting in a better user experience.
+Ep<_-E_1_____~~~~~Added an option to copy embedded images to a relative path to the diary file. This will help keeping all the data related to a diary in one folder.
+Ep<_-E_1_____~~~~~Word count is now updated periodically (on a separate thread) while editing.
+EpD
+Ep<B_E_0_____~~~~~Toolbar
+Ep<_-E_1_____~~~~~The functionality of the fixed toolbar and the right click menu unified in a popover that can be accessed by right clicking.
+Ep<_-E_1_____~~~~~This is part of the efforts for achieving a more distraction-free writing environment where tools are hidden unless they are needed.
+EfT49|65|4687204
+EpD
+Ep<B_E_0_____~~~~~Entry list
+Ep<_-E_1_____~~~~~Now that everything is entry, entry list only lists entries, indeed. There is no item for the diary itself (the diary properties can be edited from the dedicated diary button in the headerbar.)
+Ep<_-E_1_____~~~~~A right click menu added for easy access to some properties.
+Ep<_-E_1_____~~~~~Changing properties of multiple entries can only be dome from the right-click menu.
+Ep<_-E_1_____~~~~~Sorting direction for ordinal and temporal entries can now be set separately.
+Ep<_-E_1_____~~~~~Entries can now be sorted by name as well.
+Ep<_-E_1_____~~~~~Much improved the drag and drop system which now offers to drop before, after, and into an entry.
+EpD
+Ep<B_E_0_____~~~~~Tags are dead long live tags!
+Ep<_-E_1_____~~~~~While the special entity called tag is no more, entries can now be used instead for achieving the same goal plus more.
+Ep<_-E_1_____~~~~~So entries can be tagged with entries but so can paragraphs.
+Ep<_-E_1_____~~~~~Entries can be filtered per being tagged with an entry.
+Ep<_-E_1_____~~~~~Graphs can be plotted per having a reference to a tag (entry) or per value they assign to a tag (entry).
+Ep<_-E_1_____~~~~~The tag bar and the tag panel was removed. distraction-free
+EfT43|59|4687204
+Ep<_-E_1_____~~~~~There is an IDE-like auto completion popover for reliving the user from having to type entire entry names.
+EfT12|20|6460427
+Ep<_-E_1_____~~~~~Inline tags also behave like links to other entries. This also provides another means for linking entries in addition to by date & by id.
+Ep<_-E_1_____~~~~~Added a new syntax to specify planned value for a tag in the form of :TAG:=REALIZED/PLANNED
+EfI69|91|
+EpD
+Ep<B_E_0_____~~~~~More paragraph oriented work-flow paragraph-focused
+EfT34|51|3685621
+Ep<_-E_1_____~~~~~This version gives more sovereignty to paragraphs elevating them to distinctly recognized elements in the database.
+Ep<_-E_1_____~~~~~Paragraphs can now be justified to center and right.
+EpD
+Ep<B_E_0_____~~~~~Extra panel
+Ep<_-E_1_____~~~~~A new panel added to the bottom of the window for various functionality, such as searching, filtering, charts, etc...
+EpD
+Ep<B_E_0_____~~~~~The new calendar widget
+Ep<_-E_1_____~~~~~Replaced the standard Gtk+ calendar with a custom made calendar widget that better integrates with the rest of the program and offers additional features.
+Ep<_-E_1_____~~~~~Chapter background colors are now displayed in the calendar.
+Ep<_-E_1_____~~~~~Added a right click menu for creating entries and chapters on selected dates.
+Ep<_-E_1_____~~~~~Days can now be dragged & dropped into entry text.
+Ep<_-E_1_____~~~~~In the future more features will be added to the calendar.
+Ep<_-E_1_____~~~~~Now it is also possible to select dates (instead of typing them) using the calendar popover activated from the calendar icon in date picker widgets.
+EpD
+Ep<B_E_0_____~~~~~The new table view
+Ep<_-E_1_____~~~~~A new extra panel for displaying tabular data conveniently.
+Ep<_-E_1_____~~~~~Tables are created through a very simple interface.
+Ep<_-E_1_____~~~~~Tables can base on entry level as well as paragraph level data. paragraph-focused
+EfT64|81|3685621
+Ep<_-E_1_____~~~~~Tabular data can be copied as tab delimited text and can be pasted into a spreadsheet program.
+EpD
+Ep<B_E_0_____~~~~~Map & location support
+Ep<_-E_1_____~~~~~A new map widget (using libchamplain) was added to the UI.
+Ep<_-E_1_____~~~~~Entries can now be assigned a location and a path.
+Ep<_-E_1_____~~~~~This will make writing writing about places and planning journeys easier and more fun.
+Ep<_-E_1_____~~~~~This can also be used to create charts of distances traveled per day.
+Ep<_-E_1_____~~~~~Added support for geo tags.
+EpD
+Ep<B_E_0_____~~~~~Chart improvements
+Ep<_-E_1_____~~~~~Added a flexible mechanism to create charts for any quantifiable aspect of entries.
+Ep<_-E_1_____~~~~~Charts can now be based on paragraphs based on dates entered in paragraphs. paragraph-focused
+EfT76|93|3685621
+Ep<_-E_1_____~~~~~All aspects of the charts can be edited through a single popover.
+Ep<_-E_1_____~~~~~Any number of charts can be created within a diary and than embedded into entries by name.
+Ep<_-E_1_____~~~~~Visual appeal of the charts improved greatly.
+Ep<_-E_1_____~~~~~Added weekly mode (besides the existing monthly and yearly).
+Ep<_-E_1_____~~~~~Split cumulative mode into continuous and periodic sub types.
+Ep<_-E_1_____~~~~~Added option to underlay the planned values under realized values.
+Ep<_-E_1_____~~~~~Charts can now be dragged from the picker widget icon and dropped into entries.
+EpD
+Ep<B_E_0_____~~~~~More streamlined text search
+Ep<_-E_1_____~~~~~Text search is now a completely separate action from filtering.
+Ep<_-E_1_____~~~~~Text search now lists the paragraphs rather than updating the entry list or disturbing the other parts of the UI in any way. distraction-free
+EfT125|141|4687204
+EpD
+Ep<B_E_0_____~~~~~Filtering improvements
+Ep<_-E_1_____~~~~~Filters have their dedicated pane in the extra panel.
+Ep<_-E_1_____~~~~~A new, much more flexible filtering system that supports 2 levels of AND/OR filterers.
+Ep<_-E_1_____~~~~~The long requested feature delivered: Multiple tags can be filtered.
+Ep<_-E_1_____~~~~~Different filter configurations can be created, named and added to the diary to be used later.
+Ep<_-E_1_____~~~~~It is now possible to filter by theme, completion and order as well.
+EpD
+Ep<B_E_0_____~~~~~Theme improvements
+Ep<_-E_1_____~~~~~Themes are now separate entities of their own (They used to be parts of tags).
+Ep<_-E_1_____~~~~~Introduced several stock themes in addition the the standard Lifeograph theme. New diaries will be created with them.
+Ep<_-E_1_____~~~~~Entries can be filtered by themes.
+Ep<_-E_1_____~~~~~Background images can now be set for themes. A handful of images bundled to the package for a more sensational writing experience.
+Ep<_-E_1_____~~~~~Greatly improved preview system and editor for themes.
+EpD
+Ep<B_E_0_____~~~~~Completion percentages
+Ep<_-E_1_____~~~~~Lifeograph can now optionally calculate and display completion percentage for entries.
+Ep<_-E_1_____~~~~~This is not tied to the entry status and is controlled separately through values of a tag selected for this purpose by the user.
+EpD
+Ep<B_E_0_____~~~~~Printing improvements
+Ep<_-E_1_____~~~~~Added an option to use the theme colors in printouts (including the background color).
+Ep<_-E_1_____~~~~~To-do items are printed much more nicely now.
+Ep<_-E_1_____~~~~~Added an option to start entries in new pages.
+Ep<_-E_1_____~~~~~Justify text option removed in favor of respecting the per paragraph justification settings.
+EpD
+Ep<B_E_0_____~~~~~Better support for keyboard only workflow
+Ep<_-E_1_____~~~~~Added new shortcuts to enable doing most of the tasks while typing without resorting to mouse.
+Ep<_-E_1_____~~~~~New IDE-like functionality to open new line below the current line.
+EfT4|12|6460427
+EpD
+Ep<B_E_0_____~~~~~Bug fixes
+Ep<_-E_1_____~~~~~Adding tons of new features (possibly creating new bugs) did not stop us from fixing some longstanding bugs in text parsing, spellchecking, image handling, text alignment, and many others.
+EpD
+Ep<B_E_0_____~~~~~Miscellaneous improvements
+Ep<_-E_1_____~~~~~A separate undo history is kept now for each entry and changing the current entry no longer clears the undo stack.
+Ep<_-E_1_____~~~~~Added new keyboard shortcuts for various operations.
+Ep<_-E_1_____~~~~~Clicking the column headers in diary file list in login view no longer changes the sorting. It can only be adjusted from the hamburger menu now. The rationale is that the column headers were rather prone to accidental clicks.
+Ep<_-E_1_____~~~~~Clicking the back button right after logging in will log you out. This feels natural especially to Android users.
+Ep<_-E_1_____~~~~~The main icon updated to conform to the contemporary trends in graphics design.
+Ep<_-E_1_____~~~~~Improvement the listing of differences in the synchronization dialog.
+Ep<_-E_1_____~~~~~Reduced the height of the headerbar to
+Ep<_-E_1_____~~~~~Many under-the-hood improvements such as
+Ep<_-E_2_____~~~~~A clearer db file structure.
+Ep<_-E_2_____~~~~~Removal of big chunks of deprecated code and optimizations in many algorithms.
+Ep<_-E_2_____~~~~~General infrastructural improvements in the code to have a better base for future developments.
+EpDmajor
+EfT0|5|10008
+EpDstable
+EfT0|6|10031
+
+ID7795706
+E __n_MN_~~~~~~~~202008030134827
+Ec202008030134827
+Ee202403090084441
+Eha3205837
+EpD2.X Era
+
+ID6026236
+E __n_DN_~~~~~~~~202001060000000
+Ec202007260170132
+Ee202007260170145
+Et202007260170132
+Eha7795706
+Emstable
+EpD1.6.1 / Do not be too hard, lest you be broken; do not be too soft, lest you be squeezed.
+EpD2020.01.06 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Bug fixes
+Ep<_-E_1_____~~~~~Translation updates
+EpDminor
+EfT0|5|10005
+EpDstable
+EfT0|6|10031
+
+ID3019032
+E __n_DN_~~~~~~~~201909070000000
+Ec201907210145247
+Ee201909070111025
+Et201907210145247
+Eha6026236
+Emstable
+EpD1.6.0 / constructiveness is of essence
+EpD2019.09.07 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Revamped login view:
+Ep<_-E_2_____~~~~~Completely new, cleaner look
+Ep<_-E_2_____~~~~~Single click to open diaries, selection mode for removing
+Ep<_-E_2_____~~~~~Icons for diary files
+Ep<_-E_2_____~~~~~Removed Lifeograph Manual from the diaries list. The manual can now be opened from the menu in a separate window which is a more proper way for a help document
+Ep<_-E_1_____~~~~~Entry parser rewritten to be much more capable and easy to improve (for future)
+Ep<_-E_2_____~~~~~Overlapping and nesting text formats are supported
+Ep<_-E_2_____~~~~~Added subsubheading format (paragraphs starting with double space)
+Ep<_-E_2_____~~~~~Implemented inserting tag charts into entries. (chart:<tag-name>)
+Ep<_-E_1_____~~~~~New diary sychronization tool which is a big improvement over the previous import tool. Now it is possible to synchronize different versions of a diary file
+Ep<_-E_2_____~~~~~Element ids are created randomly rather than sequentially to improve their reliability while matching elements during sync
+Ep<_-E_1_____~~~~~Always open diaries in read-only mode. Editing can then be enabled while reading the diary if needed
+Ep<_-E_2_____~~~~~--read-only option now disables enabling edit
+Ep<_-E_1_____~~~~~Printing system improved with support for adjustible page margins
+Ep<_-E_1_____~~~~~New default theme that is more in line with Lifeograph color palette
+Ep<_-E_1_____~~~~~Use transition animation when navigating  between same kind of elements, too. e.g. from entry to entry
+Ep<_-E_1_____~~~~~New password popover that replaces the old password dialog
+Ep<_-E_1_____~~~~~Visually differentiate parametric tags with dedicated icons
+Ep<_-E_1_____~~~~~Added option to prefer dark variant of the Gtk+ theme
+Ep<_-E_1_____~~~~~Several other refinements in GUI
+Ep<_-E_1_____~~~~~Slightly improved drag&drop system
+Ep<_-E_1_____~~~~~Many bug fixes and small improvements
+Ep<_-E_1_____~~~~~Removed Cmake support. Now only Meson is supported
+EpDmajor
+EfT0|5|10008
+EpDstable
+EfT0|6|10031
+
+ID10055
+E __n_DN_~~~~~~~~201901230000000
+Ec201901230221838
+Ee201901230221922
+Et201901230221838
+Eha3019032
+Emstable
+EpD1.5.1 / artemisia
+EpD2019.01.23 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Bug fixes
+EpDminor
+EfT0|5|10005
+EpDstable
+EfT0|6|10031
+
+ID10054
+E __n_DN_~~~~~~~~201811180000000
+Ec201809300234734
+Ee201811180135133
+Et201809300234734
+Eha10055
+Emstable
+EpD1.5.0 / artemisia
+EpD2018.11.18 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~A more modern UI with new icons and widget types
+Ep<_-E_2_____~~~~~Gtk+ minimum version requirement bumped to 3.22
+Ep<_-E_1_____~~~~~When not set specifically, to-do status of an entry is derived from its content
+Ep<_-E_1_____~~~~~Greatly improved chart widget
+Ep<_-E_2_____~~~~~Much better hover info
+Ep<_-E_2_____~~~~~Equal and consistent steps between different zoom levels
+Ep<_-E_2_____~~~~~Option to underlay previous month to do comparisons
+Ep<_-E_1_____~~~~~Show total/average value for parametric tags
+Ep<_-E_1_____~~~~~Added a deferred to-do status for paragraphs "[>]"
+EfB8|16|
+Ep<_-E_1_____~~~~~Added a keyboard shortcut for adding a todo-entry (Ctrl+D)
+Ep<_-E_2_____~~~~~Changed add normal entry shortcut to Ctrl+E
+Ep<_-E_1_____~~~~~Added a keyboard shortcut for duplicating current paragraph in entry editor (Alt+2)
+Ep<_-E_1_____~~~~~Apply to-do status and favored-ness changes to all selected entries in the entry list
+Ep<_-E_1_____~~~~~Option to sort entries in ascending or descending order
+Ep<_-E_1_____~~~~~Add "=" automatically when adding parametric tags
+Ep<_-E_1_____~~~~~Unlimited browsing history
+Ep<_-E_1_____~~~~~Added a keyboard shortcut for browsing forward (Alt+Right)
+Ep<_-E_1_____~~~~~Split main Glade file into two parts to speed up startup
+Ep<_-E_1_____~~~~~Migrated to Meson as the main build system
+Ep<_-E_1_____~~~~~Modified code to allow compilation on Windows (Gtk+ version will now replace the native Windows version)
+Ep<_-E_1_____~~~~~Added Japanese translation
+Ep<_-E_1_____~~~~~Many bug fixes and small improvements
+EpDmajor
+EfT0|5|10008
+EpDstable
+EfT0|6|10031
+
+ID10053
+E __n_DN_~~~~~~~~201704300000000
+Ec201704300154745
+Ee201704300172535
+Et201704300154745
+Eha10054
+Emstable
+EpD1.4.2 / maputo
+EpD2017.04.30 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Bug fixes
+EpDminor
+EfT0|5|10005
+EpDstable
+EfT0|6|10031
+
+ID10052
+E __n_DN_~~~~~~~~201702120000000
+Ec201702120143758
+Ee201702120154719
+Et201702120143758
+Eha10053
+Emstable
+EpD1.4.1 / in an isolated system, philistinism always increases over time
+EpD2017.02.12 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Bug fixes
+Ep<_-E_1_____~~~~~Translation updates
+EpDminor
+EfT0|5|10005
+EpDstable
+EfT0|6|10031
+
+ID10051
+E __n_DN_~~~~~~~~201611130000000
+Ec201608200174755
+Ee201611130152722
+Et201608200174755
+Eha10052
+Emstable
+EpD1.4.0 / ideal circumstances
+EpD2016.11.13 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Tags as parameters: it is now possible to assign values to tags to specify amounts, rates, and degrees for entries
+Ep<_-E_1_____~~~~~Revamped graphs
+Ep<_-E_2_____~~~~~It is now possible to zoom in & out in graph widget
+Ep<_-E_2_____~~~~~Graphs can be yearly now as well as monthly
+Ep<_-E_2_____~~~~~A generally more elegant look & feel for graphs
+Ep<_-E_2_____~~~~~The ability to use different background colors for chapters in graphs
+Ep<_-E_1_____~~~~~Animated transitions between views
+Ep<_-E_1_____~~~~~When a piece of text is dropped onto an entry in the list, append the text to the entry (very handy for moving text between entries)
+Ep<_-E_1_____~~~~~Go to the related tags view when double clicked in entry view
+Ep<_-E_1_____~~~~~Auto replace triple dash (---) with m-dash (—) in entry editor
+Ep<_-E_1_____~~~~~Strike-through canceled chapters in the list
+Ep<_-E_1_____~~~~~Filter view turned into a popover resulting in a more compact and less distractive design
+Ep<_-E_1_____~~~~~Indicate completion statuses of entries in text export and print-out
+Ep<_-E_1_____~~~~~Removed graphs from tag categories and ordinal chapters as they do not make much sense
+Ep<_-E_1_____~~~~~Migrated to C++11
+Ep<_-E_1_____~~~~~Fixed visual problems in Gtk+ 3.20
+Ep<_-E_1_____~~~~~Many fixes and small improvements
+EpDmajor
+EfT0|5|10008
+EpDstable
+EfT0|6|10031
+
+ID10050
+E __n_DN_~~~~~~~~201601170000000
+Ec201511080001548
+Ee201601170154715
+Et201511080001548
+Eha10051
+Emstable
+EpD1.3.0 / dr. overdose
+EpD2016.01.17 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~New todo list system for entry editor using square brackets
+Ep<_-E_2_____~~~~~"In Progress" status added to todo list items
+Ep<_-E_2_____~~~~~implemented changing the status of multiple todo items at once
+Ep<_-E_1_____~~~~~Added support for - lists (new dash added to the next line automatically)
+Ep<_-E_1_____~~~~~Increment following item nos when a new item line is added in the middle of a numbered list
+Ep<_-E_1_____~~~~~Show word count for entries in the info line
+Ep<_-E_1_____~~~~~Implemented recording and displaying status change date for entries
+Ep<_-E_1_____~~~~~Unhide all markup text in the current paragraph (rather than just the ones that cursor touches)
+Ep<_-E_1_____~~~~~Added chart view to the chapters (uses entry creation time for ordinal chapters)
+Ep<_-E_1_____~~~~~Updated the entry view popover design
+Ep<_-E_1_____~~~~~Moved active filter and revert filter buttons to the headerbar
+Ep<_-E_1_____~~~~~Added support for following symbolic links (patch by Kirr)
+Ep<_-E_1_____~~~~~Added a symbolic app icon to be displayed on Gnome shell
+Ep<_-E_1_____~~~~~Implemented a basic theming system for the icons
+Ep<_-E_1_____~~~~~Added the first icon theme "Ribbla" by Alex Romsh
+Ep<_-E_1_____~~~~~Many fixes and small improvements
+EpDmajor
+EfT0|5|10008
+EpDstable
+EfT0|6|10031
+
+ID10002
+E __n_DN_~~~~~~~~201501050000000
+Ec201501050115029
+Ee201501050121258
+Et201501050115029
+Eha10050
+Emstable
+EpD1.2.1 / medical complex
+EpD2015.01.05 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Several bug fixes, code cleanups
+Ep<_-E_1_____~~~~~Small updates to Lifeograph manual
+Ep<_-E_1_____~~~~~Translation updates
+EpDminor
+EfT0|5|10005
+EpDstable
+EfT0|6|10031
+
+ID10001
+E __n_DN_~~~~~~~~201411110000000
+Ec201410020231905
+Ee201511080133334
+Et201410020231905
+Eha10002
+Emstable
+EpD1.2.0 / why this kolaveri di
+EpD2014.11.11 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Even more modernized UI:
+Ep<_-E_2_____~~~~~Lifeograph is using a header bar now and provides more area for the content
+Ep<_-E_2_____~~~~~Popovers are used to go beyond what was possible with menus
+Ep<_-E_2_____~~~~~New, more informative welcome screen for the first time users
+Ep<_-E_2_____~~~~~Refreshed icons
+Ep<_-E_1_____~~~~~Introduced a new and more intuitive chapter system
+Ep<_-E_2_____~~~~~Chapters and topics are now called "dated chapters" and "numbered chapters" respectively
+Ep<_-E_2_____~~~~~Todo groups are converted into "free chapters". These are similar to numbered chapters but their numbers are hidden
+Ep<_-E_2_____~~~~~It is possible to set the todo status for all three kinds of chapters
+Ep<_-E_1_____~~~~~Entries in any chapter can be assigned a todo status now
+Ep<_-E_1_____~~~~~Added a new "in progress" todo status
+Ep<_-E_1_____~~~~~Added support for multiple selections in the entry list which makes it possible to drag & drop multiple entries at once
+Ep<_-E_1_____~~~~~Made the auto logout on idle counter hard to miss
+Ep<_-E_1_____~~~~~Added the option to disable auto logout for the current session only
+Ep<_-E_1_____~~~~~Added support for indenting wrapped lines
+Ep<_-E_1_____~~~~~General improvements to the drag & drop system
+Ep<_-E_1_____~~~~~Implemented editing the order of entries within numbered chapters by typing
+Ep<_-E_1_____~~~~~Fixed and improved plain text export
+Ep<_-E_1_____~~~~~Removed support for diaries created by versions 0.10 or older
+Ep<_-E_1_____~~~~~Minimum required Gtk+ version bumped to 3.12
+Ep<_-E_1_____~~~~~Many fixes and small improvements
+Ep<_-E_1_____~~~~~Translation updates
+EpDmajor
+EfT0|5|10008
+EpDstable
+EfT0|6|10031
+
+ID10003
+E __n_DN_~~~~~~~~201409020000000
+Ec201409010161636
+Ee201409010225807
+Et201409010161636
+Eha10001
+Emstable
+EpD1.1.1 / wise men don't know how it feels to be thick as a brick
+EpD2014.09.02 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Added saving the theme of the Untagged meta-tag which was missing in v1.1.0. This required the diary version to be increased
+Ep<_-E_1_____~~~~~Enabled reordering of todo groups
+Ep<_-E_1_____~~~~~Many bug fixes
+Ep<_-E_1_____~~~~~Translation updates
+EpD
+EpD
+EpDminor
+EfT0|5|10005
+EpDstable
+EfT0|6|10031
+
+ID10049
+E __n_DN_~~~~~~~~201408030000000
+Ec201407200135527
+Ee201409010230904
+Et201407200135527
+Eha10003
+Emstable
+EpD1.1.0 / gaza
+EpD2014.08.03 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Added options for changing the format dates are displayed in
+Ep<_-E_1_____~~~~~Added a new entry type for todo items
+Ep<_-E_1_____~~~~~Added many new icons and updated some of the existing ones
+Ep<_-E_1_____~~~~~Updated the main window layout
+Ep<_-E_1_____~~~~~Improved the presentation of favored and trashed entries in the list
+Ep<_-E_1_____~~~~~Merged themes into the tags
+Ep<_-E_1_____~~~~~Modified the tag widget to render each tag using the themes associated with them
+Ep<_-E_1_____~~~~~Added the ability to import chapters from other diaries
+Ep<_-E_1_____~~~~~Created a new WYSIWYG like theme editing widget
+Ep<_-E_1_____~~~~~Created a metatag called Untagged for theming and filtering entries not associated with any tag
+EfB25|33|
+Ep<_-E_1_____~~~~~A new filtering system where filtering status can be edited in a dedicated view and can be saved to the diary
+Ep<_-E_1_____~~~~~Upgraded the diary file format to support the new features
+Ep<_-E_1_____~~~~~Lifeograph now itself creates a backup copy of the old diaries when upgrading
+Ep<_-E_1_____~~~~~Added a hidden option to disable scaling in the entry and tag lists to solve the problems in some high resolution setups
+Ep<_-E_1_____~~~~~Minimum required Gtk+ version bumped to 3.6
+Ep<_-E_1_____~~~~~Fixed crash on Gtk+ 3.12
+Ep<_-E_1_____~~~~~Miscellaneous bug fixes
+Ep<_-E_1_____~~~~~Translation updates
+EpDmajor
+EfT0|5|10008
+EpDstable
+EfT0|6|10031
+
+ID10048
+E __n_DN_~~~~~~~~201402010000000
+Ec201401250130235
+Ee201402010145133
+Et201401250130235
+Eha10049
+Emstable
+EpD1.0.1 / incident at neshabur
+EpD2014.02.01 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Bug fixes
+Ep<_-E_1_____~~~~~Small updates to the user manual
+EpDminor
+EfT0|5|10005
+EpDstable
+EfT0|6|10031
+
+ID10047
+E __n_DN_~~~~~~~~201312080000000
+Ec201308030095554
+Ee201402010145403
+Et201308030095554
+Eha10048
+Emstable
+EpD1.0.0 / expect anything
+EpD2013.12.08 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Brand new main icon
+Ep<_-E_1_____~~~~~Moved from Waf to Cmake for the build system
+Ep<_-E_1_____~~~~~Implemented the ability to add password to diaries directly in the file dialog while creating them
+Ep<_-E_1_____~~~~~Migrated to Gtk::Application and added an app menu
+Ep<_-E_1_____~~~~~Improved user interface for creating new entries and chapters
+Ep<_-E_1_____~~~~~Simplified the look of the diary view
+Ep<_-E_1_____~~~~~Implemented moving tags to categories by dragging and dropping
+Ep<_-E_1_____~~~~~Implemented moving chapters to different dates by dragging and dropping onto entries
+Ep<_-E_1_____~~~~~Implemented changing topic order by dragging and dropping
+Ep<_-E_1_____~~~~~Implemented tagging and theming entries by dropping tags and themes onto the items in the entry list
+Ep<_-E_1_____~~~~~Added the option to dismiss the associated entries when dismissing tags and chapters
+Ep<_-E_1_____~~~~~Added the option to dismiss the associated tags when dismissing tag categories
+Ep<_-E_1_____~~~~~Added a chart to the tag category view
+Ep<_-E_1_____~~~~~Improved visibility and sensitivity states of chapter, theme and diary view widgets in read-only mode
+Ep<_-E_1_____~~~~~Disabled spell-checking in read-only mode
+Ep<_-E_1_____~~~~~Never show markup chars in read-only mode
+Ep<_-E_1_____~~~~~For increased security, Lifeograph now asks for password before exporting encrypted diaries
+Ep<_-E_1_____~~~~~Added support for using multiple configuration files via setting LIFEOGRAPH_CONFIG_FILE variable in the environment
+Ep<_-E_1_____~~~~~Translation updates
+Ep<_-E_1_____~~~~~Updated, and extended the user manual
+Ep<_-E_1_____~~~~~Install Lifeograph diary file Icons to the system
+Ep<_-E_1_____~~~~~Many bug fixes
+EpDmajor
+EfT0|5|10008
+EpDstable
+EfT0|6|10031
+
+ID10046
+E __n_MN_~~~~~~~~201308050000000
+Ec202008030134827
+Ee202008030134827
+Et202008030134827
+Eha10047
+EpD1.X Era
+
+ID10045
+E __n_DN_~~~~~~~~201302060000000
+Ec201302060211539
+Ee201302060211719
+Et201302060211539
+Eha10046
+Emstable
+EpD0.11.1 / limerence in r'lyeh
+EpD2013.02.06 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Updated the look of the diary toolbar
+Ep<_-E_1_____~~~~~Slightly extended the user manual
+Ep<_-E_1_____~~~~~Fixed several bugs
+Ep<_-E_1_____~~~~~Updated translations
+EpDminor
+EfT0|5|10005
+EpDstable
+EfT0|6|10031
+
+ID10044
+E __n_DN_~~~~~~~~201212220000000
+Ec201212020132549
+Ee201810010221022
+Et201212020132549
+Eha10045
+Emstable
+EpD0.11.0 / sheepish docility
+EpD2012.12.22 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Added trash can functionality to dismiss entries in two steps for increased safety
+Ep<_-E_1_____~~~~~Replaced the icon view for entry tags with a new custom widget
+Ep<_-E_1_____~~~~~Printing improved greatly. Main improvements are:
+Ep<_-E_2_____~~~~~Images in entries are printed as images now
+Ep<_-E_2_____~~~~~Smarter placement of chapters and entries on pages
+Ep<__E_2_____~~~~~e.g. chapters always start on a new page now
+Ep<_-E_2_____~~~~~A new option to justify text
+Ep<_-E_1_____~~~~~New diary version which brings following new features:
+Ep<_-E_2_____~~~~~Ability to save spell-checking language for diary as well as for individual entries
+Ep<_-E_2_____~~~~~Trashed entries which may be restored if needed
+Ep<_-E_1_____~~~~~Updated the GUI to have a more Gnome3-ish look
+Ep<_-E_1_____~~~~~Added support for adding diary files to login view by drag & drop from a file browser
+Ep<_-E_1_____~~~~~Added the ability to move current paragraph up and down with ALT+Up and ALT+Down
+Ep<_-E_1_____~~~~~Implemented preserving maximized window state
+Ep<_-E_1_____~~~~~Updated and slightly extended the user manual
+Ep<_-E_1_____~~~~~Huge code reorganizations and cleanups
+Ep<_-E_1_____~~~~~Many bug fixes
+Ep<_-E_1_____~~~~~Added Ukrainian translation and updated existing translations
+EpDmajor
+EfT0|5|10008
+EpDstable
+EfT0|6|10031
+
+ID10042
+E __n_DN_~~~~~~~~201210210000000
+Ec201210070162731
+Ee201210210094532
+Et201210070162731
+Eha10044
+Emstable
+EpD0.10.0 / sombrero
+EpD2012.10.21 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Added support for displaying image thumbnails in text editor for links to image files
+Ep<_-E_1_____~~~~~Added support for relative paths in links
+Ep<_-E_1_____~~~~~Greatly improved manual with the images and several new chapters, though still not complete
+Ep<_-E_1_____~~~~~Added the ability to sort the entries by last change time
+Ep<_-E_1_____~~~~~Added the ability to (un)indent multiple lines at once
+Ep<_-E_1_____~~~~~Started to recognize dash as separator for dates such as YYYY-MM-DD
+Ep<_-E_1_____~~~~~Many small UI improvements such as:
+Ep<_-E_2_____~~~~~Simplified tags & themes panel
+Ep<_-E_2_____~~~~~More informing password dialog
+Ep<_-E_1_____~~~~~More careful handling of diary file permissions
+Ep<_-E_1_____~~~~~Added "--read-only" switch for opening files as read-only from commandline
+Ep<_-E_1_____~~~~~Added Read button to the diary file chooser dialog
+Ep<_-E_1_____~~~~~Added the ability to sort diary files by last read time in the login view
+Ep<_-E_1_____~~~~~Dropped GtkSpell dependency and started to use Enchant directly
+Ep<_-E_1_____~~~~~Many bug fixes
+EpDmajor
+EfT0|5|10008
+EpDstable
+EfT0|6|10031
+
+ID10035
+E __n_DN_~~~~~~~~201207080000000
+Ec201206090130112
+Ee201207070150113
+Et201206090130112
+Eha10042
+Emstable
+EpD0.9.0 / gog
+EpD2012.07.08 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Lifeograph upgraded to Gtk+ 3
+Ep<_-E_1_____~~~~~Improved login screen with an unlimited list of diaries
+Ep<_-E_1_____~~~~~More compact interface thanks to removal of redundant widgets
+Ep<_-E_1_____~~~~~Association of Lifeograph diaries with Lifeograph. So, diaries can now be opened by double-clicking in a file explorer.
+Ep<_-E_1_____~~~~~Addition of extension ".diary" to names of new diaries automatically
+Ep<_-E_1_____~~~~~Added a read-only mode for preventing a diary from being edited accidentally
+Ep<_-E_1_____~~~~~Support for multi-line selections when inserting bullets and check-boxes
+Ep<_-E_1_____~~~~~Added the ability to edit the date of an entry just like editing a tag's name
+Ep<_-E_1_____~~~~~Added an example diary file to the Lifeograph package which is installed to the system
+Ep<_-E_1_____~~~~~Added first version of Lifeograph Manual to the Lifeograph package which is installed to the system
+EfB23|40|
+Ep<_-E_1_____~~~~~Fixed a couple of really old problems
+Ep<_-E_1_____~~~~~Updated translations
+EpDmajor
+EfT0|5|10008
+EpDstable
+EfT0|6|10031
+
+ID10041
+E __n_MN_~~~~~~~~201206100000000
+Ec202008030134827
+Ee202008030134827
+Et202008030134827
+Eha10035
+EpD0.9 - 1.0
+
+ID10007
+E __n_DN_~~~~~~~~201205100000000
+Ec201206050003239
+Ee201206050004443
+Et201206050003239
+Eha10041
+Emstable
+EpD0.8.2 / tom bombadil
+EpD2012.05.10 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Fixed numerous bugs
+Ep<_-E_1_____~~~~~Cleaned up source code
+Ep<_-E_1_____~~~~~Updated translations
+EpDminor
+EfT0|5|10005
+EpDstable
+EfT0|6|10031
+
+ID10009
+E __n_DN_~~~~~~~~201203050000000
+Ec201206050003405
+Ee201206050004532
+Et201206050003405
+Eha10007
+Emstable
+EpD0.8.1 / mazer rackham
+EpD2012.03.05 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Fixed/improved markup character handling
+Ep<_-E_1_____~~~~~Fixed numerous bugs
+Ep<_-E_1_____~~~~~Updated Czech translation
+EpD
+EpD
+EpDminor
+EfT0|5|10005
+EpDstable
+EfT0|6|10031
+
+ID10006
+E __n_MN_~~~~~~~~201202130000000
+Ec202008030134827
+Ee202008030134827
+Et202008030134827
+Eha10009
+EpD0.8.X Series
+
+ID10010
+E __n_DN_~~~~~~~~201202130000000
+Ec201206050003539
+Ee201206080232823
+Et201206050003539
+Eha10006
+Emstable
+EpD0.8.0 / timbuktu
+EpD2012.02.13 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Improved and fixed entry text parser
+Ep<_-E_1_____~~~~~Visually improved some of the icons
+Ep<_-E_1_____~~~~~Fixed compilation problems on relatively older systems
+Ep<_-E_1_____~~~~~Fixed numerous bugs
+Ep<_-E_1_____~~~~~Updated existing translations
+EpD
+EpD
+EpDmajor
+EfT0|5|10008
+EpDstable
+EfT0|6|10031
+
+ID10011
+E __n_DN_~~~~~~~~201201280000000
+Ec201206050004112
+Ee201206080232827
+Et201206050004112
+Eha10010
+Emunstable
+EpD0.7.5 / the formidable creature
+EpD2012.01.28 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Added printing support
+Ep<_-E_1_____~~~~~Added the ability to add comments to text which can be hidden when not needed
+Ep<_-E_1_____~~~~~Added the ability to mark paragraphs for being ignored by the parser to be able to use markup chars such as *, =, or _ freely
+Ep<_-E_1_____~~~~~Implemented filtering entries by date range
+Ep<_-E_1_____~~~~~Added the ability to hide (filter out) individual entries
+Ep<_-E_1_____~~~~~Added a monthly chart to the diary view
+Ep<_-E_1_____~~~~~Skip login screen when an unencrypted diary file is passed in commandline
+Ep<_-E_1_____~~~~~Added a preview widget to the theme view
+Ep<_-E_1_____~~~~~Added theme importing from other diaries
+Ep<_-E_1_____~~~~~Removed background picture feature
+Ep<_-E_1_____~~~~~Implemented exporting diaries partially
+Ep<_-E_1_____~~~~~Made minor improvements in the GUI
+Ep<_-E_1_____~~~~~Fixed numerous bugs
+Ep<_-E_1_____~~~~~Updated existing translations
+Ep<_-E_1_____~~~~~Re-added a plain makefile as an alternative way of building Lifeograph for the ones who do not like waf
+Ep<_-E_1_____~~~~~And many more...
+EpDmajor
+EfT0|5|10008
+EpDunstable
+EfT0|8|10030
+
+ID10012
+E __n_DN_~~~~~~~~201111210000000
+Ec201206050005004
+Ee201206090121919
+Et201206050005004
+Eha10011
+Emunstable
+EpD0.7.4 / sarajevo
+EpD2011.11.21 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Added time-independent chapters (topics) and entries for adding notes that are not related to a particular date
+Ep<_-E_1_____~~~~~Added drag and drop support to the entry list
+Ep<_-E_1_____~~~~~Implemented changing entry date by drag and drop to another entry or chapter
+Ep<_-E_1_____~~~~~Added unique numeric IDs to almost every item in the diary
+Ep<_-E_1_____~~~~~Added a new type of link target: deid:##### which refers to the target item by its ID to never lose the track
+Ep<_-E_1_____~~~~~Added a new link syntax which shows a descriptive text instead of its target when cursor is not in it
+Ep<_-E_1_____~~~~~Added an option to diaries that allows users to configure the item that is shown at startup
+Ep<_-E_1_____~~~~~Made markup characters hidden as long as cursor does not touch them
+Ep<_-E_1_____~~~~~Enabled formatting toolbar, removed formatting right-click menu
+Ep<_-E_1_____~~~~~Added timestamp insertion (ALT+T) to entry text editor
+Ep<_-E_1_____~~~~~Added back autocompletion to the tag editor
+Ep<_-E_1_____~~~~~Removed chapter dialog; all of its functions are available on the
+EpD      main window now
+Ep<_-E_1_____~~~~~Every diary must have at least one chapter category now
+Ep<_-E_1_____~~~~~Made some UI refinements
+Ep<_-E_1_____~~~~~Fixed numerous bugs
+Ep<_-E_1_____~~~~~Updated existing translations
+Ep<_-E_1_____~~~~~And many more...
+EpD
+EpDmajor
+EfT0|5|10008
+EpDunstable
+EfT0|8|10030
+
+ID10013
+E __n_DN_~~~~~~~~201107300000000
+Ec201206050005404
+Ee201206090122335
+Et201206050005404
+Eha10012
+Emunstable
+EpD0.7.3 / time is always against us
+EpD2011.07.30 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Added tag categorization for easier management of tags
+Ep<_-E_1_____~~~~~Added the ability to store multiple themes within a diary file
+Ep<_-E_1_____~~~~~Implemented support for different themes per entries
+Ep<_-E_1_____~~~~~Added basic indentation support to the lists
+Ep<_-E_1_____~~~~~Implemented automatic insertion of bullets and check boxes
+Ep<_-E_1_____~~~~~Lifeograph now stores creation and last change date of entries and displays them as a tooltip
+Ep<_-E_1_____~~~~~When browsing back, it is now possible to cycle through last 5 items shown rather than 2
+Ep<_-E_1_____~~~~~Added filtering entries by being favorite and by tags
+Ep<_-E_1_____~~~~~Fixed sorting entries by size
+Ep<_-E_1_____~~~~~Redesigned editing user interface:
+Ep<__E_1_____~~~~~    	• Added a separate list for tags
+Ep<__E_1_____~~~~~    	• Added the ability to tag entries by drag and drop
+Ep<__E_1_____~~~~~    	• Added the ability to change themes of entries by drag and drop
+Ep<__E_1_____~~~~~    	• Changed main window title bar text to show name of current diary instead of current entry's title
+Ep<__E_1_____~~~~~    	• Lifeograph now remembers folders' state of being expanded or collapsed in both entry and tag lists
+Ep<__E_1_____~~~~~    	• Added a new toolbar for text formatting (partially functional now)
+Ep<_-E_1_____~~~~~Implemented importing entries and tags from other diary files
+Ep<_-E_1_____~~~~~Improved diary file structure to be more consistent and partially more human readable. So, files saved with this version are incompatible with previous releases.
+Ep<_-E_1_____~~~~~Empty entries are no longer purged at logging out if they have tags
+Ep<_-E_1_____~~~~~Removed grouping entries by month
+Ep<_-E_1_____~~~~~Renamed "Chapter Sets" to "Chapter Categories"
+Ep<_-E_1_____~~~~~Removed most of the right click menus as their functionality is provided by toolbars in various views now
+Ep<_-E_1_____~~~~~Today button now also creates a new entry when current entry is in today
+Ep<_-E_1_____~~~~~Many code structure improvements and clean-up
+Ep<_-E_1_____~~~~~Fixed numerous bugs
+Ep<_-E_1_____~~~~~Added Dutch, Romanian, and Serbian translations and updated existing translations
+Ep<_-E_1_____~~~~~And many more...
+EpDmajor
+EfT0|5|10008
+EpDunstable
+EfT0|8|10030
+
+ID10014
+E __n_DN_~~~~~~~~201012120000000
+Ec201206050005805
+Ee201206090121634
+Et201206050005805
+Eha10013
+Emunstable
+EpD0.7.2 / new horizons?
+EpD2010.12.12 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Added support for three different types of lists to the editor:
+Ep<__E_1_____~~~~~    	• A basic bulleted list system,
+Ep<__E_1_____~~~~~    	• a basic numbered list system,
+Ep<__E_1_____~~~~~    	• and a very handy check list system.
+Ep<_-E_1_____~~~~~Added the ability to give links to the other entries of a day from within an entry of the same day
+Ep<_-E_1_____~~~~~Implemented saving daily backup files when compiled in debug mode
+Ep<_-E_1_____~~~~~Changed default state of markup chars to visible
+Ep<_-E_1_____~~~~~Added translator credits to the about box
+Ep<_-E_1_____~~~~~New translations: Arabic, Basque, Galician, and German
+Ep<_-E_1_____~~~~~Updated existing translations
+Ep<_-E_1_____~~~~~Numerous bug fixes and improvements
+EpD
+EpDmajor
+EfT0|5|10008
+EpDunstable
+EfT0|8|10030
+
+ID10016
+E __n_DN_~~~~~~~~201010310000000
+Ec201206050010102
+Ee201206090121829
+Et201206050010102
+Eha10014
+Emunstable
+EpD0.7.1 / the alchemy of happiness
+EpD2010.10.31 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Added an option to hide wiki markup characters in the entry editor
+Ep<_-E_1_____~~~~~Added charts to the month and tag views that show graphs of number of
+EpD      entries and usage of tags over time
+Ep<_-E_1_____~~~~~Implemented a lock mechanism to prevent opening a diary file multiple
+EpD      times
+Ep<_-E_1_____~~~~~Added back replace and replace all functionality
+Ep<_-E_1_____~~~~~Added Brazilian Portuguese and Hungarian translations and updated
+EpD      existing translations
+Ep<_-E_1_____~~~~~Added a chapter icon and improved the month icon
+Ep<_-E_1_____~~~~~Improved infrastructure at some more points
+Ep<_-E_1_____~~~~~Numerous bug fixes and improvements
+EpD
+EpD
+EpDmajor
+EfT0|5|10008
+EpDunstable
+EfT0|8|10030
+
+ID10015
+E __n_MN_~~~~~~~~201009050000000
+Ec202008030134827
+Ee202008030134827
+Et202008030134827
+Eha10016
+EpD0.7.X Series
+
+ID10017
+E __n_DN_~~~~~~~~201009050000000
+Ec201206050010133
+Ee201206090122505
+Et201206050010133
+Eha10015
+Emunstable
+EpD0.7.0 / arpa emini
+EpD2010.09.05 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Switched the build system of choice to "Waf"
+Ep<_-E_1_____~~~~~Switched to a plain text file based settings storage system, thus
+Ep<_-E_1_____~~~~~Removed the dependency to Gconfmm
+Ep<_-E_1_____~~~~~Improved the infrastructure substantially to ease further development of the program
+Ep<_-E_1_____~~~~~Added a preferences dialog that enables changing auto-logout and background picture settings in the gui
+Ep<_-E_1_____~~~~~Added the ability to sort entries by size
+Ep<_-E_1_____~~~~~Added summary views for the open diary and selected month, tag, or chapter that show some information about them as well as providing some editing facilities
+Ep<_-E_1_____~~~~~Added a text formatting submenu to the textview right-click menu
+Ep<_-E_1_____~~~~~Added a month icon
+Ep<_-E_1_____~~~~~Tweaked main window layout to use less vertical space
+Ep<_-E_1_____~~~~~Added Italian and Polish translations and updated existing translations
+Ep<_-E_1_____~~~~~[Regression] Temporarily disabled replace and replace all functionality
+EfI0|12|
+EpD
+EpD
+EpDmajor
+EfT0|5|10008
+EpDunstable
+EfT0|8|10030
+
+ID10018
+E __n_DN_~~~~~~~~201005300000000
+Ec201206050010732
+Ee201206090122750
+Et201206050010732
+Eha10017
+Emstable
+EpD0.6.3 / a night in ever-crowded streets
+EpD2010.05.30 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Fixed filtering in group by tag mode
+Ep<_-E_1_____~~~~~Some fixes to spell-checking
+Ep<_-E_1_____~~~~~Also install the scalable version of the application icon (LP:#584948)
+Ep<_-E_1_____~~~~~Updated Swedish translation
+Ep<_-E_1_____~~~~~Some minor fixes
+EpDminor
+EfT0|5|10005
+EpDstable
+EfT0|6|10031
+
+ID10019
+E __n_DN_~~~~~~~~201004020000000
+Ec201206050010850
+Ee201206090122803
+Et201206050010850
+Eha10018
+Emstable
+EpD0.6.2 / neopancartism
+EpD2010.04.02 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Fixed crash when trying to delete a tag
+Ep<_-E_1_____~~~~~Added Hebrew translation by Yaron
+Ep<_-E_1_____~~~~~Updated French and Spanish translations
+Ep<_-E_1_____~~~~~Some minor fixes
+EpDminor
+EfT0|5|10005
+EpDstable
+EfT0|6|10031
+
+ID10021
+E __n_DN_~~~~~~~~201002140000000
+Ec201206050010926
+Ee201206090122816
+Et201206050010926
+Eha10019
+Emstable
+EpD0.6.1 / ad-dar al-bayda
+EpD2010.02.14 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Fixed initialization of new databases as encrypted
+Ep<_-E_1_____~~~~~Fixed shortcut handling in entry editor (as manifested in
+EpD      broken formatting shortcuts in some systems)
+Ep<_-E_1_____~~~~~Simplified makefile
+Ep<_-E_1_____~~~~~Some minor fixes
+EpDminor
+EfT0|5|10005
+EpDstable
+EfT0|6|10031
+
+ID10020
+E __n_MN_~~~~~~~~201002030000000
+Ec202008030134827
+Ee202008030134827
+Et202008030134827
+Eha10021
+EpD0.6.X Series
+
+ID10022
+E __n_DN_~~~~~~~~201002030000000
+Ec201206050011038
+Ee201206090122930
+Et201206050011038
+Eha10020
+Emstable
+EpD0.6.0 / coactus volui
+EpD2010.02.03 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Updated some icons and added a new icon for the program
+Ep<_-E_1_____~~~~~Added replace functionality for filter text matches
+Ep<_-E_1_____~~~~~Improved navigation through filter matches
+Ep<_-E_1_____~~~~~Improved convenience of working with multiple entries per a day
+Ep<_-E_1_____~~~~~Added ability to clear contents of filter and tag widgets with esc key (when the respective widget has input focus)
+Ep<_-E_1_____~~~~~Added ability to remove selected tags from entries with delete key (when the tag icon has input focus)
+Ep<_-E_1_____~~~~~Improved auto completion in Tagwidget so that it no longer only suggests tags whose names begin with entered text but also ones that have the text anywhere in their names
+Ep<_-E_1_____~~~~~Improved & fixed list of entries' listing behaviors to be more efficient & usable
+Ep<_-E_1_____~~~~~Removed character restrictions for tag names (< and > were not allowed in tag names)
+Ep<_-E_1_____~~~~~Added French and Czech translations from Launchpad
+Ep<_-E_1_____~~~~~Various other fixes
+EpD
+EpDmajor
+EfT0|5|10008
+EpDstable
+EfT0|6|10031
+
+ID10023
+E __n_DN_~~~~~~~~200911250000000
+Ec201206050011409
+Ee201206090123158
+Et201206050011409
+Eha10022
+Emunstable
+EpD0.5.6 / IM, where are you?
+EpD2009.11.25 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Added basic theme customization support to entry editor
+Ep<_-E_1_____~~~~~Added shortcuts for making bold, italicizing, striking over, and highlighting text
+Ep<_-E_1_____~~~~~Added ability to export diaries to plain text files
+Ep<_-E_1_____~~~~~Filter bar got replaced with a permanent filter entry in toolbar
+Ep<_-E_1_____~~~~~Tag adding combobox replaced with a combobox entry with auto completion support to make finding existing tags easier
+Ep<_-E_1_____~~~~~Added ability to iterate through matches while filtering
+Ep<_-E_1_____~~~~~Added ability to go to the previous entry in browsing history (goes back and forth between last two entries when used consecutively) (Shortcut: Alt+Left)
+Ep<_-E_1_____~~~~~Done some fixes and adjustments related to toolbar buttons
+Ep<_-E_1_____~~~~~Group entries by month rather than year when grouping by date
+Ep<_-E_1_____~~~~~Improved diary file format a little bit for more efficient i/o
+EpD    	• Diaries saved with this version cannot be opened with previous versions of Lifeograph
+Ep<_-E_1_____~~~~~Added Simplified Chinese translation by meng,shen, windwhinny, et al
+Ep<_-E_1_____~~~~~Some minor fixes
+EpD
+EpD
+EpDmajor
+EfT0|5|10008
+EpDunstable
+EfT0|8|10030
+
+ID10024
+E __n_DN_~~~~~~~~200909270000000
+Ec201206050012156
+Ee201206090123151
+Et201206050012156
+Eha10023
+Emunstable
+EpD0.5.5 / soldierth
+EpD2009.09.27 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Convert URIs into links (http:, ftp:, mailto:, file:, etc...)
+Ep<_-E_1_____~~~~~Show warning on window titlebar before logging out automatically
+Ep<_-E_1_____~~~~~Fixed diary corruption when LANG=C (LP:#425318)
+Ep<_-E_1_____~~~~~Fixed several minor bugs
+Ep<_-E_1_____~~~~~Added Russian translation by Igor "tigerman" Bekrenyov, Sergei Sedov, and aks-id
+Ep<_-E_1_____~~~~~Added Spanish translation by David Prieto, Federico Vera, Fuerteventura, and José Luis Jiménez Garay
+Ep<_-E_1_____~~~~~Added Swedish translation by Mikael Mildén
+EpD
+EpDmajor
+EfT0|5|10008
+EpDunstable
+EfT0|8|10030
+
+ID10025
+E __n_DN_~~~~~~~~200909030000000
+Ec201206050012217
+Ee201206090123235
+Et201206050012217
+Eha10024
+Emunstable
+EpD0.5.4 / kali yuga
+EpD2009.09.03 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Undo/redo support for entry text changes
+Ep<_-E_1_____~~~~~Convert YEAR/MONTH/DAY style dates in entries into links to that day
+Ep<_-E_1_____~~~~~Added chapters system to group entries in custom chapters (more than one set of chapters is supported)
+Ep<_-E_1_____~~~~~Spell checking support
+Ep<_-E_1_____~~~~~Remember preferred list style (group by tag, by date, etc...) on exit
+Ep<_-E_1_____~~~~~Accept dropped files in diary file button and ability to remove recent files from the list
+Ep<_-E_1_____~~~~~Back up previous version of diary before saving
+Ep<_-E_1_____~~~~~Save current changes temporarily every 30 seconds to minimize data loss on crashes
+Ep<_-E_1_____~~~~~Many functions re-factored
+Ep<_-E_1_____~~~~~Fixed a few bugs
+EpD
+EpDmajor
+EfT0|5|10008
+EpDunstable
+EfT0|8|10030
+
+ID10026
+E __n_DN_~~~~~~~~200908150000000
+Ec201206050012247
+Ee201206090123305
+Et201206050012247
+Eha10025
+Emunstable
+EpD0.5.3 / mavi marmara
+EpD2009.08.15 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Remember up to 8 recent diaries
+Ep<_-E_1_____~~~~~Wiki style rich text formatting (e.g. bold, italic, strikeout, etc...)
+EfB38|42|
+EfI44|50|
+EfS52|61|
+Ep<_-E_1_____~~~~~Highlight filter matches in current entry
+Ep<_-E_1_____~~~~~Case-insensitive search
+Ep<_-E_1_____~~~~~Simplified and polished user interface (especially login screen)
+Ep<_-E_1_____~~~~~Jump to current entry shortcut (Ctrl+J)
+Ep<_-E_1_____~~~~~Many fixes and re-factorings
+EpD
+EpD
+EpDmajor
+EfT0|5|10008
+EpDunstable
+EfT0|8|10030
+
+ID10028
+E __n_DN_~~~~~~~~200907140000000
+Ec201206050012316
+Ee201206090123335
+Et201206050012316
+Eha10026
+Emunstable
+EpD0.5.2 / Computer Liebe
+EpD2009.07.14 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~New icons for tags, normal and favored entries
+Ep<_-E_1_____~~~~~Added ability to disable logging out automatically on idle
+Ep<_-E_1_____~~~~~Added ability to tweak maximum idle time (only through gconf at the moment)
+Ep<_-E_1_____~~~~~It is now possible to rename and delete defined tags
+Ep<_-E_1_____~~~~~Minor touches to the interface
+Ep<_-E_1_____~~~~~Fixed several bugs
+EpD
+EpDmajor
+EfT0|5|10008
+EpDunstable
+EfT0|8|10030
+
+ID10027
+E __n_MN_~~~~~~~~200906120000000
+Ec202008030134827
+Ee202008030134827
+Et202008030134827
+Eha10028
+EpD0.5.X Series
+
+ID10029
+E __n_DN_~~~~~~~~200906120000000
+Ec201206050012339
+Ee201206090123412
+Et201206050012339
+Eha10027
+Emunstable
+EpD0.5.1
+EpD2009.06.12 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Added entry tagging
+Ep<_-E_1_____~~~~~Revamped editing gui (vertical layout)
+Ep<_-E_1_____~~~~~Ability to group entries by year or tag
+Ep<_-E_1_____~~~~~Many bug fixes
+Ep<_-E_1_____~~~~~Numerous small improvements.
+EpDmajor
+EfT0|5|10008
+EpDunstable
+EfT0|8|10030
+
+ID10038
+E __n_DN_~~~~~~~~200901070000000
+Ec201206090133203
+Ee201206090133448
+Et201206090133203
+Eha10029
+Emstable
+EpD0.4.1
+EpD2009.01.07 
+Ep<S_E_0_____~~~~~What is new?
+Ep<_-E_1_____~~~~~Fixed a bug that prevents saving in x64 builds (thanks to Laszlo Boszormenyi)
+Ep<_-E_1_____~~~~~Fixed a crash when opening empty encrypted diaries
+Ep<_-E_1_____~~~~~Fixed some flaws in save backup handler
+Ep<_-E_1_____~~~~~Fixed some potential memory leaks
+EpDminor
+EfT0|5|10005
+EpDstable
+EfT0|6|10031
+
+ID10040
+E __n_DN_~~~~~~~~200812120000000
+Ec201206090133429
+Ee201206090133553
+Et201206090133429
+Eha10038
+Emstable
+EpD0.4.0
+EpD2008.12.12 
+EpDRelease 0.4.0 marks a milestone that constitutes a (more or less) stable base with a standard feature set, upon which more "revolutionary" features will be added in the future.
+EpDmajor
+EfT0|5|10008
+EpDstable
+EfT0|6|10031
+
+ID10039
+E __n_MN_~~~~~~~~200812120000000
+Ec202008030134827
+Ee202008030134827
+Et202008030134827
+Eha10040
+EpD0.4.X Series
+
+ID3441933
+E __n_NNo~~~~~~~~202008030134827
+Ec202008030134827
+Ee202008030134945
+Eha63869137
+EpDTAGS
+
+ID10036
+E __n_NNo~~~~~~~~202008030134827
+Ec202008030134827
+Ee202008030134827
+Ehu3441933
+EpDImportance
+
+ID10008
+E __n_NNo~~~~~~~~202008030134827
+Ec202008030134827
+Ee202008030134827
+Ehu10036
+EpDmajor
+
+ID10005
+E __n_NNo~~~~~~~~202008030134827
+Ec202008030134827
+Ee202008030134827
+Eha10008
+EpDminor
+
+ID10037
+E __n_NNo~~~~~~~~202008030134827
+Ec202008030134827
+Ee202008030134827
+Eha10036
+EpDStability
+
+ID10031
+E __n_NNo~~~~~~~~202008030134827
+Ec202008030134827
+Ee202008030134827
+Ehu10037
+EpDstable
+
+ID10030
+E __n_NNo~~~~~~~~202008030134827
+Ec202008030134827
+Ee202008030134827
+Eha10031
+EpDunstable
+
+ID1245112
+E __n_NNo~~~~~~~~202008030135012
+Ec202008030135012
+Ee202008030135037
+Eha10037
+EpDConcepts
+
+ID4687204
+E __n_NNo~~~~~~~~202008030135103
+Ec202008030135103
+Ee202008030135103
+Ehu1245112
+EpDdistraction-free
+
+ID6460427
+E __n_NNo~~~~~~~~202008030135111
+Ec202008030135111
+Ee202008030135111
+Eha4687204
+EpDIDE-like
+
+ID3685621
+E __n_NNo~~~~~~~~202008030135153
+Ec202008030135153
+Ee202008030135153
+Eha6460427
+EpDparagraph-focused
+
+ID10043
+E __n_NNo~~~~~~~~202008030134827
+Ec202008030134827
+Ee202008030134827
+Eha1245112
+EpDexample tag

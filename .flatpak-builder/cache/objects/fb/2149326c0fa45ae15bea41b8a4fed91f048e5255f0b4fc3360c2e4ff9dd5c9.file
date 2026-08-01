@@ -1,0 +1,462 @@
+/***********************************************************************************
+
+    Copyright (C) 2007-2024 Ahmet Öztürk (aoz_2@yahoo.com)
+
+    This file is part of Lifeograph.
+
+    Lifeograph is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Lifeograph is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Lifeograph.  If not, see <http://www.gnu.org/licenses/>.
+
+***********************************************************************************/
+
+
+#include <gtkmm/eventcontrollerlegacy.h>
+
+#include "helpers.hpp"
+#include "app_window.hpp"
+#include "lifeograph.hpp"
+#include "dialogs/dialog_preferences.hpp"
+#include "dialogs/dialog_password.hpp"
+
+#if LIFEOGRAPH_DEBUG_BUILD || defined( LIFEOGRAPH_BETA_STAGE )
+#include <build_time.h>
+#endif
+
+
+using namespace LIFEO;
+
+// STATIC MEMBERS
+const char                      Lifeograph::PROGRAM_VERSION_STRING[] = "3.0.4"
+#if LIFEOGRAPH_DEBUG_BUILD || defined( LIFEOGRAPH_BETA_STAGE )
+        "\n" BUILD_TIMESTAMP
+#endif
+        "\n\"Anas Al-Sharif\"";
+
+
+Lifeograph*                     Lifeograph::p;
+Settings                        Lifeograph::settings;
+Icons*                          Lifeograph::icons = nullptr;
+Glib::RefPtr< Gtk::Builder >    Lifeograph::s_builder;
+bool                            Lifeograph::m_flag_ui2_loaded = false;
+volatile int                    Lifeograph::s_internal_operation_depth = 0;
+SignalVoid                      Lifeograph::s_signal_logout;
+// DiaryElement*                   Lifeograph::s_elem_dragged = nullptr;
+SetStrings                      Lifeograph::s_lang_list;
+EnchantBroker*                  Lifeograph::s_enchant_broker = nullptr;
+String                          Lifeograph::s_color_insensitive;
+VecUstrings                     Lifeograph::s_entry_name_styles { _( "Name Only" ),
+                                                                  _( "Name - Description" ),
+                                                                  _( "Number - Name" ),
+                                                                  _( "Date - Name" ),
+                                                                  _( "Milestone" ) };
+
+// const Gtk::TargetEntry          Lifeograph::DTE_entry_row =
+//         Gtk::TargetEntry{ TE_ENTRY_ROW, Gtk::TARGET_SAME_APP, DT_ENTRY_ROW };
+// const Gtk::TargetEntry          Lifeograph::DTE_theme =
+//         Gtk::TargetEntry{ TE_THEME, Gtk::TARGET_SAME_APP, DT_TEXT };
+// const Gtk::TargetEntry          Lifeograph::DTE_text_plain =
+//         Gtk::TargetEntry{ TE_TEXT_PLAIN, Gtk::TargetFlags( 0 ), DT_TEXT };
+
+std::string                     Lifeograph::BINPATH;
+std::string                     Lifeograph::SHAREDIR;
+std::string                     Lifeograph::MANUALPATH;
+std::string                     Lifeograph::EXAMPLEDIARYPATH;
+std::string                     Lifeograph::LOCALEDIR;
+
+
+// CONSTRUCTOR
+Lifeograph::Lifeograph()
+:   Gtk::Application( "net.sourceforge.Lifeograph",
+                      Gio::Application::Flags::NON_UNIQUE |
+                      Gio::Application::Flags::HANDLES_COMMAND_LINE )
+{
+    p = this;
+
+    Glib::set_application_name( LIFEO::PROGRAM_NAME );
+
+    icons = new Icons;
+}
+
+Lifeograph::~Lifeograph()
+{
+    if( s_enchant_broker )
+    {
+        enchant_broker_free( s_enchant_broker );
+        s_enchant_broker = nullptr;
+    }
+
+    if( m_entry_text_register_cb )
+        clear_entry_text_register_cb();
+}
+
+Glib::RefPtr< Lifeograph >
+Lifeograph::create()
+{
+    return Glib::RefPtr< Lifeograph >( new Lifeograph );
+}
+
+bool
+Lifeograph::quit()
+{
+    PRINT_DEBUG( "Lifeograph::quit()" );
+
+    if( Diary::d->is_open() )
+        AppWindow::p->check_finish_diary_session();
+
+    // SAVE SETTINGS
+    if( settings.rtflag_read_only == false )
+    {
+        settings.width = AppWindow::p->get_width();
+        settings.height = AppWindow::p->get_height();
+        settings.state_maximized = AppWindow::p->is_maximized();
+
+        settings.write();
+    }
+
+    AppWindow::p->hide();
+
+    return true;
+}
+
+void
+Lifeograph::on_startup()
+{
+    Gtk::Application::on_startup();
+
+    // SETTINGS
+    Lifeograph::settings.read();
+
+    update_gtk_theme();
+
+    // ENCHANT
+    s_enchant_broker = enchant_broker_init();
+    enchant_broker_list_dicts( s_enchant_broker, fill_lang_list_cb, nullptr );
+
+    // APP MENU
+    add_action( "help", sigc::ptr_fun( &Lifeograph::show_manual ) );
+    add_action( "about", sigc::ptr_fun( &AppWindow::show_about ) );
+    add_action( "quit", sigc::hide_return( sigc::mem_fun( *this, &Lifeograph::quit ) ) );
+
+    // WORK-AROUD THE GTKMM BUG THAT SURFACES WHEN LTO IS ENABLED (such as in Fedora 33)
+    g_type_ensure( TextviewDiaryEdit::get_type() );
+    g_type_ensure( TextviewDiarySearch::get_type() );
+    g_type_ensure( TextviewDiaryTheme::get_type() );
+    g_type_ensure( WidgetEntryPicker::get_type() );
+    g_type_ensure( WidgetDatePicker::get_type() );
+    g_type_ensure( EntryClear::get_type() );
+    g_type_ensure( DialogPassword::get_type() );
+    g_type_ensure( DialogPreferences::get_type() );
+    g_type_ensure( AppWindow::get_type() );
+    g_type_ensure( DialogSync::get_type() );
+    g_type_ensure( DialogExport::get_type() );
+    // END OF WORKAROUND
+
+    // GLOBAL STYLES
+    auto css_provider { Gtk::CssProvider::create() };
+    css_provider->load_from_data(
+R"(window { border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; }
+
+.transparent-list header button { border-color: transparent; background: transparent; }
+.transparent-list:selected { color: #bb3333; background-color: #dddddd; }
+
+listview.entry-list { background: transparent; }
+
+treeexpander indent { padding-left: 8px; }
+
+box.wide-margin { margin: 10px; }
+revealer.info-box { background: rgb(240,200,200); }
+
+button.dlg-msg { border-radius: 0px; }
+
+flowboxchild.spell-suggestion { color: #222222; background: #ff9999; border-radius: 5px; }
+
+.lifeo-map-label { color: #663333; background: #FFFFFFaa; }
+
+treeexpander#parent_of_selected_hidden { background: #999999; }
+)" );
+// maybe later: listview.entry-list row:selected { color: #330000; background: #d0aaaa; }
+// treeexpander indent padding is deue to a Gtk weirdness/bug
+
+    Gtk::StyleProvider::add_provider_for_display( Gdk::Display::get_default(),
+                                                  css_provider,
+                                                  GTK_STYLE_PROVIDER_PRIORITY_USER );
+
+    // BUILDER
+    s_builder = Gtk::Builder::create();
+    load_gui( SHAREDIR + "/ui/lifeograph.ui" );
+}
+
+void
+Lifeograph::on_activate()
+{
+    AppWindow::p = Gtk::Builder::get_widget_derived< AppWindow >( s_builder, "W_main" );
+    add_window( * AppWindow::p );
+    AppWindow::p->show();
+}
+
+int
+Lifeograph::on_command_line( const Glib::RefPtr< Gio::ApplicationCommandLine >& cmd_line )
+{
+    int argc;
+    char** argv( cmd_line->get_arguments( argc ) );
+
+    for( int i = 1; i < argc; i++ )
+    {
+        if( ! strcmp( argv[ i ], "--open" ) || ! strcmp( argv[ i ], "-o" ) )
+        {
+            if( ( i + 1 ) < argc )
+            {
+                if( check_path_exists( argv[ ++i ] ) )
+                {
+                    if( ! is_dir( argv[ i ] ) )
+                    {
+                        UILogin::m_uri_cur = argv[ i ];
+                        settings.rtflag_open_directly = true;
+                    }
+                }
+                if( ! settings.rtflag_open_directly )
+                    Error( "File cannot be opened" );
+            }
+            else
+                Error( "No path provided" );
+        }
+        else
+        if( ! strcmp( argv[ i ], "--force-welcome" ) )
+        {
+            settings.rtflag_force_welcome = true;
+        }
+        // else
+        // if( ! strcmp( argv[ i ], "--ignore-locks" ) )
+        // {
+        //     Diary::s_flag_ignore_locks = true;
+        // }
+        else
+        if( ! strcmp( argv[ i ], "--read-only" ) || ! strcmp( argv[ i ], "-r" ) )
+        {
+            settings.rtflag_read_only = true;
+        }
+        else
+        if( ! strcmp( argv[ i ], "--read-only-single" ) )
+        {
+            settings.rtflag_single_file = true;
+            settings.rtflag_read_only = true;
+        }
+        else
+        if( check_path_exists( argv[ i ] ) && ! is_dir( argv[ i ] ) )
+        {
+            UILogin::m_uri_cur = argv[ i ];
+            settings.rtflag_open_directly = true;
+        }
+        else
+        {
+            print_info( "Unrecognized argument: ", argv[ i ] );
+        }
+    }
+
+    activate();
+
+    return 0;
+}
+
+bool
+Lifeograph::load_gui( Glib::RefPtr< Gtk::Builder >&b, const std::string& path )
+{
+    try
+    {
+        b->add_from_file( path );
+    }
+    catch( const Glib::FileError& ex )
+    {
+        print_error( "FileError: ", ex.what() );
+        return false;
+    }
+    catch( const Gtk::BuilderError& ex )
+    {
+        print_error( "BuilderError: ", ex.what() );
+        return false;
+    }
+
+    return true;
+}
+
+Glib::RefPtr< Gtk::Builder >
+Lifeograph::create_gui( const String& path )
+{
+    auto builder  { Gtk::Builder::create() };
+
+    if( !load_gui( builder, path ) )
+        throw LIFEO::Error( "Failed to create gui." );
+
+    return builder;
+}
+
+Glib::RefPtr< Gtk::Builder >&
+Lifeograph::get_builder2()
+{
+    if( !m_flag_ui2_loaded )
+        if( load_gui( SHAREDIR + "/ui/lifeograph-2.ui" ) )
+            m_flag_ui2_loaded = true;
+
+    return s_builder;
+}
+
+std::string
+Lifeograph::get_icon_dir()
+{
+    return( settings.icon_theme.empty() ? ( SHAREDIR + "/icons" ) :
+                                          ( SHAREDIR + "/icons/" + settings.icon_theme ) );
+}
+
+R2Pixbuf&
+Lifeograph::get_todo_icon( ElemStatus es )
+{
+    switch( es )
+    {
+        case ES::PROGRESSED:
+            return icons->todo_progressed_16;
+        case ES::DONE:
+            return icons->todo_done_16;
+        case ES::CANCELED:
+            return icons->todo_canceled_16;
+        case ES::TODO:
+        default:
+            return icons->todo_open_16;
+    }
+}
+R2Pixbuf&
+Lifeograph::get_todo_icon32( ElemStatus es )
+{
+    switch( es )
+    {
+        case ES::PROGRESSED:
+            return icons->todo_progressed_32;
+        case ES::DONE:
+            return icons->todo_done_32;
+        case ES::CANCELED:
+            return icons->todo_canceled_32;
+        case ES::TODO:
+        default:
+            return icons->todo_open_32;
+    }
+}
+
+void
+Lifeograph::clear_entry_text_register_cb()
+{
+    for( Paragraph* p = m_entry_text_register_cb->m_p2next; p; p = p->m_p2next )
+    {
+        delete p->m_p2prev;
+
+        if( !p->m_p2next )
+        {
+            delete p;
+            break;
+        }
+    }
+    m_entry_text_register_cb = nullptr;
+}
+
+Paragraph*
+Lifeograph::get_entry_text_register_cb()
+{
+    return m_entry_text_register_cb;
+}
+void
+Lifeograph::set_entry_text_register_cb( Paragraph* para_1st )
+{
+    if( m_entry_text_register_cb )
+        clear_entry_text_register_cb();
+    m_entry_text_register_cb = para_1st;
+}
+
+const String&
+Lifeograph::get_color_insensitive()
+{
+    if( s_color_insensitive.empty() )
+    {
+        // the attempt below does not work. we admit defeat, temporarily:
+        s_color_insensitive = "gray";
+        // TODO: 3.2: find a way for gtkmm4:
+        // note that the subtitle label is always insensitive:
+        // Gtk::Widget* widget { AppWindow::p->m_L_subtitle };
+        // s_color_insensitive = convert_gdkcolor_to_html( widget->get_style_context()->get_color() );
+        // get_style_context is deprecated. does Widget::get_color do the same thing?
+    }
+    return s_color_insensitive;
+}
+
+void
+Lifeograph::show_manual()
+{
+    const auto&& cmd{ STR::compose( "\"", PATH( BINPATH ), "\" --read-only-single \"",
+                                    PATH( MANUALPATH ), "\"" ) };
+
+//#ifndef _WIN32
+    print_info( "CMD ", cmd, " returned: ", std::system( cmd.c_str() ) );
+/*#else
+    char cmdl[ MAX_PATH ] = "";
+    STARTUPINFO si;
+    PROCESS_INFORMATION pi;
+
+    ZeroMemory( &si, sizeof( si ) );
+    si.cb = sizeof( si );
+    ZeroMemory( &pi, sizeof( pi ) );
+
+    strcat( cmdl, cmd.c_str() );
+
+    // Start the child process.
+    if( !CreateProcess( nullptr,        // No module name (use command line)
+                        cmdl,           // Command line
+                        nullptr,        // Process handle not inheritable
+                        nullptr,        // Thread handle not inheritable
+                        false,          // Set handle inheritance to FALSE
+                        0,              // No creation flags
+                        nullptr,        // Use parent's environment block
+                        nullptr,        // Use parent's starting directory
+                        &si,            // Pointer to STARTUPINFO structure
+                        &pi ) )         // Pointer to PROCESS_INFORMATION structure
+    {
+        print_error( "CreateProcess failed: ", GetLastError() );
+        return;
+    }
+
+    // Wait until child process exits.
+    WaitForSingleObject( pi.hProcess, INFINITE );
+
+    // Close process and thread handles.
+    CloseHandle( pi.hProcess );
+    CloseHandle( pi.hThread );
+#endif*/
+
+}
+
+// DIALOGEVENT =====================================================================================
+HELPERS::DialogEvent::DialogEvent( const Ustring& title )
+:   Gtk::Dialog( title )
+{
+    set_transient_for( *AppWindow::p );
+    Lifeograph::signal_logout().connect( sigc::mem_fun( *this, &DialogEvent::handle_logout ) );
+
+    auto event_controller_legacy{ Gtk::EventControllerLegacy::create() };
+    event_controller_legacy->signal_event().connect(
+            sigc::mem_fun( *AppWindow::p, &AppWindow::on_event ), false );
+    add_controller( event_controller_legacy );
+}
+
+HELPERS::DialogEvent::DialogEvent( BaseObjectType* cobject,
+                                   const Glib::RefPtr< Gtk::Builder >& )
+:   Gtk::Dialog( cobject )
+{
+    set_transient_for( * AppWindow::p );
+    Lifeograph::signal_logout().connect( sigc::mem_fun( *this, &DialogEvent::handle_logout ) );
+}

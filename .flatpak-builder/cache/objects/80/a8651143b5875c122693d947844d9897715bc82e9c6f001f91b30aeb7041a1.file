@@ -1,0 +1,99 @@
+/***********************************************************************************
+
+	Copyright (C) 2007-2024 Ahmet Öztürk (aoz_2@yahoo.com)
+
+    This file is part of Lifeograph.
+
+    Lifeograph is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Lifeograph is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Lifeograph.  If not, see <http://www.gnu.org/licenses/>.
+
+***********************************************************************************/
+
+
+#ifndef LIFEOGRAPH_DIALOG_PASSWORD_HEADER
+#define LIFEOGRAPH_DIALOG_PASSWORD_HEADER
+
+
+#include <gtkmm/popover.h>
+#include <gtkmm/entry.h>
+
+#include "../helpers.hpp"
+#include "../diaryelements/diary.hpp"
+
+
+namespace LIFEO
+{
+
+// PASSWORD DIALOG =================================================================================
+class DialogPassword : public Gtk::Popover
+{
+    public:
+        enum OperationType
+        {
+            // components:
+            OTC_CHECK = 1,
+            OTC_SET = 2,
+            OTC_CURRENT = 4,
+            OTC_NEW = 8,
+            // composites:
+            OT_AUTHENTICATE = 5,
+            OT_OPEN = 6,
+            OT_ADD = 10,
+            OT_CHANGE = 15,
+        };
+
+                                    DialogPassword( BaseObjectType*,
+                                                    const Glib::RefPtr< Gtk::Builder >& );
+
+        static void                 launch( OperationType, Diary*,
+                                            const Gdk::Rectangle*,
+                                            Gtk::Widget*,
+                                            const HELPERS::FuncVoid&,
+                                            const HELPERS::FuncVoid& );
+        static void                 finish( const String& path );
+        static void                 handle_wrong_password()
+        { ptr->process_wrong_password(); }
+
+    protected:
+        void                        launch_internal();
+        void                        handle_entry_changed();
+        void                        process_wrong_password( int = 0 );
+        void                        authenticate();
+        void                        check_match();
+        void                        handle_go();
+
+        Gtk::Button*                m_B_go;
+        EntryClear*                 m_E_current;
+        Gtk::Label*                 m_L_msg;
+
+        Gtk::Grid*                  m_G_new;
+        Gtk::Box*                   m_Bx_auth;
+        Gtk::Button*                m_B_auth;
+        EntryClear*                 m_E_new;
+        EntryClear*                 m_E_confirm;
+
+        std::function< void() >     m_handler_go;
+        std::function< void() >     m_handler_cancel;
+
+        Diary*                      m_ptr2diary;
+        OperationType               m_ot;
+
+        static DialogPassword*      ptr;
+
+        static constexpr int        PHASE_COUNT = 20;
+};
+
+} // end of namespace LIFEO
+
+#endif
+

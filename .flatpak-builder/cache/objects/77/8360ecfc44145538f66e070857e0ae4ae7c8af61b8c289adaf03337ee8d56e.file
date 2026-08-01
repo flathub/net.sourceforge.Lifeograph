@@ -1,0 +1,24 @@
+[Application]
+name=net.sourceforge.Lifeograph
+runtime=org.gnome.Platform/x86_64/48
+sdk=org.gnome.Sdk/x86_64/48
+command=lifeograph
+
+[Context]
+shared=network;ipc;
+sockets=x11;wayland;fallback-x11;
+devices=dri;
+filesystems=host;
+
+[Extension net.sourceforge.Lifeograph.Locale]
+directory=share/runtime/locale
+autodelete=true
+locale-subset=true
+
+[Extension net.sourceforge.Lifeograph.Debug]
+directory=lib/debug
+autodelete=true
+no-autodownload=true
+
+[Build]
+built-extensions=net.sourceforge.Lifeograph.Locale;net.sourceforge.Lifeograph.Debug;

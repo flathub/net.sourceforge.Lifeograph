@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <object class="GtkBox" id="Bx_container">
+    <property name="orientation">vertical</property>
+    <property name="spacing">5</property>
+    <child>
+      <object class="GtkBox">
+        <property name="spacing">15</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="sensitive">0</property>
+            <property name="label" translatable="yes">Field</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkComboBoxText" id="CB_source_field">
+            <property name="halign">end</property>
+            <property name="hexpand">1</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkBox" id="Bx_includes">
+        <property name="spacing">15</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="sensitive">0</property>
+            <property name="label" translatable="yes">Include</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="halign">end</property>
+            <property name="hexpand">1</property>
+            <property name="homogeneous">1</property>
+            <property name="css-classes">linked</property>
+            <child>
+              <object class="GtkToggleButton" id="TB_number">
+                <property name="icon-name">number-16-symbolic</property>
+                <property name="tooltip-text" translatable="yes">Number or Date</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="TB_plain">
+                <property name="icon-name">format-justify-fill-symbolic</property>
+                <property name="tooltip-text" translatable="yes">Plain text</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="TB_tags">
+                <property name="icon-name">tag-16-symbolic</property>
+                <property name="tooltip-text" translatable="yes">Tags within the text</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="TB_dates">
+                <property name="icon-name">x-office-calendar-symbolic</property>
+                <property name="tooltip-text" translatable="yes">Dates within the text</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="TB_comments">
+                <property name="icon-name">comment-16-symbolic</property>
+                <property name="tooltip-text" translatable="yes">Comments within the text</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="TB_indentations">
+                <property name="icon-name">format-indent-more-symbolic</property>
+                <property name="tooltip-text" translatable="yes">Indentations</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

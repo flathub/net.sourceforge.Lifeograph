@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <object class="GtkBox" id="Bx_range">
+    <property name="css-classes">linked</property>
+    <child>
+      <object class="GtkButton" id="B_incl_b">
+        <property name="receives_default">1</property>
+        <property name="tooltip_text" translatable="yes">Include or exclude the lower bound</property>
+        <!-- TODO: 3.1: find a way to make the button more compact...
+             ...without making the label a seaparate widget -->
+        <child>
+          <object class="GtkLabel" id="L_incl_b">
+            <property name="label">(</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkEntry" id="E_bgn">
+        <property name="width_chars">20</property>
+        <property name="tooltip_text" translatable="yes">Lower bound</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButton">
+        <property name="sensitive">0</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="label">...</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkEntry" id="E_end">
+        <property name="tooltip_text" translatable="yes">Upper bound</property>
+        <property name="width_chars">20</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButton" id="B_incl_e">
+        <property name="tooltip_text" translatable="yes">Include or exclude the upper bound</property>
+        <child>
+          <object class="GtkLabel" id="L_incl_e">
+            <property name="label">)</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

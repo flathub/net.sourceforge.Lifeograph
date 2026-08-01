@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <object class="GtkPopover" id="Po_picker">
+    <property name="child">
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <property name="spacing">5</property>
+        <child>
+          <object class="GtkBox">
+            <property name="vexpand">1</property>
+            <property name="orientation">vertical</property>
+            <property name="css-classes">linked</property>
+            <child>
+              <object class="GtkScrolledWindow" id="SW_list">
+                <property name="has-frame">1</property>
+                <property name="vexpand">1</property>
+                <property name="min-content-width">300</property>
+                <property name="min-content-height">40</property>
+                <property name="max-content-width">500</property>
+                <property name="max-content-height">350</property>
+                <property name="propagate-natural-width">1</property>
+                <property name="propagate-natural-height">1</property>
+                <child>
+                  <object class="GtkListBox" id="LB_list"/>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="B_add">
+                <property name="label" translatable="yes">Add New</property>
+                <property name="receives-default">1</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkSearchEntry" id="E_search">
+            <property name="tooltip-text" translatable="yes">Search in the list</property>
+            <property name="hexpand">1</property>
+            <!--property name="primary-icon-name">edit-find-symbolic</property>
+            <property name="primary-icon-activatable">False</property>
+            <property name="primary-icon-sensitive">False</property-->
+          </object>
+        </child>
+      </object>
+    </property>
+  </object>
+</interface>

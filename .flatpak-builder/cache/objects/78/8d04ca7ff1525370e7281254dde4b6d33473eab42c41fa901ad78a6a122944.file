@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <object class="GtkBox" id="Bx_container">
+    <property name="orientation">vertical</property>
+    <property name="spacing">5</property>
+    <child>
+      <object class="GtkBox">
+        <property name="spacing">15</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="sensitive">0</property>
+            <property name="label" translatable="yes">Begin Date</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkComboBoxText" id="CB_date_begin">
+            <property name="hexpand">1</property>
+            <property name="halign">end</property>
+            <items>
+              <item translatable="yes">Start Date</item>
+              <item translatable="yes">Creation Date</item>
+              <item translatable="yes">Last Change Date</item>
+              <item translatable="yes">Finish Date</item>
+              <item translatable="yes">Now</item>
+              <item translatable="yes">1st Column on Left</item>
+              <item translatable="yes">2nd Column on Left</item>
+            </items>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkBox">
+        <property name="spacing">15</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="sensitive">0</property>
+            <property name="label" translatable="yes">End Date</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkComboBoxText" id="CB_date_end">
+            <property name="hexpand">1</property>
+            <property name="halign">end</property>
+            <items>
+              <item translatable="yes">Start Date</item>
+              <item translatable="yes">Creation Date</item>
+              <item translatable="yes">Last Change Date</item>
+              <item translatable="yes">Finish Date</item>
+              <item translatable="yes">Now</item>
+              <item translatable="yes">1st Column on Left</item>
+              <item translatable="yes">2nd Column on Left</item>
+            </items>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkBox">
+        <property name="spacing">15</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="sensitive">0</property>
+            <property name="label" translatable="yes">Type</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkComboBoxText" id="CB_duration_type">
+            <property name="hexpand">1</property>
+            <property name="halign">end</property>
+            <items>
+              <item translatable="yes">Calendar Days</item>
+              <item translatable="yes">Work Days</item>
+            </items>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

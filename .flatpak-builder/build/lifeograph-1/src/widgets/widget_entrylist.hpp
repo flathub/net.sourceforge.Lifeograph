@@ -1,0 +1,160 @@
+/***********************************************************************************
+
+    Copyright (C) 2007-2024 Ahmet Öztürk (aoz_2@yahoo.com)
+
+    This file is part of Lifeograph.
+
+    Lifeograph is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Lifeograph is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Lifeograph.  If not, see <http://www.gnu.org/licenses/>.
+
+***********************************************************************************/
+
+
+#ifndef LIFEOGRAPH_WIDGET_ENTRYLIST_HEADER
+#define LIFEOGRAPH_WIDGET_ENTRYLIST_HEADER
+
+
+#include <gtkmm.h>
+
+#include "../diaryelements/diarydata.hpp"
+#include "../diaryelements/entry.hpp"
+#include "gtkmm/label.h"
+#include "gtkmm/listview.h"
+#include "gtkmm/treeexpander.h"
+
+
+namespace LIFEO
+{
+
+class GObjectEntry : public Glib::Object
+{
+    public:
+        static Glib::RefPtr< GObjectEntry > create( Entry* p2entry )
+        { return Glib::make_refptr_for_instance< GObjectEntry >( new GObjectEntry( p2entry ) ); }
+
+        Entry * const         m_p2entry;
+        Gtk::Box*             m_Bx          { nullptr };
+        Gtk::Image*           m_I           { nullptr };
+        Gtk::Label*           m_L           { nullptr };
+        Gtk::Image*           m_I_fav       { nullptr };
+        sigc::connection      m_connection_expand;  // why do we have to do this manually? :(
+
+    private:
+        GObjectEntry( Entry* p2entry )
+        : m_p2entry ( p2entry )
+        {}
+};
+
+class WidgetEntryList : public Gtk::ListView
+{
+    public:
+        WidgetEntryList( BaseObjectType*, const Glib::RefPtr< Gtk::Builder >& );
+
+        void                        set_editable();
+
+        void                        clear_and_disable();
+        void                        populate();
+
+        void                        select( Entry* );
+        int                         get_selected_count() const
+        { return m_selection_model->get_selection()->get_size(); }
+        void                        scroll_to_entry( const Entry* );
+        void                        scroll_to_and_select_entry( const Entry* p2entry )
+        {
+            scroll_to_entry( p2entry );
+            select( const_cast< Entry* >( p2entry ) );
+        }
+        void                        present_entry_hard( const Entry* );
+        void                        present_entry( const Entry* );
+        void                        expand_entry( const Entry* );
+        void                        refresh_row( const Entry* );
+        void                        refresh_row_label( const Entry* );
+
+        void                        go_up();
+        void                        go_down();
+
+        // Gdk::Rectangle              get_item_rect( const Entry* ) const;
+
+        void                        toggle_selected_collapsed();
+
+        void                        do_for_each_selected_entry(
+                                            const std::function< void( Entry* ) >& );
+
+    protected:
+        // void                        on_button_press_event( int, double, double );
+        void                        handle_menu_click( int, double, double,
+                                                       const Glib::RefPtr< GObjectEntry >& );
+        bool                        handle_key_press( guint, guint, Gdk::ModifierType );
+
+        void                        mark_selected_entries_cut();
+        void                        clear_cut_entries();
+
+        // void                        handle_drag_begin( const Glib::RefPtr< Gdk::Drag >&,
+        //                                                const Glib::RefPtr< Gtk::DragSource >&,
+        //                                                const Glib::RefPtr< GObjectEntry >& );
+        Glib::RefPtr< Gdk::ContentProvider >
+                                    handle_drag_prepare( double, double,
+                                                         const Glib::RefPtr< Gtk::DragSource >&,
+                                                         const Glib::RefPtr< GObjectEntry >& );
+        // void                        handle_drag_end( const Glib::RefPtr< Gdk::Drag >&, bool );
+        Gdk::DragAction             handle_drop_motion( double, double,
+                                                        Glib::RefPtr< Gtk::DropTarget >&,
+                                                        Gtk::TreeExpander*, Entry* );
+        bool                        handle_drop( const Glib::ValueBase&, double, double, Entry* );
+
+        void                        handle_selection_changed(/* guint, guint */);
+
+        void                        handle_expand_changed( const Glib::RefPtr< Gtk::TreeListRow >& );
+// tried to use it for filtering by tagged but did not work well:
+        void                        handle_row_activated( guint );
+
+        void                        size_allocate_vfunc( int, int, int ) override;
+        void                        snapshot_vfunc( const Glib::RefPtr< Gtk::Snapshot >& ) override;
+
+        EntrySelection              m_selected_entries; // multiple entry selection
+        DEID                        m_id_dragged_entry { DEID_UNSET }; // single entry case
+        EntrySelection              m_cut_entries;
+
+        void                        handle_setup_row( const Glib::RefPtr< Gtk::ListItem >& );
+        void                        handle_bind_row( const Glib::RefPtr< Gtk::ListItem >& );
+        void                        handle_unbind_row( const Glib::RefPtr< Gtk::ListItem >& );
+
+        Glib::RefPtr< Gio::ListModel >
+                                    create_model( const Glib::RefPtr< Glib::ObjectBase >& = {} );
+
+        Glib::RefPtr< Gtk::TreeListModel >
+                                    m_TLM;
+        Glib::RefPtr< Gtk::SelectionModel >
+                                    m_selection_model;
+
+        Glib::RefPtr< Gtk::EventControllerKey >
+                                    m_controller_key;
+
+        DropPosition                m_drop_position           { DropPosition::NONE };
+        double                      m_drop_coord_x            { -1.0 };
+        double                      m_drop_coord_y            { 0.0 };
+        int                         m_drop_rect_h             { 0 };
+        int                         m_line_height             { -1 };
+
+        bool                        m_F_editable              { false };
+        bool                        m_F_inhibit_show_entry    { false };
+
+        static constexpr double     OFFSET_DROP_INTO          { 120.0 };
+
+    friend class UIDiary;
+};
+
+
+} // end of namespace LIFEO
+
+#endif

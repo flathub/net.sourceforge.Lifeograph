@@ -1,0 +1,904 @@
+/***********************************************************************************
+
+    Copyright (C) 2007-2024 Ahmet Öztürk (aoz_2@yahoo.com)
+
+    This file is part of Lifeograph.
+
+    Lifeograph is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Lifeograph is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Lifeograph.  If not, see <http://www.gnu.org/licenses/>.
+
+***********************************************************************************/
+
+
+#include "lifeograph.hpp"
+#include "app_window.hpp"
+#include "printing.hpp"
+#include "diaryelements/diary.hpp"
+#include "widgets/chart_surface.hpp"
+
+
+using namespace LIFEO;
+
+// PRINTABLES ======================================================================================
+void
+PrintablePageStart::render()
+{
+    auto cr{ PrintOpr::s_print_context->get_cairo_context() };
+
+    const double&& w{ PrintOpr::s_print_context->get_width() };
+    const double&& h{ PrintOpr::s_print_context->get_height() };
+    cr->rectangle( w / -2, h / -2, w * 2, h * 2 );
+
+    cr->set_source_rgb( m_bg_color.get_red(), m_bg_color.get_green(), m_bg_color.get_blue() );
+    cr->fill();
+}
+
+double
+PrintableVSpace::get_height() const
+{
+    return( PrintOpr::s_print_context->get_dpi_y() / 8 );
+}
+
+void
+PrintableTextLine::render()
+{
+    Cairo::RefPtr< Cairo::Context > cr( PrintOpr::s_print_context->get_cairo_context() );
+
+    // Set the main color
+    cr->set_source_rgb( m_color.get_red(), m_color.get_green(), m_color.get_blue() );
+    cr->move_to( m_x, m_y + get_height() );
+    m_layout->show_in_cairo_context( cr );
+}
+
+void
+PrintableImage::render()
+{
+    Cairo::RefPtr< Cairo::Context > cr = PrintOpr::s_print_context->get_cairo_context();
+    Gdk::Cairo::set_source_pixbuf( cr, m_pixbuf, m_x, m_y );
+    cr->paint();
+}
+
+void
+PrintableChart::render()
+{
+    Cairo::RefPtr< Cairo::Context > cr = PrintOpr::s_print_context->get_cairo_context();
+    m_surface->render( cr, m_x, m_y );
+}
+
+void
+PrintableTable::render()
+{
+    Cairo::RefPtr< Cairo::Context > cr = PrintOpr::s_print_context->get_cairo_context();
+    m_surface->render( cr, m_x, m_y );
+}
+
+void
+PrintableBullet::render()
+{
+    Cairo::RefPtr< Cairo::Context > cr = PrintOpr::s_print_context->get_cairo_context();
+
+    // TODO? Gdk::Cairo::set_source_rgba( cr, m_p2theme->color_subsubheading );
+    cr->begin_new_path();
+    cr->set_line_width( 1 );
+    cr->arc( m_x, m_y, m_radius, 0.0, 2 * HELPERS::PI );
+    if( m_F_fill )
+        cr->fill();
+    else
+        cr->stroke();
+}
+
+// PRINT OPERATION =================================================================================
+Glib::RefPtr< Gtk::PrintContext > PrintOpr::s_print_context;
+
+Glib::RefPtr< PrintOpr >
+PrintOpr::create()
+{
+    return Glib::RefPtr< PrintOpr >( new PrintOpr() );
+}
+
+PrintOpr::PrintOpr()
+{
+    m_refSettings = Gtk::PrintSettings::create();
+    m_refPageSetup = Gtk::PageSetup::create();
+    set_print_settings( m_refSettings );
+    set_default_page_setup( m_refPageSetup );
+    set_embed_page_setup( true );
+    set_track_print_status();
+}
+
+PrintOpr::~PrintOpr()
+{
+}
+
+void
+PrintOpr::clear_content()
+{
+    for( ListPrintables::iterator iter = m_content.begin(); iter != m_content.end(); ++iter )
+        delete *iter;
+
+    m_content.clear();
+}
+
+void
+PrintOpr::init_variables()
+{
+    // ENTRY BOUNDARIES
+    if( m_parser.m_opt_one_entry )
+    {
+        m_p2entry_bgn = AppWindow::p->UI_entry->get_cur_entry();
+        m_p2entry_end = m_p2entry_bgn->get_next_straight();
+    }
+    else
+    {
+        m_p2entry_bgn = Diary::d->get_entry_1st();
+        m_p2entry_end = nullptr; //Diary::d->get_entry_last();
+    }
+}
+
+void
+PrintOpr::set_hide_comments( bool flag_hide )
+{
+    m_parser.m_opt_hide_comments = flag_hide;
+}
+
+Gtk::Widget*
+PrintOpr::on_create_custom_widget()
+{
+    auto update_widgetry = [ this ]()
+    {
+        m_ChB_1_entry_1_page->set_visible( not( m_RB_current->get_active() ) );
+
+        if( m_ChB_theme_colors->get_active() )
+            m_ChB_1_entry_1_page->set_active();
+        m_ChB_1_entry_1_page->set_sensitive( not( m_ChB_theme_colors->get_active() ) );
+
+        m_FB->set_visible( not( m_ChB_theme_font->get_active() ) );
+    };
+
+    if( m_builder )
+        m_builder.reset();
+
+    m_builder               = Lifeograph::create_gui( Lifeograph::SHAREDIR + "/ui/print.ui" );
+
+    m_Bx_print              = m_builder->get_widget< Gtk::Box >( "Bx_print" );
+
+    m_RB_current            = m_builder->get_widget< Gtk::CheckButton >( "RB_print_current" );
+    m_RB_filtered           = m_builder->get_widget< Gtk::CheckButton >( "RB_print_filtered" );
+    m_ChB_1_entry_1_page    = m_builder->get_widget< Gtk::CheckButton >( "CB_one_entry_per_page" );
+
+    m_FB                    = m_builder->get_widget< Gtk::FontButton >( "FB_print" );
+
+    m_ChB_theme_font        = m_builder->get_widget< Gtk::CheckButton >( "CB_use_theme_font" );
+    m_ChB_theme_colors      = m_builder->get_widget< Gtk::CheckButton >( "CB_use_theme_colors" );
+
+    m_RB_margin_off         = m_builder->get_widget< Gtk::ToggleButton >( "RB_page_margin_off" );
+    m_RB_margin_half        = m_builder->get_widget< Gtk::ToggleButton >( "RB_page_margin_half" );
+
+    m_RB_current->signal_toggled().connect( update_widgetry );
+    m_ChB_theme_font->signal_toggled().connect( update_widgetry );
+    m_ChB_theme_colors->signal_toggled().connect( update_widgetry );
+
+    update_widgetry();
+
+    return m_Bx_print;
+}
+
+void
+PrintOpr::on_custom_widget_apply( Gtk::Widget* )
+{
+    m_parser.m_opt_one_entry = m_RB_current->get_active();
+    m_parser.m_opt_filtered_only = m_RB_filtered->get_active();
+
+    m_parser.m_opt_entries_at_page_start = m_ChB_1_entry_1_page->get_active();
+
+    m_parser.m_opt_use_theme_font = m_ChB_theme_font->get_active();
+
+    if( m_parser.m_opt_use_theme_font == false )
+        m_parser.m_font = Pango::FontDescription( "Sans 11" );
+
+    m_parser.m_opt_use_theme_colors = m_ChB_theme_colors->get_active();
+
+    m_parser.m_opt_margin = m_RB_margin_off->get_active() ? 0.0 :
+                                ( m_RB_margin_half->get_active() ? 0.25 : 0.5 );
+}
+
+void
+PrintOpr::show_page_setup()
+{
+    // Show the page setup dialog, asking it to start with the existing settings:
+    Glib::RefPtr< Gtk::PageSetup > new_page_setup =
+            Gtk::run_page_setup_dialog( *AppWindow::p, m_refPageSetup, m_refSettings );
+
+    //Save the chosen page setup dialog for use when printing, previewing, or
+    //showing the page setup dialog again:
+    m_refPageSetup = new_page_setup;
+}
+
+void
+PrintOpr::parse()
+{
+    m_parser.init();
+
+    // diary title:
+    if( !m_parser.m_opt_one_entry )
+    {
+        m_parser.add_diary_cover();
+        m_content.splice( m_content.end(), m_parser.m_content );
+    }
+
+    for( auto entry = m_p2entry_bgn; entry != m_p2entry_end; entry = entry->get_next_straight() )
+    {
+        if( m_parser.m_opt_one_entry || !m_parser.m_opt_filtered_only || !entry->is_filtered_out() )
+        {
+            m_parser.add_entry( entry );
+            m_content.splice( m_content.end(), m_parser.m_content );
+        }
+    }
+
+    set_n_pages( m_parser.m_n_pages );
+}
+
+void
+PrintOpr::on_begin_print( const Glib::RefPtr< Gtk::PrintContext >& print_context )
+{
+    s_print_context = print_context;
+
+    clear_content();
+    init_variables();
+
+    parse();
+}
+
+void
+PrintOpr::on_draw_page( const Glib::RefPtr< Gtk::PrintContext >& print_context, int page_no )
+{
+    //s_print_context = print_context; // does it change after on_begin_print?
+
+    int i_page{ -1 };
+
+    for( Printable* printable : m_content )
+    {
+        if( printable->get_type() == Printable::Type::PT_PAGE_START )
+            i_page++;
+
+        if( i_page == page_no )
+            printable->render();
+        else if( i_page > page_no )
+            break;
+    }
+}
+
+void
+PrintOpr::on_status_changed()
+{
+    if( is_finished() )
+    {
+        print_info( "Print job completed" );
+    }
+    else
+    {
+        print_info( get_status_string() );
+    }
+}
+
+void
+PrintOpr::on_done( Gtk::PrintOperation::Result result )
+{
+    //Printing is "done" when the print data is spooled.
+
+    if( result == Gtk::PrintOperation::Result::ERROR )
+    {
+        DialogMessage::init( AppWindow::p, _( "Printing failed" ), _( "_Close" ) )->show();
+    }
+    else
+    if( result == Gtk::PrintOperation::Result::APPLY )
+    {
+        // Update PrintSettings with the ones used in this PrintOperation:
+        m_refSettings = get_print_settings();
+    }
+
+   /* if( ! is_finished())
+    {
+    // We will connect to the status-changed signal to track status
+    // and update a status bar. In addition, you can, for example,
+    // keep a list of active print operations, or provide a progress dialog.
+        signal_status_changed().connect( sigc::bind( sigc::mem_fun( *this,
+                    &PrintOpr::handle_print_status_changed ),
+                operation ) );
+    }*/
+}
+
+// PANGO ENTRY PARSER ==============================================================================
+void
+EntryParserPango::init()
+{
+    // margins are 1/2" on each side when full
+    m_margin_x = PrintOpr::s_print_context->get_dpi_x() * m_opt_margin;
+    m_margin_y = PrintOpr::s_print_context->get_dpi_y() * m_opt_margin;
+    m_page_w = PrintOpr::s_print_context->get_width() - ( 2 * m_margin_x );
+    m_page_h = PrintOpr::s_print_context->get_height() - ( 2 * m_margin_y );
+
+    m_total_h_cur = m_page_h;   // to force add_page() at the beginning
+    m_entry_break_h = PrintOpr::s_print_context->get_dpi_y() * 2.0; // 2" break
+    m_unit_indent_w = PrintOpr::s_print_context->get_dpi_x() * 0.5; // 1/2" indent
+    m_n_pages = 0;
+
+    // when multiple entries will be printed set theme to default for the cover
+    if( m_opt_use_theme_colors == false || m_opt_one_entry == false )
+        m_p2theme = ThemeSystem::get();
+}
+
+void
+EntryParserPango::add_diary_cover()
+{
+    add_page();
+
+    m_alignment = Pango::Alignment::CENTER;
+    m_total_h_cur = m_page_h / 1.9;
+
+    if( m_opt_use_theme_font )
+        m_font = ThemeSystem::get()->font;
+
+    R2Pixbuf&& pixbuf{ Lifeograph::icons->diary_32->scale_simple( m_page_h / 20,
+                                                                  m_page_h / 20,
+                                                                  Gdk::InterpType::BILINEAR ) };
+    add_printable( new PrintableImage( pixbuf,
+                                       m_margin_x + m_page_w / 2 - m_page_h / 40,
+                                       m_total_h_cur ) );
+
+    m_marked_up_text = STR::compose( "<span size='xx-large'>",
+                                     Glib::Markup::escape_text( Diary::d->get_name() ),
+                                     "</span>" );
+    add_text( 0.0 );
+
+    m_marked_up_text = Date::format_string( Date::get_today() );
+    add_text( 0.0 );
+
+    m_total_h_cur = m_page_h;   // to force add_page() at the beginning
+}
+
+void
+EntryParserPango::add_entry( const Entry* entry )
+{
+    double x_offset{ 0.0 };
+
+    m_format_map_offset = 0;
+    m_content.clear();
+    m_source_text = entry->get_text();
+    m_format_map.clear();
+    m_format_map.assign( m_source_text.length() + 1, 0 ); // +1 is for the file end
+    m_p2entry = entry;
+    if( m_opt_use_theme_font )
+        m_font = entry->get_theme()->font;
+    if( m_opt_use_theme_colors )
+        m_p2theme = m_p2entry->get_theme();
+
+    // UPDATE m_line_h
+    auto&& layout{ PrintOpr::s_print_context->create_pango_layout() };
+    layout->set_font_description( m_font );
+    layout->set_markup( "LLL" );
+    m_line_h = layout->get_iter().get_line()->get_pixel_logical_extents().get_height();
+    layout->set_markup( "<b><span size='xx-large'>LLL</span></b>" );
+    m_line_h_title = layout->get_iter().get_line()->get_pixel_logical_extents().get_height();
+
+    // ENTRY ICON
+    if( !m_opt_one_entry || entry->get_todo_status_effective() != ES::NOT_TODO )
+    {
+        R2Pixbuf&& pixbuf{ m_p2entry->get_icon32()->scale_simple( m_line_h_title,
+                                                                  m_line_h_title,
+                                                                  Gdk::InterpType::BILINEAR ) };
+
+        add_printable( new PrintableImage( pixbuf,
+                                           m_margin_x,
+                                           m_total_h_cur + m_line_h_title * 0.1 ),
+                       false );
+
+        x_offset = ( m_line_h_title * 1.2 );
+    }
+
+    // ENTRY PARAGRAPHS
+    for( Paragraph* para = entry->get_paragraph_1st(); para; para = para->m_p2next )
+    {
+        // Set params
+        UstringSize         i{ 0 };
+        const UstringSize   para_size{ ( unsigned ) para->get_size() };
+        m_format_prev = 0;
+        m_alignment = para->get_pango_alignment();
+        m_indent_level_cur = para->get_indent_level();
+
+        process_paragraph( para );
+
+        switch( para->m_style & VT::PS_FLT_IMAGE )
+        {
+            case VT::PS_IMAGE_FILE:
+                try
+                {
+                    add_image( para->get_image( m_page_w, m_font ) );
+                }
+                catch( ... ) { }
+                break;
+            case VT::PS_IMAGE_CHART:
+                add_chart( para );
+                break;
+            case VT::PS_IMAGE_TABLE:
+                add_table( para );
+                break;
+        }
+
+        // <= is for handling the file end:
+        for( ; i <= para_size; i++ )
+        {
+            m_format_cur = m_format_map[ i + m_format_map_offset ];
+
+            if( m_format_cur & CS_SKIP )
+                continue;
+
+            if( m_format_cur != m_format_prev )
+            {
+                append_markups();
+
+                if( ( m_format_cur & CF_FILTER ) == CF_TAG )
+                {
+                    // TODO: 3.1: draw tag form around it (this is not so easy)
+                    break;
+                }
+            } // end of if( format_cur != format_prev )
+
+            // do not print the last char which is usually the \n
+            if( i < para_size )
+            {
+                m_marked_up_text += Glib::Markup::escape_text(
+                        m_source_text.substr( i + m_format_map_offset, 1 ) );
+                m_format_prev = m_format_cur;
+            }
+        } // end of char loop
+
+        add_text( x_offset );    // add paragraph
+
+        x_offset = 0.0;
+
+        m_format_map_offset += ( para_size + 1 ); // +1 is to account for the \n
+    } // end of para loop
+
+    add_entry_break();
+}
+
+inline void
+EntryParserPango::add_page()
+{
+    m_content.push_back( new PrintablePageStart( m_p2theme->color_base ) );
+    m_n_pages++;
+    m_total_h_cur = m_margin_y;
+}
+
+inline void
+EntryParserPango::add_printable( Printable* printable, bool F_adds_to_h )
+{
+    if( m_total_h_cur + printable->get_height() > m_page_h )
+    {
+        const auto prev_offset{ printable->m_y - m_total_h_cur };
+        add_page();
+        printable->m_y = m_total_h_cur + prev_offset;
+    }
+
+    // do not add empty lines to the top of pages
+    if( printable->m_y == m_margin_y && printable->is_empty() )
+        delete printable;
+    else
+    {
+        m_content.push_back( printable );
+
+        if( F_adds_to_h )
+            m_total_h_cur += printable->get_height();
+    }
+}
+
+inline void
+EntryParserPango::add_entry_break()
+{
+    if( m_opt_entries_at_page_start || m_total_h_cur + m_entry_break_h > m_page_h )
+        m_total_h_cur = m_page_h;   // so any new printable will cause an add_page()
+    else
+        m_total_h_cur += m_entry_break_h;
+}
+
+void
+EntryParserPango::add_text( double px_indent )
+{
+    auto&& layout{ PrintOpr::s_print_context->create_pango_layout() };
+    layout->set_width( ( m_page_w - px_indent ) * Pango::SCALE );
+    layout->set_font_description( m_font );
+    layout->set_markup( m_marked_up_text );
+    layout->set_alignment( m_alignment );
+
+    px_indent += ( m_indent_level_cur * m_unit_indent_w );
+
+#if( ( PANGOMM_MAJOR_VERSION > 2 ) || \
+     ( ( PANGOMM_MAJOR_VERSION == 2 ) && ( PANGOMM_MINOR_VERSION >= 28 ) ) )
+    Pango::LayoutIter iter( layout->get_iter() );
+#else // this case should not be relevant anymore
+    Pango::LayoutIter iter;
+    layout->get_iter( iter );
+#endif
+
+    do
+    {
+        auto&& layout_line{ iter.get_line() };
+        const auto layout_w{ layout_line->get_pixel_logical_extents().get_width() };
+        double x{ m_margin_x + px_indent };
+
+        switch( m_alignment )
+        {
+            case Pango::Alignment::LEFT:    break;
+            case Pango::Alignment::CENTER:  x += ( ( m_page_w - px_indent - layout_w ) / 2 ); break;
+            case Pango::Alignment::RIGHT:   x += ( m_page_w - px_indent - layout_w ); break;
+        }
+
+        add_printable( new PrintableTextLine( layout_line, m_marked_up_text.empty(),
+                                              x, m_total_h_cur,
+                                              m_p2theme->color_text ) );
+    }
+    while( iter.next_line() );
+
+    m_marked_up_text.clear();
+}
+
+inline void
+EntryParserPango::add_image( const R2Pixbuf& pixbuf )
+{
+    if( not( m_marked_up_text.empty() ) )
+        add_text( 0.0 );
+
+    //double x      { m_margin_x + m_page_w / 2 }; images are always centered
+
+    // switch( m_alignment )
+    // {
+    //     case Pango::Alignment::LEFT:     break;
+    //     case Pango::Alignment::CENTER:   x -= ( pixbuf->get_width() / 2 ); break;
+    //     case Pango::Alignment::RIGHT:    x -= pixbuf->get_width(); break;
+    // }
+
+    if( pixbuf )
+        add_printable( new PrintableImage( pixbuf,
+                                           m_margin_x + ( m_page_w - pixbuf->get_width() ) / 2,
+                                           m_total_h_cur ) );
+}
+
+inline bool
+EntryParserPango::add_para_icon( const R2Pixbuf& pixbuf_base )
+{
+    R2Pixbuf&& pixbuf{ pixbuf_base->scale_simple( m_line_h * 0.8,
+                                                  m_line_h * 0.8,
+                                                  Gdk::InterpType::BILINEAR ) };
+
+    auto pi { new PrintableImage(
+            pixbuf,
+            m_margin_x + m_indent_level_cur * m_unit_indent_w - m_line_h * 1.2,
+            m_total_h_cur + m_line_h * 0.3 ) };
+    pi->m_height = m_line_h; // do not consider the y offset
+    add_printable( pi, false ); // do not increment total_height
+
+    return true;
+}
+
+inline void
+EntryParserPango::add_para_number( const Paragraph* p )
+{
+    auto&&      layout { PrintOpr::s_print_context->create_pango_layout() };
+    layout->set_font_description( m_font );
+    layout->set_text( p->get_list_order_str() );
+    auto&&       line  { layout->get_iter().get_line() };
+    const int    w     { line->get_pixel_logical_extents().get_width() };
+
+    add_printable( new PrintableTextLine(
+            line,
+            false,
+            m_margin_x + m_indent_level_cur * m_unit_indent_w - w - m_line_h * 0.5,
+            m_total_h_cur,
+            m_p2theme->color_text ),
+        false );
+}
+
+inline void
+EntryParserPango::add_chart( const Paragraph* para )
+{
+    if( not( m_marked_up_text.empty() ) )
+        add_text( 0.0 );
+
+    auto chart{ Diary::d->get_element2< ChartElem >( STR::get_i32( para->get_uri() ) ) };
+
+    if( !chart ) return;
+
+    auto          cr      { PrintOpr::s_print_context->get_cairo_context() };
+    auto          layout  { PrintOpr::s_print_context->create_pango_layout() };
+    ChartSurface* surface { new ChartSurface( cr,
+                                              chart,
+                                              m_page_w * ( para->get_image_size() + 1 ) * 0.25,
+                                              -1,
+                                              layout,
+                                              m_font,
+                                              true ) };
+
+    add_printable( new PrintableVSpace );
+    add_printable( new PrintableChart( surface,
+                                       m_margin_x + ( m_page_w - surface->get_width() ) / 2,
+                                       m_total_h_cur ) );
+}
+
+inline void
+EntryParserPango::add_table( const Paragraph* para )
+{
+    if( not( m_marked_up_text.empty() ) )
+        add_text( 0.0 );
+
+    auto table{ Diary::d->get_element2< TableElem >( STR::get_i32( para->get_uri() ) ) };
+
+    if( !table ) return;
+
+    auto          cr      { PrintOpr::s_print_context->get_cairo_context() };
+    auto          layout  { PrintOpr::s_print_context->create_pango_layout() };
+    TableSurface* surface { nullptr };
+
+    add_printable( new PrintableVSpace );
+
+    do
+    {
+        surface = new TableSurface( cr,
+                                    table,
+                                    m_page_w,
+                                    m_page_h - m_total_h_cur,
+                                    layout,
+                                    m_font,
+                                    bool( para->m_style & VT::PS_IMAGE_EXPND ),
+                                    true,
+                                    surface ? surface->get_i_line_top_next() : 0 );
+
+        add_printable( new PrintableTable( surface,
+                                           m_margin_x + ( m_page_w - surface->get_width() ) / 2,
+                                           m_total_h_cur ) );
+
+        if( surface->has_more() ) // for tables pages have to be added in advance
+            add_page();
+    }
+    while( surface->has_more() );
+}
+
+inline bool
+EntryParserPango::add_para_bullet( bool F_fill )
+{
+    add_printable( new PrintableBullet(
+            m_margin_x + m_indent_level_cur * m_unit_indent_w - m_line_h * 0.8,
+            m_total_h_cur + m_line_h * 0.75,
+            m_line_h / 5,
+            F_fill ),
+        false ); // do not increment total_height
+
+    return true;
+}
+
+void
+EntryParserPango::append_markups()
+{
+    // close last
+    if( ( m_format_prev & CS_MONOSPACE ) == CS_MONOSPACE )
+        m_marked_up_text += "</span>";
+
+    if( ( m_format_prev & CS_LINK ) == CS_LINK )
+        m_marked_up_text += "</span>";
+
+    if( ( m_format_prev & CS_SUPERSCRIPT ) == CS_SUPERSCRIPT ) // don't change the order with sub
+        m_marked_up_text += "</sup>";
+    else if( ( m_format_prev & CS_SUBSCRIPT ) == CS_SUBSCRIPT )
+        m_marked_up_text += "</sub>";
+
+    if( ( m_format_prev & ( CS_STRIKETHROUGH|CS_COMMENT ) ) == CS_STRIKETHROUGH )
+        m_marked_up_text += "</s>";
+
+    if( ( m_format_prev & CS_TODO_FILTER ) == CS_TODO_DONE )
+        m_marked_up_text += "</span>";
+
+    if( ( m_format_prev & CS_INLINE_TAG ) == CS_INLINE_TAG )
+        m_marked_up_text += "</span>";
+
+    if( ( m_format_prev & CS_HIGHLIGHT ) == CS_HIGHLIGHT )
+        m_marked_up_text += "</span>";
+
+    if( ( m_format_prev & CS_UNDERLINE ) == CS_UNDERLINE )
+        m_marked_up_text += "</u>";
+
+    if( ( m_format_prev & CS_ITALIC ) == CS_ITALIC )
+        m_marked_up_text += "</i>";
+
+    if( ( m_format_prev & CS_BOLD ) == CS_BOLD )
+        m_marked_up_text += "</b>";
+
+    if( m_format_prev & CS_SMALLER )
+        m_marked_up_text += "</span>";
+
+    if( m_format_prev & CS_COMMENT )
+        m_marked_up_text += "</span></sup>";
+
+    if( m_format_prev & CS_HEADING ) // works for any heading type
+        m_marked_up_text += "</span></b>";
+
+    // open new (in reverse order)
+    if( ( m_format_cur & CS_HEADING_FILTER ) == CS_HEADING )
+        m_marked_up_text += STR::compose(
+                "<b><span size='xx-large' color='",
+                convert_gdkcolor_to_html( m_p2theme->color_heading ), "'>" );
+
+    if( ( m_format_cur & CS_HEADING_FILTER ) == CS_SUBHEADING )
+        m_marked_up_text += STR::compose(
+                "<b><span size='x-large' color='",
+                convert_gdkcolor_to_html( m_p2theme->color_subheading ), "'>" );
+
+    if( ( m_format_cur & CS_HEADING_FILTER ) == CS_SUBSUBHEADING )
+        m_marked_up_text += STR::compose(
+                "<b><span size='larger' color='",
+                convert_gdkcolor_to_html( m_p2theme->color_subsubheading ), "'>" );
+
+    if( ( m_format_cur & CS_COMMENT ) == CS_COMMENT )
+        m_marked_up_text += STR::compose(
+                "<sup><span size='smaller' color='",
+                convert_gdkcolor_to_html( m_p2theme->color_mid ), "'>" );
+
+    if( ( m_format_cur & CS_SMALLER ) == CS_SMALLER )
+        m_marked_up_text += STR::compose( "<span size='smaller'>" );
+
+    if( ( m_format_cur & CS_BOLD ) == CS_BOLD )
+        m_marked_up_text += "<b>";
+
+    if( ( m_format_cur & CS_ITALIC ) == CS_ITALIC )
+        m_marked_up_text += "<i>";
+
+    if( ( m_format_cur & CS_UNDERLINE ) == CS_UNDERLINE )
+        m_marked_up_text += "<u>";
+
+    if( ( m_format_cur & CS_HIGHLIGHT ) == CS_HIGHLIGHT )
+        m_marked_up_text += STR::compose(
+                "<span bgcolor='", convert_gdkcolor_to_html( m_p2theme->color_highlight ), "'>" );
+
+    if( ( m_format_cur & CS_INLINE_TAG ) == CS_INLINE_TAG )
+        m_marked_up_text += STR::compose(
+                "<span bgcolor='", convert_gdkcolor_to_html( m_p2theme->color_inline_tag ),
+                "' font='Monospace'>" );
+
+    if( ( m_format_cur & CS_TODO_FILTER ) == CS_TODO_DONE )
+        m_marked_up_text += STR::compose(
+                "<span color='", convert_gdkcolor_to_html( m_p2theme->color_done ),
+                "' bgcolor='", convert_gdkcolor_to_html( m_p2theme->color_done_bg ), "'>" );
+
+    // disable strikethrough in comments
+    if( ( m_format_cur & ( CS_STRIKETHROUGH|CS_COMMENT ) ) == CS_STRIKETHROUGH )
+        m_marked_up_text += "<s>";
+
+    if( ( m_format_cur & CS_SUPERSCRIPT ) == CS_SUPERSCRIPT ) // don't change the order
+        m_marked_up_text += "<sup>";
+    else if( ( m_format_cur & CS_SUBSCRIPT ) == CS_SUBSCRIPT )
+        m_marked_up_text += "<sub>";
+
+    if( ( m_format_cur & CS_LINK ) == CS_LINK )
+        m_marked_up_text += STR::compose(
+                "<span color='", convert_gdkcolor_to_html( m_p2theme->color_link ),
+                "' underline='single'>" );
+
+    if( ( m_format_cur & CS_MONOSPACE ) == CS_MONOSPACE )
+        m_marked_up_text += "<span font='Monospace'>";
+}
+
+// PARSING METHODS
+void
+EntryParserPango::process_paragraph( Paragraph* para )
+{
+    // TYPE
+    switch( para->get_para_type() )
+    {
+        case VT::PS_CODE:
+            //apply_tag( m_tag_region, it_bgn, it_end );
+            break;
+        case VT::PS_BULLET:
+            add_para_bullet( para->get_indent_level() % 2 );
+            break;
+        case VT::PS_TODO:
+            add_para_icon( Lifeograph::icons->todo_open_32 );
+            break;
+        case VT::PS_PROGRS:
+            add_para_icon( Lifeograph::icons->todo_progressed_32 );
+            break;
+        case VT::PS_DONE:
+            add_para_icon( Lifeograph::icons->todo_done_32 );
+            break;
+        case VT::PS_CANCLD:
+            add_para_icon( Lifeograph::icons->todo_canceled_32 );
+            break;
+        case VT::PS_NUMBER:
+        case VT::PS_CLTTR:
+        case VT::PS_SLTTR:
+            add_para_number( para );
+            break;
+        case VT::PS_HEADER:
+            apply_format( ( para->m_host->get_todo_status() & ES::CANCELED ) ?
+                                    CS_HEADING|CS_STRIKETHROUGH : CS_HEADING,
+                            0, para->get_end_offset_in_host() );
+            break;
+        case VT::PS_SUBHDR:
+            apply_format( CS_SUBHEADING,
+                          m_format_map_offset, m_format_map_offset + para->get_size() );
+            break;
+        case VT::PS_SSBHDR:
+            apply_format( CS_SUBSUBHEADING,
+                          m_format_map_offset, m_format_map_offset + para->get_size() );
+            break;
+    }
+
+    if( !para->is_header() ) // first paragraph is exempt from below
+    {
+        if( para->is_quote() )
+        {
+            apply_format( CS_QUOTATION,
+                          para->get_bgn_offset_in_host(), para->get_end_offset_in_host() );
+        }
+    }
+
+    // HIDDEN FORMATS
+    for( auto format : para->m_formats )
+    {
+        int formatting_tag{ 0 };
+        switch( format->type )
+        {
+            case VT::HFT_TIME_MS:       formatting_tag = CS_SMALLER; break;
+            case VT::HFT_DATE:
+            case VT::HFT_LINK_ONTHEFLY:
+            case VT::HFT_LINK_ID:
+            case VT::HFT_LINK_URI:
+            case VT::HFT_LINK_EVAL:
+            case VT::HFT_LINK_BROKEN:   formatting_tag = CS_LINK; break;
+            case VT::HFT_BOLD:          formatting_tag = CS_BOLD; break;
+            case VT::HFT_ITALIC:        formatting_tag = CS_ITALIC; break;
+            case VT::HFT_UNDERLINE:     formatting_tag = CS_UNDERLINE; break;
+            case VT::HFT_HIGHLIGHT:     formatting_tag = CS_HIGHLIGHT; break;
+            case VT::HFT_STRIKETHRU:    formatting_tag = CS_STRIKETHROUGH; break;
+            case VT::HFT_SUBSCRIPT:     formatting_tag = CS_SUBSCRIPT; break;
+            case VT::HFT_SUPERSCRIPT:   formatting_tag = CS_SUPERSCRIPT; break;
+            case VT::HFT_COMMENT:       formatting_tag = CS_COMMENT; break;
+            //case VT::HFT_MATCH:         formatting_tag = ; break;
+            //case VT::HFT_TAG_VALUE:     formatting_tag = ; break;
+            case VT::HFT_TAG:           formatting_tag = CS_INLINE_TAG; break;
+            default:                    continue;
+        }
+
+        apply_format( formatting_tag,
+                      m_format_map_offset + format->pos_bgn,
+                      m_format_map_offset + format->pos_end );
+    }
+}
+
+inline void
+EntryParserPango::apply_format( int format, UstringSize begin, UstringSize end )
+{
+    for( auto i = begin; i < end; i++ )
+        m_format_map[ i ] |= format;
+}
+
+inline Ustring
+EntryParserPango::get_format_substr( UstringSize begin, int format )
+{
+    Ustring subtext;
+    for( UstringSize size = 0; ( begin + size ) < m_format_map.size(); size++ )
+        if( ( m_format_map[ begin + size ] & ( format|0xF ) ) != format )
+            break;
+        else
+            subtext += m_source_text[ begin + size ];
+
+    return subtext;
+}

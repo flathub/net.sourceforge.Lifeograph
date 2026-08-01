@@ -1,0 +1,646 @@
+
+LIFEOGRAPH RELEASE HISTORY
+==========================
+
+(For a complete history, refer to example.diary in the package.)
+
+
+================================================================================
+
+3.0.2 - 2025-05-18
+
+    • Bug fixes, mainly:
+        • Fixed crash when collapsing entries in the list
+        • Redraw entry list upon completion of drag operations to remove the
+          overlays immediately
+        • Fixed setting status of multiple paragraphs at once
+        • Fixed joining paragraphs
+        • Fixed background image of the main text editor theme leaking to its
+          child entry widgets
+        • Fixed background color of the main text editor theme leaking to its
+          child entry widgets
+        • Fixed selecting a collapsed entry from the list when the current entry
+          is a child of it
+        • Fixed crash in upgrading old diaries
+        • Some improvements in drag and drop in the entry list especially
+          prevention of dropping an entry onto itself
+        • Many more
+    • Reenabled clear icon in EntryClear
+    • Use native controls for Gtk 4.18 and above
+    • When duplicating, insert the copy after the last child of a collapsed
+      paragraph
+    • Add space after the cursor on Shift+Space
+    • Scale up list number text for subheaders
+    • Do not indent subheading paragraphs when converting them into lists
+    • Implemented cycling through siblings of a tag via Alt +/-
+    • Lifeograph can run on MacOS now
+    • Some cleanup
+
+
+3.0.1 - 2025-03-02
+
+    • Various fixes related to undo/redo
+    • Fixed and improved upgrading old diaries
+    • Scroll the text to ensure that the cursor line is visible while moving
+      paragraphs and some fixes in moving paragraph up/down
+    • Do not allow more than one gantt column in tables
+    • Use broad dates for paragraphs in gantt charts
+    • Update gantt column weights on resort to maintain vertical lines in
+      thosecolumns
+    • Update the tag cache properly when a tag is removed via the context menu
+    • Fixed dealing with tags that consist of punctuation only when
+      auto-completing tags
+    • Somewhat simplified the filtering system while fixing some crashers
+    • Fixed listing siblings of the current tag in the context menu
+    • Include link URIs (if any) in the text columns in tables when the field
+      is URI
+    • Some cleanup
+
+
+3.0.0 - 2024-12-29
+
+    • General:
+        • New main icon that reflects the improved functionality as
+          a second brain
+        • General UI changes to make the UI more compliant with the new trends
+        • Time values in HH:MM[:SS] format in entries are detected and stored
+          to be processed in tables, etc.
+        • UI upgraded to GTK4 replacing the deprecated UI elements with new ones
+        • Append the parents of an entry to its name in the tool tips and other
+          relevant places
+        • To speed up opening a diary, parse the entries asynchronously
+        • Entry dates are determined from the text now
+        • Replaced the Today button with the smart add button which provides
+          more options for adding a new entry
+        • Added a go forward button to the headerbar
+        • All file I/O is moved to Gio for compatibility with network addresses
+          and virtual drives, etc.
+        • Several improvements in printing
+        • Any filter can be used while exporting the diary
+        • Added diary options and paragraph formats to the synchronization diff
+          view
+        • Chapters are removed (Entries marked as milestone and filters together
+          can provide the same functionality)
+        • Colors can now be assigned to entries now which is also used for
+          boundaries of tags to those entries (this used to be possible only for
+          chapters previously)
+        • Added an option to reformat all dates in the textual contents of all
+          entries per the current  date separator
+    • Text editor:
+        • Wiki style formatting markup is largely omitted in favor of a WYSIWYG
+          style formatting system [[inline comments are an exception]]
+        • Paragraph folding that creates folds automatically based on heading
+          and indentation levels
+        • Widened & colored side margins to improve readability
+        • Moved the entry icon to the side margin for better contextual
+          organization
+        • New references button that pops up a list of referencing
+          entries/paragraphs for the current entry (a.k.a back-links)
+        • Split paragraph options into a dedicated popover to prevent
+          overcrowded menus
+        • Context-sensitive right-click menu that displays specific options for
+          tags, images, dates, etc. based on the cursor location
+        • Tables can also be inserted into the entries now
+        • Improved dealing with inline tags
+        • To-do paragraph icons are real icons now
+        • Underline is added to the formatting options
+        • Subscript and Superscript formatting options
+        • Roman numbers is added to the numeric list types
+        • Added buttons for visiting link items to the right-click popover menu
+        • Added horizontal rules which can also be combined with text
+        • Allow any type of paragraph to attain a list  type
+        • Added options for changing the letter casing to the context menu
+        • Drastically improved expand selection
+        • Added pixels above subheading lines for better visual differentiation
+    • Entry list:
+        • Entries can now be ordered, grouped, and arranged freely, irrespective
+          of the their types
+        • Dynamic sorting is removed as the position of an entry in the list is
+          now a major property of it (but a subset of entries can still be
+          statically sorted via the dedicated menu items )
+        • Added an option to merge selected entries
+    • Filtering:
+        • Removed the filtering tab from the bottom panel. Filters are edited in the
+          filter dialog now.
+        • Added stock filters for some standard tasks such as <Trashed>
+        • Show the usage counts of filters
+        • Added many new filterers:
+            • Size
+            • Has Unit
+            • Descendant
+            • Tag Value
+            • Has Subtag
+            • Contains Text
+            • Has Coordinates
+            • Title Style
+            • Is Image
+            • Heading Level
+            • Equals
+            • Child Filter
+        • All filters can be negated now
+        • It is possible to directly edit a filter by right-clicking the filter
+          chooser button
+    • Tables:
+        • Columns are resizable now
+        • New column types added:
+            • Duration
+            • Date & Time (replaced Date)
+            • Gantt Chart (very basic)
+            • Arithmetic
+            • Size
+            • Todo Status
+            • Number
+            • True/False
+            • Theme
+        • Group lines in a hierarchical view by any column
+        • Conditional coloring of cell values
+        • Completion columns show a progress bar in the background
+        • Option to combine identical consequent cells in a column to get
+          cleaner tables
+        • Option to show the parents of an entry in the name columns
+        • The summary function to be used in the total line can be customized
+          now
+        • Try to update the current table in real time when the current entry is
+          being edited
+        • Count column replaced as the new group lines always show the count now
+        • Added a completion percentage option to the tag value columns
+        • Implemented a delta mode for the columns
+        • Conditional option converted into a "count if satisfies a selected
+          filter" option
+    • Charts:
+        • Added a new vertical bars style
+        • Charts are now dependent upon tables which allows visualizing much
+          more complex relationships
+        • A basic inline table was added to allow creation of basic charts
+          without creating a table first
+    • Calendar:
+        • Added navigation icons to the calendar widget
+        • Added the ability to mark custom days as holidays
+        • Added the ability to change the first day of the week
+    • Searching:
+        • Searching is multi-threaded now for speed gains and responsiveness
+        • Added an option to limit the search to those entries that satisfy a
+          filter
+        • Search selected text within the diary
+    • Map:
+        • Migrated from libchamplain to libshumate which also works under
+          Windows
+        • Location marks are tied to paragraphs now which allows adding notes,
+          tags, etc to the locations
+
+    And many many more...
+
+
+================================================================================
+
+
+2.0.3 - 2022-04-24
+
+    • Bug fixes
+    • Added Danish translation
+    • Updated Simplified Chinese, Dutch, French, and Italian translations
+
+
+2.0.2 - 2021-06-29
+
+    • Bug fixes
+    • Updated Italian translation
+
+
+2.0.1 - 2021-04-09
+
+    • Bug fixes
+
+
+2.0.0 - 2020-12-06
+
+    • Everything is entry:
+        • Numbered and free chapters, tags, and tag categories are removed and
+          their functionality merged into entries. Chapters are also a special
+          kind of entry now.
+        • This on one hand simplified the workflow but on the other hand also
+          opened the door for new possibilities such as adding content to
+          everything and creating links between them.
+        • Numbered and free entries can now be organized in a hierarchical way
+          in the list, up to 3 levels.
+    • The text editor:
+        • The entry text editor is ever-preset now. In the 1.X era, the central
+          panel used to be used for displaying/editing many things in addition
+          to entries. In 2.X paradigm, such functionality is done in the extra
+          panel.
+        • Remember last scroll positions in entries during a session.
+        • The internals of dealing with embedded images overhauled resulting
+          in a better user experience.
+        • Added an option to copy embedded images to a relative path to the
+          diary file. This will help keeping all the data related to a diary
+          in one folder.
+        • Word count is now updated periodically (on a separate thread) while
+          editing.
+    • Toolbar:
+        • The functionality of the fixed toolbar and the right click menu
+          unified in a popover that can be accessed by right clicking.
+        • This is part of the efforts for achieving a more :distraction-free:
+          writing environment where tools are hidden unless they are needed.
+    • Entry list:
+        • Now that everything is entry, entry list only lists entries, indeed.
+          There is no item for the diary itself (the diary properties can be
+          edited from the dedicated diary button in the headerbar.)
+        • A right click menu added for easy access to some properties.
+        • Changing properties of multiple entries can only be dome from the
+          right-click menu.
+        • Sorting direction for ordinal and temporal entries can now be set
+          separately.
+        • Entries can now be sorted by name as well.
+        • Much improved the drag and drop system which now offers to drop
+          before, after, and into an entry.
+    • Tags are dead long live tags!
+        • While the special entity called tag is no more, entries can now be
+          used instead for achieving the same goal plus more.
+        • So entries can be tagged with entries but so can paragraphs.
+        • Entries can be filtered per being tagged with an entry.
+        • Graphs can be plotted per having a reference to a tag (entry) or per
+          value they assign to a tag (entry).
+        • The tag bar and the tag panel was removed. :distraction-free:
+        • There is an :IDE-like: auto completion popover for reliving the user
+          from having to type entire entry names.
+        • Inline tags also behave like links to other entries. This also
+          provides another means for linking entries in addition to by date &
+          by id.
+        • Added a new syntax to specify planned value for a tag in the form of
+          :TAG:=REALIZED/PLANNED
+    • More paragraph oriented work-flow:
+        • This version gives more sovereignty to paragraphs elevating them to
+          distinctly recognized elements in the database.
+        • Paragraphs can now be justified to center and right.
+    • Extra panel:
+        • A new panel added to the bottom of the window for various
+          functionality, such as searching, filtering, charts, etc...
+    • The new calendar widget:
+        • Replaced the standard Gtk+ calendar with a custom made calendar
+          widget that better integrates with the rest of the program and offers
+          additional features.
+        • Chapter background colors are now displayed in the calendar.
+        • Added a right click menu for creating entries and chapters on
+          selected dates.
+        • Days can now be dragged & dropped into entry text.
+        • In the future more features will be added to the calendar.
+        • Now it is also possible to select dates (instead of typing them)
+          using the calendar popover activated from the calendar icon in date
+          picker widgets.
+    • The new table view:
+        • A new extra panel for displaying tabular data conveniently.
+        • Tables are created through a very simple interface.
+        • Tables can base on entry level as well as paragraph level data.
+        • Tabular data can be copied as tab delimited text and can be pasted
+          into a spreadsheet program.
+    • Map & location support:
+        • A new map widget (using libchamplain) was added to the UI.
+        • Entries can now be assigned a location and a path.
+        • This will make writing writing about places and planning journeys
+          easier and more fun.
+        • This can also be used to create charts of distances traveled per day.
+        • Added support for geo tags.
+    • Chart improvements:
+        • Added a flexible mechanism to create charts for any quantifiable
+          aspect of entries.
+        • Charts can now be based on paragraphs based on dates entered in
+          paragraphs.
+        • All aspects of the charts can be edited through a single popover.
+        • Any number of charts can be created within a diary and than embedded
+          into entries by name.
+        • Visual appeal of the charts improved greatly.
+        • Added weekly mode (besides the existing monthly and yearly).
+        • Split cumulative mode into continuous and periodic sub types.
+        • Added option to underlay the planned values under realized values.
+        • Charts can now be dragged from the picker widget icon and dropped
+          into entries.
+    • More streamlined text search:
+        • Text search is now a completely separate action from filtering.
+        • Text search now lists the paragraphs rather than updating the entry
+          list or disturbing the other parts of the UI in any way.
+    • Filtering improvements:
+        • Filters have their dedicated pane in the extra panel.
+        • A new, much more flexible filtering system that supports 2 levels of
+          AND/OR filterers.
+        • The long requested feature delivered: Multiple tags can be filtered.
+        • Different filter configurations can be created, named and added to
+          the diary to be used later.
+        • It is now possible to filter by theme, completion and order as well.
+    • Theme improvements:
+        • Themes are now separate entities of their own (They used to be parts
+          of tags).
+        • Introduced several stock themes in addition the the standard
+          Lifeograph theme. New diaries will be created with them.
+        • Entries can be filtered by themes.
+        • Background images can now be set for themes. A handful of images
+          bundled to the package for a more sensational writing experience.
+        • Greatly improved preview system and editor for themes.
+    • Completion percentages:
+        • Lifeograph can now optionally calculate and display completion
+          percentage for entries.
+        • This is not tied to the entry status and is controlled separately
+          through values of a tag selected for this purpose by the user.
+    • Printing improvements:
+        • Added an option to use the theme colors in printouts (including the
+          background color).
+        • To-do items are printed much more nicely now.
+        • Added an option to start entries in new pages.
+        • Justify text option removed in favor of respecting the per paragraph
+          justification settings.
+    • Better support for keyboard only workflow:
+        • Added new shortcuts to enable doing most of the tasks while typing
+          without resorting to mouse.
+        • New "IDE-like" functionality to open new line below the current line.
+    • Bug fixes:
+        • Adding tons of new features (possibly creating new bugs) did not stop
+          us from fixing some longstanding bugs in text parsing, spellchecking,
+          image handling, text alignment, and many others.
+    • Miscellaneous improvements:
+        • A separate undo history is kept now for each entry and changing the
+          current entry no longer clears the undo stack.
+        • Added new keyboard shortcuts for various operations.
+        • Clicking the column headers in diary file list in login view no
+          longer changes the sorting. It can only be adjusted from the
+          hamburger menu now. The rationale is that the column headers were
+          rather prone to accidental clicks.
+        • Clicking the back button right after logging in will log you out.
+        • The main icon updated to conform to the contemporary trends in
+          graphics design.
+        • Improvement the listing of differences in the synchronization dialog.
+        • Many under-the-hood improvements such as
+            • A clearer db file structure.
+            • Removal of big chunks of deprecated code and optimizations in
+              many algorithms.
+            • General infrastructural improvements in the code to have a better
+              base for future developments.
+
+
+================================================================================
+
+
+1.6.1 - 2020-01-06
+
+    • Bug fixes
+    • Translation updates
+
+
+1.6.0 - 2019-09-07
+
+    • Revamped login view:
+        • Completely new, cleaner look
+        • Single click to open diaries, selection mode for removing
+        • Icons for diary files
+        • Removed Lifeograph Manual from the diaries list. The manual can now be
+          opened from the menu in a separate window which is a more proper way
+          for a help document
+    • Entry parser rewritten to be much more capable and easy to improve
+        • Overlapping and nesting text formats are supported
+        • Added subsubheading format (paragraphs starting with double space)
+        • Implemented inserting tag charts into entries. (chart:<tag-name>)
+    • New diary sychronization tool which is a big improvement over the previous
+      import tool. Now it is possible to synchronize different versions of a
+      diary file.
+        • Element ids are created randomly rather than sequentially to improve
+          their reliability while matching elements during sync
+    • Always open diaries in read-only mode. Editing can then be enabled while
+      reading the diary if needed
+        • --read-only option now disables entering edit mode
+    • Printing system improved with support for adjustible page margins
+    • New default theme that is more in line with Lifeograph color palette
+    • Use transition animation when navigating  between same kind of elements,
+      too. e.g. from entry to entry
+    • New password popover that replaces the old password dialog
+    • Visually differentiate parametric tags with dedicated icons
+    • Added option to prefer dark variant of the Gtk+ theme
+    • Several other refinements in GUI
+    • Slightly improved drag&drop system
+    • Many bug fixes and small improvements
+    • Removed Cmake support. Now only Meson is supported
+
+
+================================================================================
+
+
+1.5.1 - 2019-01-23
+
+    • Bug fixes
+
+
+1.5.0 - 2018-11-18
+
+    • A more modern UI with new icons and widget types
+        • Gtk+ minimum version requirement bumped to 3.22
+    • When not set specifically, to-do status of an entry is derived from its
+      content
+    • Greatly improved chart widget
+        • Much better hover info
+        • Equal and consistent steps between different zoom levels
+        • Option to underlay previous month to do comparisons
+    • Show total/average value for parametric tags
+    • Added a deferred to-do status for paragraphs "[>]"
+    • Added a keyboard shortcut for adding a todo-entry (Ctrl+D)
+        • Changed add normal entry shortcut to Ctrl+E
+    • Added a keyboard shortcut for duplicating current paragraph in entry
+      editor (Alt+2)
+    • Apply to-do status and favored-ness changes to all selected entries
+      in the entry list
+    • Option to sort entries in ascending or descending order
+    • Add "=" automatically when adding parametric tags
+    • Unlimited browsing history
+    • Added a keyboard shortcut for browsing forward (Alt+Right)
+    • Split main Glade file into two parts to speed up startup
+    • Migrated to Meson as the main build system
+    • Modified code to allow compilation on Windows (Gtk+ version will now
+      replace the native Windows version)
+    • Added Japanese translation
+    • Many bug fixes and small improvements
+
+
+================================================================================
+
+
+1.4.2 - 2017-04-30
+
+    • Bug fixes
+
+
+1.4.1 - 2017-02-12
+
+    • Bug fixes
+    • Translation updates
+
+
+1.4.0 - 2016-11-13
+
+    • Tags as parameters: it is now possible to assign values to tags to specify
+      amounts, rates, and degrees for entries
+    • Revamped graphs
+        • It is now possible to zoom in & out in graph widget
+        • Graphs can be yearly now as well as monthly
+        • A generally more elegant look & feel for graphs
+        • The ability to use different background colors for chapters in graphs
+    • Animated transitions between views
+    • When a piece of text is dropped onto an entry in the list, append the text
+      to the entry (very handy for moving text between entries)
+    • Go to the related tags view when double clicked in entry view
+    • Auto replace triple dash (---) with m-dash (—) in entry editor
+    • Strike-through canceled chapters in the list
+    • Filter view turned into a popover resulting in a more compact and less
+      distractive design
+    • Indicate completion statuses of entries in text export and print-out
+    • Removed graphs from tag categories and ordinal chapters as they do not
+      make much sense
+    • Migrated to C++11
+    • Fixed visual problems in Gtk+ 3.20
+    • Many fixes and small improvements
+
+
+================================================================================
+
+
+1.3.0 - 2016-01-17
+
+    * New todo list system for entry editor using square brackets
+        * "In Progress" status added to todo list items
+        * implemented changing the status of multiple todo items at once
+    * Added support for - lists (new dash added to the next line automatically)
+    * Increment following item nos when a new item line is added in the middle
+      of a numbered list
+    * Show word count for entries in the info line
+    * Implemented recording and displaying status change date for entries
+    * Unhide all markup text in the current paragraph (rather than just the
+      ones that cursor touches)
+    * Added chart view to the chapters (uses entry creation time for ordinal
+      chapters)
+    * Updated the entry view popover design
+    * Moved active filter and revert filter buttons to the headerbar
+    * Added support for following symbolic links (patch by Kirr)
+    * Added a symbolic app icon to be displayed on Gnome shell
+    * Implemented a basic theming system for the icons
+    * Added the first icon theme "Ribbla" by Alex Romsh
+    * Many fixes and small improvements
+
+
+================================================================================
+
+
+1.2.1 - 2015-01-05
+
+    * Several bug fixes, code cleanups
+    * Small updates to Lifeograph manual
+    * Translation updates
+
+
+1.2.0 - 2014-11-11
+
+    * Even more modernized UI:
+        * Lifeograph is using a header bar now and provides more area for the
+          content
+        * Popovers are used to go beyond what was possible with menus
+        * New, more informative welcome screen for the first time users
+        * Refreshed icons
+    * Introduced a new and more intuitive chapter system
+        * Chapters and topics are now called "dated chapters" and "numbered
+          chapters" respectively
+        * Todo groups are converted into "free chapters". These are similar to
+          numbered chapters but their numbers are hidden
+        * It is possible to set the todo status for all three kinds of chapters
+    * Entries in any chapter can be assigned a todo status now
+    * Added a new "in progress" todo status
+    * Added support for multiple selections in the entry list which makes it
+      possible to drag & drop multiple entries at once
+    * Made the auto logout on idle counter hard to miss
+    * Added the option to disable auto logout for the current session only
+    * Addded support for indenting wrapped lines
+    * General improvements to the drag & drop system
+    * Implemeted editing the order of entries within numbered chapters by typing
+    * Fixed and improved plain text export
+    * Removed support for diaries created by versions 0.10 or older
+    * Minimum required Gtk+ version bumped to 3.12
+    * Many fixes and small improvements
+    * Translation updates
+
+
+================================================================================
+
+
+1.1.1 - 2014-09-02
+
+    * Added saving the theme of the Untagged meta-tag which was missing in
+      v1.1.0. This required the diary version to be increased
+    * Enabled reordering of todo groups
+    * Many bug fixes
+    * Translation updates
+
+
+1.1.0 - 2014-08-03
+
+    * Added options for changing the format dates are displayed in
+    * Added a new entry type for todo items
+    * Added many new icons and updated some of the existing ones
+    * Updated the main window layout
+    * Improved the presentation of favored and trashed entries in the list
+    * Merged themes into the tags
+    * Modified the tag widget to render each tag using the themes associated
+      with them
+    * Added the ability to import chapters from other diaries
+    * Created a new WYSIWYG like theme editing widget
+    * Created a meta-tag called "Untagged" for theming and filtering entries
+      not associated with any tag
+    * A new filtering system where filtering status can be edited in a
+      dedicated view and can be saved to the diary
+    * Upgraded the diary file format to support the new features
+    * Lifeograph now itself creates a backup copy of the old diaries when
+      upgrading
+    * Added a hidden option to disable scaling in the entry and tag lists to
+      solve the problems in some high resolution setups
+    * Minimum required Gtk+ version bumped to 3.6
+    * Fixed crash on Gtk+ 3.12
+    * Miscellaneous bug fixes
+    * Translation updates
+
+
+================================================================================
+
+
+1.0.1 - 2014-02-01
+
+    * Bug fixes
+    * Small updates to the user manual
+
+
+1.0.0 - 2013-12-08
+
+    * Brand new main icon
+    * Moved from Waf to Cmake for the build system
+    * Implemented the ability to add password to diaries directly in the file
+      dialog while creating them
+    * Migrated to Gtk::Application and added app menu
+    * Improved user interface for creating new entries and chapters
+    * Simplified the look of the diary view
+    * Implemented moving tags to categories by dragging and dropping
+    * Implemented moving chapters to different dates by dragging and dropping
+      onto entries
+    * Implemented changing topic order by dragging and dropping
+    * Implemented tagging and theming entries by dropping tags and themes onto
+      the items in the entry list
+    * Added the option to dismiss the associated entries when dismissing tags
+      and chapters
+    * Added the option to dismiss the associated tags when dismissing tag
+      categories
+    * Added a chart to the tag category view
+    * Improved visibility and sensitivity states of chapter, theme and diary
+      view widgets in read-only mode
+    * Disabled spell-checking in read-only mode
+    * Never show markup chars in read-only mode
+    * For increased security, Lifeograph now asks for password before exporting
+      encrypted diaries
+    * Added support for using multiple configuration files via setting
+      LIFEOGRAPH_CONFIG_FILE variable in the environment
+    * Translation updates
+    * Updated, and extended the user manual
+    * Install Lifeograph diary file Icons to the system
+    * Many bug fixes
+
+
+===================================== END =====================================

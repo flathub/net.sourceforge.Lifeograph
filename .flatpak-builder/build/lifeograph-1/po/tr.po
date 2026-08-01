@@ -1,0 +1,3033 @@
+# Turkish translations for Lifeograph package
+# Lifeograph paketi için Türkçe çeviriler.
+# Copyright (C) 2008 Ahmet Öztürk
+# This file is distributed under the same license as the lifeograph package.
+# ahmet öztürk <aoz_2@yahoo.com>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lifeograph\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-03 21:59+0300\n"
+"PO-Revision-Date: 2008-10-12 15:24+0300\n"
+"Last-Translator: ahmet öztürk <aoz_2@yahoo.com>\n"
+"Language-Team: Turkish\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: net.sourceforge.Lifeograph.desktop.in:5
+#: net.sourceforge.Lifeograph.metainfo.xml.in:7
+msgid "Lifeograph"
+msgstr "Lifeograph"
+
+#: net.sourceforge.Lifeograph.desktop.in:6 src/diaryelements/diarydata.cpp:77
+msgid "Diary"
+msgstr "Günlük"
+
+#: net.sourceforge.Lifeograph.desktop.in:7
+msgid "Keep a private journal of your life"
+msgstr "Hayatınızın özel bir günlüğünü tutun"
+
+#: net.sourceforge.Lifeograph.desktop.in:8
+msgid "journal;note;to-do;tag;statistics;"
+msgstr "hatıra;defter;not;yapılacak;istatistik;"
+
+#: net.sourceforge.Lifeograph.desktop.in:19
+msgid "Open a New Window"
+msgstr "Yeni Bir Pencere Aç"
+
+#: net.sourceforge.Lifeograph.desktop.in:23
+msgid "Open a New Read-Only Window"
+msgstr "Yeni Bir Sadece Okunur Pencere Aç"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:8
+msgid "Advanced personal note taking application"
+msgstr "Gelişmiş şahsi not tutma programı"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:11
+msgid ""
+"Lifeograph is a powerful note-taking application that can be used to keep an "
+"encrypted diary, to plan a journey, to manage todos and long term goals, to "
+"write down ideas in an organized way, to track regular activities and many "
+"more. Lifeograph strives to deliver an abundance of advanced features in a "
+"clean and streamlined user interface."
+msgstr ""
+"Lifeograph, günlük tutmak, seyahat planlamak, yapılacakları ve uzun vadeli "
+"hedefleri takip etmek, fikirleri organize bir şekilde yazıya geçirmek, "
+"düzenli faaliyetleri kaydetmek ve daha birçok amaçla kullanılabilecek güçlü "
+"bir not alma programıdır. Lifeograph bu çok sayıdaki gelişmiş özelliği sade "
+"ve kullanışlı bir arayüzde sunmaya gayret etmektedir."
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:17
+msgid "Main features of Lifeograph:"
+msgstr "Lifeograph'ın temel özellikleri:"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:21
+msgid "Completely local workflow: all data is owned solely by the user"
+msgstr ""
+"Tamamıyla dışa kapalı çalışma: bütün bilgileri sadece kullanıcıya ait kalır"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:22
+msgid "Encrypted (with AES256) and unencrypted diaries"
+msgstr "Şifrelenmiş (AES256 ile) veya şifrlenememiş günlükler"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:23
+msgid "Powerful and intuitive parametric tagging system"
+msgstr "Güçlü ve sezilebilir parametrik yaftalama sistemi"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:24
+msgid "Todo management system"
+msgstr "Yapılacaklar listesi tutma"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:25
+msgid ""
+"WYSIWYG rich text formatting (i.e. no separate edit &amp; preview modes)"
+msgstr ""
+"WYSIWYG zengin metin biçimlendirme (yani ayrı ayrı düzenleme ve ön görünüm "
+"modları yok)"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:26
+msgid "Image thumbnails, tables, and charts in entries"
+msgstr "Girişlerin içinde küçük resimler, tablolar ve grafikler"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:27
+msgid "Searching and replacing of text"
+msgstr "Metin arama ve değiştirme"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:28
+msgid "Advanced filtering of entries"
+msgstr "Gelişmiş giriş süzme"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:29
+msgid "Integrated map for travel notes and planning"
+msgstr "Syahat notları ve panlaması için dahili harita"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:30
+msgid ""
+"Live tables that are created on the fly based on the user defined rules "
+"which can also be pasted into spread-sheet programs"
+msgstr ""
+"Kullanıcının tariflediği kaidelere göre canlı olarak oluşturulan ve tablo "
+"programlarına da yapıştırılabilen tablolar"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:31
+msgid "Live statistical charts that are created from the values in the tables"
+msgstr ""
+"Tablolardaki değerlernden canlı oarak oluşturulan istatistiki grafikler"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:32
+msgid "Themes in text editor, including background images"
+msgstr "Metin düzenleyici temaları ve arka plan resimleri"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:33
+msgid "Favorite entries"
+msgstr "Sevilen girişler"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:34
+msgid "Spell checking"
+msgstr "Yazım denetimi"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:35
+msgid "Links between entries and to URIs"
+msgstr "Girşler arasında ve URI'lere linkler"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:36
+msgid ""
+"Automatically created back-links to entries referring to the current entry"
+msgstr "Görüntülenen girişlere atıfta bulunan girişlerin otomatik listelenmesi"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:37
+msgid "Printing individual entries or whole diaries"
+msgstr "Teker teker girişleri veya bütün günlüğü yazdırma"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:38
+msgid ""
+"Automatically logs out when not used for some time (to protect your diary "
+"when you forget to log out)"
+msgstr ""
+"Belli bir müddet kullanılmadığında kendiliğinden kapanma (mahremiyeti kormak "
+"için)"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:39
+msgid "Multiple automatic backups to prevent data loss"
+msgstr "Bilgi kaybını önlemek birçok için kendiliğinden yedekleme"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:45
+msgid "Editing screen"
+msgstr "Düzenleme ekranı"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:49
+msgid "Integrated map"
+msgstr "Dahili harita"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:53 ui/lifeograph.ui:573
+msgid "Charts"
+msgstr "Grafikler"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:65
+msgid ""
+"New main icon that reflects the improved functionality as a second brain"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:66
+msgid "UI upgraded to GTK4 replacing the deprecated UI elements with new ones"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:67
+msgid ""
+"All file I/O is moved to Gio for compatibility with network addresses and "
+"virtual drives, etc..."
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:68
+msgid ""
+"Wiki style formatting markup is largely omitted in favor of a WYSIWYG style "
+"formatting system [[inline comments are an exception]]"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:69
+msgid ""
+"Paragraph folding that creates folds automatically based on heading and "
+"indentation levels"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:70
+msgid ""
+"New references button that pops up a list of referencing entries/paragraphs "
+"for the current entry (a.k.a back-links)"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:71
+msgid ""
+"Context-sensitive right-click menu that displays specific options for tags, "
+"images, dates, etc. based on the cursor location"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:72
+msgid "Tables can also be inserted into the entries now"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:73
+msgid "Added buttons for visiting link items to the right-click popover menu"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:74
+msgid "Added horizontal rules which can also be combined with text"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:75
+msgid ""
+"Entries can now be ordered, grouped, and arranged freely, irrespective of "
+"the their types"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:76
+msgid "Added an option to merge selected entries"
+msgstr "Seçili girişleri birleştirme özelliği eklendi"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:77
+msgid "Added many new filterers"
+msgstr "Birçok yeni filtre eklendi"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:78
+msgid "All filters can be negated now"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:79
+msgid "Table columns are resizable now"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:80
+msgid "Many new column types added"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:81
+msgid "Group lines in a hierarchical view by any column"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:82
+msgid "Conditional coloring of cell values"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:83
+msgid "Completion columns show a progress bar in the background"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:84
+msgid ""
+"Option to combine identical consequent cells in a column to get cleaner "
+"tables"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:85
+msgid "Added a new vertical bars style to charts"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:86
+msgid ""
+"A basic inline table was added to allow creation of basic charts without "
+"creating a table first"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:87
+msgid "Added navigation icons to the calendar widget"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:88
+msgid "Added the ability to mark custom days as holidays"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:89
+msgid "Added the ability to change the first day of the week"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:90
+msgid "Searching is multi-threaded now for speed gains and responsiveness"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:91
+msgid "Migrated from libchamplain to libshumate which also works under Windows"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:92
+msgid "Many many more. See the NEWS for a complete list"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:97
+#: net.sourceforge.Lifeograph.metainfo.xml.in:104
+#: net.sourceforge.Lifeograph.metainfo.xml.in:110
+msgid "Bug fixes"
+msgstr "Hata gidermeler"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:98
+msgid "Added Danish translation"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:99
+msgid "Updated Simplified Chinese, Dutch, French, and Italian translations"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:105
+msgid "Updated Italian translation"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:115
+msgid "Unified different elements such as chapters and tags into entry"
+msgstr "Fasıl ve yafta gibi farklı unsurlar giriş altında toplandı"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:116
+msgid "New inline tags that are assigned to the paragraphs as well as entries"
+msgstr ""
+"Yeni metin-içi yaftalar ile, girişlerin yanı sıra paragrafların yaftalanması "
+"imkanı"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:117
+msgid "New integrated map to assign locations and travel paths to entries"
+msgstr ""
+"Yeni dahili harita ile girişlere konum ve seyahat güzergahlarının eklenmesi"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:118
+msgid "New custom calendar widget that integrates with the program more nicely"
+msgstr "Programa daha iyi uyum sağlayan ve yeni imkanlar getiren yeni takvim"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:119
+msgid "New table view for very basic spreadsheet like functionality"
+msgstr "Çizelge benzeri işlevler sunan yeni tablo paneli"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:120
+msgid "Completion percentages for entries"
+msgstr "Girişler için tamamlanma yüzdeleri"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:121
+msgid "Support for background images in the entry editor"
+msgstr "Giriş düzenleyiciye arka plan resmi atayabilme"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:122
+msgid "a new toolbar-like right-click popover that replaced the toolbar"
+msgstr "Araç çubuğu tarzı bir sağ tıklama menüsü"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:123
+msgid "Vastly more capable text search and entry list filtering"
+msgstr "Büyük ölçüde geliştirilmiş metin arama ve süzme sistemi"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:124
+msgid "Printing system improvements"
+msgstr "Yazdırma sistemi geliştirmeleri"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:125
+msgid "Both functionally and visually improved charts"
+msgstr "Hem işlev hem görünüş yönünden geliştirilmiş grafikler"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:126
+msgid "Many many more"
+msgstr "Ve daha fazlası"
+
+#: x-lifeographdiary.xml.in:4
+msgid "Lifeograph diary"
+msgstr "Lifeograph günlüğü"
+
+#: src/app_window.cpp:637
+msgid "%1 SECONDS TO CLOSE"
+msgstr "%1 SANİYE SONRA KAPATILACAK"
+
+#: src/app_window.cpp:692
+msgid "Diary couldn't be saved. A rescue copy is saved at the location below:"
+msgstr ""
+"Günlük kaydedilemedi. Bir kurtarma kopyası aşağıdaki konuma kaydedildi:"
+
+#: src/app_window.cpp:694 src/printing.cpp:301
+msgid "_Close"
+msgstr "_Kapat"
+
+#: src/app_window.cpp:702
+msgid "Are you sure you want to close the diary without saving?"
+msgstr "Günlüğü kaydetmededn kapatmak istediğinizden emin misiniz?"
+
+#: src/app_window.cpp:705
+msgid ""
+"Your changes will be backed up in %1. If you exit normally, your diary is "
+"saved automatically."
+msgstr ""
+"Değişiklikleriniz %1 dosyasına kaydedilecek. Normal çıkış yaparsanız "
+"değişiklikleriniz kendiliğinden kaydedilir."
+
+#: src/app_window.cpp:710
+msgid "Close _without Saving"
+msgstr "_Kaydetmeden Kapat"
+
+#: src/app_window.cpp:779
+msgid "Are you sure, you want to dismiss %1?"
+msgstr "%1 nesnesini silmek istediğinizden emin misiniz?"
+
+#. must come before add_extra_info
+#: src/app_window.cpp:784
+msgid "This operation cannot be undone!"
+msgstr "Bu işlem geri alınamaz!"
+
+#: src/app_window.cpp:785
+msgid "_Dismiss"
+msgstr "_Sil"
+
+#: src/dialogs/dialog_export.cpp:275
+msgid "Lifeograph Diary File"
+msgstr "Lifeograph Günlük Dosyası "
+
+#: src/dialogs/dialog_export.cpp:323
+msgid "Where to Save the Diary File?"
+msgstr "Günlük Dosyası Nereye Kaydedilsin?"
+
+#: src/dialogs/dialog_export.cpp:341
+msgid "Plain Text File"
+msgstr "Düz Metin Dosyası"
+
+#. TRANSLATORS: this is the title of file chooser dialog for saving a new diary
+#: src/dialogs/dialog_export.cpp:352
+msgid "Where to Save the Text File?"
+msgstr "Metin Dosyası Nereye Kaydedilecek?"
+
+#: src/dialogs/dialog_password.cpp:121
+msgid "Continue"
+msgstr "Devam Et"
+
+#: src/dialogs/dialog_password.cpp:124
+msgid "Add Password"
+msgstr "Parola Ekle"
+
+#: src/dialogs/dialog_password.cpp:127
+msgid "Change Password"
+msgstr "Parolayı Değiştir"
+
+#: src/dialogs/dialog_password.cpp:141 ui/lifeograph.ui:901
+msgid "Please enter password"
+msgstr "Lütfen parolayı yazın"
+
+#: src/dialogs/dialog_password.cpp:144
+msgid "Please enter a new password"
+msgstr "Lütfen yeni bir parola parola yazın"
+
+#: src/dialogs/dialog_password.cpp:147
+msgid "Please enter the current and new passwords"
+msgstr "Lütfen şimdiki ve yeni parolaları yazın"
+
+#: src/dialogs/dialog_password.cpp:233
+msgid "Wrong password. Please retry..."
+msgstr "Hatalı parola. Lütfen tekrar deneyin..."
+
+#: src/dialogs/dialog_sync.cpp:82 src/dialogs/dialog_sync.cpp:165
+#: src/strings.hpp:180 src/ui_login.cpp:64 ui/lifeograph.ui:1054 ui/table.ui:42
+msgid "Name"
+msgstr "Ad"
+
+#: src/dialogs/dialog_sync.cpp:83
+msgid "Status"
+msgstr "Durum"
+
+#: src/dialogs/dialog_sync.cpp:85
+msgid "Action"
+msgstr "Eylem"
+
+#: src/dialogs/dialog_sync.cpp:87
+msgid "Local"
+msgstr "Dahili"
+
+#: src/dialogs/dialog_sync.cpp:88
+msgid "Remote"
+msgstr "Harici"
+
+#: src/dialogs/dialog_sync.cpp:191
+msgid "Click to select a diary file..."
+msgstr "Günlük Dosyası Seçmek için tıklayın..."
+
+#: src/dialogs/dialog_sync.cpp:251
+msgid "Select a diary file for synchronizing"
+msgstr "Eşitlenecek günlük dosyasını seçin"
+
+#: src/dialogs/dialog_sync.cpp:280
+msgid "Selected file does not seem to be a valid diary"
+msgstr "Seçili dosya geçerli bir günlüğe benzemiyor"
+
+#: src/dialogs/dialog_sync.cpp:284 src/dialogs/dialog_sync.cpp:299
+msgid "Selected file cannot be read"
+msgstr "Seçili dosya okunamıyor"
+
+#: src/dialogs/dialog_sync.cpp:326
+msgid "Please select what to import/sync and press Go"
+msgstr "Lütfen içe aktarılacak/eşitlenecekleri seçin ve Git'e basın"
+
+#: src/dialogs/dialog_sync.cpp:649 src/strings.hpp:186
+msgid "Options"
+msgstr "Seçenekler"
+
+#: src/dialogs/dialog_sync.cpp:699
+msgid "DIARY"
+msgstr "GÜNLÜK"
+
+#: src/dialogs/dialog_sync.cpp:700
+msgid "ENTRIES"
+msgstr "GİRİŞLER"
+
+#: src/dialogs/dialog_sync.cpp:701
+msgid "THEMES"
+msgstr "TEMALAR"
+
+#: src/dialogs/dialog_sync.cpp:702
+msgid "FILTERS"
+msgstr "SÜZGEÇLER"
+
+#: src/dialogs/dialog_sync.cpp:703
+msgid "CHARTS"
+msgstr "GRAFİKLER"
+
+#: src/dialogs/dialog_sync.cpp:704
+msgid "TABLES"
+msgstr "TABLOLAR"
+
+#. chapter category
+#: src/diaryelements/diary.cpp:1319 src/diaryelements/diary.cpp:1687
+#: src/diaryelements/diary.cpp:1694
+msgid "Chapter Category:"
+msgstr "Fasıl Kategorisi:"
+
+#: src/diaryelements/diary.cpp:2954
+msgid "New Entry"
+msgstr "Yeni Giriş"
+
+#: src/diaryelements/diarydata.cpp:76 src/strings.hpp:193 ui/table.ui:73
+msgid "Theme"
+msgstr "Tema"
+
+#: src/diaryelements/diarydata.cpp:76
+msgid "Filter"
+msgstr "Süzgeç"
+
+#: src/diaryelements/diarydata.cpp:76
+msgid "Chart"
+msgstr "Grafik"
+
+#: src/diaryelements/diarydata.cpp:76 ui/chart.ui:108
+msgid "Table"
+msgstr "Tablo"
+
+#: src/diaryelements/diarydata.cpp:77 src/strings.hpp:208 ui/table.ui:366
+msgid "Paragraph"
+msgstr "Paragraf"
+
+#: src/diaryelements/diarydata.cpp:77 ui/table.ui:361
+#: ui/tv_diary_edit_link.ui:75
+msgid "Entry"
+msgstr "Giriş"
+
+#: src/diaryelements/entry.cpp:1536
+msgid "Created"
+msgstr "Oluşturulma"
+
+#: src/diaryelements/entry.cpp:1537
+msgid "Edited"
+msgstr "Düzenlenme"
+
+#: src/diaryelements/entry.cpp:1539 ui/table.ui:63
+msgid "Duration"
+msgstr "Süre"
+
+#: src/helpers.cpp:292
+msgid "day(s)"
+msgstr "gün"
+
+#: src/helpers.cpp:751
+msgid "FAILED"
+msgstr "BAŞARISIZ"
+
+#: src/helpers.cpp:1794 src/helpers.cpp:1817
+msgid "All Files"
+msgstr "Bütün Dosyalar"
+
+#: src/helpers.cpp:1819
+msgid "Image Files"
+msgstr "Resim Dosyaları"
+
+#: src/helpers.cpp:1840
+msgid "Diary files"
+msgstr "Günlük dosyaları"
+
+#: src/helpers.hpp:871
+msgid "_Cancel"
+msgstr "İ_ptal"
+
+#: src/lifeograph.cpp:56
+msgid "Name Only"
+msgstr "Yalnızca İsim"
+
+#: src/lifeograph.cpp:57
+msgid "Name - Description"
+msgstr "İsim - Açıklama"
+
+#: src/lifeograph.cpp:58
+msgid "Number - Name"
+msgstr "Numara - İsim"
+
+#: src/lifeograph.cpp:59
+msgid "Date - Name"
+msgstr "Tarih - İsim"
+
+#: src/lifeograph.cpp:60
+msgid "Milestone"
+msgstr "Kilometre Taşı"
+
+#: src/printing.cpp:301
+msgid "Printing failed"
+msgstr "Yazdırma başarısız"
+
+#: src/strings.hpp:143 ui/dlg_sync.ui:292 ui/dlg_sync.ui:319
+msgid "ADD"
+msgstr "EKLE"
+
+#: src/strings.hpp:144
+msgid "All Entries"
+msgstr "Bütün Girişler"
+
+#: src/strings.hpp:145
+msgid "All Paragraphs"
+msgstr "Bütün Paragraflar"
+
+#: src/strings.hpp:146 ui/po_entry.ui:124
+msgid "Auto"
+msgstr "Otomatik"
+
+#: src/strings.hpp:147 ui/chart.ui:215
+msgid "Average"
+msgstr "Ortalama"
+
+#: src/strings.hpp:148
+msgid "Background Image"
+msgstr "Arkaplan Resmi"
+
+#: src/strings.hpp:149
+msgid "Boolean"
+msgstr "İkili"
+
+#: src/strings.hpp:150 ui/po_entry.ui:159 ui/tv_diary.ui:512
+msgid "Canceled"
+msgstr "İptal edildi"
+
+#: src/strings.hpp:151
+msgid "Category"
+msgstr "Kategori"
+
+#: src/strings.hpp:152
+msgid "CHANGED"
+msgstr "DEĞİŞMİŞ"
+
+#: src/strings.hpp:153
+msgid "Chart Intervals"
+msgstr "Grafik Zaman Aralığı"
+
+#: src/strings.hpp:154
+msgid "Chart Underlay"
+msgstr "Grafik Altlığı"
+
+#: src/strings.hpp:155 ui/po_entry.ui:196
+msgid "Color"
+msgstr "Renk"
+
+#: src/strings.hpp:156 ui/po_entry.ui:271
+msgid "Comment Style"
+msgstr "Yorum Tarzı"
+
+#: src/strings.hpp:157 ui/lifeograph.ui:143
+msgid "Completion Tag"
+msgstr "Tamamlanma Yaftası"
+
+#: src/strings.hpp:158 ui/col_opt_duration.ui:22 ui/col_opt_duration.ui:48
+#: ui/col_opt_date.ui:22
+msgid "Creation Date"
+msgstr "Oluşturulma Tarihi"
+
+#: src/strings.hpp:159
+msgid "Cumulative"
+msgstr "Toplam"
+
+#: src/strings.hpp:160
+msgid "Current Entry"
+msgstr "Görüntülenen Giriş"
+
+#: src/strings.hpp:161
+msgid "Current Entry + Descendants"
+msgstr "Görüntülenen Giriş + Altındakiler"
+
+#: src/strings.hpp:162
+msgid "Date"
+msgstr "Tarih"
+
+#: src/strings.hpp:163
+msgid "Definition"
+msgstr "Tarif"
+
+#: src/strings.hpp:164
+msgid "DELETED"
+msgstr "SİLİNMİŞ"
+
+#: src/strings.hpp:165 ui/po_entry.ui:151 ui/tv_diary.ui:500
+msgid "Done"
+msgstr "Tamamlandı"
+
+#: src/strings.hpp:166 ui/tv_diary_edit_date.ui:19
+msgid "Edit Date"
+msgstr "Düzenlenme Tarihi"
+
+#: src/strings.hpp:167 ui/po_entry.ui:168
+msgid "Favorite"
+msgstr "Sevilen"
+
+#: src/strings.hpp:168
+msgid "List Filter"
+msgstr "Liste Süzgeci"
+
+#: src/strings.hpp:169
+msgid "Search Filter"
+msgstr "Arama Süzgeci"
+
+#: src/strings.hpp:170
+msgid "Format"
+msgstr "Biçim"
+
+#: src/strings.hpp:171
+msgid "ID"
+msgstr "Kimlik"
+
+#: src/strings.hpp:172 ui/dlg_sync.ui:286 ui/dlg_sync.ui:313
+msgid "IGNORE"
+msgstr "ATLA"
+
+#: src/strings.hpp:173
+msgid "INTACT"
+msgstr "FARKSIZ"
+
+#: src/strings.hpp:174
+msgid "Language"
+msgstr "Lisan"
+
+#: src/strings.hpp:175
+msgid "Last Entry"
+msgstr "Son Seferki Giriş"
+
+#: src/strings.hpp:176
+msgid "Location"
+msgstr "Konum"
+
+#: src/strings.hpp:177
+msgid "Map Path"
+msgstr "Harita Yolu"
+
+#: src/strings.hpp:178
+msgid "Monthly"
+msgstr "Aylık"
+
+#: src/strings.hpp:179
+msgid "N/A"
+msgstr "Uygulanamaz"
+
+#: src/strings.hpp:181
+msgid "NEW"
+msgstr "YENİ"
+
+#: src/strings.hpp:182
+msgid "New Column"
+msgstr "Yeni Sütun"
+
+#: src/strings.hpp:183 ui/lifeograph.ui:519
+msgid "New Table"
+msgstr "Yeni Tablo"
+
+#: src/strings.hpp:184
+msgid "No"
+msgstr "Hayır"
+
+#: src/strings.hpp:185 src/widgets/widget_chart.cpp:312
+#: src/widgets/widget_chart.cpp:339 src/widgets/widget_chart.cpp:401
+#: ui/widget_entry_picker.ui:38
+msgid "None"
+msgstr "Yok"
+
+#: src/strings.hpp:187
+msgid "OTHER"
+msgstr "DİĞER"
+
+#: src/strings.hpp:188 ui/dlg_sync.ui:298
+msgid "OVERWRITE"
+msgstr "DEĞİŞTİR"
+
+#: src/strings.hpp:189
+msgid "Progressed"
+msgstr "Yapılmakta"
+
+#: src/strings.hpp:190
+msgid "Startup Entry"
+msgstr "Başlangıç Girişi"
+
+#: src/strings.hpp:191
+msgid "Title Style"
+msgstr "Başlık Tarzı"
+
+#: src/strings.hpp:192
+msgid "Type Name"
+msgstr "Türün adı"
+
+#: src/strings.hpp:194
+msgid "Theme Base"
+msgstr "Tema Arka Plan"
+
+#: src/strings.hpp:195
+msgid "Theme Font"
+msgstr "Tema Yazı Tipi"
+
+#: src/strings.hpp:196
+msgid "Theme Heading"
+msgstr "Tema Başlık"
+
+#: src/strings.hpp:197
+msgid "Theme Highlight"
+msgstr "Tema Vurgu"
+
+#: src/strings.hpp:198
+msgid "Theme Subheading"
+msgstr "Tema Altbaşlık"
+
+#: src/strings.hpp:199
+msgid "Theme Text"
+msgstr "Tema Metin"
+
+#: src/strings.hpp:200
+msgid "Todo"
+msgstr "Yapılacak"
+
+#: src/strings.hpp:201
+msgid "Trashed"
+msgstr "Çöptekiler"
+
+#: src/strings.hpp:202 ui/po_entry.ui:214
+msgid "Unit"
+msgstr "Birim"
+
+#: src/strings.hpp:203
+msgid "Value Type"
+msgstr "Değer Tipi"
+
+#: src/strings.hpp:204
+msgid "Yearly"
+msgstr "Yıllık"
+
+#: src/strings.hpp:205
+msgid "Yes"
+msgstr "Evet"
+
+#: src/strings.hpp:207 ui/col_opt_tag_value.ui:13 ui/col_opt_tag_value.ui:20
+msgid "Tag"
+msgstr "Yafta"
+
+#: src/strings.hpp:213
+msgid "January"
+msgstr "Ocak"
+
+#: src/strings.hpp:214
+msgid "February"
+msgstr "Şubat"
+
+#: src/strings.hpp:215
+msgid "March"
+msgstr "Mart"
+
+#: src/strings.hpp:216
+msgid "April"
+msgstr "Nisan"
+
+#: src/strings.hpp:217
+msgid "May"
+msgstr "Mayıs"
+
+#: src/strings.hpp:218
+msgid "June"
+msgstr "Haziran"
+
+#: src/strings.hpp:219
+msgid "July"
+msgstr "Temmuz"
+
+#: src/strings.hpp:220
+msgid "August"
+msgstr "Ağustos"
+
+#: src/strings.hpp:221
+msgid "September"
+msgstr "Eylül"
+
+#: src/strings.hpp:222
+msgid "October"
+msgstr "Ekim"
+
+#: src/strings.hpp:223
+msgid "November"
+msgstr "Kasım"
+
+#: src/strings.hpp:224
+msgid "December"
+msgstr "Aralık"
+
+#: src/strings.hpp:229 ui/preferences.ui:250
+msgid "Sunday"
+msgstr "Pazar"
+
+#: src/strings.hpp:230 ui/preferences.ui:251
+msgid "Monday"
+msgstr "Pazartesi"
+
+#: src/strings.hpp:231 ui/preferences.ui:252
+msgid "Tuesday"
+msgstr "Salı"
+
+#: src/strings.hpp:232 ui/preferences.ui:253
+msgid "Wednesday"
+msgstr "Çarşamba"
+
+#: src/strings.hpp:233 ui/preferences.ui:254
+msgid "Thursday"
+msgstr "Perşembe"
+
+#: src/strings.hpp:234 ui/preferences.ui:255
+msgid "Friday"
+msgstr "Cuma"
+
+#: src/strings.hpp:235 ui/preferences.ui:256
+msgid "Saturday"
+msgstr "Cumartesi"
+
+#: src/strings.hpp:246 ui/lifeograph-2.ui:154
+msgid "Personal, digital diary"
+msgstr "Şahsi, dijital günlük"
+
+#: src/strings.hpp:249
+msgid "Changes could not be written to diary!"
+msgstr "Değişiklikler günlüğe yazılamadı!"
+
+#: src/strings.hpp:252
+msgid "Check if you have write permissions on the file and containing folder"
+msgstr "Dosya ve klasörü üzerinde yazma hakkınız olduğundan emin olun"
+
+#: src/strings.hpp:256 ui/print.ui:132 ui/table.ui:97 ui/table.ui:260
+msgid "Off"
+msgstr "Kapalı"
+
+#. TRANSLATORS: title of an empty diary entry
+#: src/strings.hpp:260
+msgid "<empty entry>"
+msgstr "<boş giriş>"
+
+#: src/strings.hpp:263
+msgid "Please enter password for selected diary..."
+msgstr "Lütfen seçili günlük için parolayı yazın..."
+
+#: src/strings.hpp:266
+msgid "Program logged out to protect your privacy. Please re-enter password..."
+msgstr ""
+"Program mahremiyetinizi korumak için çıkış yaptı. Lütfen parolanızı yeniden "
+"girin..."
+
+#: src/strings.hpp:270
+msgid ""
+"Selected diary is in an older format which is not compatible with this "
+"version of Lifeograph. Please select another file..."
+msgstr ""
+"Seçili günlük Lifeograph'ın bu sürümü tarafından desteklenmeyen eski bir "
+"formatta. Lütfen başka bir dosya seçin..."
+
+#: src/strings.hpp:275
+msgid ""
+"Selected diary is in a newer format which is not compatible with this "
+"version of Lifeograph. Please consider upgrading your program."
+msgstr ""
+"Seçili günlük Lifeograph'ın bu sürümü tarafından desteklenmeyen yeni bir "
+"formatta. Lütfen programınızı güncellemeye çalışınız..."
+
+#: src/strings.hpp:280
+msgid ""
+"Selected file is not a valid Lifeograph diary. Please select another file..."
+msgstr ""
+"Seçili dosya geçerli bir Lifeograph günlüğü değil. Lütfen başka bir dosya "
+"seçin..."
+
+#: src/strings.hpp:285
+msgid "Selected file is not found. Please select another file..."
+msgstr "Seçilen dosya bulunamadı. Lütfen başka bir dosya seçin..."
+
+#: src/strings.hpp:289
+msgid ""
+"Selected file is not readable. Please check file permissions or select "
+"another file..."
+msgstr ""
+"Seçili dosya okunamıyor. Lütfen dosya yetkilerini tetkik edin veya başka bir "
+"dosya seçin..."
+
+#: src/strings.hpp:293
+msgid "You do not have permission to change this file."
+msgstr "Bu dosyayı değiştirme izniniz yok."
+
+#: src/strings.hpp:296
+msgid ""
+"Selected file is locked which means either it is being edited by another "
+"instance of Lifeograph or the last session with it did not finish correctly. "
+"This file cannot be opened as long as the lock file (%1) is there."
+msgstr ""
+"Seçili dosya kilitli. Bunun sebebi ya dosyanın başka bir Lifeograph "
+"tarafından düzenleniyor olması veya bu dosya ile yapılan son oturumun düzgün "
+"sonlandırılamamış olması olabilir. Kilit dosyası (%1) mevcut olduğu sürece "
+"bu dosya açılamaz."
+
+#: src/strings.hpp:303
+msgid ""
+"You are about to open an old diary that will be upgraded to the new format.\n"
+"\n"
+"Lifeograph will create a backup copy of the current diary for you in the "
+"same directory. Please keep that copy until you are sure that everything is "
+"all right."
+msgstr ""
+"Yeni formata yükseltilmesi geren eski bir dünlük dosyası açmaktasınız.\n"
+"\n"
+"Lifeograph bu günlüğün şu anki halinin bir yedeğini aynı klasörde "
+"oluşturacaktır. Lütfen her şeyin yolunda olduğundan emin olmadan bu yedek "
+"dosyayı silmeyiniz."
+
+#: src/strings.hpp:309
+msgid "Failed to open diary. Please select another file..."
+msgstr "Günlük açılmadı. Lütfen başka bir dosya seçiniz..."
+
+#: src/strings.hpp:313
+msgid "Press Open to continue"
+msgstr "Devam Etmek İçin Aç'a basın"
+
+#: src/strings.hpp:316
+msgid "Last Read"
+msgstr "Son Okuma"
+
+#: src/strings.hpp:319
+msgid "Last Saved"
+msgstr "Son Kayıt"
+
+#: src/strings.hpp:322
+msgid "(Drop a tag here to filter)"
+msgstr "(Süzmek için bir yaftayı buraya sürükleyin)"
+
+#: src/strings.hpp:325 ui/lifeograph.ui:90
+msgid "Change Password..."
+msgstr "Parolayı Değiştir..."
+
+#. TRANSLATORS: e.g. Tag with 5 entries
+#: src/strings.hpp:329
+msgid "%1 with %2 entrie(s)"
+msgstr "%1, %2 giriş"
+
+#: src/strings.hpp:332
+msgid "Tag with %1 entrie(s). Average value = %2"
+msgstr "Yafta, %1 giriş. Ortalama değer = %2"
+
+#: src/strings.hpp:335
+msgid "Tag with %1 entrie(s). Total value = %2"
+msgstr "Yafta, %1 giriş. Toplam Değer = %2"
+
+#: src/strings.hpp:338
+msgid "New theme"
+msgstr "Yeni tema"
+
+#: src/strings.hpp:341
+msgid "New chapter"
+msgstr "Yeni fasıl"
+
+#: src/strings.hpp:344
+msgid "New category"
+msgstr "Yeni kategori"
+
+#: src/strings.hpp:347
+msgid "Default"
+msgstr "Öntanımlı"
+
+#: src/strings.hpp:350
+msgid "<Default>"
+msgstr "<Öntanımlı>"
+
+#: src/strings.hpp:353
+msgid "Diary Report"
+msgstr "Günlük Raporu"
+
+#: src/ui_diary.cpp:484
+msgid "Are You Sure You Want to Upgrade The Diary?"
+msgstr "Seçili Günlüğü Yükseltmek İstediğinizden Emin misiniz?"
+
+#: src/ui_diary.cpp:486
+msgid "Upgrade The Diary"
+msgstr "Günlüğü Yükselt"
+
+#. this should never occur?
+#: src/ui_diary.cpp:502
+msgid "Cannot edit a read-only diary"
+msgstr "Sırf-okunur bir günlük düzenlenemez"
+
+#: src/ui_diary.cpp:730
+msgid "Are You Sure You Want to Empty The Trash?"
+msgstr "Çöp Kutusunu Boşaltmak İstediğinizden Emin misiniz?"
+
+#: src/ui_diary.cpp:731
+msgid "Empty The Trash"
+msgstr "Çöpü Boşalt"
+
+#: src/ui_entry.cpp:330
+msgid "word(s)"
+msgstr "kelime"
+
+#: src/ui_entry.cpp:540
+msgid "Also dismiss child entries"
+msgstr "Altındaki girişleri de sil"
+
+#: src/ui_extra.cpp:134 src/ui_extra.cpp:136 ui/lifeograph.ui:584
+msgid "New Chart"
+msgstr "Yeni Grafik"
+
+#: src/ui_extra.cpp:589
+msgid "<b>%1</b> instances found"
+msgstr "<b>%1</b> eşleşme bulundu"
+
+#: src/ui_extra.cpp:592
+msgid "Search text within entries"
+msgstr "Metni girişlerin içinde ara"
+
+#: src/ui_login.cpp:242
+msgid "Error querying file"
+msgstr "Dosya sorgulalma hatası"
+
+#: src/ui_login.cpp:484
+msgid "Removed diary: %1"
+msgstr "Günlük çıkarıldı: %1"
+
+#: src/ui_login.cpp:486
+msgid "Undo"
+msgstr "Geri Al"
+
+#: src/ui_login.cpp:502
+msgid "Where to Save the New Diary?"
+msgstr "Yeni Günlük Nereye Kaydedilsin?"
+
+#: src/ui_login.cpp:523
+msgid "Select the Diary File to Add"
+msgstr "Eklenecek Günlük Dosyasını Seçin"
+
+#: src/ui_login.cpp:531
+msgid "Unsaved changes from the last session detected"
+msgstr "Bir önceki oturumdan kaydedilmemiş değişiklikler tespit edildi"
+
+#: src/ui_login.cpp:532
+msgid "_Discard Unsaved Changes"
+msgstr "Kaydedilmemiş Değişiklikleri _Bırak"
+
+#: src/ui_login.cpp:535
+msgid "Continue with _Unsaved Changes"
+msgstr "Kaydedilmemiş Değişikliklerle _Devam et"
+
+#: src/widgets/calendar.cpp:105
+msgid "DATE IS NOT SET"
+msgstr "TARİH GİRİLMEDİ"
+
+#: src/widgets/chart.cpp:574
+msgid "INSUFFICIENT DATA"
+msgstr "YETERSIZ VERİ"
+
+#: src/widgets/table.cpp:490
+msgid "ADD COLUMNS"
+msgstr "SÜTUN EKLE"
+
+#: src/widgets/widget_chart.cpp:315
+msgid "Previous Year"
+msgstr "Önceki Yıl"
+
+#: src/widgets/widget_chart.cpp:398
+msgid "Count"
+msgstr "Adet"
+
+#: src/widgets/widget_entrypicker.cpp:120
+msgid "Create New Entry: %1"
+msgstr "Yeni Giriş Oluştur: %1"
+
+#: src/widgets/widget_filter.cpp:62
+msgid "Whose status is one of"
+msgstr "Durumu şöyle olan"
+
+#: src/widgets/widget_filter.cpp:219
+msgid "Is favorite"
+msgstr "Sevilen"
+
+#: src/widgets/widget_filter.cpp:229
+msgid "Is trashed"
+msgstr "Çöpte yer alan"
+
+#: src/widgets/widget_filter.cpp:238
+msgid "Has the unit"
+msgstr "Şu birime sahip"
+
+#: src/widgets/widget_filter.cpp:257
+msgid "Is entry"
+msgstr "Şu giriş"
+
+#: src/widgets/widget_filter.cpp:278
+msgid "Is descendant of"
+msgstr "Şunun alt girişi"
+
+#: src/widgets/widget_filter.cpp:280
+msgid "Or itself"
+msgstr "Veya kendisi"
+
+#: src/widgets/widget_filter.cpp:306
+msgid "Has the tag"
+msgstr "Şu yaftaya sahip"
+
+#: src/widgets/widget_filter.cpp:407
+msgid "Planned"
+msgstr "Planlanan"
+
+#: src/widgets/widget_filter.cpp:408
+msgid "Realized"
+msgstr "Gerçekleşen"
+
+#: src/widgets/widget_filter.cpp:409
+msgid "Remaining"
+msgstr "Kalan"
+
+#: src/widgets/widget_filter.cpp:475
+msgid "Has the theme"
+msgstr "Şu temaya sahip"
+
+#: src/widgets/widget_filter.cpp:541 src/widgets/widget_filter.cpp:593
+msgid "Between"
+msgstr "Şu Aralıkta"
+
+#: src/widgets/widget_filter.cpp:627
+msgid "Completion is in range"
+msgstr "Tamamlanma şu aralıkta"
+
+#: src/widgets/widget_filter.cpp:696
+msgid "Satisfies filter"
+msgstr "Süzgeci sağlar"
+
+#: src/widgets/widget_filter.cpp:704
+msgid "Is image"
+msgstr "Resimdir"
+
+#: src/widgets/widget_filter.cpp:711
+msgid "Has map coordinates"
+msgstr "Harita Koordinatarı İçerir"
+
+#: src/widgets/widget_filter.cpp:721
+msgid "Title style is"
+msgstr "Başlık tarzı şudur"
+
+#: src/widgets/widget_filter.cpp:757
+msgid "Heading level is"
+msgstr "Başlık seviyesi şudur"
+
+#: src/widgets/widget_filter.cpp:908
+msgid "OR"
+msgstr "VEYA"
+
+#: src/widgets/widget_filter.cpp:910
+msgid "AND"
+msgstr "VE"
+
+#: src/widgets/widget_map.cpp:251
+msgid "New Location"
+msgstr "Yeni Konum"
+
+#: src/widgets/widget_table.cpp:973 ui/table.ui:61
+msgid "Text"
+msgstr "Metin"
+
+#. the same id and SRC_value as title
+#: src/widgets/widget_table.cpp:974 ui/tv_diary_edit_link.ui:52
+msgid "Uri"
+msgstr ""
+
+#: src/widgets/widget_table.cpp:978
+msgid "Title"
+msgstr "Başlık"
+
+#: src/widgets/widget_table.cpp:979
+msgid "Ancestors + Title"
+msgstr "Atalar + Başlık"
+
+#: src/widgets/widget_table.cpp:980
+msgid "Description"
+msgstr "Açıklama"
+
+#: src/widgets/widget_table.cpp:1021
+msgid "Constant"
+msgstr "Sabit"
+
+#: src/widgets/widget_textview.cpp:1583
+msgid "Image Not Found"
+msgstr "Resim Bulunamadı"
+
+#: src/widgets/widget_textview.cpp:1713
+msgid "Click to expand the paragraph"
+msgstr "Paragrafı genişletmek için tıklayınız"
+
+#: src/widgets/widget_textview.cpp:1716
+msgid "Click to collapse the paragraph"
+msgstr "Paragrafı daraltmak için tıklayınız"
+
+#: src/widgets/widget_textview.cpp:1723
+msgid "Click to edit entry properties"
+msgstr "Özellikleri düzenlemek için tıklayınız"
+
+#: src/widgets/widget_textview.cpp:1726
+msgid "Click to see list of entries tagged by this entry"
+msgstr "Bu girişle yaftalanmış girişlerin listesi için tıklayınız"
+
+#: src/widgets/widget_textview.cpp:1736
+msgid "Entry text evaluated as link address"
+msgstr "Giriş metni bağlantı adresi olarak değerlendirildi"
+
+#: src/widgets/widget_textview.cpp:1752
+msgid "Right click to edit paragraph"
+msgstr "Paragrafı düzenlemek için sağ tıklayın"
+
+#: src/widgets/widget_textview.cpp:1762
+msgid "Press Ctrl to follow the link"
+msgstr "Bağlantıyı açmak için Ctrl'e basın"
+
+#: src/widgets/widget_textview.cpp:1763
+msgid "Press Ctrl to select"
+msgstr "Seçmek için Ctrl'e basın"
+
+#: src/widgets/widget_textviewedit.cpp:950
+msgid "Open"
+msgstr "Aç"
+
+#: src/widgets/widget_textviewedit.cpp:1044
+msgid "image"
+msgstr "resim"
+
+#: src/widgets/widget_textviewedit.cpp:1262
+msgid "Add \"%1\" to Dictionary"
+msgstr "\"%1\" Kelimesini Sözlüğe Ekle"
+
+#: src/widgets/widget_textviewedit.cpp:1263
+msgid "Ignore All"
+msgstr "Hepsini Gözardı Et"
+
+#: src/widgets/widget_textviewedit.cpp:1268
+msgid "no suggestions"
+msgstr "öneri yok"
+
+#: src/widgets/widget_textviewsearch.cpp:94
+msgid "Please enter a search phrase"
+msgstr "Lütfen bir arama ibaresi yazın"
+
+#: src/widgets/widget_textviewsearch.cpp:97
+msgid "No matches"
+msgstr "Eşleşme yok"
+
+#: src/widgets/widget_textviewsearch.cpp:331
+msgid "Click to jump to"
+msgstr "Atlamak için tıklayın"
+
+#: src/widgets/widget_textviewsearch.cpp:336
+msgid "Right click to replace"
+msgstr "Değiştirmek için sağ tıklayınız"
+
+#: src/widgets/widget_textviewtheme.cpp:267
+msgid "Select Image"
+msgstr "Resim Seç"
+
+#: src/widgets/widget_textviewtheme.cpp:379
+msgid "Click to edit the theme"
+msgstr "Temayı düzenlemek için tıklayınız"
+
+#: ui/calendar.ui:30
+msgid "Copy Date"
+msgstr "Tarihi Kopyala"
+
+#: ui/calendar.ui:38
+msgid "Weekend Day"
+msgstr "Haftasonu Günü"
+
+#: ui/calendar.ui:43
+msgid "Holiday"
+msgstr "Tatil"
+
+#: ui/calendar.ui:50
+msgid "Show Week Numbers"
+msgstr "Hafta Numaralarını Göster"
+
+#: ui/calendar.ui:66
+msgid "Create entry"
+msgstr "Giriş oluştur"
+
+#: ui/calendar.ui:78
+msgid "Create milestone"
+msgstr "Kilometretaşı oluştur"
+
+#: ui/chart.ui:45
+msgid "Style"
+msgstr "Tarz"
+
+#: ui/chart.ui:62
+msgid "Line"
+msgstr "Çizgi"
+
+#: ui/chart.ui:67
+msgid "Bars"
+msgstr "Sütunlar"
+
+#: ui/chart.ui:91
+msgid "Data Source"
+msgstr "Veri Kaynağı"
+
+#: ui/chart.ui:125
+msgid "x-Axis Column"
+msgstr "x-Aksı Sütunu"
+
+#: ui/chart.ui:142
+msgid "y-Axis Column"
+msgstr "y-Aksı Sütunu"
+
+#: ui/chart.ui:165
+msgid "Organization"
+msgstr "Organizasyon"
+
+#: ui/chart.ui:182
+msgid "Group by"
+msgstr "Grupla"
+
+#: ui/chart.ui:190
+msgid "Day"
+msgstr "Gün"
+
+#: ui/chart.ui:191
+msgid "Week"
+msgstr "Hafta"
+
+#: ui/chart.ui:192
+msgid "Month"
+msgstr "Ay"
+
+#: ui/chart.ui:193
+msgid "Year"
+msgstr "Yıl"
+
+#: ui/chart.ui:205
+msgid "Combine"
+msgstr "Birleştir"
+
+#: ui/chart.ui:213
+msgid "Cumulative: Periodic"
+msgstr "Toplam: Dönemli"
+
+#: ui/chart.ui:214
+msgid "Cumulative: Continuous"
+msgstr "Toplam: Sürekli"
+
+#: ui/chart.ui:230
+msgid "Advanced Options"
+msgstr "Gelişmiş Tercihler"
+
+#: ui/chart.ui:270
+msgid "Underlay"
+msgstr "Altlık"
+
+#: ui/chart.ui:293
+msgid "Filter Table Rows"
+msgstr "Tablo Satırlarını Süz"
+
+#: ui/chart.ui:310
+msgid "Column"
+msgstr "Sütun"
+
+#: ui/chart.ui:327
+msgid "Value = "
+msgstr "Değer = "
+
+#: ui/col_opt_arithmetic.ui:108
+msgid "Operand A"
+msgstr "İşlenen A"
+
+#: ui/col_opt_arithmetic.ui:120 ui/col_opt_arithmetic.ui:157
+msgid "Function to modify the column value"
+msgstr "Sütun değerini değiştirecek fonksiyon"
+
+#: ui/col_opt_arithmetic.ui:145
+msgid "Operand B"
+msgstr "İşlenen B"
+
+#: ui/col_opt_arithmetic.ui:181
+msgid "Format as"
+msgstr "Şöyle Biçimlendir"
+
+#: ui/col_opt_duration.ui:13
+msgid "Begin Date"
+msgstr "Başlangıç Tarihi"
+
+#: ui/col_opt_duration.ui:21 ui/col_opt_duration.ui:47 ui/col_opt_date.ui:21
+msgid "Start Date"
+msgstr "Başlangıç Tarihi"
+
+#: ui/col_opt_duration.ui:23 ui/col_opt_duration.ui:49 ui/col_opt_date.ui:23
+msgid "Last Change Date"
+msgstr "Son Değişiklik Tarihi"
+
+#: ui/col_opt_duration.ui:24 ui/col_opt_duration.ui:50 ui/col_opt_date.ui:24
+msgid "Finish Date"
+msgstr "Bitiş Tarihi"
+
+#: ui/col_opt_duration.ui:25 ui/col_opt_duration.ui:51
+msgid "Now"
+msgstr "Şimdi"
+
+#: ui/col_opt_duration.ui:26 ui/col_opt_duration.ui:52
+msgid "1st Column on Left"
+msgstr "Soldaki Sütun"
+
+#: ui/col_opt_duration.ui:27 ui/col_opt_duration.ui:53
+msgid "2nd Column on Left"
+msgstr "2 Soldaki Sütun"
+
+#: ui/col_opt_duration.ui:39
+msgid "End Date"
+msgstr "Bitiş Tarihi"
+
+#: ui/col_opt_duration.ui:65 ui/col_opt_size.ui:13 ui/col_opt_date.ui:13
+#: ui/dlg_export.ui:76 ui/po_entry.ui:180
+msgid "Type"
+msgstr "Tür"
+
+#: ui/col_opt_duration.ui:73
+msgid "Calendar Days"
+msgstr "Takvim Günleri"
+
+#: ui/col_opt_duration.ui:74
+msgid "Work Days"
+msgstr "İş Günleri"
+
+#: ui/col_opt_size.ui:21
+msgid "Char Count"
+msgstr "Karakter Adedi"
+
+#. <item translatable="yes">Word Count</item> TODO: v3.1 or later
+#: ui/col_opt_size.ui:23
+msgid "Paragraph Count"
+msgstr "Paragraf Adedi"
+
+#: ui/col_opt_bool.ui:14
+msgid "Condition"
+msgstr "Şart"
+
+#: ui/col_opt_bool.ui:20
+msgid "True if satisfies the selected filter"
+msgstr "Seçili süzgeci karşılıyorsa doğru"
+
+#: ui/col_opt_date.ui:35
+msgid "Customize Format"
+msgstr "Biçimi Şahsileştir"
+
+#: ui/col_opt_date.ui:41
+msgid ""
+"Y: year\n"
+"M: month number\n"
+"n: month name\n"
+"D: day\n"
+"d: week day\n"
+"W: week no\n"
+"h: hour\n"
+"m: minute\n"
+"s: second\n"
+"F: date\n"
+"T: time"
+msgstr ""
+"Y: yıl\n"
+"M: ay numarası\n"
+"n: ay adı\n"
+"D: gün\n"
+"d: hafta günü\n"
+"W: hafta numarası\n"
+"h: saat\n"
+"m: dakika\n"
+"s: saniye\n"
+"F: tarih\n"
+"T: zaman"
+
+#: ui/col_opt_subtag.ui:13
+msgid "Sub tag of"
+msgstr "Alt Yafta"
+
+#: ui/col_opt_subtag.ui:21
+msgid "Parent tag"
+msgstr "Ata"
+
+#: ui/col_opt_subtag.ui:32
+msgid "Select"
+msgstr "Seç"
+
+#: ui/col_opt_subtag.ui:40
+msgid "First Occuring"
+msgstr "İlk Rastlanan"
+
+#: ui/col_opt_subtag.ui:41
+msgid "Last Occuring"
+msgstr "Son Rastlanan"
+
+#: ui/col_opt_subtag.ui:42
+msgid "Least in Order"
+msgstr "Sıralamada Baştaki"
+
+#: ui/col_opt_subtag.ui:43
+msgid "Greatest in Order"
+msgstr "Sıralamada Sondaki"
+
+#: ui/col_opt_subtag.ui:44 ui/lifeograph.ui:480
+msgid "All"
+msgstr "Hepsini"
+
+#: ui/col_opt_tag_value.ui:33
+msgid "Calculate"
+msgstr "Topla"
+
+#: ui/col_opt_tag_value.ui:41
+msgid "Total Planned"
+msgstr "Toplam Planlanan"
+
+#: ui/col_opt_tag_value.ui:42
+msgid "Total Realized"
+msgstr "Toplam Gerçekleşen"
+
+#: ui/col_opt_tag_value.ui:43
+msgid "Total Remaining"
+msgstr "Toplam Kalan"
+
+#: ui/col_opt_tag_value.ui:44
+msgid "Average Planned"
+msgstr "Ortalama Planlanan"
+
+#: ui/col_opt_tag_value.ui:45
+msgid "Average Realized"
+msgstr "Ortalama Gerçekleşen"
+
+#: ui/col_opt_tag_value.ui:46
+msgid "Average Remaining"
+msgstr "Ortalama Kalan"
+
+#: ui/col_opt_tag_value.ui:47
+msgid "Completion Percentage"
+msgstr "Tamamlanma Yüzdesi"
+
+#: ui/col_opt_text.ui:13
+msgid "Field"
+msgstr "Alan"
+
+#: ui/col_opt_text.ui:30
+msgid "Include"
+msgstr "Dahil Et"
+
+#: ui/col_opt_text.ui:42
+msgid "Number or Date"
+msgstr "Numara veya Tarih"
+
+#: ui/col_opt_text.ui:48
+msgid "Plain text"
+msgstr "Düz Metin"
+
+#: ui/col_opt_text.ui:54
+msgid "Tags within the text"
+msgstr "Metin içindeki yaftalar"
+
+#: ui/col_opt_text.ui:60
+msgid "Dates within the text"
+msgstr "Metin içindeki tarihler"
+
+#: ui/col_opt_text.ui:66
+msgid "Comments within the text"
+msgstr "Metin içindeki yorumlar"
+
+#: ui/col_opt_text.ui:72
+msgid "Indentations"
+msgstr "Girintiler"
+
+#: ui/dlg_export.ui:42
+msgid "Export"
+msgstr "Dışa Aktar"
+
+#: ui/dlg_export.ui:66
+msgid "Content"
+msgstr "Muhteva"
+
+#: ui/dlg_export_opts_log.ui:33 ui/lifeograph-2.ui:47
+msgid "Password"
+msgstr "Parola"
+
+#: ui/dlg_export_opts_log.ui:43 ui/lifeograph.ui:947 ui/lifeograph-2.ui:59
+msgid "Confirm"
+msgstr "Tekrarla"
+
+#: ui/dlg_filter.ui:41 ui/dlg_smartadd.ui:51 ui/dlg_sync.ui:43
+msgid "Cancel"
+msgstr "İptal"
+
+#: ui/dlg_filter.ui:57
+msgid "Apply & Close"
+msgstr "Uygula ve Kapat"
+
+#: ui/dlg_gettext.ui:34
+msgid "Please enter a name"
+msgstr "Lütfen yeni bir isim yazın"
+
+#: ui/dlg_smartadd.ui:38
+msgid "Smart Add"
+msgstr "Akıllı Ekle"
+
+#: ui/dlg_smartadd.ui:56
+msgid "Clear"
+msgstr "Temizle"
+
+#: ui/dlg_sync.ui:49
+msgid "Go"
+msgstr "Devam"
+
+#: ui/dlg_sync.ui:60
+msgid "Scheme"
+msgstr "Şema"
+
+#: ui/dlg_sync.ui:70
+msgid "Filters"
+msgstr "Süzgeçler"
+
+#: ui/dlg_sync.ui:120
+msgid "Apply to Similar"
+msgstr "Benzerlerine de Uygula"
+
+#: ui/dlg_sync.ui:125
+msgid "Apply action changes to all similar elements"
+msgstr "Eylem değişikliklerini benzer bütün bileşenlere uygula"
+
+#: ui/dlg_sync.ui:139
+msgid "I"
+msgstr "G"
+
+#: ui/dlg_sync.ui:140
+msgid "Ignore"
+msgstr "Gözardı Et"
+
+#: ui/dlg_sync.ui:146
+msgid "A"
+msgstr "E"
+
+#: ui/dlg_sync.ui:147
+msgid "Add remote"
+msgstr "Hariciyi ekle"
+
+#: ui/dlg_sync.ui:153
+msgid "O"
+msgstr "D"
+
+#: ui/dlg_sync.ui:154
+msgid "Overwrite local"
+msgstr "Dahiliyi değiştir"
+
+#: ui/dlg_sync.ui:167
+msgid "Tag Imported Entries"
+msgstr "Aktarılan Girişleri Yaftala"
+
+#: ui/dlg_sync.ui:218
+msgid "Show New"
+msgstr "Yenileri Göster"
+
+#: ui/dlg_sync.ui:222
+msgid "Show Changed"
+msgstr "Değişenleri Göster"
+
+#: ui/dlg_sync.ui:228
+msgid "Show Accepted"
+msgstr "Dahil Edilenleri Göster"
+
+#: ui/dlg_sync.ui:232
+msgid "Show Ignored"
+msgstr "Göz Ardı Edilenleri Göster"
+
+#: ui/dlg_sync.ui:238
+msgid "Only Show Different Details"
+msgstr "Sadece Farklı Detayları Göster"
+
+#: ui/dlg_sync.ui:258
+msgid "Changed"
+msgstr "Değişmiş"
+
+#: ui/dlg_sync.ui:271
+msgid "New"
+msgstr "Yeni"
+
+#: ui/dlg_sync.ui:333
+msgid "Apply Scheme"
+msgstr "Şemayı Uygula"
+
+#: ui/flt_range.ui:9
+msgid "Include or exclude the lower bound"
+msgstr "Alt sınırı dahil edip etmeme"
+
+#: ui/flt_range.ui:22
+msgid "Lower bound"
+msgstr "Alt sınır"
+
+#: ui/flt_range.ui:37
+msgid "Upper bound"
+msgstr "Üst sınır"
+
+#: ui/flt_range.ui:43
+msgid "Include or exclude the upper bound"
+msgstr "Üst sınırı dahil edip etmeme"
+
+#: ui/flt_subtag.ui:10
+msgid "First"
+msgstr "İlk"
+
+#: ui/flt_subtag.ui:11
+msgid "Last"
+msgstr "Son"
+
+#: ui/flt_subtag.ui:12
+msgid "Highest"
+msgstr "En Yüksek"
+
+#: ui/flt_subtag.ui:13
+msgid "Lowest"
+msgstr "En Düşük"
+
+#: ui/flt_subtag.ui:19
+msgid "Subtag of"
+msgstr "Alt Yafta"
+
+#: ui/flt_subtag.ui:24 ui/flt_subtag.ui:40
+msgid "Only include paragraphs with this tag"
+msgstr "Sadece bu yaftaya sahip paragrafları kullan"
+
+#: ui/flt_subtag.ui:29
+msgid "Parent Tag"
+msgstr "Ata Yafta"
+
+#: ui/flt_subtag.ui:45
+msgid "Child Tag"
+msgstr "Çocuk Yafta"
+
+#: ui/flt_text.ui:9
+msgid "Contains text"
+msgstr "Metni ihtiva eden"
+
+#: ui/flt_text.ui:21 ui/lifeograph.ui:444
+msgid "Match case"
+msgstr "Büyük küçük harf eşleştir"
+
+#: ui/flt_text.ui:33
+msgid "Anywhere"
+msgstr "Herhangi Bir Yerde"
+
+#: ui/flt_text.ui:34
+msgid "In the name"
+msgstr "İsimde"
+
+#: ui/lifeograph.ui:34
+msgid "Help"
+msgstr "Yardım"
+
+#: ui/lifeograph.ui:40 ui/preferences.ui:28
+msgid "Preferences"
+msgstr "Tercihler"
+
+#: ui/lifeograph.ui:44
+msgid "About"
+msgstr "Hakkında"
+
+#: ui/lifeograph.ui:48
+msgid "Quit"
+msgstr "Çıkış"
+
+#: ui/lifeograph.ui:63
+msgid "Open the Folder Containing the Diary"
+msgstr "Dosyanın Bulunduğu Klasörü Aç"
+
+#: ui/lifeograph.ui:68
+msgid "Export/Save As..."
+msgstr "Dışa Aktar/Farklı Kaydet..."
+
+#: ui/lifeograph.ui:73
+msgid "Synchronize/Merge..."
+msgstr "Eşitle/Birleştir..."
+
+#: ui/lifeograph.ui:80
+msgid "Empty the Trash..."
+msgstr "Çöpü Boşalt..."
+
+#: ui/lifeograph.ui:85
+msgid "Encrypt..."
+msgstr "Şifrele..."
+
+#: ui/lifeograph.ui:95
+msgid "Update All Date Separators in the Diary"
+msgstr "Günlükteki Bütün Tarih Ayırıcıları Güncelle"
+
+#: ui/lifeograph.ui:126
+msgid "Diary default value for spell checking"
+msgstr "Yazım denetimi için günlük ön tanımlı değeri"
+
+#: ui/lifeograph.ui:127
+msgid "Spell Checking"
+msgstr "Yazım Denetimi"
+
+#: ui/lifeograph.ui:160
+msgid "Startup Action"
+msgstr "Başlangıç Eylemi"
+
+#: ui/lifeograph.ui:167
+msgid "Show Most Current Entry"
+msgstr "En Güncel Girişi Göster"
+
+#: ui/lifeograph.ui:168
+msgid "Remember Last Entry"
+msgstr "Son Girişi Hatırla"
+
+#: ui/lifeograph.ui:169
+msgid "Always Show a Fixed Entry"
+msgstr "Hep Belli Bir Girişi Göster"
+
+#: ui/lifeograph.ui:181
+msgid "Item to Show"
+msgstr "Gösterilecek Nesne"
+
+#: ui/lifeograph.ui:198
+msgid "Close without Saving..."
+msgstr "Kaydetmeden Kapat..."
+
+#: ui/lifeograph.ui:202
+msgid "Disable Auto Close for This Session"
+msgstr "Kendiliğinden Kapamayı Bu Oturumda Devre Dışı Bırak"
+
+#: ui/lifeograph.ui:216
+msgid "Standard Diary Report"
+msgstr "Standart Günlük Raporu"
+
+#: ui/lifeograph.ui:288
+msgid "Diaries"
+msgstr "Günlükler"
+
+#: ui/lifeograph.ui:409
+msgid "Calendar"
+msgstr "Takvim"
+
+#: ui/lifeograph.ui:422 ui/lifeograph.ui:439
+msgid "Search"
+msgstr "Ara"
+
+#: ui/lifeograph.ui:469
+msgid "Enter text to replace matches with"
+msgstr "Eşleşmelerin yerine konacak metni girin"
+
+#: ui/lifeograph.ui:475 ui/tv_diary.ui:352
+msgid "Replace"
+msgstr "Değiştir"
+
+#: ui/lifeograph.ui:482
+msgid "Replace all"
+msgstr "Hepsini değiştir"
+
+#: ui/lifeograph.ui:505
+msgid "Tables"
+msgstr "Tablolar"
+
+#: ui/lifeograph.ui:539 ui/lifeograph.ui:611
+msgid "Properties"
+msgstr "Özellikler"
+
+#: ui/lifeograph.ui:601
+msgid "Zoom level"
+msgstr "Yakınlaştırma seviyesi"
+
+#: ui/lifeograph.ui:635
+msgid "Themes"
+msgstr "Temalar"
+
+#: ui/lifeograph.ui:691
+msgid "Map"
+msgstr "Harita"
+
+#: ui/lifeograph.ui:772
+msgid "Label"
+msgstr "Yafta"
+
+#: ui/lifeograph.ui:782
+msgid "Add an existing diary file"
+msgstr "Mevcut bir günlük dosyası ekle"
+
+#: ui/lifeograph.ui:789
+msgid "Create New"
+msgstr "Yeni Oluştur"
+
+#: ui/lifeograph.ui:799 ui/lifeograph.ui:807
+msgid "Go back in the browsing history"
+msgstr "Gezinme geçmişinde geri git"
+
+#: ui/lifeograph.ui:818 ui/po_entry.ui:7
+msgid "Add"
+msgstr "Ekle"
+
+#: ui/lifeograph.ui:819
+msgid "Quick add a new entry"
+msgstr "Hızlıca yeni giriş ekle"
+
+#: ui/lifeograph.ui:848 ui/po_theme.ui:35
+msgid "Edit"
+msgstr "Düzenle"
+
+#: ui/lifeograph.ui:857
+msgid "Close"
+msgstr "Kapat"
+
+#: ui/lifeograph.ui:859
+msgid "Save close the diary"
+msgstr "Günlüğü kaydet ve kapat"
+
+#: ui/lifeograph.ui:957
+msgid "New Password"
+msgstr "Yeni Parola"
+
+#: ui/lifeograph.ui:976
+msgid "Authenticate"
+msgstr "Doğrula"
+
+#: ui/lifeograph.ui:1037
+msgid "Sort by"
+msgstr "Sırala"
+
+#: ui/lifeograph.ui:1061
+msgid "Save"
+msgstr "Kaydet"
+
+#: ui/lifeograph.ui:1068
+msgid "Read"
+msgstr "Oku"
+
+#: ui/lifeograph-2.ui:28
+msgid "Where to Save The Diary?"
+msgstr "Günlük Nereye Kaydedilsin?"
+
+#: ui/lifeograph-2.ui:91
+msgid "Encrypt Diary Content"
+msgstr "Günlük Muhtevasını Şifrele"
+
+#: ui/lifeograph-2.ui:111
+msgid ""
+"Knowledge is a single point which the ignorant have multiplied.\n"
+"~Attributed to Ali Ibn Abi Talib"
+msgstr ""
+"İlim bir noktaydı, onu cahille çoğalttı.\n"
+"~Hz. Ali'ye isnat edilir"
+
+#: ui/lifeograph-2.ui:124
+msgid "Welcome to Lifeograph, a parametric note taking application!"
+msgstr "Parametrik not tutma programı Lifeograph'a hoş geldiniz!"
+
+#: ui/lifeograph-2.ui:137
+msgid ""
+"If this is your first time with the program, click here to start right away"
+msgstr ""
+"Eğer bu programı ilk kullanışınızsa, hemen başlamak için buraya tıklayın"
+
+#: ui/lifeograph-2.ui:153
+msgid "Copyright (C) 2007-2024 Ahmet Öztürk"
+msgstr "Telif Hakkı (C) 2007-2024 Ahmet Öztürk"
+
+#: ui/lifeograph-2.ui:156
+msgid "Web Site"
+msgstr "Web Sitesi"
+
+#: ui/map.ui:29
+msgid "Copy to Clipboard"
+msgstr "Panoya Kopyala"
+
+#: ui/map.ui:35
+msgid "Path"
+msgstr "Güzergah"
+
+#: ui/map.ui:37
+msgid "Add Point"
+msgstr "Nokta Ekle"
+
+#: ui/map.ui:42
+msgid "Insert Point before Selected"
+msgstr "Seçilinin Önüne Nokta Ekle"
+
+#: ui/map.ui:47
+msgid "Move Selected Point Here"
+msgstr "Seçili Noktayı Buraya Taşı"
+
+#: ui/map.ui:54
+msgid "Remove Selected Point"
+msgstr "Seçili Noktatı Sil"
+
+#: ui/map.ui:59
+msgid "Clear Path"
+msgstr "Yolu Sil"
+
+#: ui/map.ui:65
+msgid "Other Entries"
+msgstr "Diğer Girişler"
+
+#: ui/map.ui:67
+msgid "Show Locations"
+msgstr "Konumları Göster"
+
+#: ui/po_entry.ui:12
+msgid "Parent"
+msgstr "Ata"
+
+#: ui/po_entry.ui:16
+msgid "Sibling"
+msgstr "Kardeş"
+
+#: ui/po_entry.ui:20
+msgid "Child"
+msgstr "Çocuk"
+
+#: ui/po_entry.ui:24 ui/po_theme.ui:40
+msgid "Duplicate"
+msgstr "İkiz"
+
+#: ui/po_entry.ui:30
+msgid "Merge Selected"
+msgstr "Seçilileri Birleştir"
+
+#: ui/po_entry.ui:35
+msgid "Sort Siblings"
+msgstr "Kardeşleri Sırala"
+
+#: ui/po_entry.ui:40
+msgid "A-Z"
+msgstr ""
+
+#: ui/po_entry.ui:44
+msgid "Z-A"
+msgstr ""
+
+#: ui/po_entry.ui:48
+msgid "Earliest First"
+msgstr "En Erken Başta"
+
+#: ui/po_entry.ui:52
+msgid "Latest First"
+msgstr "En Geç Başta"
+
+#: ui/po_entry.ui:56
+msgid "Shortest First"
+msgstr "En Kısa Başta"
+
+#: ui/po_entry.ui:60
+msgid "Longest First"
+msgstr "En Uzun Başta"
+
+#: ui/po_entry.ui:79
+msgid "Move to Trash"
+msgstr "Çö_pe at"
+
+#: ui/po_entry.ui:84
+msgid "Restore"
+msgstr "Çöpten Çıkar"
+
+#: ui/po_entry.ui:89 ui/po_theme.ui:47
+msgid "Dismiss..."
+msgstr "Sil"
+
+#: ui/po_entry.ui:99
+msgid "Print..."
+msgstr "Yazdır..."
+
+#: ui/po_entry.ui:132
+msgid "To Do"
+msgstr "Yapılacak"
+
+#: ui/po_entry.ui:143
+msgid "In Progress"
+msgstr "Yapılmakta"
+
+#: ui/po_entry.ui:201
+msgid "Color as a tag and calendar or chart background"
+msgstr "Bir yafta ve takvim veya grafik arka plan rengi olarak kullan"
+
+#: ui/po_entry.ui:238
+msgid "Unitless"
+msgstr "Birimsiz"
+
+#: ui/po_entry.ui:251
+msgid "Spellchecking"
+msgstr "Yazım denetimi"
+
+#: ui/po_entry.ui:279
+msgid "Hidden"
+msgstr "Gizli"
+
+#: ui/po_entry.ui:280
+msgid "Normal"
+msgstr ""
+
+#: ui/po_entry.ui:281 ui/tv_diary.ui:158
+msgid "Highlighted"
+msgstr "Vurgulu"
+
+#: ui/po_theme.ui:52
+msgid "Reset to default"
+msgstr "Ön Tanımlıya Sıfırla"
+
+#: ui/po_theme.ui:59
+msgid "Assign to Open Entry"
+msgstr "Açık Olan Girişe Uygula"
+
+#: ui/po_theme.ui:64
+msgid "Assign to Selected Entries"
+msgstr "Seçili Olan Girişlere Uygula"
+
+#: ui/preferences.ui:44
+msgid "Privacy"
+msgstr "Mahremiyet"
+
+#: ui/preferences.ui:65
+msgid "Save Diary and Close When Idle"
+msgstr "Boşta Kalınca Günlüğü Kaydet ve Kapat"
+
+#: ui/preferences.ui:73
+msgid "Disabled"
+msgstr "Devre Dışı"
+
+#: ui/preferences.ui:74
+msgid "For 30 Seconds"
+msgstr "30 Saniye Sonra"
+
+#: ui/preferences.ui:75
+msgid "For 45 Seconds"
+msgstr "45 Saniye Sonra"
+
+#: ui/preferences.ui:76
+msgid "For 1 Minute"
+msgstr "1 Dakika Sonra"
+
+#: ui/preferences.ui:77
+msgid "For 1½ Minute"
+msgstr "1½ Dakika Sonra"
+
+#: ui/preferences.ui:78
+msgid "For 2 Minutes"
+msgstr "2 Dakika Sonra"
+
+#: ui/preferences.ui:79
+msgid "For 3 Minutes"
+msgstr "3 Dakika Sonra"
+
+#: ui/preferences.ui:80
+msgid "For 5 Minutes"
+msgstr "5 Dakika Sonra"
+
+#: ui/preferences.ui:81
+msgid "For 10 Minutes"
+msgstr "10 Dakika Sonra"
+
+#: ui/preferences.ui:82
+msgid "For 20 Minutes"
+msgstr "20 Dakika Sonra"
+
+#: ui/preferences.ui:83
+msgid "For 30 Minutes"
+msgstr "30 Dakika Sonra"
+
+#: ui/preferences.ui:101
+msgid "Auto Backups"
+msgstr "Otomatik Yedekleme"
+
+#: ui/preferences.ui:123
+msgid "Create Daily Backups on Save"
+msgstr "Kayıt Ederken Günlük Yedekler Oluştur"
+
+#: ui/preferences.ui:155
+msgid "Backup Folder"
+msgstr "Yedekleme Klasörü"
+
+#: ui/preferences.ui:160
+msgid "Select The Folder for Daily Backups"
+msgstr "Günlük Yedekleme Klasörünü Seç"
+
+#: ui/preferences.ui:179
+msgid "Locale"
+msgstr "Yerellik"
+
+#: ui/preferences.ui:200
+msgid "Date Order and Separator"
+msgstr "Tarih Sırası ve Ayırıcısı"
+
+#: ui/preferences.ui:211
+msgid "Year Month Day"
+msgstr "Yıl Ay Gün"
+
+#: ui/preferences.ui:212
+msgid "Day Month Year"
+msgstr "Gün Ay Yıl"
+
+#: ui/preferences.ui:213
+msgid "Month Day Year"
+msgstr "Ay Gün Yıl"
+
+#: ui/preferences.ui:220
+msgid ". (Dot)"
+msgstr ". (Nokta)"
+
+#: ui/preferences.ui:221
+msgid "/ (Slash)"
+msgstr "/ (Bölü)"
+
+#: ui/preferences.ui:222
+msgid "- (Dash)"
+msgstr "- (Tire)"
+
+#: ui/preferences.ui:242
+msgid "First Day of the Week"
+msgstr "Haftanın İlk Günü"
+
+#: ui/preferences.ui:283
+msgid "Preferred Units"
+msgstr "Tercih Edilen Birimler"
+
+#: ui/preferences.ui:294
+msgid "Metric"
+msgstr "Metrik"
+
+#: ui/preferences.ui:300
+msgid "Imperial"
+msgstr "Emperyal"
+
+#: ui/preferences.ui:320
+msgid "Appearance"
+msgstr "Görünüm"
+
+#: ui/preferences.ui:341
+msgid "Prefer Dark Gtk+ Theme"
+msgstr "Koyu Gtk+ Temasını Kullan"
+
+#: ui/print.ui:39
+msgid "What to Print?"
+msgstr "Ne Basılacak?"
+
+#: ui/print.ui:48
+msgid "Only Current Entry"
+msgstr "Sadece Görüntülenen Giriş"
+
+#: ui/print.ui:54
+msgid "All Filtered Entries"
+msgstr "Süzülen Girişler"
+
+#: ui/print.ui:60
+msgid "Entire Diary"
+msgstr "Bütün Günlük"
+
+#: ui/print.ui:66
+msgid "Every Entry Begins on a New Page"
+msgstr "Her Giriş Yeni Sayfada Başlasın"
+
+#: ui/print.ui:78
+msgid "Text Options"
+msgstr "Metin Tercihleri"
+
+#: ui/print.ui:87
+msgid "Use Theme Fonts in Entries"
+msgstr "Girişlerde Tema Yazı Tipini Kullan"
+
+#: ui/print.ui:101
+msgid "Use Custom Theme Colors"
+msgstr "Özel Tema Renklerini Kullan"
+
+#: ui/print.ui:107
+msgid "Page Margins"
+msgstr "Kenar Boşlukları"
+
+#: ui/print.ui:120
+msgid "Full"
+msgstr "Tam"
+
+#: ui/print.ui:126
+msgid "Half"
+msgstr "Yarım"
+
+#: ui/table.ui:7
+msgid "Show Order Column"
+msgstr "Sıralama Sütununu Göster"
+
+#: ui/table.ui:11
+msgid "Group Lines"
+msgstr "Satırları Grupla"
+
+#: ui/table.ui:28
+msgid "Copy as Tab Delimited Text"
+msgstr "Tab Sınırlı Metin Olarak Kopyala"
+
+#: ui/table.ui:53
+msgid "Basics"
+msgstr "Temel"
+
+#: ui/table.ui:62
+msgid "Date & Time"
+msgstr "Tarih & Zaman"
+
+#: ui/table.ui:64
+msgid "Size"
+msgstr "Büyüklük"
+
+#: ui/table.ui:65
+msgid "Number"
+msgstr "Numara"
+
+#: ui/table.ui:66
+msgid "True / False"
+msgstr "Doğru / Yanlış"
+
+#: ui/table.ui:67
+msgid "Tag Value"
+msgstr "Yafta Değeri"
+
+#: ui/table.ui:68
+msgid "Has Which Sub Tag"
+msgstr "Hangi Alt Yaftaya Sahip"
+
+#: ui/table.ui:69
+msgid "Completion"
+msgstr "Tamamlanma"
+
+#: ui/table.ui:70
+msgid "Todo Status"
+msgstr "Yapılacak İş Durumu"
+
+#: ui/table.ui:71
+msgid "Gantt Chart"
+msgstr "Gantt Grafiği"
+
+#: ui/table.ui:72
+msgid "Path Length in Map"
+msgstr "Güzergah Uzunluğu"
+
+#: ui/table.ui:74
+msgid "Arithmetic"
+msgstr "Aritmetik"
+
+#: ui/table.ui:87
+msgid "Sorting"
+msgstr "Sıralama"
+
+#: ui/table.ui:104
+msgid "Ascending"
+msgstr "Artan"
+
+#: ui/table.ui:111
+msgid "Descending"
+msgstr "Azalan"
+
+#: ui/table.ui:120
+msgid "Combine identical cells"
+msgstr "Aynı hücreleri birleştir"
+
+#: ui/table.ui:132
+msgid "Extras"
+msgstr "İlave"
+
+#: ui/table.ui:143
+msgid "Get Value From"
+msgstr "Değeri Şuradan Al"
+
+#: ui/table.ui:153 ui/table.ui:165
+msgid "First Parent Satisfying..."
+msgstr "Karşılayan İlk Ata..."
+
+#: ui/table.ui:154 ui/table.ui:166
+msgid "Grandparent"
+msgstr "Büyük Ata"
+
+#: ui/table.ui:155 ui/table.ui:167
+msgid "Parent Entry"
+msgstr "Ata Giriş"
+
+#: ui/table.ui:156 ui/table.ui:168
+msgid "Itself"
+msgstr "Kendisi"
+
+#: ui/table.ui:157
+msgid "First Paragraph Satisfying..."
+msgstr "Karşılayan İlk Paragraf..."
+
+#: ui/table.ui:158
+msgid "Last Paragraph Satisfying..."
+msgstr "Karşılayan Son Paragraf..."
+
+#: ui/table.ui:169
+msgid "Previous Paragraph Satisfying..."
+msgstr "Karşılayan Önceki İlk Paragraf..."
+
+#: ui/table.ui:170
+msgid "Next Paragraph Satisfying..."
+msgstr "Karşılayan Sonraki İlk Paragraf..."
+
+#: ui/table.ui:198
+msgid "Show as"
+msgstr "Şöyle Göster"
+
+#: ui/table.ui:215
+msgid "Satisfying"
+msgstr "Şunu Karşılayan"
+
+#: ui/table.ui:232
+msgid "Summary Function"
+msgstr "Hulasa Fonksiyonu"
+
+#: ui/table.ui:250
+msgid "Coloring"
+msgstr "Renklendirme"
+
+#: ui/table.ui:267
+msgid "Negative values are RED"
+msgstr "Negatif değerler KIRMIZI"
+
+#: ui/table.ui:274
+msgid "From small to big, from RED to GREEN"
+msgstr "Küçükten büyüğe, KIRMIZIdan YEŞİLe"
+
+#: ui/table.ui:281
+msgid "From small to big, from GREEN to RED"
+msgstr "Küçükten büyüğe, YEŞİLden KIRMIZIya"
+
+#: ui/table.ui:310
+msgid "Move column to left"
+msgstr "Sütunu sola taşı"
+
+#: ui/table.ui:320
+msgid "Add a column to left"
+msgstr "Sola sütun ekle"
+
+#: ui/table.ui:326
+msgid "Remove column"
+msgstr "Sütunu sil"
+
+#: ui/table.ui:332
+msgid "Add a column to right"
+msgstr "Sağa sütun ekle"
+
+#: ui/table.ui:340
+msgid "Move column to right"
+msgstr "Sütunu sağa taşı"
+
+#: ui/table.ui:380
+msgid "Entry Filter"
+msgstr "Giriş Süzgeci"
+
+#: ui/table.ui:400
+msgid "Paragraph Filter"
+msgstr "Paragraf Süzgeci"
+
+#: ui/tv_diary.ui:34
+msgid "Expand selection"
+msgstr "Seçimi genişlet"
+
+#: ui/tv_diary.ui:58
+msgid "Cut"
+msgstr "Kes"
+
+#: ui/tv_diary.ui:65
+msgid "Copy"
+msgstr "Kopyala"
+
+#: ui/tv_diary.ui:72
+msgid "Paste"
+msgstr "Yapıştır"
+
+#: ui/tv_diary.ui:83
+msgid "Show more"
+msgstr "Fazlasını göster"
+
+#: ui/tv_diary.ui:106
+msgid "Bold"
+msgstr "Kalın"
+
+#: ui/tv_diary.ui:120
+msgid "Italic"
+msgstr "Yatık"
+
+#: ui/tv_diary.ui:132
+msgid "Underlined"
+msgstr "Altı çizili"
+
+#: ui/tv_diary.ui:144
+msgid "Strikethrough"
+msgstr "Üstü çizili"
+
+#: ui/tv_diary.ui:174
+msgid "Insert link"
+msgstr "Bağlantı ekle"
+
+#: ui/tv_diary.ui:181
+msgid "Insert smiley"
+msgstr "Gülücük ekle"
+
+#: ui/tv_diary.ui:188
+msgid "Insert image"
+msgstr "Resim ekle"
+
+#: ui/tv_diary.ui:195 ui/tv_diary.ui:202
+msgid "Insert chart"
+msgstr "Grafik ekle"
+
+#: ui/tv_diary.ui:225
+msgid "Sentence case"
+msgstr "Cümle tarzı"
+
+#: ui/tv_diary.ui:236
+msgid "Title Case"
+msgstr "Başlık Tarzı"
+
+#: ui/tv_diary.ui:247
+msgid "lower case"
+msgstr "küçük haarf"
+
+#: ui/tv_diary.ui:258
+msgid "UPPER CASE"
+msgstr "BÜYÜK HARF"
+
+#: ui/tv_diary.ui:274
+msgid "Comment"
+msgstr "Yorum"
+
+#: ui/tv_diary.ui:284
+msgid "Subscript"
+msgstr "Altmetin"
+
+#: ui/tv_diary.ui:296
+msgid "Superscript"
+msgstr "Üstmetin"
+
+#: ui/tv_diary.ui:324
+msgid "Spelling"
+msgstr "Yazım denetimi"
+
+#: ui/tv_diary.ui:373
+msgid "Decrease indent"
+msgstr "Girintiyi azalt"
+
+#: ui/tv_diary.ui:404
+msgid "Increase indent"
+msgstr "Girintiyi artır"
+
+#: ui/tv_diary.ui:422
+msgid "H0"
+msgstr ""
+
+#: ui/tv_diary.ui:423
+msgid "Normal text"
+msgstr "Normal metin"
+
+#: ui/tv_diary.ui:430
+msgid "Subsubheading"
+msgstr "Altaltbaşlık"
+
+#: ui/tv_diary.ui:446
+msgid "Subheading"
+msgstr "Altbaşlık"
+
+#: ui/tv_diary.ui:465
+msgid "Plain"
+msgstr "Sade"
+
+#: ui/tv_diary.ui:476
+msgid "To do"
+msgstr "Yapılacak"
+
+#: ui/tv_diary.ui:488
+msgid "In progress"
+msgstr "Yapılmakta"
+
+#: ui/tv_diary.ui:531
+msgid "Bullet list"
+msgstr "Koyu nokta listesi"
+
+#: ui/tv_diary.ui:543
+msgid "Numbered list"
+msgstr "Numaralı liste"
+
+#: ui/tv_diary.ui:555
+msgid "Letter list"
+msgstr "Harfli liste"
+
+#: ui/tv_diary.ui:567
+msgid "Roman number list"
+msgstr "Roma rakamlı liste"
+
+#: ui/tv_diary.ui:584
+msgid "Use Small Letters"
+msgstr "Küçük Harf Kullan"
+
+#: ui/tv_diary.ui:604
+msgid "Horizontal Rule"
+msgstr "Yatay Çizgi"
+
+#: ui/tv_diary.ui:621
+msgid "Code"
+msgstr "Kod"
+
+#: ui/tv_diary.ui:638
+msgid "Quotation"
+msgstr "İktibas"
+
+#: ui/tv_diary_edit_chart.ui:25
+msgid "Edit Chart"
+msgstr "Grafiği Düzenle"
+
+#: ui/tv_diary_edit_chart.ui:36 ui/tv_diary_edit_image.ui:39
+#: ui/tv_diary_edit_table.ui:36
+msgid "Remove image"
+msgstr "Resmi kaldır"
+
+#: ui/tv_diary_edit_chart.ui:54 ui/tv_diary_edit_table.ui:55
+msgid "Open chart"
+msgstr "Grafiği aç"
+
+#: ui/tv_diary_edit_chart.ui:71 ui/tv_diary_edit_image.ui:77
+msgid "Smallest"
+msgstr "En küçük"
+
+#: ui/tv_diary_edit_chart.ui:83 ui/tv_diary_edit_image.ui:89
+msgid "Biggest"
+msgstr "En büyük"
+
+#: ui/tv_diary_edit_image.ui:28
+msgid "Edit Image"
+msgstr "Resmi Düzenle"
+
+#: ui/tv_diary_edit_image.ui:64
+msgid "Open image"
+msgstr "Resmi aç"
+
+#: ui/tv_diary_edit_image.ui:96
+msgid "Copy Image File to rel:/"
+msgstr "Resim Dosyasını rel:/'e Kopyala"
+
+#: ui/tv_diary_edit_link.ui:19
+msgid "Edit Link"
+msgstr "Bağlantıyı Düzenle"
+
+#: ui/tv_diary_edit_link.ui:30
+msgid "Remove link"
+msgstr "Bağlantıyı kaldır"
+
+#: ui/tv_diary_edit_link.ui:63
+msgid "Evaluated"
+msgstr "Çıkarsanmış"
+
+#: ui/tv_diary_edit_link.ui:88
+msgid "Go to link"
+msgstr "Bağlatıya git"
+
+#: ui/tv_diary_edit_table.ui:25
+msgid "Edit Table"
+msgstr "Tabloyu Düzenle"
+
+#: ui/tv_diary_edit_table.ui:63
+msgid "Expand All"
+msgstr "Hepsini Genişlet"
+
+#: ui/tv_diary_edit_tag.ui:20
+msgid "Edit Tag"
+msgstr "Yaftayı Düzenle"
+
+#: ui/tv_diary_edit_tag.ui:31
+msgid "Remove tag"
+msgstr "Yaftayı kaldır"
+
+#: ui/tv_diary_edit_tag.ui:49
+msgid "Go to tag"
+msgstr "Yaftaya git"
+
+#: ui/widget_entry_picker.ui:32
+msgid "Under"
+msgstr "Şunun Altında"
+
+#: ui/widget_entry_picker.ui:45
+msgid "Create a new entry (Ctrl + Enter)"
+msgstr "Yeni bir giriş oluştur (Ctrl + Enter)"
+
+#: ui/widget_filter_picker.ui:15
+msgid "label"
+msgstr "yafta"
+
+#: ui/widget_picker.ui:31
+msgid "Add New"
+msgstr "Yeni Ekle"
+
+#: ui/widget_picker.ui:39
+msgid "Search in the list"
+msgstr "Listede ara"
+
+#~ msgid "Chapter"
+#~ msgstr "Fasıl"
+
+#~ msgid "Digital diary and note taking"
+#~ msgstr "Dijital günlük ve not defteri"
+
+#~ msgid "Automatically formats entry titles and subheadings"
+#~ msgstr "Giriş başlık ve altbaşlıklarını otomatik biçimlendirme"
+
+#~ msgid "Wiki-like rich text formatting (*bold*, _italic_, =strikeout=, etc…)"
+#~ msgstr ""
+#~ "Wiki tarzı zengin metin biçimlendirme (*kalın*, _yatık_, =üstü-çizili=, "
+#~ "vs…)"
+
+#~ msgid "Tag charts"
+#~ msgstr "Grafikler"
+
+#~ msgid "Chapter Category"
+#~ msgstr "Fasıl Kategorisi"
+
+#~ msgid "_DISMISS!"
+#~ msgstr "_SİL!"
+
+#~ msgid "Only Filtered Entries"
+#~ msgstr "Sadece Süzülen Girişler"
+
+#~ msgid "Select Image File"
+#~ msgstr "Bir Resim Dosyası seçin"
+
+#~ msgid "About Lifeograph"
+#~ msgstr "Lifeograph Hakkında"
+
+#~ msgid "Favored"
+#~ msgstr "Sevilen"
+
+#~ msgid "Chapter with %1 words spanning %2 days in %3"
+#~ msgstr "%3 günlüğündeki %2 güne yayılan %1 kelimelik fasıl"
+
+#~ msgid "Entry with %1 word(s) in %2"
+#~ msgstr "%2 günlüğündeki %1 kelimelik giriş"
+
+#~ msgid "Completed"
+#~ msgstr "Tamamlanma"
+
+#~ msgid "Apply"
+#~ msgstr "Uygula"
+
+#~ msgid "Is NOT"
+#~ msgstr "Şu olMAyan"
+
+#~ msgid "Is"
+#~ msgstr "Şu olan"
+
+#~ msgid "Has NOT the tag"
+#~ msgstr "Şu yaftaya sahip DEĞİL"
+
+#~ msgid "Has NOT the theme"
+#~ msgstr "Şu temaya sahip DEĞİL"
+
+#~ msgid "Is/Not"
+#~ msgstr "Olan/olmayan"
+
+#~ msgid "Between Dates"
+#~ msgstr "Tarihler Arasında"
+
+#~ msgid "Between Entries"
+#~ msgstr "Girişler Arasında"
+
+#~ msgid "Has Tag"
+#~ msgstr "Yafta kullanma"
+
+#~ msgid "Has Theme"
+#~ msgstr "Tema kullanma"
+
+#~ msgid "Subgroup"
+#~ msgstr "Alt-grup"
+
+#~ msgid "Start"
+#~ msgstr "Başlangıç"
+
+#~ msgid "Entries × Days"
+#~ msgstr "Giriş × Gün"
+
+#~ msgid "Chapters"
+#~ msgstr "Fasıllar"
+
+#~ msgid "Chapters / Chapter Groups"
+#~ msgstr "Fasıllar / Fasıl Grupları"
+
+#~ msgid "File"
+#~ msgstr "Dosya"
+
+#~ msgid "Background color for this chapter's region in the graphs"
+#~ msgstr "Bu faslın"
+
+#~ msgid "Recycling"
+#~ msgstr "Geri Dönüşüm"
+
+#~ msgid "Add Entry"
+#~ msgstr "Giriş Ekle"
+
+#~ msgid "Free"
+#~ msgstr "Numarasız"
+
+#~ msgid "Hide Entries"
+#~ msgstr "Girişleri Gizle"
+
+#~ msgid "Not Referencing This"
+#~ msgstr "Buna Atıfta Bulunmayanları"
+
+#~ msgid "Create a New Diary..."
+#~ msgstr "Yeni bir Günlük Oluştur..."
+
+#~ msgid "Add an Existing Diary..."
+#~ msgstr "Mevcut Bir Günlük Ekle..."
+
+#~ msgid "Change"
+#~ msgstr "Değiştir"
+
+#~ msgid "Current chapter group"
+#~ msgstr "Kullanımdaki fasıl grubu"
+
+#~ msgid "Only search filtered entries"
+#~ msgstr "Sadece süzülen girişlerde ara"
+
+#~ msgid "Revert filter to the definition"
+#~ msgstr "Süzgeci kayıtlı tarifine döndür"
+
+#~ msgid "Apply changes to the filter definition to be stored in the diary"
+#~ msgstr "Süzgeç tarifindeki değişiklikleri günlüğe kaydet"
+
+#~ msgid "Today"
+#~ msgstr "Bugün"
+
+#~ msgid ""
+#~ "Go to today (creates a new entry if there isn't any or when already at "
+#~ "today)"
+#~ msgstr ""
+#~ "Bugüne git (eğer bir giriş yoksa veya bulunulan giriş bugündeyse yeni "
+#~ "oluşturur)"
+
+#~ msgid "Log out"
+#~ msgstr "Çıkış"
+
+#~ msgid "Save diary and logout"
+#~ msgstr "Günlüğü kaydet ve çık"
+
+#~ msgid "Set the active tab in the bottom panel"
+#~ msgstr "Alt panelde gösterilecek sekmeyi seçin"
+
+#~ msgid ""
+#~ "Knowing others is intelligence;\n"
+#~ "knowing yourself is true wisdom.\n"
+#~ "Mastering others is strength;\n"
+#~ "mastering yourself is true power.\n"
+#~ "\n"
+#~ "<i>Lao Tzu</i>"
+#~ msgstr ""
+#~ "Başkalarını tanımak bilgidir;\n"
+#~ "kendini tanımak gerçek arifliktir.\n"
+#~ "Başkalarını idare etmek güçtür;\n"
+#~ "kendini idare etmek gerçek kudrettir.\n"
+#~ "\n"
+#~ "<i>Lao Tzu</i>"
+
+#~ msgid "Make Default"
+#~ msgstr "Öntanımlı Olarak Tayin Et"
+
+#~ msgid "y Axis"
+#~ msgstr "y Aksı"
+
+#~ msgid "Text Length"
+#~ msgstr "Metin Uzunluğu"
+
+#~ msgid "Entry Value for Tag"
+#~ msgstr "Girişin Yafta için Değeri"
+
+#~ msgid "Paragraph Value for Tag"
+#~ msgstr "Paragrafın Yafta için Değeri"
+
+#~ msgid "Tagged with"
+#~ msgstr "Şununla yaftalı"
+
+#~ msgid "Limit to entries passing this filter"
+#~ msgstr "Bu süzgeçtn geçen girişlerle sınırla"
+
+#~ msgid "Limit to Entries That Have The Tag"
+#~ msgstr "Yaftaya Sahip Girişlerle Sınırla"
+
+#~ msgid "Period"
+#~ msgstr "Aralık"
+
+#~ msgid "Assign to Entry"
+#~ msgstr "Girişe Ata"
+
+#~ msgid ""
+#~ "Lifeograph is a diary program to take personal notes on life. It has all "
+#~ "essential functionality expected in a diary program and strives to have a "
+#~ "clean and streamlined user interface."
+#~ msgstr ""
+#~ "Lifeograph hayata dair notlar almak için hazırlanmış bir günlük "
+#~ "programıdır.Bir günlük programından beklenecek temel işlevleri sağlamanın "
+#~ "yanısıra sade ve ince düşünülmüşbir kullanıcı arayüzü sunmayı hedefler."
+
+#~ msgid "Automatic backups"
+#~ msgstr "Otomatik yedekler"
+
+#~ msgid "Editing screen (dark)"
+#~ msgstr "Düzenleme ekranı (koyu)"
+
+#~ msgid "Tag view"
+#~ msgstr "Yafta görünümü"
+
+#~ msgid "Edit active filter i.e. which entries are shown in the list"
+#~ msgstr "Listede hangi girişlerin görüneceğini belirleyen süzgeci düzenle"

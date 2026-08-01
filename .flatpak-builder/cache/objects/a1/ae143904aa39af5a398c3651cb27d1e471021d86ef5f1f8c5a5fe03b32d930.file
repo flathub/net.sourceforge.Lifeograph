@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <menu id="menu_entry">
+    <section>
+      <submenu>
+        <attribute name="label" translatable="yes">Add</attribute>
+        <attribute name="hidden-when">action-disabled</attribute>
+        <attribute name="action">entry.add</attribute>
+        <section>
+          <item>
+            <attribute name="label" translatable="yes">Parent</attribute>
+            <attribute name="action">entry.add_parent</attribute>
+          </item>
+          <item>
+            <attribute name="label" translatable="yes">Sibling</attribute>
+            <attribute name="action">app.entry_add_sibling</attribute>
+            <!-- <attribute name="target">MENU</attribute> -->
+          </item>
+          <item>
+            <attribute name="label" translatable="yes">Child</attribute>
+            <attribute name="action">app.entry_add_child</attribute>
+            <!-- <attribute name="target">MENU</attribute> -->
+          </item>
+          <item>
+            <attribute name="label" translatable="yes">Duplicate</attribute>
+            <attribute name="action">app.entry_duplicate</attribute>
+            <!-- <attribute name="target">MENU</attribute> -->
+          </item>
+        </section>
+      </submenu>
+      <item>
+        <attribute name="label" translatable="yes">Merge Selected</attribute>
+        <attribute name="hidden-when">action-disabled</attribute>
+        <attribute name="action">entry.merge</attribute>
+      </item>
+      <submenu>
+        <attribute name="label" translatable="yes">Sort Siblings</attribute>
+        <attribute name="hidden-when">action-disabled</attribute>
+        <attribute name="action">entry.sort_siblings</attribute>
+        <section>
+          <item>
+            <attribute name="label" translatable="yes">A-Z</attribute>
+            <attribute name="action">entry.sort_sibl_az</attribute>
+          </item>
+          <item>
+            <attribute name="label" translatable="yes">Z-A</attribute>
+            <attribute name="action">entry.sort_sibl_za</attribute>
+          </item>
+          <item>
+            <attribute name="label" translatable="yes">Earliest First</attribute>
+            <attribute name="action">entry.sort_sibl_earliest</attribute>
+          </item>
+          <item>
+            <attribute name="label" translatable="yes">Latest First</attribute>
+            <attribute name="action">entry.sort_sibl_latest</attribute>
+          </item>
+          <item>
+            <attribute name="label" translatable="yes">Shortest First</attribute>
+            <attribute name="action">entry.sort_sibl_shortest</attribute>
+          </item>
+          <item>
+            <attribute name="label" translatable="yes">Longest First</attribute>
+            <attribute name="action">entry.sort_sibl_longest</attribute>
+          </item>
+        </section>
+      </submenu>
+      <!--item>
+        <attribute name="label" translatable="yes">Hide Selected</attribute>
+        <attribute name="action">entry.hide_selected_entries</attribute>
+      </item-->
+    </section>
+    <section>
+      <item>
+        <attribute name="custom">entry_properties</attribute>
+      </item>
+    </section>
+    <section>
+        <attribute name="action">entry.section_trash</attribute>
+        <attribute name="hidden-when">action-disabled</attribute>
+      <item>
+        <attribute name="label" translatable="yes">Move to Trash</attribute>
+        <attribute name="action">entry.trash</attribute>
+        <attribute name="hidden-when">action-disabled</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Restore</attribute>
+        <attribute name="action">entry.restore</attribute>
+        <attribute name="hidden-when">action-disabled</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Dismiss...</attribute>
+        <attribute name="action">entry.dismiss</attribute>
+        <attribute name="hidden-when">action-disabled</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name="custom">entry_comment_style</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Print...</attribute>
+        <attribute name="action">app.print</attribute>
+      </item>
+    </section>
+  </menu>
+
+  <object class="GtkPopoverMenu" id="Po_entry">
+    <property name="cascade-popdown">False</property>
+    <property name="menu-model">menu_entry</property>
+
+    <child type="entry_properties">
+      <object class="GtkBox" id="Bx_properties">
+        <property name="visible">0</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">5</property>
+        <child>
+          <object class="GtkBox">
+            <property name="spacing">5</property>
+            <child>
+              <object class="GtkBox">
+                <property name="hexpand">1</property>
+                <property name="css-classes">linked</property>
+                <child>
+                  <object class="GtkToggleButton" id="RB_entry_not_todo">
+                    <property name="hexpand">1</property>
+                    <property name="tooltip-text" translatable="yes">Auto</property>
+                    <property name="group">RB_entry_todo</property>
+                    <property name="icon-name">todo_auto-16</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkToggleButton" id="RB_entry_todo">
+                    <property name="hexpand">1</property>
+                    <property name="tooltip-text" translatable="yes">To Do</property>
+                    <property name="active">1</property>
+                    <property name="icon-name">todo_open-16</property>
+                    <!-- <style> -->
+                    <!--   <class name="button"/> -->
+                    <!-- </style> -->
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkToggleButton" id="RB_entry_progressed">
+                    <property name="hexpand">1</property>
+                    <property name="tooltip-text" translatable="yes">In Progress</property>
+                    <property name="group">RB_entry_todo</property>
+                    <property name="icon-name">todo_progressed-16</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkToggleButton" id="RB_entry_done">
+                    <property name="hexpand">1</property>
+                    <property name="tooltip-text" translatable="yes">Done</property>
+                    <property name="group">RB_entry_todo</property>
+                    <property name="icon-name">todo_done-16</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkToggleButton" id="RB_entry_canceled">
+                    <property name="hexpand">1</property>
+                    <property name="tooltip-text" translatable="yes">Canceled</property>
+                    <property name="group">RB_entry_todo</property>
+                    <property name="icon-name">todo_canceled-16</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="TB_entry_favorite">
+                <property name="tooltip-text" translatable="yes">Favorite</property>
+                <property name="icon-name">favorite-16</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="spacing">15</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="sensitive">0</property>
+                <property name="label" translatable="yes">Type</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkDropDown" id="DD_title_style">
+                <property name="halign">end</property>
+                <property name="hexpand">1</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <child>
+              <object class="GtkLabel">
+                <property name="sensitive">0</property>
+                <property name="label" translatable="yes">Color</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkColorButton" id="ClB_entry_color">
+                <property name="tooltip-text" translatable="yes">Color as a tag and calendar or chart background</property>
+                <property name="halign">end</property>
+                <property name="hexpand">1</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox" id="Bx_entry_unit">
+            <property name="spacing">15</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="sensitive">0</property>
+                <property name="label" translatable="yes">Unit</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkComboBoxText" id="CB_tag_unit">
+                <property name="has-entry">1</property>
+                <property name="halign">end</property>
+                <property name="hexpand">1</property>
+                <items>
+                  <item>km</item>
+                  <item>mi</item>
+                  <item>kg</item>
+                  <item>lb</item>
+                  <item>oz</item>
+                  <item>L</item>
+                  <item>°C</item>
+                  <item>°F</item>
+                  <item>m²</item>
+                  <item>sq ft</item>
+                </items>
+                <property name="child">
+                  <object class="GtkEntry" id="E_tag_unit">
+                    <property name="visible">0</property>
+                    <property name="width-chars">8</property>
+                    <property name="placeholder-text" translatable="yes">Unitless</property>
+                  </object>
+                </property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="spacing">15</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="sensitive">0</property>
+                <property name="label" translatable="yes">Spellchecking</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkComboBoxText" id="CB_entry_spellchecking">
+                <property name="halign">end</property>
+                <property name="hexpand">1</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child type="entry_comment_style">
+      <object class="GtkBox" id="Bx_comment_style">
+        <property name="spacing">15</property>
+        <property name="margin-bottom">5</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="sensitive">0</property>
+            <property name="label" translatable="yes">Comment Style</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkComboBoxText" id="CB_comment_style">
+            <property name="halign">end</property>
+            <property name="hexpand">1</property>
+            <items>
+              <item translatable="yes">Hidden</item>
+              <item translatable="yes">Normal</item>
+              <item translatable="yes">Highlighted</item>
+            </items>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

@@ -1,0 +1,296 @@
+/* ANSI-C code produced by gperf version 3.3 */
+/* Command-line: gperf --readonly-tables --includes --struct-type --omit-struct-type --lookup-function-name=shumate_vector_expression_type_lookup --hash-function-name=shumate_vector_expression_type_hash --output-file=shumate/vector/shumate-vector-expression-gperf.c ../shumate/vector/shumate-vector-expression-type.gperf  */
+/* Computed positions: -k'1-2,$' */
+
+#if !((' ' == 32) && ('!' == 33) && ('"' == 34) && ('#' == 35) \
+      && ('%' == 37) && ('&' == 38) && ('\'' == 39) && ('(' == 40) \
+      && (')' == 41) && ('*' == 42) && ('+' == 43) && (',' == 44) \
+      && ('-' == 45) && ('.' == 46) && ('/' == 47) && ('0' == 48) \
+      && ('1' == 49) && ('2' == 50) && ('3' == 51) && ('4' == 52) \
+      && ('5' == 53) && ('6' == 54) && ('7' == 55) && ('8' == 56) \
+      && ('9' == 57) && (':' == 58) && (';' == 59) && ('<' == 60) \
+      && ('=' == 61) && ('>' == 62) && ('?' == 63) && ('A' == 65) \
+      && ('B' == 66) && ('C' == 67) && ('D' == 68) && ('E' == 69) \
+      && ('F' == 70) && ('G' == 71) && ('H' == 72) && ('I' == 73) \
+      && ('J' == 74) && ('K' == 75) && ('L' == 76) && ('M' == 77) \
+      && ('N' == 78) && ('O' == 79) && ('P' == 80) && ('Q' == 81) \
+      && ('R' == 82) && ('S' == 83) && ('T' == 84) && ('U' == 85) \
+      && ('V' == 86) && ('W' == 87) && ('X' == 88) && ('Y' == 89) \
+      && ('Z' == 90) && ('[' == 91) && ('\\' == 92) && (']' == 93) \
+      && ('^' == 94) && ('_' == 95) && ('a' == 97) && ('b' == 98) \
+      && ('c' == 99) && ('d' == 100) && ('e' == 101) && ('f' == 102) \
+      && ('g' == 103) && ('h' == 104) && ('i' == 105) && ('j' == 106) \
+      && ('k' == 107) && ('l' == 108) && ('m' == 109) && ('n' == 110) \
+      && ('o' == 111) && ('p' == 112) && ('q' == 113) && ('r' == 114) \
+      && ('s' == 115) && ('t' == 116) && ('u' == 117) && ('v' == 118) \
+      && ('w' == 119) && ('x' == 120) && ('y' == 121) && ('z' == 122) \
+      && ('{' == 123) && ('|' == 124) && ('}' == 125) && ('~' == 126))
+/* The character set is not based on ISO-646.  */
+#error "gperf generated tables don't work with this execution character set. Please report a bug to <bug-gperf@gnu.org>."
+#endif
+
+#line 1 "../shumate/vector/shumate-vector-expression-type.gperf"
+
+#include "vector/shumate-vector-expression-type-private.h"
+#define EXACT(c) .expect_exprs = c, .expect_exprs_set = 1
+#define GE(c) .expect_ge_exprs = c, .expect_ge_exprs_set = 1
+#define LE(c) .expect_le_exprs = c, .expect_le_exprs_set = 1
+#include <string.h>
+
+#define TOTAL_KEYWORDS 67
+#define MIN_WORD_LENGTH 1
+#define MAX_WORD_LENGTH 15
+#define MIN_HASH_VALUE 1
+#define MAX_HASH_VALUE 131
+/* maximum key range = 131, duplicates = 0 */
+
+#ifdef __GNUC__
+__inline
+#else
+#ifdef __cplusplus
+inline
+#endif
+#endif
+static unsigned int
+shumate_vector_expression_type_hash (register const char *str, register size_t len)
+{
+  static const unsigned char asso_values[] =
+    {
+      132, 132, 132, 132, 132, 132, 132, 132, 132, 132,
+      132, 132, 132, 132, 132, 132, 132, 132, 132, 132,
+      132, 132, 132, 132, 132, 132, 132, 132, 132, 132,
+      132, 132, 132,   5, 132, 132, 132,  65, 132, 132,
+      132, 132,  60,  55, 132,  50, 132,  45,   5, 132,
+       75, 132, 132, 132, 132, 132, 132, 132, 132, 132,
+       35,  15,  30, 132, 132, 132, 132, 132, 132, 132,
+      132, 132, 132, 132, 132, 132, 132, 132, 132, 132,
+      132, 132, 132, 132, 132, 132, 132, 132, 132, 132,
+      132, 132, 132, 132,  40, 132, 132,   0,  75,  10,
+       15,   0,  30,  65,  35,  25, 132, 132,   5,  45,
+        0,   5,  25,   5,  30,  20,   0,   0,  60, 132,
+       40,  15,   0, 132, 132, 132, 132, 132, 132, 132,
+      132, 132, 132, 132, 132, 132, 132, 132, 132, 132,
+      132, 132, 132, 132, 132, 132, 132, 132, 132, 132,
+      132, 132, 132, 132, 132, 132, 132, 132, 132, 132,
+      132, 132, 132, 132, 132, 132, 132, 132, 132, 132,
+      132, 132, 132, 132, 132, 132, 132, 132, 132, 132,
+      132, 132, 132, 132, 132, 132, 132, 132, 132, 132,
+      132, 132, 132, 132, 132, 132, 132, 132, 132, 132,
+      132, 132, 132, 132, 132, 132, 132, 132, 132, 132,
+      132, 132, 132, 132, 132, 132, 132, 132, 132, 132,
+      132, 132, 132, 132, 132, 132, 132, 132, 132, 132,
+      132, 132, 132, 132, 132, 132, 132, 132, 132, 132,
+      132, 132, 132, 132, 132, 132, 132, 132, 132, 132,
+      132, 132, 132, 132, 132, 132
+    };
+  register unsigned int hval = len;
+
+  switch (hval)
+    {
+      default:
+        hval += asso_values[(unsigned char)str[1]];
+#if (defined __cplusplus && (__cplusplus >= 201703L || (__cplusplus >= 201103L && defined __clang__ && __clang_major__ + (__clang_minor__ >= 9) > 3))) || (defined __STDC_VERSION__ && __STDC_VERSION__ >= 202000L && ((defined __GNUC__ && __GNUC__ >= 10) || (defined __clang__ && __clang_major__ >= 9)))
+      [[fallthrough]];
+#elif (defined __GNUC__ && __GNUC__ >= 7) || (defined __clang__ && __clang_major__ >= 10)
+      __attribute__ ((__fallthrough__));
+#endif
+      /*FALLTHROUGH*/
+      case 1:
+        hval += asso_values[(unsigned char)str[0]];
+        break;
+    }
+  return hval + asso_values[(unsigned char)str[len - 1]];
+}
+
+const struct _ExprInfo *
+shumate_vector_expression_type_lookup (register const char *str, register size_t len)
+{
+#if (defined __GNUC__ && __GNUC__ + (__GNUC_MINOR__ >= 6) > 4) || (defined __clang__ && __clang_major__ >= 3)
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wmissing-field-initializers"
+#endif
+  static const struct _ExprInfo wordlist[] =
+    {
+      {""},
+#line 78 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"e", EXPR_E, EXACT(0)},
+#line 36 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"at", EXPR_AT, EXACT(2)},
+#line 90 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"tan", EXPR_TAN, EXACT(1)},
+#line 75 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"atan", EXPR_ATAN, EXACT(1)},
+      {""}, {""},
+#line 80 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"ln", EXPR_LN, EXACT(1)},
+#line 60 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"let", EXPR_LET},
+#line 54 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"none", EXPR_NONE},
+      {""},
+#line 45 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"!", EXPR_NOT, EXACT(1)},
+      {""},
+#line 52 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"all", EXPR_ALL},
+#line 55 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"case", EXPR_CASE},
+#line 29 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"to-boolean", EXPR_TO_BOOLEAN, EXACT(1)},
+      {""}, {""},
+#line 53 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"any", EXPR_ANY},
+#line 76 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"ceil", EXPR_CEIL, EXACT(1)},
+#line 82 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"log10", EXPR_LOG10, EXACT(1)},
+#line 62 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"concat", EXPR_CONCAT},
+      {""},
+#line 56 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"coalesce", EXPR_COALESCE},
+#line 74 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"asin", EXPR_ASIN, EXACT(1)},
+      {""}, {""},
+#line 40 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"in", EXPR_IN, GE(1), .lookup_first_arg = TRUE},
+#line 63 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"downcase", EXPR_DOWNCASE, EXACT(1)},
+#line 89 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"sqrt", EXPR_SQRT, EXACT(1)},
+#line 44 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"slice", EXPR_SLICE, GE(2), LE(3)},
+#line 65 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"upcase", EXPR_UPCASE, EXACT(1)},
+      {""},
+#line 41 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"!in", EXPR_NOT_IN, GE(1), .lookup_first_arg = TRUE},
+#line 73 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"acos", EXPR_ACOS, EXACT(1)},
+      {""},
+#line 58 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"interpolate", EXPR_INTERPOLATE},
+#line 46 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"!=", EXPR_NE, GE(2), LE(3), .lookup_first_arg = TRUE},
+#line 77 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"cos", EXPR_COS, EXACT(1)},
+      {""}, {""},
+#line 26 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"format", EXPR_FORMAT},
+#line 28 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"literal", EXPR_TYPE_LITERAL, EXACT(1)},
+#line 30 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"to-color", EXPR_TO_COLOR, GE(1)},
+#line 31 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"to-number", EXPR_TO_NUMBER, GE(1)},
+#line 64 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"resolved-locale", EXPR_RESOLVED_LOCALE},
+#line 43 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"length", EXPR_LENGTH, EXACT(1)},
+#line 49 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"==", EXPR_EQ, GE(2), LE(3), .lookup_first_arg = TRUE},
+#line 88 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"sin", EXPR_SIN, EXACT(1)},
+#line 59 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"step", EXPR_STEP},
+      {""},
+#line 33 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"typeof", EXPR_TYPEOF, EXACT(1)},
+      {""},
+#line 25 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"collator", EXPR_COLLATOR},
+#line 91 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"zoom", EXPR_ZOOM},
+#line 87 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"round", EXPR_ROUND, EXACT(1)},
+      {""},
+#line 35 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"id", EXPR_ID, EXACT(0)},
+#line 38 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"has", EXPR_HAS, EXACT(1)},
+      {""}, {""},
+#line 50 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {">", EXPR_GT, GE(2), LE(3), .lookup_first_arg = TRUE},
+#line 51 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {">=", EXPR_GE, GE(2), LE(3), .lookup_first_arg = TRUE},
+#line 42 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"index-of", EXPR_INDEX_OF, GE(2), LE(3)},
+#line 39 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"!has", EXPR_NOT_HAS, EXACT(1)},
+      {""}, {""},
+#line 48 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"<=", EXPR_LE, GE(2), LE(3), .lookup_first_arg = TRUE},
+#line 37 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"get", EXPR_GET, EXACT(1)},
+      {""},
+#line 79 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"floor", EXPR_FLOOR, EXACT(1)},
+#line 47 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"<", EXPR_LT, GE(2), LE(3), .lookup_first_arg = TRUE},
+      {""},
+#line 85 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"min", EXPR_MIN, GE(1)},
+      {""},
+#line 27 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"image", EXPR_IMAGE, EXACT(1)},
+      {""},
+#line 86 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"pi", EXPR_PI, EXACT(0)},
+#line 34 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"geometry-type", EXPR_GEOMETRY_TYPE, EXACT(0)},
+#line 32 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"to-string", EXPR_TO_STRING, EXACT(1)},
+      {""},
+#line 70 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"^", EXPR_POW, EXACT(2)},
+      {""},
+#line 81 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"ln2", EXPR_LN2, EXACT(0)},
+      {""},
+#line 57 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"match", EXPR_MATCH, GE(2)},
+      {""}, {""},
+#line 84 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"max", EXPR_MAX, GE(1)},
+#line 83 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"log2", EXPR_LOG2, EXACT(1)},
+      {""},
+#line 68 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"/", EXPR_DIV, EXACT(2)},
+      {""},
+#line 61 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"var", EXPR_VAR},
+      {""}, {""}, {""}, {""},
+#line 72 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"abs", EXPR_ABS, EXACT(1)},
+      {""}, {""},
+#line 66 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"-", EXPR_SUB, GE(1), LE(2)},
+      {""}, {""}, {""}, {""}, {""}, {""}, {""}, {""}, {""},
+#line 71 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"+", EXPR_ADD, GE(1)},
+      {""}, {""}, {""}, {""}, {""}, {""}, {""}, {""}, {""},
+#line 67 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"*", EXPR_MUL, GE(1)},
+      {""}, {""}, {""}, {""}, {""}, {""}, {""}, {""}, {""},
+#line 69 "../shumate/vector/shumate-vector-expression-type.gperf"
+      {"%", EXPR_REM, EXACT(2)}
+    };
+#if (defined __GNUC__ && __GNUC__ + (__GNUC_MINOR__ >= 6) > 4) || (defined __clang__ && __clang_major__ >= 3)
+#pragma GCC diagnostic pop
+#endif
+
+  if (len <= MAX_WORD_LENGTH && len >= MIN_WORD_LENGTH)
+    {
+      register unsigned int key = shumate_vector_expression_type_hash (str, len);
+
+      if (key <= MAX_HASH_VALUE)
+        {
+          register const char *s = wordlist[key].name;
+
+          if (*str == *s && !strcmp (str + 1, s + 1))
+            return &wordlist[key];
+        }
+    }
+  return (struct _ExprInfo *) 0;
+}

@@ -1,0 +1,1 @@
+option('run_install_script', type : 'boolean', value : true)

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+Copyright (C) 2007-2024
+
+This file is part of Lifeograph.
+
+Lifeograph is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Lifeograph is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Lifeograph.  If not, see <http://www.gnu.org/licenses/>.
+
+Author: Ahmet Öztürk
+
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+
+  <object class="GtkWindow" id="W_export">
+    <property name="resizable">0</property>
+    <property name="width-request">400</property>
+    <property name="modal">True</property>
+    <property name="titlebar">
+      <object class="GtkHeaderBar">
+        <property name="show-title-buttons">False</property>
+        <child>
+          <object class="GtkButton" id="B_export_cancel">
+            <property name="label">Cancel</property>
+            <!-- <property name="has-frame">0</property> -->
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkButton" id="B_export_go">
+            <property name="label" translatable="yes">Export</property>
+            <property name="css-classes">suggested-action</property>
+            <!-- <property name="has-frame">0</property> -->
+          </object>
+        </child>
+      </object>
+    </property>
+    <child>
+      <object class="GtkBox" id="Bx_contents">
+        <property name="valign">center</property>
+        <property name="vexpand">True</property>
+        <property name="margin-top">20</property>
+        <property name="margin-bottom">20</property>
+        <property name="margin-start">20</property>
+        <property name="margin-end">20</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">15</property>
+        <child>
+          <object class="GtkGrid">
+            <property name="row-spacing">2</property>
+            <property name="column-spacing">15</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="sensitive">0</property>
+                <property name="label" translatable="yes">Content</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="row">0</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="sensitive">0</property>
+                <property name="label" translatable="yes">Type</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="row">1</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkMenuButton" id="MB_export_filter">
+                <property name="hexpand">1</property>
+                <layout>
+                  <property name="column">1</property>
+                  <property name="row">0</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkComboBoxText" id="CB_export_type">
+                <property name="hexpand">1</property>
+                <layout>
+                  <property name="column">1</property>
+                  <property name="row">1</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+Copyright (C) 2007-2024
+
+This file is part of Lifeograph.
+
+Lifeograph is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Lifeograph is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Lifeograph.  If not, see <http://www.gnu.org/licenses/>.
+
+Author: Ahmet Öztürk
+
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <object class="GtkPopover" id="Po_properties">
+    <property name="cascade-popdown">False</property>
+    <property name="child">
+      <object class="GtkBox">
+        <property name="margin-start">5</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">5</property>
+        <child>
+          <object class="GtkBox">
+            <property name="spacing">5</property>
+            <child>
+              <object class="GtkSeparator">
+                <property name="valign">center</property>
+                <property name="hexpand">1</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="sensitive">0</property>
+                <property name="label" translatable="yes">Style</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSeparator">
+                <property name="valign">center</property>
+                <property name="hexpand">1</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="homogeneous">1</property>
+            <property name="css-classes">linked</property>
+            <child>
+              <object class="GtkToggleButton" id="RB_style_line">
+                <property name="label" translatable="yes">Line</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="RB_style_bars">
+                <property name="label" translatable="yes">Bars</property>
+                <property name="group">RB_style_line</property>
+              </object>
+            </child>
+            <!--child>
+              <object class="GtkToggleButton" id="RB_style_pie">
+                <property name="label" translatable="yes">Pie</property>
+                <property name="group">RB_style_line</property>
+              </object>
+            </child-->
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="spacing">5</property>
+            <child>
+              <object class="GtkSeparator">
+                <property name="valign">center</property>
+                <property name="hexpand">1</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="sensitive">0</property>
+                <property name="label" translatable="yes">Data Source</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSeparator">
+                <property name="valign">center</property>
+                <property name="hexpand">1</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="spacing">5</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="sensitive">0</property>
+                <property name="label" translatable="yes">Table</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkComboBoxText" id="CB_table">
+                <property name="halign">end</property>
+                <property name="hexpand">1</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="spacing">5</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="sensitive">0</property>
+                <property name="label" translatable="yes">x-Axis Column</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkComboBoxText" id="CB_x_axis">
+                <property name="halign">end</property>
+                <property name="hexpand">1</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="spacing">5</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="sensitive">0</property>
+                <property name="label" translatable="yes">y-Axis Column</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkComboBoxText" id="CB_y_axis">
+                <property name="halign">end</property>
+                <property name="hexpand">1</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="spacing">5</property>
+            <child>
+              <object class="GtkSeparator">
+                <property name="valign">center</property>
+                <property name="hexpand">1</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="sensitive">0</property>
+                <property name="label" translatable="yes">Organization</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSeparator">
+                <property name="valign">center</property>
+                <property name="hexpand">1</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox" id="Bx_grouping">
+            <property name="spacing">5</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="sensitive">0</property>
+                <property name="label" translatable="yes">Group by</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkComboBoxText" id="CB_period">
+                <property name="halign">end</property>
+                <property name="hexpand">1</property>
+                <items>
+                  <item translatable="yes">Day</item>
+                  <item translatable="yes">Week</item>
+                  <item translatable="yes">Month</item>
+                  <item translatable="yes">Year</item>
+                </items>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox" id="Bx_combining">
+            <property name="spacing">5</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="sensitive">0</property>
+                <property name="label" translatable="yes">Combine</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkComboBoxText" id="CB_combining">
+                <property name="halign">end</property>
+                <property name="hexpand">1</property>
+                <items>
+                  <item translatable="yes">Cumulative: Periodic</item>
+                  <item translatable="yes">Cumulative: Continuous</item>
+                  <item translatable="yes">Average</item>
+                </items>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkExpander">
+            <child type="label">
+              <object class="GtkBox">
+                <property name="spacing">5</property>
+                <property name="margin-top">10</property>
+                <property name="margin-bottom">8</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="label" translatable="yes">Advanced Options</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkSeparator">
+                    <property name="valign">center</property>
+                    <property name="hexpand">1</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="margin-start">5</property>
+                <property name="orientation">vertical</property>
+                <property name="spacing">5</property>
+                <!--child> TODO: 3.1+
+                  <object class="GtkBox">
+                    <property name="spacing">5</property>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="sensitive">0</property>
+                        <property name="label" translatable="yes">Background Coloring per</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkEntry">
+                        <property name="tooltip-text" translatable="yes">Filter for entries whose colors will be used in the background</property>
+                        <property name="halign">end</property>
+                        <property name="hexpand">1</property>
+                      </object>
+                    </child>
+                  </object>
+                </child-->
+                <child>
+                  <object class="GtkBox">
+                    <property name="spacing">5</property>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="sensitive">0</property>
+                        <property name="label" translatable="yes">Underlay</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkComboBoxText" id="CB_underlay">
+                        <property name="halign">end</property>
+                        <property name="hexpand">1</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkBox">
+                    <property name="spacing">5</property>
+                    <child>
+                      <object class="GtkSeparator">
+                        <property name="valign">center</property>
+                        <property name="hexpand">1</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="sensitive">0</property>
+                        <property name="label" translatable="yes">Filter Table Rows</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkSeparator">
+                        <property name="valign">center</property>
+                        <property name="hexpand">1</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkBox">
+                    <property name="spacing">5</property>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="sensitive">0</property>
+                        <property name="label" translatable="yes">Column</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkComboBoxText" id="CB_col_filter">
+                        <property name="halign">end</property>
+                        <property name="hexpand">1</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkBox" id="Bx_col_filter_v">
+                    <property name="spacing">5</property>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="sensitive">0</property>
+                        <property name="label" translatable="yes">Value = </property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkDropDown" id="DD_col_filter_v">
+                        <property name="halign">end</property>
+                        <property name="hexpand">1</property>
+                        <property name="enable-search">1</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </property>
+  </object>
+</interface>

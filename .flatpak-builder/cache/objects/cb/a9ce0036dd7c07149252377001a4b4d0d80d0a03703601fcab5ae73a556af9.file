@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.10"/>
+  <menu id="menu_table">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Show Order Column</attribute>
+        <attribute name="action">app.table_show_order_col</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Group Lines</attribute>
+        <attribute name="action">app.table_group_lines</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name="custom">table_base</attribute>
+      </item>
+      <item>
+        <attribute name="custom">table_filter_entry</attribute>
+      </item>
+      <item>
+        <attribute name="custom">table_filter_para</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Copy as Tab Delimited Text</attribute>
+        <attribute name="action">app.table_copy_as_text</attribute>
+      </item>
+    </section>
+  </menu>
+
+  <object class="GtkPopover" id="Po_column">
+    <property name="cascade-popdown">False</property>
+    <property name="child">
+      <object class="GtkBox" id="Bx_col_main">
+        <property name="orientation">vertical</property>
+        <property name="spacing">5</property>
+        <child>
+          <object class="GtkEntry" id="E_col_name">
+            <property name="placeholder-text" translatable="yes">Name</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkStack" id="St_col_subpages">
+            <property name="hhomogeneous">1</property>
+            <property name="transition-type">slide-left-right</property>
+            <property name="transition-duration">400</property>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">basics</property>
+                <property name="title" translatable="yes">Basics</property>
+                <property name="child">
+                  <object class="GtkBox" id="Bx_col_basics">
+                    <property name="orientation">vertical</property>
+                    <property name="spacing">5</property>
+                    <child>
+                      <object class="GtkComboBoxText" id="CB_col_type">
+                        <items>
+                          <item translatable="yes">Text</item>
+                          <item translatable="yes">Date &amp; Time</item>
+                          <item translatable="yes">Duration</item>
+                          <item translatable="yes">Size</item>
+                          <item translatable="yes">Number</item>
+                          <item translatable="yes">True / False</item>
+                          <item translatable="yes">Tag Value</item>
+                          <item translatable="yes">Has Which Sub Tag</item>
+                          <item translatable="yes">Completion</item>
+                          <item translatable="yes">Todo Status</item>
+                          <item translatable="yes">Gantt Chart</item>
+                          <item translatable="yes">Path Length in Map</item>
+                          <item translatable="yes">Theme</item>
+                          <item translatable="yes">Arithmetic</item>
+                        </items>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkSeparator"/>
+                    </child>
+                    <child>
+                      <object class="GtkBox">
+                        <property name="spacing">15</property>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="sensitive">0</property>
+                            <property name="label" translatable="yes">Sorting</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkBox">
+                            <property name="halign">end</property>
+                            <property name="hexpand">1</property>
+                            <property name="css-classes">linked</property>
+                            <child>
+                              <object class="GtkToggleButton" id="RB_sort_off">
+                                <property name="label" translatable="yes">Off</property>
+                                <property name="active">1</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkToggleButton" id="RB_sort_asc">
+                                <property name="icon-name">view-sort-ascending-symbolic</property>
+                                <property name="tooltip-text" translatable="yes">Ascending</property>
+                                <property name="group">RB_sort_off</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkToggleButton" id="RB_sort_dsc">
+                                <property name="icon-name">view-sort-descending-symbolic</property>
+                                <property name="tooltip-text" translatable="yes">Descending</property>
+                                <property name="group">RB_sort_off</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkToggleButton" id="TB_col_combine_same">
+                            <property name="label">Combine</property>
+                            <property name="tooltip-text" translatable="yes">Combine identical cells</property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">extras</property>
+                <property name="title" translatable="yes">Extras</property>
+                <property name="child">
+                  <object class="GtkBox" id="Bx_col_extras">
+                    <property name="orientation">vertical</property>
+                    <property name="spacing">5</property>
+                    <child>
+                      <object class="GtkBox" id="Bx_col_src">
+                        <property name="spacing">15</property>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="sensitive">0</property>
+                            <property name="label" translatable="yes">Get Value From</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkBox">
+                            <property name="orientation">vertical</property>
+                            <property name="spacing">2</property>
+                            <child>
+                              <object class="GtkComboBoxText" id="CB_col_src_entry">
+                                <items>
+                                  <item translatable="yes">First Parent Satisfying...</item>
+                                  <item translatable="yes">Grandparent</item>
+                                  <item translatable="yes">Parent Entry</item>
+                                  <item translatable="yes">Itself</item>
+                                  <item translatable="yes">First Paragraph Satisfying...</item>
+                                  <item translatable="yes">Last Paragraph Satisfying...</item>
+                                </items>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkComboBoxText" id="CB_col_src_para">
+                                <items>
+                                  <item translatable="yes">First Parent Satisfying...</item>
+                                  <item translatable="yes">Grandparent</item>
+                                  <item translatable="yes">Parent Entry</item>
+                                  <item translatable="yes">Itself</item>
+                                  <item translatable="yes">Previous Paragraph Satisfying...</item>
+                                  <item translatable="yes">Next Paragraph Satisfying...</item>
+                                </items>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkMenuButton" id="MB_col_src_elem">
+                                <property name="focus-on-click">0</property>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkBox" id="Bx_col_show_as">
+                        <property name="orientation">vertical</property>
+                        <property name="spacing">5</property>
+                        <child>
+                          <object class="GtkSeparator"/>
+                        </child>
+                        <child>
+                          <object class="GtkBox">
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="sensitive">0</property>
+                                <property name="label" translatable="yes">Show as</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkDropDown" id="DD_col_show_as">
+                                <property name="halign">end</property>
+                                <property name="hexpand">1</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkBox" id="Bx_col_count_condition">
+                            <property name="spacing">15</property>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="sensitive">0</property>
+                                <property name="label" translatable="yes">Satisfying</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkMenuButton" id="MB_col_filter">
+                                <property name="halign">end</property>
+                                <property name="hexpand">1</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkBox" id="Bx_col_summary_func">
+                            <property name="spacing">15</property>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="sensitive">0</property>
+                                <property name="label" translatable="yes">Summary Function</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkDropDown" id="DD_col_summary_func">
+                                <property name="halign">end</property>
+                                <property name="hexpand">1</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkBox" id="Bx_col_coloring">
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="sensitive">0</property>
+                            <property name="label" translatable="yes">Coloring</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkBox">
+                            <property name="halign">end</property>
+                            <property name="hexpand">1</property>
+                            <property name="css-classes">linked</property>
+                            <child>
+                              <object class="GtkToggleButton" id="RB_color_off">
+                                <property name="label" translatable="yes">Off</property>
+                                <property name="active">1</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkToggleButton" id="RB_color_neg_red">
+                                <property name="icon-name">color-negative-red</property>
+                                <property name="tooltip-text" translatable="yes">Negative values are RED</property>
+                                <property name="group">RB_color_off</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkToggleButton" id="RB_color_big_green">
+                                <property name="icon-name">color-big-green</property>
+                                <property name="tooltip-text" translatable="yes">From small to big, from RED to GREEN</property>
+                                <property name="group">RB_color_off</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkToggleButton" id="RB_color_big_red">
+                                <property name="icon-name">color-big-red</property>
+                                <property name="tooltip-text" translatable="yes">From small to big, from GREEN to RED</property>
+                                <property name="group">RB_color_off</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkStackSwitcher">
+            <property name="halign">center</property>
+            <property name="orientation">horizontal</property>
+            <property name="stack">St_col_subpages</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkSeparator"/>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="spacing">10</property>
+            <child>
+              <object class="GtkButton" id="B_col_move_prev">
+                <property name="tooltip-text" translatable="yes">Move column to left</property>
+                <property name="hexpand">1</property>
+                <property name="icon-name">go-previous-symbolic</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="css-classes">linked</property>
+                <child>
+                  <object class="GtkButton" id="B_col_add_left">
+                    <property name="tooltip-text" translatable="yes">Add a column to left</property>
+                    <property name="icon-name">list-add-symbolic</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="B_col_dismiss">
+                    <property name="tooltip-text" translatable="yes">Remove column</property>
+                    <property name="icon-name">list-remove-symbolic</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="B_col_add_right">
+                    <property name="tooltip-text" translatable="yes">Add a column to right</property>
+                    <property name="icon-name">list-add-symbolic</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="B_col_move_next">
+                <property name="tooltip-text" translatable="yes">Move column to right</property>
+                <property name="hexpand">1</property>
+                <property name="icon-name">go-next-symbolic</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </property>
+  </object>
+
+  <object class="GtkPopoverMenu" id="Po_table">
+    <property name="cascade-popdown">False</property>
+    <property name="menu-model">menu_table</property>
+
+    <child type="table_base">
+      <object class="GtkBox">
+        <property name="homogeneous">1</property>
+        <property name="css-classes">linked</property>
+        <child>
+          <object class="GtkToggleButton" id="RB_entry_based">
+            <property name="label" translatable="yes">Entry</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkToggleButton" id="RB_para_based">
+            <property name="label" translatable="yes">Paragraph</property>
+            <property name="group">RB_entry_based</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child type="table_filter_entry">
+      <object class="GtkBox">
+        <property name="spacing">15</property>
+        <property name="margin-top">5</property>
+        <property name="margin-bottom">5</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="sensitive">0</property>
+            <property name="label" translatable="yes">Entry Filter</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkMenuButton" id="MB_entry_filter">
+            <property name="halign">end</property>
+            <property name="hexpand">1</property>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child type="table_filter_para">
+      <object class="GtkBox" id="Bx_para_filter">
+        <property name="spacing">15</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="sensitive">0</property>
+            <property name="label" translatable="yes">Paragraph Filter</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkMenuButton" id="MB_para_filter">
+            <property name="halign">end</property>
+            <property name="hexpand">1</property>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

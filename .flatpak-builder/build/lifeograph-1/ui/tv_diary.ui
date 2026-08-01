@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+
+ <object class="GtkPopover" id="Po_context">
+    <property name="cascade-popdown">False</property>
+    <property name="child">
+      <object class="GtkBox" id="Bx_context">
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child>
+          <object class="GtkBox">
+            <property name="spacing">15</property>
+            <child>
+              <object class="GtkBox">
+                <child>
+                  <object class="GtkButton" id="B_undo">
+                    <property name="action-name">app.undo</property>
+                    <property name="has-frame">False</property>
+                    <property name="icon-name">edit-undo-symbolic</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="B_redo">
+                    <property name="action-name">app.redo</property>
+                    <property name="has-frame">False</property>
+                    <property name="icon-name">edit-redo-symbolic</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="B_expand_sel">
+                <property name="tooltip-text" translatable="yes">Expand selection</property>
+                <property name="halign">center</property>
+                <property name="hexpand">1</property>
+                <property name="has-frame">False</property>
+                <child>
+                  <object class="GtkBox">
+                    <child>
+                      <object class="GtkImage">
+                        <property name="icon-name">go-first-symbolic</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImage">
+                        <property name="icon-name">go-last-symbolic</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="B_search_sel">
+                <property name="tooltip-text" translatable="yes">Search</property>
+                <property name="has-frame">False</property>
+                <property name="icon-name">edit-find-symbolic</property>
+                <property name="hexpand">1</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <child>
+                  <object class="GtkButton" id="B_cut">
+                    <property name="tooltip-text" translatable="yes">Cut</property>
+                    <property name="has-frame">False</property>
+                    <property name="icon-name">edit-cut-symbolic</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="B_copy">
+                    <property name="tooltip-text" translatable="yes">Copy</property>
+                    <property name="has-frame">False</property>
+                    <property name="icon-name">edit-copy-symbolic</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="B_paste">
+                    <property name="tooltip-text" translatable="yes">Paste</property>
+                    <property name="has-frame">False</property>
+                    <property name="icon-name">edit-paste-symbolic</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="B_extras">
+                <property name="has-frame">False</property>
+                <property name="icon-name">pan-end-symbolic</property>
+                <property name="tooltip-text" translatable="yes">Show more</property>
+                <property name="halign">end</property>
+                <property name="hexpand">1</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox" id="Bx_context_edit_only_1">
+            <property name="orientation">vertical</property>
+            <property name="spacing">3</property>
+            <child>
+              <object class="GtkStack" id="St_extras">
+                <property name="hhomogeneous">1</property>
+                <property name="transition-type">slide-left-right</property>
+                <child>
+                  <object class="GtkStackPage">
+                    <property name="name">p0</property>
+                    <property name="child">
+                      <object class="GtkBox" id="Bx_entry_toolbar_text">
+                        <property name="spacing">2</property>
+                        <child>
+                          <object class="GtkToggleButton" id="TB_bold">
+                            <property name="tooltip-text" translatable="yes">Bold</property>
+                            <property name="has-frame">False</property>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label">B</property>
+                                <attributes>
+                                  <attribute name="weight" value="bold"/>
+                                </attributes>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkToggleButton" id="TB_italic">
+                            <property name="tooltip-text" translatable="yes">Italic</property>
+                            <property name="has-frame">False</property>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label">&lt;i&gt;i&lt;/i&gt;</property>
+                                <property name="use-markup">1</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkToggleButton" id="TB_underline">
+                            <property name="tooltip-text" translatable="yes">Underlined</property>
+                            <property name="has-frame">False</property>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label">&lt;u&gt;U&lt;/u&gt;</property>
+                                <property name="use-markup">1</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkToggleButton" id="TB_strikethru">
+                            <property name="tooltip-text" translatable="yes">Strikethrough</property>
+                            <property name="has-frame">False</property>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label">S</property>
+                                <attributes>
+                                  <attribute name="strikethrough" value="True"/>
+                                </attributes>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkToggleButton" id="TB_highlight">
+                            <property name="tooltip-text" translatable="yes">Highlighted</property>
+                            <property name="has-frame">False</property>
+                            <child>
+                              <object class="GtkLabel" id="L_highlight">
+                                <property name="label">H</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkBox" id="Bx_context_edit_only_2">
+                            <property name="margin-start">10</property>
+                            <property name="halign">end</property>
+                            <property name="hexpand">1</property>
+                            <child>
+                              <object class="GtkButton" id="B_insert_link">
+                                <property name="tooltip-text" translatable="yes">Insert link</property>
+                                <property name="has-frame">False</property>
+                                <property name="icon-name">insert-link-symbolic</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="B_insert_emoji">
+                                <property name="tooltip-text" translatable="yes">Insert smiley</property>
+                                <property name="has-frame">False</property>
+                                <property name="icon-name">face-smile-symbolic</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="B_insert_image">
+                                <property name="tooltip-text" translatable="yes">Insert image</property>
+                                <property name="has-frame">False</property>
+                                <property name="icon-name">image-x-generic-symbolic</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="B_insert_chart">
+                                <property name="tooltip-text" translatable="yes">Insert chart</property>
+                                <property name="has-frame">False</property>
+                                <property name="icon-name">chart-16-symbolic</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="B_insert_table">
+                                <property name="tooltip-text" translatable="yes">Insert chart</property>
+                                <property name="has-frame">False</property>
+                                <property name="icon-name">table-16-symbolic</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkStackPage">
+                    <property name="name">p1</property>
+                    <property name="child">
+                      <object class="GtkBox">
+                        <property name="margin-start">2</property>
+                        <child>
+                          <object class="GtkBox">
+                            <property name="spacing">2</property>
+                            <child>
+                              <object class="GtkButton" id="B_case_sentence">
+                                <property name="has-frame">False</property>
+                                <property name="tooltip-text" translatable="yes">Sentence case</property>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="label">Ab cd</property>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="B_case_title">
+                                <property name="has-frame">False</property>
+                                <property name="tooltip-text" translatable="yes">Title Case</property>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="label">Ab Cd</property>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="B_case_lower">
+                                <property name="has-frame">False</property>
+                                <property name="tooltip-text" translatable="yes">lower case</property>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="label">ab cd</property>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="B_case_upper">
+                                <property name="has-frame">False</property>
+                                <property name="tooltip-text" translatable="yes">UPPER CASE</property>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="label">AB CD</property>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkSeparator"/>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="B_comment">
+                            <property name="has-frame">False</property>
+                            <property name="tooltip-text" translatable="yes">Comment</property>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label">[[]]</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkToggleButton" id="TB_subscript">
+                            <property name="tooltip-text" translatable="yes">Subscript</property>
+                            <property name="has-frame">False</property>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label">X&lt;span color=&apos;red&apos;&gt;&lt;sub&gt;2&lt;/sub&gt;&lt;/span&gt;</property>
+                                <property name="use-markup">1</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkToggleButton" id="TB_superscript">
+                            <property name="tooltip-text" translatable="yes">Superscript</property>
+                            <property name="has-frame">False</property>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label">X&lt;span color=&apos;red&apos;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/span&gt;</property>
+                                <property name="use-markup">1</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox" id="Bx_spell_separator">
+                <property name="margin-top">3</property>
+                <property name="spacing">5</property>
+                <child>
+                  <object class="GtkSeparator">
+                    <property name="valign">center</property>
+                    <property name="hexpand">1</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="label" translatable="yes">Spelling</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkSeparator">
+                    <property name="valign">center</property>
+                    <property name="hexpand">1</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkFlowBox" id="FBx_spell">
+                <property name="max-children-per-line">2</property>
+                <property name="column-spacing">2</property>
+                <property name="row-spacing">2</property>
+                <property name="homogeneous">True</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </property>
+  </object>
+
+  <menu id="menu_find">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Replace</attribute>
+        <attribute name="action">find.replace</attribute>
+      </item>
+    </section>
+  </menu>
+
+  <object class="GtkPopoverMenu" id="Po_find">
+    <property name="menu-model">menu_find</property>
+  </object>
+
+  <object class="GtkPopover" id="Po_paragraph">
+    <property name="cascade-popdown">False</property>
+    <property name="child">
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child>
+          <object class="GtkBox">
+            <property name="spacing">3</property>
+            <child>
+              <object class="GtkButton" id="B_para_unindent">
+                <property name="tooltip-text" translatable="yes">Decrease indent</property>
+                <property name="has-frame">False</property>
+                <property name="icon-name">format-indent-less-symbolic</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="halign">center</property>
+                <property name="hexpand">1</property>
+                <property name="css-classes">linked</property>
+                <child>
+                  <object class="GtkToggleButton" id="RB_para_align_left">
+                    <property name="group">RB_para_align_center</property>
+                    <property name="icon-name">format-justify-left-symbolic</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkToggleButton" id="RB_para_align_center">
+                    <property name="icon-name">format-justify-center-symbolic</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkToggleButton" id="RB_para_align_right">
+                    <property name="group">RB_para_align_center</property>
+                    <property name="icon-name">format-justify-right-symbolic</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="B_para_indent">
+                <property name="tooltip-text" translatable="yes">Increase indent</property>
+                <property name="halign">end</property>
+                <property name="has-frame">False</property>
+                <property name="icon-name">format-indent-more-symbolic</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkSeparator"/>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="hexpand">1</property>
+            <property name="homogeneous">1</property>
+            <property name="css-classes">linked</property>
+            <child>
+              <object class="GtkToggleButton" id="RB_para_hoff">
+                <property name="label" translatable="yes">H0</property>
+                <property name="tooltip-text" translatable="yes">Normal text</property>
+                <property name="group">RB_para_subh</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="RB_para_subsubh">
+                <property name="hexpand">1</property>
+                <property name="tooltip-text" translatable="yes">Subsubheading</property>
+                <property name="group">RB_para_subh</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="label">H1</property>
+                    <attributes>
+                      <attribute name="weight" value="bold"></attribute>
+                      <attribute name="scale" value="1.2"></attribute>
+                    </attributes>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="RB_para_subh">
+                <property name="hexpand">1</property>
+                <property name="tooltip-text" translatable="yes">Subheading</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="label">H2</property>
+                    <attributes>
+                      <attribute name="weight" value="bold"></attribute>
+                      <attribute name="scale" value="1.5"></attribute>
+                    </attributes>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkSeparator"/>
+        </child>
+        <child>
+          <object class="GtkToggleButton" id="RB_para_plai">
+            <property name="label" translatable="yes">Plain</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="hexpand">1</property>
+            <property name="homogeneous">1</property>
+            <property name="css-classes">linked</property>
+            <child>
+              <object class="GtkToggleButton" id="RB_para_todo">
+                <property name="hexpand">1</property>
+                <property name="tooltip-text" translatable="yes">To do</property>
+                <property name="group">RB_para_plai</property>
+                <child>
+                  <object class="GtkImage" id="I_checklist_todo2">
+                    <property name="icon-name">todo_open-16</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="RB_para_prog">
+                <property name="hexpand">1</property>
+                <property name="tooltip-text" translatable="yes">In progress</property>
+                <property name="group">RB_para_plai</property>
+                <child>
+                  <object class="GtkImage" id="I_checklist_progressed2">
+                    <property name="icon-name">todo_progressed-16</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="RB_para_done">
+                <property name="hexpand">1</property>
+                <property name="tooltip-text" translatable="yes">Done</property>
+                <property name="group">RB_para_plai</property>
+                <child>
+                  <object class="GtkImage" id="I_checklist_done2">
+                    <property name="icon-name">todo_done-16</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="RB_para_cncl">
+                <property name="hexpand">1</property>
+                <property name="tooltip-text" translatable="yes">Canceled</property>
+                <property name="group">RB_para_plai</property>
+                <child>
+                  <object class="GtkImage" id="I_checklist_canceled2">
+                    <property name="icon-name">todo_canceled-16</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="hexpand">1</property>
+            <property name="homogeneous">1</property>
+            <property name="css-classes">linked</property>
+            <child>
+              <object class="GtkToggleButton" id="RB_para_bllt">
+                <property name="hexpand">1</property>
+                <property name="tooltip-text" translatable="yes">Bullet list</property>
+                <property name="group">RB_para_plai</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="label">•</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="RB_para_nmbr">
+                <property name="hexpand">1</property>
+                <property name="tooltip-text" translatable="yes">Numbered list</property>
+                <property name="group">RB_para_plai</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="label">1-</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="RB_para_cltr">
+                <property name="hexpand">1</property>
+                <property name="tooltip-text" translatable="yes">Letter list</property>
+                <property name="group">RB_para_plai</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="label">A-</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="RB_para_crmn">
+                <property name="hexpand">1</property>
+                <property name="tooltip-text" translatable="yes">Roman number list</property>
+                <property name="group">RB_para_plai</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="label">I-</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox" id="Bx_para_sltr">
+            <property name="spacing">15</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="sensitive">0</property>
+                <property name="label" translatable="yes">Use Small Letters</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSwitch" id="Sw_para_sltr">
+                <property name="halign">end</property>
+                <property name="hexpand">1</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkSeparator"/>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="spacing">15</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="sensitive">0</property>
+                <property name="label" translatable="yes">Horizontal Rule</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSwitch" id="Sw_para_hrule">
+                <property name="halign">end</property>
+                <property name="hexpand">1</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="spacing">15</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="sensitive">0</property>
+                <property name="label" translatable="yes">Code</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSwitch" id="Sw_para_code">
+                <property name="halign">end</property>
+                <property name="hexpand">1</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="spacing">15</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="sensitive">0</property>
+                <property name="label" translatable="yes">Quotation</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSwitch" id="Sw_para_quote">
+                <property name="halign">end</property>
+                <property name="hexpand">1</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </property>
+  </object>
+</interface>

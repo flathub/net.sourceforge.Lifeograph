@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+Copyright (C) 2007-2024
+
+This file is part of Lifeograph.
+
+Lifeograph is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Lifeograph is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Lifeograph.  If not, see <http://www.gnu.org/licenses/>.
+
+Author: Ahmet Öztürk
+
+-->
+<interface>
+  <requires lib="gtk" version="4.10"/>
+  <object class="GtkFileChooserDialog" id="FD_save">
+    <property name="margin-start">5</property>
+    <property name="title" translatable="yes">Where to Save The Diary?</property>
+    <property name="action">save</property>
+    <child>
+      <object class="GtkBox">
+        <property name="visible">0</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child>
+          <object class="GtkFrame">
+            <property name="child">
+              <object class="GtkGrid" id="grid_save_password">
+                <property name="visible">0</property>
+                <property name="halign">center</property>
+                <property name="row-spacing">2</property>
+                <property name="column-spacing">15</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="sensitive">0</property>
+                    <property name="halign">end</property>
+                    <property name="label" translatable="yes">Password</property>
+                    <property name="justify">right</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="row">0</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="sensitive">0</property>
+                    <property name="halign">end</property>
+                    <property name="label" translatable="yes">Confirm</property>
+                    <property name="justify">right</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="row">1</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="entry_save_password">
+                    <property name="visibility">0</property>
+                    <property name="width-chars">30</property>
+                    <layout>
+                      <property name="column">1</property>
+                      <property name="row">0</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="entry_save_confirm">
+                    <property name="visibility">0</property>
+                    <property name="width-chars">30</property>
+                    <layout>
+                      <property name="column">1</property>
+                      <property name="row">1</property>
+                    </layout>
+                  </object>
+                </child>
+              </object>
+            </property>
+            <child type="label">
+              <object class="GtkCheckButton" id="check_save_encrypt">
+                <property name="label" translatable="yes">Encrypt Diary Content</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+
+  <object class="GtkGrid" id="G_welcome">
+    <property name="margin-start">80</property>
+    <property name="margin-end">80</property>
+    <property name="margin-top">15</property>
+    <property name="margin-bottom">40</property>
+    <property name="row-spacing">10</property>
+    <property name="column-spacing">10</property>
+    <property name="column-homogeneous">1</property>
+    <child>
+      <object class="GtkLabel">
+        <property name="halign">end</property>
+        <property name="label" translatable="yes">Knowledge is a single point which the ignorant have multiplied.
+~Attributed to Ali Ibn Abi Talib</property>
+        <property name="use-markup">1</property>
+        <property name="justify">right</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="row">0</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="GtkLabel">
+        <property name="margin-top">10</property>
+        <property name="label" translatable="yes">Welcome to Lifeograph, a parametric note taking application!</property>
+        <property name="wrap">1</property>
+        <attributes>
+          <attribute name="scale" value="1.2"></attribute>
+        </attributes>
+        <layout>
+          <property name="column">0</property>
+          <property name="row">1</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButton" id="B_welcome_new_diary">
+        <property name="label" translatable="yes">If this is your first time with the program, click here to start right away</property>
+        <property name="receives-default">1</property>
+        <property name="halign">center</property>
+        <property name="use-underline">1</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="row">2</property>
+        </layout>
+      </object>
+    </child>
+  </object>
+
+  <object class="GtkAboutDialog" id="aboutdialog">
+    <property name="margin-start">10</property>
+    <property name="resizable">0</property>
+    <property name="destroy-with-parent">1</property>
+    <property name="copyright" translatable="yes">Copyright (C) 2007-2024 Ahmet Öztürk</property>
+    <property name="comments" translatable="yes">Personal, digital diary</property>
+    <property name="website">http://lifeograph.sourceforge.net</property>
+    <property name="website-label" translatable="yes">Web Site</property>
+    <property name="authors">Ahmet Öztürk &lt;aoz_2@yahoo.com&gt;</property>
+    <property name="translator-credits">Launchpad Translators &lt;https://translations.launchpad.net/lifeograph&gt;</property>
+    <property name="artists">Ahmet Öztürk &lt;aoz_2@yahoo.com&gt;</property>
+    <property name="logo-icon-name">net.sourceforge.Lifeograph</property>
+    <property name="license-type">gpl-3-0-only</property>
+  </object>
+</interface>

@@ -1,0 +1,5 @@
+[Test]
+Description=geocode-glib
+Exec=sh -c "G_TEST_SRCDIR=/app/share/installed-tests/geocode-glib-2 /app/libexec/geocode-glib-2/geocode-glib"
+Type=session
+Output=TAP

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+Copyright (C) 2007-2024
+
+This file is part of Lifeograph.
+
+Lifeograph is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Lifeograph is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Lifeograph.  If not, see <http://www.gnu.org/licenses/>.
+
+Author: Ahmet Öztürk
+
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+
+  <object class="GtkWindow" id="D_smartadd">
+    <property name="width-request">480</property>
+    <property name="modal">True</property>
+    <property name="titlebar">
+      <object class="GtkHeaderBar" id="HB">
+        <property name="show-title-buttons">False</property>
+        <child type="title">
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="label" translatable="yes">Smart Add</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                </attributes>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="L_path"/>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="B_cancel">
+            <property name="label" translatable="yes">Cancel</property>
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkButton" id="B_clear">
+            <property name="label" translatable="yes">Clear</property>
+          </object>
+        </child>
+      </object>
+    </property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <property name="margin-start">10</property>
+        <property name="margin-end">10</property>
+        <property name="margin-top">10</property>
+        <property name="margin-bottom">10</property>
+        <property name="spacing">5</property>
+        <child>
+          <object class="GtkTextView" id="Tv_para" />
+        </child>
+        <child>
+          <object class="GtkListBox" id="LB_suggestions">
+            <property name="width-request">600</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

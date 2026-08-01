@@ -1,0 +1,30 @@
+<interface>
+  <requires lib="gtk" version="4.0"/>
+
+  <object class="GtkBox" id="Bx_container">
+    <property name="orientation">vertical</property>
+    <property name="spacing">5</property>
+    <child>
+      <object class="GtkBox">
+        <property name="spacing">15</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="sensitive">0</property>
+            <property name="label" translatable="yes">Type</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkComboBoxText" id="CB_size_type">
+            <property name="hexpand">1</property>
+            <property name="halign">end</property>
+            <items>
+              <item translatable="yes">Char Count</item>
+              <!-- <item translatable="yes">Word Count</item> TODO: v3.1 or later -->
+              <item translatable="yes">Paragraph Count</item>
+            </items>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

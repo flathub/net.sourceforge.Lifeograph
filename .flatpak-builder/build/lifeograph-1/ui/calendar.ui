@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+Copyright (C) 2007-2024
+
+This file is part of Lifeograph.
+
+Lifeograph is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Lifeograph is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Lifeograph.  If not, see <http://www.gnu.org/licenses/>.
+
+Author: Ahmet Öztürk
+
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+
+  <menu id="menu_calendar_day">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Copy Date</attribute>
+        <attribute name="action">calendar.copy_date</attribute>
+        <attribute name="hidden-when">action-disabled</attribute>
+      </item>
+      <item>
+        <attribute name="custom">calendar_add_entry</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Weekend Day</attribute>
+        <attribute name="action">calendar.day_is_weekend</attribute>
+        <attribute name="hidden-when">action-disabled</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Holiday</attribute>
+        <attribute name="action">calendar.day_is_holiday</attribute>
+        <attribute name="hidden-when">action-disabled</attribute>
+      </item>
+    <section>
+    </section>
+      <item>
+        <attribute name="label" translatable="yes">Show Week Numbers</attribute>
+        <attribute name="action">calendar.show_week_nos</attribute>
+        <attribute name="hidden-when">action-disabled</attribute>
+      </item>
+    </section>
+  </menu>
+
+  <object class="GtkPopoverMenu" id="Po_calendar_day">
+    <property name="menu-model">menu_calendar_day</property>
+
+    <child type="calendar_add_entry">
+      <object class="GtkBox" id="Bx_calendar_add">
+        <property name="homogeneous">1</property>
+        <property name="css-classes">linked</property>
+        <child>
+          <object class="GtkButton">
+            <property name="tooltip-text" translatable="yes">Create entry</property>
+            <property name="action-name">app.add_entry_dated</property>
+            <child>
+              <object class="GtkImage">
+                <property name="pixel-size">32</property>
+                <property name="icon-name">entry-32</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton">
+            <property name="tooltip-text" translatable="yes">Create milestone</property>
+            <property name="action-name">app.add_milestone</property>
+            <child>
+              <object class="GtkImage">
+                <property name="pixel-size">32</property>
+                <property name="icon-name">milestone-32</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

@@ -1,0 +1,952 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+Copyright (C) 2007-2024
+
+This file is part of Lifeograph.
+
+Lifeograph is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Lifeograph is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Lifeograph.  If not, see <http://www.gnu.org/licenses/>.
+
+Author: Ahmet Öztürk
+
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+
+  <object class="GtkAdjustment" id="Aj_chart">
+    <property name="upper">1</property>
+  </object>
+
+  <menu id="menu_main">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Help</attribute>
+        <attribute name="action">app.help</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Preferences</attribute>
+        <attribute name="action">app.preferences</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">About</attribute>
+        <attribute name="action">app.about</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Quit</attribute>
+        <attribute name="action">app.quit</attribute>
+      </item>
+    </section>
+  </menu>
+
+  <object class="GtkPopoverMenu" id="Po_main_menu">
+    <property name="cascade-popdown">False</property>
+    <property name="menu-model">menu_main</property>
+  </object>
+
+  <menu id="menu_diary">
+    <section>
+      <!--attribute name="label" translatable="yes">File</attribute-->
+      <item>
+        <attribute name="label" translatable="yes">Open the Folder Containing the Diary</attribute>
+        <attribute name="action">app.main_open_diary_folder</attribute>
+        <attribute name="hidden-when">action-disabled</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Export/Save As...</attribute>
+        <attribute name="action">app.main_export_diary</attribute>
+        <attribute name="hidden-when">action-disabled</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Synchronize/Merge...</attribute>
+        <attribute name="action">app.main_sync_diary</attribute>
+        <attribute name="hidden-when">action-disabled</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Empty the Trash...</attribute>
+        <attribute name="action">app.main_empty_trash</attribute>
+        <attribute name="hidden-when">action-disabled</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Encrypt...</attribute>
+        <attribute name="action">app.main_encrypt_diary</attribute>
+        <attribute name="hidden-when">action-disabled</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Change Password...</attribute>
+        <attribute name="action">app.main_change_password</attribute>
+        <attribute name="hidden-when">action-disabled</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Update All Date Separators in the Diary</attribute>
+        <attribute name="hidden-when">action-disabled</attribute>
+        <attribute name="action">app.update_date_separators</attribute>
+      </item>
+      <item>
+        <attribute name="custom">main_diary_options</attribute>
+      </item>
+    </section>
+  </menu>
+
+  <object class="GtkPopoverMenu" id="Po_diary_menu">
+    <property name="cascade-popdown">False</property>
+    <property name="menu-model">menu_diary</property>
+
+    <child type="main_diary_options">
+      <object class="GtkBox" id="Bx_diary_extra_options">
+        <property name="visible">0</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child>
+          <object class="GtkSeparator">
+            <property name="valign">center</property>
+            <property name="hexpand">1</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="spacing">15</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="sensitive">0</property>
+                <property name="tooltip-text" translatable="yes">Diary default value for spell checking</property>
+                <property name="label" translatable="yes">Spell Checking</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkComboBoxText" id="CB_diary_spellcheck">
+                <property name="hexpand">1</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="spacing">15</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="sensitive">0</property>
+                <property name="label" translatable="yes">Completion Tag</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkEntry" id="E_diary_completion_tag">
+                <property name="primary-icon-name">tag-16-symbolic</property>
+                <property name="hexpand">1</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="spacing">15</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="sensitive">0</property>
+                <property name="label" translatable="yes">Startup Action</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkComboBoxText" id="CB_diary_startup_type">
+                <property name="hexpand">1</property>
+                <items>
+                  <item id="1" translatable="yes">Show Most Current Entry</item>
+                  <item id="2" translatable="yes">Remember Last Entry</item>
+                  <item id="10000" translatable="yes">Always Show a Fixed Entry</item>
+                </items>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox" id="Bx_diary_startup_entry">
+            <property name="spacing">15</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="sensitive">0</property>
+                <property name="label" translatable="yes">Item to Show</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkEntry" id="E_diary_startup_entry">
+                <property name="hexpand">1</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+
+  <menu id="menu_diary_close">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Close without Saving...</attribute>
+        <attribute name="action">app.close_diary_wo_saving</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Disable Auto Close for This Session</attribute>
+        <attribute name="action">app.disable_auto_close</attribute>
+        <!-- <attribute name="hidden-when">action-disabled</attribute> -->
+      </item>
+    </section>
+  </menu>
+
+  <object class="GtkPopoverMenu" id="Po_diary_close">
+    <property name="menu-model">menu_diary_close</property>
+  </object>
+
+  <menu id="menu_table_new_presets">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Standard Diary Report</attribute>
+        <attribute name="action">app.table_standard_report</attribute>
+      </item>
+    </section>
+  </menu>
+
+  <object class="GtkPopoverMenu" id="Po_table_new_presets">
+    <property name="cascade-popdown">False</property>
+    <property name="menu-model">menu_table_new_presets</property>
+  </object>
+
+  <object class="GtkApplicationWindow" id="W_main">
+    <child>
+      <object class="GtkBox" id="Bx_main">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkRevealer" id="Rv_info">
+            <property name="transition-type">slide-down</property>
+            <property name="css-classes">info-box</property>
+            <property name="child">
+              <object class="GtkBox">
+                <property name="hexpand">1</property>
+                <property name="halign">center</property>
+                <property name="spacing">5</property>
+                <property name="css-classes">wide-margin</property>
+                <child>
+                  <object class="GtkLabel" id="L_info">
+                    <property name="label">placeholder text</property>
+                    <property name="wrap">1</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="B_info">
+                    <property name="margin-start">10</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="B_info_close">
+                    <property name="icon-name">window-close-symbolic</property>
+                  </object>
+                </child>
+              </object>
+            </property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkStack" id="St_main">
+            <property name="vexpand">1</property>
+            <property name="transition-duration">600</property>
+            <property name="transition-type">slide-up-down</property>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">login</property>
+                <property name="child">
+                  <object class="GtkBox" id="Bx_login">
+                    <property name="margin-top">40</property>
+                    <property name="margin-start">110</property>
+                    <property name="margin-end">110</property>
+                    <property name="orientation">vertical</property>
+                    <property name="spacing">5</property>
+                    <child>
+                      <object class="GtkBox">
+                        <property name="spacing">15</property>
+                        <child>
+                          <object class="GtkSeparator">
+                            <property name="valign">center</property>
+                            <property name="hexpand">1</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="halign">center</property>
+                            <property name="label" translatable="yes">Diaries</property>
+                            <attributes>
+                              <attribute name="weight" value="bold"></attribute>
+                              <attribute name="scale" value="1.3"></attribute>
+                            </attributes>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkSeparator">
+                            <property name="valign">center</property>
+                            <property name="hexpand">1</property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkScrolledWindow">
+                        <property name="hexpand">1</property>
+                        <property name="vexpand">1</property>
+                        <property name="child">
+                          <object class="GtkTreeView" id="TV_diaries">
+                            <property name="css-classes">transparent-list</property>
+                            <property name="hover-selection">1</property>
+                            <property name="activate-on-single-click">1</property>
+                            <child internal-child="selection">
+                              <object class="GtkTreeSelection"/>
+                            </child>
+                          </object>
+                        </property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="B_login_remove">
+                        <property name="valign">center</property>
+                        <property name="visible">0</property>
+                        <property name="label">Remove Selected Diary</property>
+                        <property name="halign">center</property>
+                        <property name="margin-bottom">20</property>
+                      </object>
+                    </child>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">edit</property>
+                <property name="child">
+                  <object class="GtkPaned" id="P_main">
+                    <!-- <property name="wide-handle">True</property> -->
+                    <property name="position">700</property>
+                    <property name="position-set">1</property>
+                    <property name="start-child">
+                      <object class="GtkPaned" id="P_second">
+                        <property name="orientation">vertical</property>
+                        <property name="position">110</property>
+                        <property name="position-set">1</property>
+                        <property name="start-child">
+                          <object class="GtkStack" id="St_entry">
+                            <property name="vexpand">1</property>
+                            <property name="transition-duration">400</property>
+                            <property name="transition-type">slide-left-right</property>
+                            <child>
+                              <object class="GtkStackPage">
+                                <property name="name">entry_transition</property>
+                                <property name="child">
+                                  <object class="GtkLabel">
+                                    <property name="label">.</property>
+                                  </object>
+                                </property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkStackPage">
+                                <property name="name">entry_editor</property>
+                                <property name="child">
+                                  <object class="GtkScrolledWindow" id="SW_entry">
+                                    <property name="vexpand">1</property>
+                                    <property name="child">
+                                      <object class="GtkTextView" id="TV_entry">
+                                      </object>
+                                    </property>
+                                  </object>
+                                </property>
+                              </object>
+                            </child>
+                          </object>
+                        </property>
+                        <property name="end-child">
+                          <object class="GtkBox" id="Bx_panel_extra">
+                            <property name="margin-top">5</property>
+                            <property name="margin-start">5</property>
+                            <property name="margin-end">5</property>
+                            <property name="spacing">5</property>
+                            <child>
+                              <object class="GtkBox">
+                                <property name="orientation">vertical</property>
+                                <property name="spacing">5</property>
+                                <child>
+                                  <object class="GtkButton">
+                                    <property name="action-name">app.hide_extra_panel</property>
+                                    <property name="icon-name">go-down-symbolic</property>
+                                    <property name="has-frame">0</property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkStackSwitcher">
+                                    <property name="orientation">vertical</property>
+                                    <property name="stack">St_pextra_view</property>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkStack" id="St_pextra_view">
+                                <property name="hexpand">1</property>
+                                <property name="vexpand">1</property>
+                                <property name="transition-type">slide-up-down</property>
+                                <child>
+                                  <object class="GtkStackPage">
+                                    <property name="name">calendar</property>
+                                    <property name="title" translatable="yes">Calendar</property>
+                                    <property name="icon-name">x-office-calendar-symbolic</property>
+                                    <property name="child">
+                                      <object class="GtkDrawingArea" id="DA_calendar">
+                                        <property name="hexpand">1</property>
+                                        <property name="vexpand">1</property>
+                                      </object>
+                                    </property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkStackPage">
+                                    <property name="name">search</property>
+                                    <property name="title" translatable="yes">Search</property>
+                                    <property name="icon-name">system-search-symbolic</property>
+                                    <property name="child">
+                                      <object class="GtkBox">
+                                        <property name="orientation">vertical</property>
+                                        <property name="spacing">5</property>
+                                        <child>
+                                          <object class="GtkBox">
+                                            <property name="spacing">30</property>
+                                            <property name="homogeneous">1</property>
+                                            <child>
+                                              <object class="GtkBox">
+                                                <property name="css-classes">linked</property>
+                                                <child>
+                                                  <object class="GtkSearchEntry" id="E_search">
+                                                    <property name="valign">center</property>
+                                                    <property name="hexpand">1</property>
+                                                    <property name="placeholder-text" translatable="yes">Search</property>
+                                                  </object>
+                                                </child>
+                                                <child>
+                                                  <object class="GtkToggleButton" id="TB_search_match_case">
+                                                    <property name="tooltip-text" translatable="yes">Match case</property>
+                                                    <child>
+                                                      <object class="GtkImage" id="I_filter2">
+                                                        <property name="icon-name">font-x-generic-symbolic</property>
+                                                      </object>
+                                                    </child>
+                                                  </object>
+                                                </child>
+                                                <child>
+                                                  <object class="GtkMenuButton" id="MB_search_filter">
+                                                    <property name="focus-on-click">0</property>
+                                                    <child>
+                                                      <placeholder/>
+                                                    </child>
+                                                  </object>
+                                                </child>
+                                              </object>
+                                            </child>
+                                            <child>
+                                              <object class="GtkBox" id="Bx_replace">
+                                                <property name="sensitive">0</property>
+                                                <property name="css-classes">linked</property>
+                                                <child>
+                                                  <object class="GtkEntry" id="E_replace">
+                                                    <property name="has-tooltip">1</property>
+                                                    <property name="tooltip-text" translatable="yes">Enter text to replace matches with</property>
+                                                    <property name="hexpand">1</property>
+                                                    <property name="primary-icon-name">edit-find-replace-symbolic</property>
+                                                    <property name="primary-icon-activatable">0</property>
+                                                    <property name="secondary-icon-activatable">0</property>
+                                                    <property name="primary-icon-sensitive">0</property>
+                                                    <property name="placeholder-text" translatable="yes">Replace</property>
+                                                  </object>
+                                                </child>
+                                                <child>
+                                                  <object class="GtkButton" id="B_replace_all">
+                                                    <property name="label" translatable="yes">All</property>
+                                                    <property name="focus-on-click">0</property>
+                                                    <property name="tooltip-text" translatable="yes">Replace all</property>
+                                                  </object>
+                                                </child>
+                                              </object>
+                                            </child>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkScrolledWindow" id="SW_search">
+                                            <property name="vexpand">1</property>
+                                            <property name="child">
+                                              <object class="GtkTextView" id="TvD_search">
+                                              </object>
+                                            </property>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkStackPage">
+                                    <property name="name">table</property>
+                                    <property name="title" translatable="yes">Tables</property>
+                                    <property name="icon-name">table-16-symbolic</property>
+                                    <property name="child">
+                                      <object class="GtkBox">
+                                        <property name="orientation">vertical</property>
+                                        <property name="spacing">5</property>
+                                        <child>
+                                          <object class="GtkCenterBox">
+                                            <child type="start">
+                                              <object class="GtkBox" id="Bx_table_new">
+                                                <property name="visible">0</property>
+                                                <property name="css-classes">linked</property>
+                                                <child>
+                                                  <object class="GtkButton" id="B_table_new">
+                                                    <property name="label" translatable="yes">New Table</property>
+                                                  </object>
+                                                </child>
+                                                <child>
+                                                  <object class="GtkMenuButton">
+                                                    <property name="popover">Po_table_new_presets</property>
+                                                    <property name="icon-name">pan-down-symbolic</property>
+                                                  </object>
+                                                </child>
+                                              </object>
+                                            </child>
+                                            <child type="center">
+                                              <object class="GtkEntry" id="E_table_picker">
+                                                <property name="width-chars">35</property>
+                                                <property name="primary-icon-name">table-16-symbolic</property>
+                                                <property name="primary-icon-activatable">0</property>
+                                              </object>
+                                            </child>
+                                            <child type="end">
+                                              <object class="GtkMenuButton" id="MB_table_properties">
+                                                <property name="tooltip-text" translatable="yes">Properties</property>
+                                                <child>
+                                                  <object class="GtkImage">
+                                                    <property name="icon-name">emblem-system-symbolic</property>
+                                                  </object>
+                                                </child>
+                                              </object>
+                                            </child>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkBox">
+                                            <property name="orientation">horizontal</property>
+                                            <property name="vexpand">1</property>
+                                            <child>
+                                              <object class="GtkDrawingArea" id="DA_table">
+                                                <property name="hexpand">1</property>
+                                              </object>
+                                            </child>
+                                            <child>
+                                              <object class="GtkScrollbar" id="Sb_table">
+                                                <property name="orientation">vertical</property>
+                                                <property name="margin-bottom">3</property>
+                                              </object>
+                                            </child>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkStackPage">
+                                    <property name="name">chart</property>
+                                    <property name="title" translatable="yes">Charts</property>
+                                    <property name="icon-name">chart-16</property>
+                                    <property name="child">
+                                      <object class="GtkBox">
+                                        <property name="orientation">vertical</property>
+                                        <property name="spacing">5</property>
+                                        <child>
+                                          <object class="GtkCenterBox">
+                                            <child type="start">
+                                              <object class="GtkButton" id="B_chart_new">
+                                                <property name="visible">0</property>
+                                                <property name="label" translatable="yes">New Chart</property>
+                                              </object>
+                                            </child>
+                                            <child type="center">
+                                              <object class="GtkEntry" id="E_chart_picker">
+                                                <property name="width-chars">35</property>
+                                                <property name="primary-icon-name">chart-16</property>
+                                                <property name="primary-icon-activatable">0</property>
+                                              </object>
+                                            </child>
+                                            <child type="end">
+                                              <object class="GtkBox">
+                                                <property name="orientation">horizontal</property>
+                                                <property name="spacing">5</property>
+                                                <child>
+                                                  <object class="GtkScale" id="Sc_chart_zoom">
+                                                    <property name="width-request">120</property>
+                                                    <property name="tooltip-text" translatable="yes">Zoom level</property>
+                                                    <property name="adjustment">Aj_chart</property>
+                                                    <property name="inverted">1</property>
+                                                    <property name="restrict-to-fill-level">0</property>
+                                                    <property name="digits">2</property>
+                                                    <property name="has-origin">0</property>
+                                                  </object>
+                                                </child>
+                                                <child>
+                                                  <object class="GtkMenuButton" id="MB_chart_properties">
+                                                    <property name="tooltip-text" translatable="yes">Properties</property>
+                                                    <child>
+                                                      <object class="GtkImage">
+                                                        <property name="icon-name">emblem-system-symbolic</property>
+                                                      </object>
+                                                    </child>
+                                                  </object>
+                                                </child>
+                                              </object>
+                                            </child>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkDrawingArea" id="DA_chart">
+                                            <property name="vexpand">1</property>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkStackPage">
+                                    <property name="name">theme</property>
+                                    <property name="title" translatable="yes">Themes</property>
+                                    <property name="icon-name">applications-graphics-symbolic</property>
+                                    <property name="child">
+                                      <object class="GtkStack" id="St_themes">
+                                        <property name="transition-type">crossfade</property>
+                                        <child>
+                                          <object class="GtkStackPage">
+                                            <property name="name">list</property>
+                                            <property name="child">
+                                              <object class="GtkScrolledWindow" id="SW_themes">
+                                                <property name="hexpand">1</property>
+                                                <property name="vexpand">1</property>
+                                                <property name="hscrollbar-policy">never</property>
+                                                <child>
+                                                  <object class="GtkFlowBox" id="FBx_themes">
+                                                    <property name="activate-on-single-click">False</property>
+                                                    <property name="homogeneous">True</property>
+                                                  </object>
+                                                </child>
+                                              </object>
+                                            </property>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkStackPage">
+                                            <property name="name">editor</property>
+                                            <property name="child">
+                                              <object class="GtkOverlay">
+                                                <property name="child">
+                                                  <object class="GtkScrolledWindow">
+                                                    <property name="child">
+                                                      <object class="GtkTextView" id="TVD_theme_preview">
+                                                      </object>
+                                                    </property>
+                                                  </object>
+                                                </property>
+                                                <child type="overlay">
+                                                  <object class="GtkButton" id="B_theme_close">
+                                                    <property name="halign">end</property>
+                                                    <property name="valign">start</property>
+                                                    <property name="margin-end">20</property>
+                                                    <property name="margin-top">20</property>
+                                                    <property name="icon-name">go-previous-symbolic</property>
+                                                  </object>
+                                                </child>
+                                              </object>
+                                            </property>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkStackPage">
+                                    <property name="name">map</property>
+                                    <property name="title" translatable="yes">Map</property>
+                                    <property name="icon-name">map-16</property>
+                                    <property name="child">
+                                      <object class="GtkBox" id="Bx_map">
+                                        <property name="orientation">vertical</property>
+                                        <child>
+                                          <placeholder/>
+                                        </child>
+                                      </object>
+                                    </property>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                          </object>
+                        </property>
+                      </object>
+                    </property>
+                    <property name="end-child">
+                      <object class="GtkOverlay" id="Ol_list">
+                        <property name="margin-start">5</property>
+                        <property name="child">
+                          <object class="GtkScrolledWindow">
+                            <property name="hscrollbar-policy">never</property>
+                            <property name="child">
+                              <object class="GtkListView" id="LV_entries">
+                                <property name="css-classes">data-table</property>
+                                <property name="css-classes">entry-list</property>
+                              </object>
+                            </property>
+                          </object>
+                        </property>
+                        <child type="overlay">
+                          <object class="GtkRevealer" id="Rv_list_filter">
+                            <property name="halign">end</property>
+                            <property name="valign">start</property>
+                            <property name="margin-end">15</property>
+                            <property name="margin-top">15</property>
+                            <property name="transition-type">crossfade</property>
+                            <property name="child">
+                              <object class="GtkMenuButton" id="MB_list_filter">
+                                <property name="focus-on-click">0</property>
+                                <property name="halign">end</property>
+                                <property name="css-classes">suggested-action</property>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                              </object>
+                            </property>
+                          </object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child type="titlebar">
+      <object class="GtkHeaderBar" id="Hb_main">
+        <property name="title-widget">
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <property name="spacing">3</property>
+            <property name="margin-top">1</property>
+            <property name="vexpand">1</property>
+            <property name="valign">center</property>
+            <child>
+              <object class="GtkLabel" id="L_title">
+                <property name="label">...</property>
+                <property name="single-line-mode">True</property>
+                <property name="ellipsize">end</property>
+                <property name="css-classes">title</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="L_subtitle">
+                <property name="label" translatable="yes">Label</property>
+                <property name="single-line-mode">True</property>
+                <property name="ellipsize">end</property>
+                <property name="css-classes">subtitle</property>
+              </object>
+            </child>
+          </object>
+        </property>
+        <child>
+          <object class="GtkButton" id="B_login_open_diary">
+            <property name="tooltip-text" translatable="yes">Add an existing diary file</property>
+            <property name="icon-name">document-open-symbolic</property>
+            <!-- <property name="has-frame">0</property> -->
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="B_login_new_diary">
+            <property name="label" translatable="yes">Create New</property>
+            <!-- <property name="has-frame">0</property> -->
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox" id="Bx_navigation">
+            <property name="visible">0</property>
+            <property name="css-classes">linked</property>
+            <child>
+              <object class="GtkButton" id="B_back">
+                <property name="tooltip-text" translatable="yes">Go back in the browsing history</property>
+                <property name="action-name">app.browse_back</property>
+                <property name="icon-name">go-previous-symbolic</property>
+                <!-- <property name="has-frame">0</property> -->
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="B_forward">
+                <property name="tooltip-text" translatable="yes">Go back in the browsing history</property>
+                <property name="action-name">app.browse_forward</property>
+                <property name="icon-name">go-next-symbolic</property>
+                <!-- <property name="has-frame">0</property> -->
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="B_smart_add">
+            <property name="visible">0</property>
+            <property name="label" translatable="yes">Add</property>
+            <property name="tooltip-text" translatable="yes">Quick add a new entry</property>
+            <!-- <property name="tooltip-text" translatable="yes">Quick add a new entry or paragraph</property> -->
+            <!-- <property name="action-name">app.smart_add</property> -->
+            <!-- <property name="has-frame">0</property> -->
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkMenuButton" id="MB_tools">
+            <property name="focus-on-click">0</property>
+            <property name="popover">Po_main_menu</property>
+            <property name="icon-name">open-menu-symbolic</property>
+            <!-- <property name="has-frame">0</property> -->
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkMenuButton" id="MB_diary">
+            <property name="visible">0</property>
+            <property name="popover">Po_diary_menu</property>
+            <property name="icon-name">diary-16-symbolic</property>
+            <!-- <property name="has-frame">0</property> -->
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkBox" id="Bx_diary">
+            <property name="visible">0</property>
+            <property name="css-classes">linked</property>
+            <child>
+              <object class="GtkButton" id="B_enable_edit">
+                <property name="visible">0</property>
+                <property name="label" translatable="yes">Edit</property>
+                <property name="focus-on-click">0</property>
+                <property name="action-name">app.enable_editing</property>
+                <property name="css-classes">suggested-action</property>
+                <!-- <property name="has-frame">0</property> -->
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="B_close">
+                <property name="label" translatable="yes">Close</property>
+                <property name="focus-on-click">0</property>
+                <property name="tooltip-text" translatable="yes">Save close the diary</property>
+                <property name="action-name">app.close_diary</property>
+                <!-- <property name="has-frame">0</property> -->
+              </object>
+            </child>
+            <child>
+              <object class="GtkMenuButton" id="MB_diary_close">
+                <property name="focus-on-click">0</property>
+                <property name="popover">Po_diary_close</property>
+                <property name="icon-name">pan-down-symbolic</property>
+                <!-- <property name="has-frame">0</property> -->
+              </object>
+            </child>
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkToggleButton" id="B_login_select">
+            <property name="icon-name">object-select-symbolic</property>
+            <property name="css-classes">image-button</property>
+            <!-- <property name="has-frame">0</property> -->
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkButton" id="B_search">
+            <property name="action-name">app.begin_searching</property>
+            <property name="icon-name">system-search-symbolic</property>
+            <!-- <property name="has-frame">0</property> -->
+            <property name="visible">0</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+
+  <object class="GtkPopover" id="Po_sorting">
+    <property name="child">
+      <object class="GtkBox" id="Bx_diaries_sort_by">
+        <property name="margin-start">5</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">5</property>
+        <child>
+          <object class="GtkBox">
+            <property name="spacing">5</property>
+            <child>
+              <object class="GtkSeparator">
+                <property name="valign">center</property>
+                <property name="hexpand">1</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="sensitive">0</property>
+                <property name="label" translatable="yes">Sort by</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSeparator">
+                <property name="valign">center</property>
+                <property name="hexpand">1</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="homogeneous">1</property>
+            <property name="css-classes">linked</property>
+            <child>
+              <object class="GtkToggleButton" id="RB_sort_diaries_name">
+                <property name="label" translatable="yes">Name</property>
+                <property name="hexpand">1</property>
+                <property name="active">1</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="RB_sort_diaries_save">
+                <property name="label" translatable="yes">Save</property>
+                <property name="hexpand">1</property>
+                <property name="group">RB_sort_diaries_name</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="RB_sort_diaries_read">
+                <property name="label" translatable="yes">Read</property>
+                <property name="hexpand">1</property>
+                <property name="group">RB_sort_diaries_name</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </property>
+  </object>
+
+</interface>

@@ -1,0 +1,206 @@
+/***********************************************************************************
+
+    Copyright (C) 2007-2024 Ahmet Öztürk (aoz_2@yahoo.com)
+
+    This file is part of Lifeograph.
+
+    Lifeograph is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Lifeograph is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Lifeograph.  If not, see <http://www.gnu.org/licenses/>.
+
+***********************************************************************************/
+
+
+#ifndef LIFEOGRAPH_UI_DIARY_HEADER
+#define LIFEOGRAPH_UI_DIARY_HEADER
+
+
+#include "diaryelements/diary.hpp"
+#include "dialogs/dialog_sync.hpp"
+#include "dialogs/dialog_export.hpp"
+#include "widgets/po_entry.hpp"
+#include "widgets/widget_entrylist.hpp"
+#include "widgets/widget_entrypicker.hpp"
+#include "widgets/widget_filterpicker.hpp"
+
+
+namespace LIFEO
+{
+
+class UIDiary
+{
+    public:
+        static const int        MIN_WIDTH = 300; // pixels
+
+                                UIDiary();
+                                ~UIDiary();
+
+        void                    handle_login();
+        void                    handle_diary_ready()
+        {
+            if( Diary::d->m_read_version < 3000 )
+                update_all_entries_filter_status();
+            update_entry_list();
+        }
+        void                    enable_editing();
+        void                    enable_editing2();
+        void                    handle_logout();
+
+        void                    update_entry_list( const Entry* = nullptr );
+        //void                    update_entry_list_style();
+
+        void                    update_all_entries_filter_status();
+
+        void                    update_PoEntry_size()
+        {   m_CPo_entry.update_size(); }
+
+        void                    show_in_list( const Entry*, bool = false );
+        Entry*                  add_today();
+        void                    show_today();
+        void                    show_prev_session_elem();
+
+        void                    show_Po_entry( Entry*, const Gdk::Rectangle&& );
+
+        void                    refresh_row( const Entry* e )
+        { m_WEL_main->refresh_row( e ); }
+        void                    handle_entry_title_changed( Entry* e )
+        { m_WEL_main->refresh_row_label( e ); }
+
+        WidgetEntryList*        get_list() const
+        { return m_WEL_main; }
+
+        int                     get_selected_count() const
+        { return m_WEL_main->get_selected_count(); }
+        const EntrySelection&   get_selected_entries() const
+        { return m_WEL_main->m_selected_entries; }
+
+        void                    update_startup_elem();
+
+        Entry*                  update_for_added_entry( Entry* );
+        Entry*                  add_entry_dated( bool );
+        Entry*                  add_entry_free();
+        void                    merge_entries();
+        void                    add_parent_to_entries();
+
+        void                    empty_trash();
+        void                    empty_trash2();
+
+        void                    update_date_separators();
+
+        Glib::RefPtr< Gio::SimpleActionGroup >
+                                m_AG_entry;
+
+    protected:
+        // DIALOGS
+        void                    start_dialog_password();
+        void                    start_dialog_sync();
+        void                    start_dialog_export();
+
+        void                    open_diary_folder() const;
+
+        void                    handle_language_changed();
+        void                    handle_startup_type_changed();
+        // bool                    handle_startup_elem_drag_motion(
+        //             const Glib::RefPtr< Gdk::DragContext >&, int, int, guint );
+        // bool                    handle_startup_elem_dropped(
+        //             const Glib::RefPtr< Gdk::DragContext >&, int, int, guint );
+        bool                    go_to_startup_elem( const Ustring& );
+
+        void                    refresh_main_menu( int );
+        void                    refresh_main_menu_2();
+
+        WidgetEntryList*        m_WEL_main;
+        // Gtk::Overlay*           m_Ol_list;
+        Gtk::Revealer*          m_Rv_list_filter;
+        WidgetFilterPicker*     m_WFP_list_filter;
+
+        Gtk::Button*            m_B_smart_add;
+
+        Gtk::Button*            m_B_enable_edit;
+        Gtk::Box*               m_Bx_diary;
+        Gtk::MenuButton*        m_MB_diary_close;
+        Gtk::Button*            m_B_close;
+
+        Gtk::Button*            m_B_search;
+
+        Gtk::ComboBoxText*      m_CB_spellcheck;
+
+        Gtk::MenuButton*        m_MB_diary;
+        Gtk::MenuButton*        m_MB_main;
+
+        // COMPLETION
+        WidgetEntryPicker*      m_WEP_completn_tag;
+
+        // STARTUP
+        Gtk::Box*               m_Bx_extra_options;
+        Gtk::ComboBoxText*      m_CB_startup_type;
+        Gtk::Box*               m_Bx_startup_elem;
+        WidgetEntryPicker*      m_W_startup_entry;
+
+        // ENTRY POPOVER
+        PoEntry                 m_CPo_entry{ true };
+
+        // ACTIONS
+        R2Action                m_A_enable_editing;
+        R2Action                m_A_open_diary_folder;
+        R2Action                m_A_export_diary;
+        R2Action                m_A_sync_diary;
+        R2Action                m_A_encrypt_diary;
+        R2Action                m_A_change_password;
+        R2Action                m_A_empty_trash;
+        R2Action                m_A_update_date_seps;
+        R2Action                m_A_add_entry_dated;
+        R2Action                m_A_add_milestone;
+        R2Action                m_A_add_entry_todo;
+        R2Action                m_A_add_entry_free;
+        R2Action                m_A_go_today;
+        R2Action                m_A_smart_add;
+        R2Action                m_A_go_list_prev;
+        R2Action                m_A_go_list_next;
+        R2Action                m_A_jump_to_entry;
+        R2Action                m_A_go_prev_sess_entry;
+
+        // DIALOGS
+        DialogSync*             m_D_sync   { nullptr };
+        DialogExport*           m_D_export { nullptr };
+
+        // LISTING TMP VARIABLES
+        // Gtk::TreeModel::iterator
+        //                         add_entry_to_list( Entry*, std::map< DEID, Gtk::TreeRow >*, bool );
+        // void                    add_entry_siblings_to_list( Entry*,
+        //                                                     std::map< DEID, Gtk::TreeRow >* );
+
+        /* template< typename T >
+        TODO void                    fill_treepaths( const T& children, bool F_expandable )
+        {
+            for( auto iter = children.begin(); iter != children.end(); ++iter )
+            {
+                auto    row       = * iter;
+                Entry*  ptr       = row[ ListData::colrec->ptr ];
+                auto&   gchildren = row.children();
+
+                // ptr can never be nullptr
+                ptr->m_list_data->treepath = m_TV_entries->m_treestore->get_path( iter );
+
+                if( F_expandable && ptr->is_expanded() && not( gchildren.empty() ) )
+                    m_TV_entries->expand_to_path( ptr->m_list_data->treepath );
+
+                fill_treepaths( gchildren, F_expandable && ptr->is_expanded() );
+            }
+        }*/
+
+    friend class Lifeograph;
+};
+
+} // end of namespace LIFEO
+
+#endif

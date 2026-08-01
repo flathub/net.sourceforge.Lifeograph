@@ -1,0 +1,5 @@
+[Runtime]
+name=net.sourceforge.Lifeograph.Debug
+
+[ExtensionOf]
+ref=app/net.sourceforge.Lifeograph/x86_64/master

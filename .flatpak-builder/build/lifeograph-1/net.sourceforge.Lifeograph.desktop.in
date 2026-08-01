@@ -1,0 +1,23 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Lifeograph
+GenericName=Diary
+Comment=Advanced personal note taking application
+Keywords=journal;note;to-do;tag;statistics;
+Type=Application
+Terminal=false
+Exec=lifeograph %F
+Icon=net.sourceforge.Lifeograph
+Categories=Utility
+MimeType=application/x-lifeographdiary
+StartupNotify=true
+Actions=new-window;new-window-read-only;
+
+[Desktop Action new-window]
+Name=Open a New Window
+Exec=lifeograph %F
+
+[Desktop Action new-window-read-only]
+Name=Open a New Read-Only Window
+Exec=lifeograph --read-only %F

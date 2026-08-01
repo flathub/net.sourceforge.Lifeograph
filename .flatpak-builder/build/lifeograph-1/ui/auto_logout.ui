@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+Copyright (C) 2007-2024
+
+This file is part of Lifeograph.
+
+Lifeograph is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Lifeograph is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Lifeograph.  If not, see <http://www.gnu.org/licenses/>.
+
+Author: Ahmet Öztürk
+
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+
+  <object class="GtkWindow" id="W_auto_logout">
+    <property name="margin-start">15</property>
+    <property name="resizable">0</property>
+    <property name="destroy-with-parent">1</property>
+    <!--property name="skip-taskbar-hint">True</property-->
+    <!--property name="skip-pager-hint">True</property-->
+    <property name="decorated">0</property>
+    <property name="child">
+      <object class="GtkBox">
+        <property name="spacing">10</property>
+        <child>
+          <object class="GtkImage">
+            <property name="icon-name">net.sourceforge.Lifeograph</property>
+            <property name="icon_size">normal</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel" id="L_auto_logout">
+            <property name="label">placeholder</property>
+            <attributes>
+              <attribute name="weight" value="bold"></attribute>
+              <attribute name="scale" value="2"></attribute>
+              <attribute name="foreground" value="#efef29292929"></attribute>
+            </attributes>
+          </object>
+        </child>
+      </object>
+    </property>
+  </object>
+</interface>

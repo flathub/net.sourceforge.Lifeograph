@@ -1,0 +1,3682 @@
+# Basque translation for lifeograph
+# Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
+# This file is distributed under the same license as the lifeograph package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lifeograph\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-03 21:59+0300\n"
+"PO-Revision-Date: 2017-01-03 19:17+0000\n"
+"Last-Translator: gorkaazk <gorkaazkarate@gmail.com>\n"
+"Language-Team: Basque <eu@li.org>\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2017-02-12 11:44+0000\n"
+"X-Generator: Launchpad (build 18326)\n"
+
+#: net.sourceforge.Lifeograph.desktop.in:5
+#: net.sourceforge.Lifeograph.metainfo.xml.in:7
+msgid "Lifeograph"
+msgstr "Lifeograph"
+
+#: net.sourceforge.Lifeograph.desktop.in:6 src/diaryelements/diarydata.cpp:77
+msgid "Diary"
+msgstr "Agenda"
+
+#: net.sourceforge.Lifeograph.desktop.in:7
+msgid "Keep a private journal of your life"
+msgstr "Gorde ezazu zure bizitzaren eguneroko pribatua"
+
+#: net.sourceforge.Lifeograph.desktop.in:8
+msgid "journal;note;to-do;tag;statistics;"
+msgstr "egunerokoa;oharrak;egin-beharrak;etiketak;estatistikak;"
+
+#: net.sourceforge.Lifeograph.desktop.in:19
+msgid "Open a New Window"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.desktop.in:23
+msgid "Open a New Read-Only Window"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:8
+msgid "Advanced personal note taking application"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:11
+msgid ""
+"Lifeograph is a powerful note-taking application that can be used to keep an "
+"encrypted diary, to plan a journey, to manage todos and long term goals, to "
+"write down ideas in an organized way, to track regular activities and many "
+"more. Lifeograph strives to deliver an abundance of advanced features in a "
+"clean and streamlined user interface."
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:17
+msgid "Main features of Lifeograph:"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:21
+msgid "Completely local workflow: all data is owned solely by the user"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:22
+msgid "Encrypted (with AES256) and unencrypted diaries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:23
+msgid "Powerful and intuitive parametric tagging system"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:24
+msgid "Todo management system"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:25
+msgid ""
+"WYSIWYG rich text formatting (i.e. no separate edit &amp; preview modes)"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:26
+#, fuzzy
+msgid "Image thumbnails, tables, and charts in entries"
+msgstr "Erabili gaiko letra-tipoak sarreretan"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:27
+msgid "Searching and replacing of text"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:28
+msgid "Advanced filtering of entries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:29
+msgid "Integrated map for travel notes and planning"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:30
+msgid ""
+"Live tables that are created on the fly based on the user defined rules "
+"which can also be pasted into spread-sheet programs"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:31
+msgid "Live statistical charts that are created from the values in the tables"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:32
+msgid "Themes in text editor, including background images"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:33
+#, fuzzy
+msgid "Favorite entries"
+msgstr "Etiketatu inportatutako sarrerak"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:34
+#, fuzzy
+msgid "Spell checking"
+msgstr "Ortografia-egiaztapena"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:35
+msgid "Links between entries and to URIs"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:36
+msgid ""
+"Automatically created back-links to entries referring to the current entry"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:37
+msgid "Printing individual entries or whole diaries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:38
+msgid ""
+"Automatically logs out when not used for some time (to protect your diary "
+"when you forget to log out)"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:39
+msgid "Multiple automatic backups to prevent data loss"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:45
+msgid "Editing screen"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:49
+msgid "Integrated map"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:53 ui/lifeograph.ui:573
+#, fuzzy
+msgid "Charts"
+msgstr "Kapitulu berria"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:65
+msgid ""
+"New main icon that reflects the improved functionality as a second brain"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:66
+msgid "UI upgraded to GTK4 replacing the deprecated UI elements with new ones"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:67
+msgid ""
+"All file I/O is moved to Gio for compatibility with network addresses and "
+"virtual drives, etc..."
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:68
+msgid ""
+"Wiki style formatting markup is largely omitted in favor of a WYSIWYG style "
+"formatting system [[inline comments are an exception]]"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:69
+msgid ""
+"Paragraph folding that creates folds automatically based on heading and "
+"indentation levels"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:70
+msgid ""
+"New references button that pops up a list of referencing entries/paragraphs "
+"for the current entry (a.k.a back-links)"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:71
+msgid ""
+"Context-sensitive right-click menu that displays specific options for tags, "
+"images, dates, etc. based on the cursor location"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:72
+msgid "Tables can also be inserted into the entries now"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:73
+msgid "Added buttons for visiting link items to the right-click popover menu"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:74
+msgid "Added horizontal rules which can also be combined with text"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:75
+msgid ""
+"Entries can now be ordered, grouped, and arranged freely, irrespective of "
+"the their types"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:76
+#, fuzzy
+msgid "Added an option to merge selected entries"
+msgstr "Etiketatu inportatutako sarrerak"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:77
+msgid "Added many new filterers"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:78
+msgid "All filters can be negated now"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:79
+msgid "Table columns are resizable now"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:80
+msgid "Many new column types added"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:81
+msgid "Group lines in a hierarchical view by any column"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:82
+msgid "Conditional coloring of cell values"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:83
+msgid "Completion columns show a progress bar in the background"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:84
+msgid ""
+"Option to combine identical consequent cells in a column to get cleaner "
+"tables"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:85
+msgid "Added a new vertical bars style to charts"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:86
+msgid ""
+"A basic inline table was added to allow creation of basic charts without "
+"creating a table first"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:87
+msgid "Added navigation icons to the calendar widget"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:88
+msgid "Added the ability to mark custom days as holidays"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:89
+msgid "Added the ability to change the first day of the week"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:90
+msgid "Searching is multi-threaded now for speed gains and responsiveness"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:91
+msgid "Migrated from libchamplain to libshumate which also works under Windows"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:92
+msgid "Many many more. See the NEWS for a complete list"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:97
+#: net.sourceforge.Lifeograph.metainfo.xml.in:104
+#: net.sourceforge.Lifeograph.metainfo.xml.in:110
+msgid "Bug fixes"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:98
+msgid "Added Danish translation"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:99
+msgid "Updated Simplified Chinese, Dutch, French, and Italian translations"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:105
+msgid "Updated Italian translation"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:115
+msgid "Unified different elements such as chapters and tags into entry"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:116
+msgid "New inline tags that are assigned to the paragraphs as well as entries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:117
+msgid "New integrated map to assign locations and travel paths to entries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:118
+msgid "New custom calendar widget that integrates with the program more nicely"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:119
+msgid "New table view for very basic spreadsheet like functionality"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:120
+msgid "Completion percentages for entries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:121
+msgid "Support for background images in the entry editor"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:122
+msgid "a new toolbar-like right-click popover that replaced the toolbar"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:123
+msgid "Vastly more capable text search and entry list filtering"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:124
+msgid "Printing system improvements"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:125
+msgid "Both functionally and visually improved charts"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:126
+msgid "Many many more"
+msgstr ""
+
+#: x-lifeographdiary.xml.in:4
+#, fuzzy
+msgid "Lifeograph diary"
+msgstr "Lifeograph agenda fitxategia"
+
+#: src/app_window.cpp:637
+#, fuzzy
+msgid "%1 SECONDS TO CLOSE"
+msgstr "%1 SEGUNDO SAIOA IXTEKO"
+
+#: src/app_window.cpp:692
+msgid "Diary couldn't be saved. A rescue copy is saved at the location below:"
+msgstr ""
+
+#: src/app_window.cpp:694 src/printing.cpp:301
+msgid "_Close"
+msgstr ""
+
+#: src/app_window.cpp:702
+#, fuzzy
+msgid "Are you sure you want to close the diary without saving?"
+msgstr "Ziur zaude? Benetan itxi nahi duzu saioa aurretik gorde gabe?"
+
+#: src/app_window.cpp:705
+msgid ""
+"Your changes will be backed up in %1. If you exit normally, your diary is "
+"saved automatically."
+msgstr ""
+"Zuk egindako aldaketak hemen gorde egingo dira: %1. Modu arruntean irteten "
+"bazara, zure agenda modu automatikoan gorde egingo da."
+
+#: src/app_window.cpp:710
+#, fuzzy
+msgid "Close _without Saving"
+msgstr "_Itxi saioa gorde gabe"
+
+#: src/app_window.cpp:779
+msgid "Are you sure, you want to dismiss %1?"
+msgstr "Ziur zaude? Baztertu nahi duzu %1?"
+
+#. must come before add_extra_info
+#: src/app_window.cpp:784
+msgid "This operation cannot be undone!"
+msgstr "Eragiketa honekin ezin izango da atzera jo!"
+
+#: src/app_window.cpp:785
+msgid "_Dismiss"
+msgstr "_Baztertu"
+
+#: src/dialogs/dialog_export.cpp:275
+msgid "Lifeograph Diary File"
+msgstr "Lifeograph agenda fitxategia"
+
+#: src/dialogs/dialog_export.cpp:323
+#, fuzzy
+msgid "Where to Save the Diary File?"
+msgstr "Non gorde agenda?"
+
+#: src/dialogs/dialog_export.cpp:341
+msgid "Plain Text File"
+msgstr "Testu soileko fitxategia"
+
+#. TRANSLATORS: this is the title of file chooser dialog for saving a new diary
+#: src/dialogs/dialog_export.cpp:352
+msgid "Where to Save the Text File?"
+msgstr "Non gorde agenda fitxategia?"
+
+#: src/dialogs/dialog_password.cpp:121
+msgid "Continue"
+msgstr "Jarraitu"
+
+#: src/dialogs/dialog_password.cpp:124
+msgid "Add Password"
+msgstr "Gehitu pasahitza"
+
+#: src/dialogs/dialog_password.cpp:127
+msgid "Change Password"
+msgstr "Aldatu pasahitza"
+
+#: src/dialogs/dialog_password.cpp:141 ui/lifeograph.ui:901
+#, fuzzy
+msgid "Please enter password"
+msgstr "Idatzi pasahitza"
+
+#: src/dialogs/dialog_password.cpp:144
+#, fuzzy
+msgid "Please enter a new password"
+msgstr "Idatzi pasahitz berria"
+
+#: src/dialogs/dialog_password.cpp:147
+#, fuzzy
+msgid "Please enter the current and new passwords"
+msgstr "Idatzi oraingo pasahitza eta pasahitz berria"
+
+#: src/dialogs/dialog_password.cpp:233
+msgid "Wrong password. Please retry..."
+msgstr "Pasahitz okerra. Mesedez, saia zaitez berriro..."
+
+#: src/dialogs/dialog_sync.cpp:82 src/dialogs/dialog_sync.cpp:165
+#: src/strings.hpp:180 src/ui_login.cpp:64 ui/lifeograph.ui:1054 ui/table.ui:42
+msgid "Name"
+msgstr "Izena"
+
+#: src/dialogs/dialog_sync.cpp:83
+msgid "Status"
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:85
+#, fuzzy
+msgid "Action"
+msgstr "Ekintzak"
+
+#: src/dialogs/dialog_sync.cpp:87
+#, fuzzy
+msgid "Local"
+msgstr "Kokalekua"
+
+#: src/dialogs/dialog_sync.cpp:88
+#, fuzzy
+msgid "Remote"
+msgstr "Ezaba ezazu etiketa"
+
+#: src/dialogs/dialog_sync.cpp:191
+msgid "Click to select a diary file..."
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:251
+#, fuzzy
+msgid "Select a diary file for synchronizing"
+msgstr "Hautatu agenda fitxategi bat inportatzeko"
+
+#: src/dialogs/dialog_sync.cpp:280
+msgid "Selected file does not seem to be a valid diary"
+msgstr ""
+"Ematen du hautatutako fitxategia ez dela onartzen den agenda formatu "
+"horietakoa"
+
+#: src/dialogs/dialog_sync.cpp:284 src/dialogs/dialog_sync.cpp:299
+msgid "Selected file cannot be read"
+msgstr "Ezin da hautatutako fitxategia irakurri"
+
+#: src/dialogs/dialog_sync.cpp:326
+#, fuzzy
+msgid "Please select what to import/sync and press Go"
+msgstr "Hautatu data edo kapitulu bat"
+
+#: src/dialogs/dialog_sync.cpp:649 src/strings.hpp:186
+msgid "Options"
+msgstr "Hobespenak"
+
+#: src/dialogs/dialog_sync.cpp:699
+msgid "DIARY"
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:700
+msgid "ENTRIES"
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:701
+msgid "THEMES"
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:702
+msgid "FILTERS"
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:703
+msgid "CHARTS"
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:704
+msgid "TABLES"
+msgstr ""
+
+#. chapter category
+#: src/diaryelements/diary.cpp:1319 src/diaryelements/diary.cpp:1687
+#: src/diaryelements/diary.cpp:1694
+#, fuzzy
+msgid "Chapter Category:"
+msgstr "Kapitulu kategoria"
+
+#: src/diaryelements/diary.cpp:2954
+#, fuzzy
+msgid "New Entry"
+msgstr "Sarrera"
+
+#: src/diaryelements/diarydata.cpp:76 src/strings.hpp:193 ui/table.ui:73
+msgid "Theme"
+msgstr "Gaia"
+
+#: src/diaryelements/diarydata.cpp:76
+msgid "Filter"
+msgstr "Iragazia"
+
+#: src/diaryelements/diarydata.cpp:76
+msgid "Chart"
+msgstr ""
+
+#: src/diaryelements/diarydata.cpp:76 ui/chart.ui:108
+msgid "Table"
+msgstr ""
+
+#: src/diaryelements/diarydata.cpp:77 src/strings.hpp:208 ui/table.ui:366
+msgid "Paragraph"
+msgstr ""
+
+#: src/diaryelements/diarydata.cpp:77 ui/table.ui:361
+#: ui/tv_diary_edit_link.ui:75
+msgid "Entry"
+msgstr "Sarrera"
+
+#: src/diaryelements/entry.cpp:1536
+msgid "Created"
+msgstr "Sortuta"
+
+#: src/diaryelements/entry.cpp:1537
+msgid "Edited"
+msgstr "Editatua"
+
+#: src/diaryelements/entry.cpp:1539 ui/table.ui:63
+#, fuzzy
+msgid "Duration"
+msgstr "Ekintzak"
+
+#: src/helpers.cpp:292
+msgid "day(s)"
+msgstr ""
+
+#: src/helpers.cpp:751
+msgid "FAILED"
+msgstr ""
+
+#: src/helpers.cpp:1794 src/helpers.cpp:1817
+msgid "All Files"
+msgstr "Fitxategi guztiak"
+
+#: src/helpers.cpp:1819
+#, fuzzy
+msgid "Image Files"
+msgstr "Agenda fitxategiak"
+
+#: src/helpers.cpp:1840
+#, fuzzy
+msgid "Diary files"
+msgstr "Agenda fitxategiak"
+
+#: src/helpers.hpp:871
+msgid "_Cancel"
+msgstr "Utzi"
+
+#: src/lifeograph.cpp:56
+#, fuzzy
+msgid "Name Only"
+msgstr "Izena"
+
+#: src/lifeograph.cpp:57
+msgid "Name - Description"
+msgstr ""
+
+#: src/lifeograph.cpp:58
+#, fuzzy
+msgid "Number - Name"
+msgstr "Kapitulu zenbakiduna"
+
+#: src/lifeograph.cpp:59
+#, fuzzy
+msgid "Date - Name"
+msgstr "Etiketaren izena:"
+
+#: src/lifeograph.cpp:60
+#, fuzzy
+msgid "Milestone"
+msgstr "_Leheneratu"
+
+#: src/printing.cpp:301
+msgid "Printing failed"
+msgstr ""
+
+#: src/strings.hpp:143 ui/dlg_sync.ui:292 ui/dlg_sync.ui:319
+msgid "ADD"
+msgstr ""
+
+#: src/strings.hpp:144
+msgid "All Entries"
+msgstr "Sarrera guztiak"
+
+#: src/strings.hpp:145
+msgid "All Paragraphs"
+msgstr ""
+
+#: src/strings.hpp:146 ui/po_entry.ui:124
+msgid "Auto"
+msgstr ""
+
+#: src/strings.hpp:147 ui/chart.ui:215
+msgid "Average"
+msgstr "Batez bestekoa"
+
+#: src/strings.hpp:148
+#, fuzzy
+msgid "Background Image"
+msgstr "Atzeko planoa"
+
+#: src/strings.hpp:149
+msgid "Boolean"
+msgstr ""
+
+#: src/strings.hpp:150 ui/po_entry.ui:159 ui/tv_diary.ui:512
+msgid "Canceled"
+msgstr "Bertan behera utzita"
+
+#: src/strings.hpp:151
+msgid "Category"
+msgstr "Kategoria"
+
+#: src/strings.hpp:152
+msgid "CHANGED"
+msgstr ""
+
+#: src/strings.hpp:153
+msgid "Chart Intervals"
+msgstr ""
+
+#: src/strings.hpp:154
+msgid "Chart Underlay"
+msgstr ""
+
+#: src/strings.hpp:155 ui/po_entry.ui:196
+msgid "Color"
+msgstr "Kolorea"
+
+#: src/strings.hpp:156 ui/po_entry.ui:271
+#, fuzzy
+msgid "Comment Style"
+msgstr "iruzkina"
+
+#: src/strings.hpp:157 ui/lifeograph.ui:143
+#, fuzzy
+msgid "Completion Tag"
+msgstr "Amaituta"
+
+#: src/strings.hpp:158 ui/col_opt_duration.ui:22 ui/col_opt_duration.ui:48
+#: ui/col_opt_date.ui:22
+#, fuzzy
+msgid "Creation Date"
+msgstr "Kapitulu askea"
+
+#: src/strings.hpp:159
+msgid "Cumulative"
+msgstr "Metakorra"
+
+#: src/strings.hpp:160
+#, fuzzy
+msgid "Current Entry"
+msgstr "Oraingo sarrera besterik ez"
+
+#: src/strings.hpp:161
+msgid "Current Entry + Descendants"
+msgstr ""
+
+#: src/strings.hpp:162
+msgid "Date"
+msgstr "Data"
+
+#: src/strings.hpp:163
+#, fuzzy
+msgid "Definition"
+msgstr "Ekintzak"
+
+#: src/strings.hpp:164
+msgid "DELETED"
+msgstr ""
+
+#: src/strings.hpp:165 ui/po_entry.ui:151 ui/tv_diary.ui:500
+msgid "Done"
+msgstr "Egina"
+
+#: src/strings.hpp:166 ui/tv_diary_edit_date.ui:19
+#, fuzzy
+msgid "Edit Date"
+msgstr "Editatu kapituluak"
+
+#: src/strings.hpp:167 ui/po_entry.ui:168
+msgid "Favorite"
+msgstr "Gogokoena"
+
+#: src/strings.hpp:168
+#, fuzzy
+msgid "List Filter"
+msgstr "Iragazia"
+
+#: src/strings.hpp:169
+#, fuzzy
+msgid "Search Filter"
+msgstr "Iragazia"
+
+#: src/strings.hpp:170
+#, fuzzy
+msgid "Format"
+msgstr "Data-formatua"
+
+#: src/strings.hpp:171
+msgid "ID"
+msgstr ""
+
+#: src/strings.hpp:172 ui/dlg_sync.ui:286 ui/dlg_sync.ui:313
+msgid "IGNORE"
+msgstr ""
+
+#: src/strings.hpp:173
+msgid "INTACT"
+msgstr ""
+
+#: src/strings.hpp:174
+msgid "Language"
+msgstr ""
+
+#: src/strings.hpp:175
+#, fuzzy
+msgid "Last Entry"
+msgstr "Sarrera _hau"
+
+#: src/strings.hpp:176
+msgid "Location"
+msgstr "Kokalekua"
+
+#: src/strings.hpp:177
+msgid "Map Path"
+msgstr ""
+
+#: src/strings.hpp:178
+msgid "Monthly"
+msgstr "Hilabetero"
+
+#: src/strings.hpp:179
+msgid "N/A"
+msgstr ""
+
+#: src/strings.hpp:181
+msgid "NEW"
+msgstr ""
+
+#: src/strings.hpp:182
+msgid "New Column"
+msgstr ""
+
+#: src/strings.hpp:183 ui/lifeograph.ui:519
+#, fuzzy
+msgid "New Table"
+msgstr "Iragazia"
+
+#: src/strings.hpp:184
+#, fuzzy
+msgid "No"
+msgstr "Bat ere ez"
+
+#: src/strings.hpp:185 src/widgets/widget_chart.cpp:312
+#: src/widgets/widget_chart.cpp:339 src/widgets/widget_chart.cpp:401
+#: ui/widget_entry_picker.ui:38
+msgid "None"
+msgstr "Bat ere ez"
+
+#: src/strings.hpp:187
+msgid "OTHER"
+msgstr ""
+
+#: src/strings.hpp:188 ui/dlg_sync.ui:298
+msgid "OVERWRITE"
+msgstr ""
+
+#: src/strings.hpp:189
+#, fuzzy
+msgid "Progressed"
+msgstr "Lanean"
+
+#: src/strings.hpp:190
+#, fuzzy
+msgid "Startup Entry"
+msgstr "Abioa"
+
+#: src/strings.hpp:191
+#, fuzzy
+msgid "Title Style"
+msgstr "Izenburua"
+
+#: src/strings.hpp:192
+#, fuzzy
+msgid "Type Name"
+msgstr "Etiketaren izena:"
+
+#: src/strings.hpp:194
+#, fuzzy
+msgid "Theme Base"
+msgstr "Gaia"
+
+#: src/strings.hpp:195
+#, fuzzy
+msgid "Theme Font"
+msgstr "Gaia"
+
+#: src/strings.hpp:196
+#, fuzzy
+msgid "Theme Heading"
+msgstr "Izenburua"
+
+#: src/strings.hpp:197
+#, fuzzy
+msgid "Theme Highlight"
+msgstr "Nabarmenduta:"
+
+#: src/strings.hpp:198
+#, fuzzy
+msgid "Theme Subheading"
+msgstr "Bigarren mailako izenburua"
+
+#: src/strings.hpp:199
+#, fuzzy
+msgid "Theme Text"
+msgstr "Gaia"
+
+#: src/strings.hpp:200
+#, fuzzy
+msgid "Todo"
+msgstr "Gehitu etiketa"
+
+#: src/strings.hpp:201
+#, fuzzy
+msgid "Trashed"
+msgstr "_Zaborrontzia"
+
+#: src/strings.hpp:202 ui/po_entry.ui:214
+#, fuzzy
+msgid "Unit"
+msgstr "Unitategabea"
+
+#: src/strings.hpp:203
+msgid "Value Type"
+msgstr ""
+
+#: src/strings.hpp:204
+msgid "Yearly"
+msgstr "Urtero"
+
+#: src/strings.hpp:205
+msgid "Yes"
+msgstr ""
+
+#: src/strings.hpp:207 ui/col_opt_tag_value.ui:13 ui/col_opt_tag_value.ui:20
+msgid "Tag"
+msgstr "Etiketa"
+
+#: src/strings.hpp:213
+msgid "January"
+msgstr ""
+
+#: src/strings.hpp:214
+msgid "February"
+msgstr ""
+
+#: src/strings.hpp:215
+#, fuzzy
+msgid "March"
+msgstr "Bilatu"
+
+#: src/strings.hpp:216
+msgid "April"
+msgstr ""
+
+#: src/strings.hpp:217
+msgid "May"
+msgstr ""
+
+#: src/strings.hpp:218
+msgid "June"
+msgstr ""
+
+#: src/strings.hpp:219
+msgid "July"
+msgstr ""
+
+#: src/strings.hpp:220
+msgid "August"
+msgstr ""
+
+#: src/strings.hpp:221
+msgid "September"
+msgstr ""
+
+#: src/strings.hpp:222
+msgid "October"
+msgstr ""
+
+#: src/strings.hpp:223
+msgid "November"
+msgstr ""
+
+#: src/strings.hpp:224
+msgid "December"
+msgstr ""
+
+#: src/strings.hpp:229 ui/preferences.ui:250
+msgid "Sunday"
+msgstr ""
+
+#: src/strings.hpp:230 ui/preferences.ui:251
+msgid "Monday"
+msgstr ""
+
+#: src/strings.hpp:231 ui/preferences.ui:252
+msgid "Tuesday"
+msgstr ""
+
+#: src/strings.hpp:232 ui/preferences.ui:253
+msgid "Wednesday"
+msgstr ""
+
+#: src/strings.hpp:233 ui/preferences.ui:254
+msgid "Thursday"
+msgstr ""
+
+#: src/strings.hpp:234 ui/preferences.ui:255
+msgid "Friday"
+msgstr ""
+
+#: src/strings.hpp:235 ui/preferences.ui:256
+msgid "Saturday"
+msgstr ""
+
+#: src/strings.hpp:246 ui/lifeograph-2.ui:154
+msgid "Personal, digital diary"
+msgstr "Eguneroko agenda digitala"
+
+#: src/strings.hpp:249
+msgid "Changes could not be written to diary!"
+msgstr "Ezin izan dira aldaketak agendan idatzi!"
+
+#: src/strings.hpp:252
+msgid "Check if you have write permissions on the file and containing folder"
+msgstr ""
+"Begiratu ea fitxategian eta bere karpetan idazteko baimenak ote dauzkazun"
+
+#: src/strings.hpp:256 ui/print.ui:132 ui/table.ui:97 ui/table.ui:260
+msgid "Off"
+msgstr "Desaktibatuta"
+
+#. TRANSLATORS: title of an empty diary entry
+#: src/strings.hpp:260
+msgid "<empty entry>"
+msgstr "<hutsik dagoen sarrera>"
+
+#: src/strings.hpp:263
+msgid "Please enter password for selected diary..."
+msgstr "Mesedez, sar ezazu aukeratu duzun agendaren pasahitza..."
+
+#: src/strings.hpp:266
+msgid "Program logged out to protect your privacy. Please re-enter password..."
+msgstr ""
+"Saioa amaitutzat eman da zure pribatutasuna babesteko. Mesedez, sar ezazu "
+"berriro pasahitza..."
+
+#: src/strings.hpp:270
+msgid ""
+"Selected diary is in an older format which is not compatible with this "
+"version of Lifeograph. Please select another file..."
+msgstr ""
+"Hautatutako agenda formatu zaharrago bat da eta ez da Lifeograph bertsio "
+"honekin bateragarri. Hautatu beste fitxategi bat."
+
+#: src/strings.hpp:275
+msgid ""
+"Selected diary is in a newer format which is not compatible with this "
+"version of Lifeograph. Please consider upgrading your program."
+msgstr ""
+"Hautatutako agenda formatu berriago bat da eta ez da Lifeograph bertsio "
+"honekin bateragarri. Aplikazioa eguneratzeko garaia izan liteke."
+
+#: src/strings.hpp:280
+msgid ""
+"Selected file is not a valid Lifeograph diary. Please select another file..."
+msgstr ""
+"Hautatutako fitxategia ez da baliagarri zaigun Lifeograph agenda. Mesedez, "
+"hautatu beste fitxategi bat..."
+
+#: src/strings.hpp:285
+msgid "Selected file is not found. Please select another file..."
+msgstr "Hautatutako fitxategia ezin da aurkitu. Hautatu beste bat, mesedez..."
+
+#: src/strings.hpp:289
+msgid ""
+"Selected file is not readable. Please check file permissions or select "
+"another file..."
+msgstr ""
+"Hautatutako fitxategia ezin da irakurri. Hautatu beste fitxategi bat edo "
+"begiratu fitxategiko baimenak..."
+
+#: src/strings.hpp:293
+msgid "You do not have permission to change this file."
+msgstr ""
+
+#: src/strings.hpp:296
+msgid ""
+"Selected file is locked which means either it is being edited by another "
+"instance of Lifeograph or the last session with it did not finish correctly. "
+"This file cannot be opened as long as the lock file (%1) is there."
+msgstr ""
+"Hautatutako fitxategia blokeatuta dago. Honek adierazten du Lifeograph "
+"aplikazioaren beste atal baten bidez editatzen ari dela edo bestela, azken "
+"saioa fitxategi honekin ez zen behar bezala itxi. Fitxategi hau ezin izango "
+"da ireki blokeatutako (%1) fitxategia hortxe dagoen bitartean."
+
+#: src/strings.hpp:303
+msgid ""
+"You are about to open an old diary that will be upgraded to the new format.\n"
+"\n"
+"Lifeograph will create a backup copy of the current diary for you in the "
+"same directory. Please keep that copy until you are sure that everything is "
+"all right."
+msgstr ""
+"Formatu berri batean eguneratuk den agenda zahar bat irekitzera zoaz.\n"
+"\n"
+"Lifeograph honek, direktorio berean, oraingo agendaren babes-kopia bat "
+"gordeko du. Gorde babes-kopia hori dena onik atera dela ziurtatu arte."
+
+#: src/strings.hpp:309
+msgid "Failed to open diary. Please select another file..."
+msgstr "Kale egin du agenda zabaltzerakoan. Hautatu beste fitxategi bat..."
+
+#: src/strings.hpp:313
+msgid "Press Open to continue"
+msgstr "Sakatu ireki aurrera egiteko"
+
+#: src/strings.hpp:316
+msgid "Last Read"
+msgstr "Irakurritako azkena"
+
+#: src/strings.hpp:319
+msgid "Last Saved"
+msgstr "Gordetako azkena"
+
+#: src/strings.hpp:322
+msgid "(Drop a tag here to filter)"
+msgstr "(Arrastaka ekarri etiketa bat hona iragazteko)"
+
+#: src/strings.hpp:325 ui/lifeograph.ui:90
+msgid "Change Password..."
+msgstr "Aldatu pasahitza..."
+
+#. TRANSLATORS: e.g. Tag with 5 entries
+#: src/strings.hpp:329
+msgid "%1 with %2 entrie(s)"
+msgstr "%1 horrekin %2 sarrera(k)"
+
+#: src/strings.hpp:332
+msgid "Tag with %1 entrie(s). Average value = %2"
+msgstr ""
+
+#: src/strings.hpp:335
+msgid "Tag with %1 entrie(s). Total value = %2"
+msgstr ""
+
+#: src/strings.hpp:338
+#, fuzzy
+msgid "New theme"
+msgstr "Ezarri gaia"
+
+#: src/strings.hpp:341
+msgid "New chapter"
+msgstr "Kapitulu berria"
+
+#: src/strings.hpp:344
+msgid "New category"
+msgstr "Kategoria berria"
+
+#: src/strings.hpp:347
+msgid "Default"
+msgstr "Lehenetsia"
+
+#: src/strings.hpp:350
+#, fuzzy
+msgid "<Default>"
+msgstr "Lehenetsia"
+
+#: src/strings.hpp:353
+#, fuzzy
+msgid "Diary Report"
+msgstr "Lehenetsitako agenda"
+
+#: src/ui_diary.cpp:484
+msgid "Are You Sure You Want to Upgrade The Diary?"
+msgstr "Agenda eguneratu nahi duzu? Ziur zaude?"
+
+#: src/ui_diary.cpp:486
+msgid "Upgrade The Diary"
+msgstr "Eguneratu agenda"
+
+#. this should never occur?
+#: src/ui_diary.cpp:502
+msgid "Cannot edit a read-only diary"
+msgstr ""
+
+#: src/ui_diary.cpp:730
+#, fuzzy
+msgid "Are You Sure You Want to Empty The Trash?"
+msgstr "Agenda eguneratu nahi duzu? Ziur zaude?"
+
+#: src/ui_diary.cpp:731
+msgid "Empty The Trash"
+msgstr ""
+
+#: src/ui_entry.cpp:330
+#, fuzzy
+msgid "word(s)"
+msgstr "Pasahitza"
+
+#: src/ui_entry.cpp:540
+#, fuzzy
+msgid "Also dismiss child entries"
+msgstr "Baztertu barruko sarrerak ere bai"
+
+#: src/ui_extra.cpp:134 src/ui_extra.cpp:136 ui/lifeograph.ui:584
+#, fuzzy
+msgid "New Chart"
+msgstr "Kapitulu berria"
+
+#: src/ui_extra.cpp:589
+msgid "<b>%1</b> instances found"
+msgstr ""
+
+#: src/ui_extra.cpp:592
+msgid "Search text within entries"
+msgstr "Bilatu testua sarreren barruan"
+
+#: src/ui_login.cpp:242
+msgid "Error querying file"
+msgstr ""
+
+#: src/ui_login.cpp:484
+msgid "Removed diary: %1"
+msgstr "Ezabatutako agenda: %1"
+
+#: src/ui_login.cpp:486
+msgid "Undo"
+msgstr "Desegin"
+
+#: src/ui_login.cpp:502
+#, fuzzy
+msgid "Where to Save the New Diary?"
+msgstr "Non gorde agenda?"
+
+#: src/ui_login.cpp:523
+#, fuzzy
+msgid "Select the Diary File to Add"
+msgstr "Hautatu agenda bat"
+
+#: src/ui_login.cpp:531
+msgid "Unsaved changes from the last session detected"
+msgstr ""
+
+#: src/ui_login.cpp:532
+msgid "_Discard Unsaved Changes"
+msgstr ""
+
+#: src/ui_login.cpp:535
+msgid "Continue with _Unsaved Changes"
+msgstr ""
+
+#: src/widgets/calendar.cpp:105
+msgid "DATE IS NOT SET"
+msgstr ""
+
+#: src/widgets/chart.cpp:574
+msgid "INSUFFICIENT DATA"
+msgstr "DATU NAHIKORIK EZ"
+
+#: src/widgets/table.cpp:490
+msgid "ADD COLUMNS"
+msgstr ""
+
+#: src/widgets/widget_chart.cpp:315
+#, fuzzy
+msgid "Previous Year"
+msgstr "Aurrekoa"
+
+#: src/widgets/widget_chart.cpp:398
+#, fuzzy
+msgid "Count"
+msgstr "Sarrera"
+
+#: src/widgets/widget_entrypicker.cpp:120
+#, fuzzy
+msgid "Create New Entry: %1"
+msgstr "Sortu sarrera berri bat hementxe: %1"
+
+#: src/widgets/widget_filter.cpp:62
+msgid "Whose status is one of"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:219
+#, fuzzy
+msgid "Is favorite"
+msgstr "Gogokoena"
+
+#: src/widgets/widget_filter.cpp:229
+#, fuzzy
+msgid "Is trashed"
+msgstr "_Zaborrontzia"
+
+#: src/widgets/widget_filter.cpp:238
+#, fuzzy
+msgid "Has the unit"
+msgstr "Ezarri gaia"
+
+#: src/widgets/widget_filter.cpp:257
+#, fuzzy
+msgid "Is entry"
+msgstr "Sarrera _hau"
+
+#: src/widgets/widget_filter.cpp:278
+msgid "Is descendant of"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:280
+msgid "Or itself"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:306
+#, fuzzy
+msgid "Has the tag"
+msgstr "Ezarri gaia"
+
+#: src/widgets/widget_filter.cpp:407
+msgid "Planned"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:408
+msgid "Realized"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:409
+msgid "Remaining"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:475
+#, fuzzy
+msgid "Has the theme"
+msgstr "Ezarri gaia"
+
+#: src/widgets/widget_filter.cpp:541 src/widgets/widget_filter.cpp:593
+msgid "Between"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:627
+#, fuzzy
+msgid "Completion is in range"
+msgstr "Amaituta"
+
+#: src/widgets/widget_filter.cpp:696
+#, fuzzy
+msgid "Satisfies filter"
+msgstr "Iragazki aktibo"
+
+#: src/widgets/widget_filter.cpp:704
+msgid "Is image"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:711
+msgid "Has map coordinates"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:721
+msgid "Title style is"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:757
+#, fuzzy
+msgid "Heading level is"
+msgstr "Izenburua"
+
+#: src/widgets/widget_filter.cpp:908
+msgid "OR"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:910
+msgid "AND"
+msgstr ""
+
+#: src/widgets/widget_map.cpp:251
+#, fuzzy
+msgid "New Location"
+msgstr "Kokalekua"
+
+#: src/widgets/widget_table.cpp:973 ui/table.ui:61
+#, fuzzy
+msgid "Text"
+msgstr "Testua:"
+
+#. the same id and SRC_value as title
+#: src/widgets/widget_table.cpp:974 ui/tv_diary_edit_link.ui:52
+msgid "Uri"
+msgstr ""
+
+#: src/widgets/widget_table.cpp:978
+msgid "Title"
+msgstr "Izenburua"
+
+#: src/widgets/widget_table.cpp:979
+msgid "Ancestors + Title"
+msgstr ""
+
+#: src/widgets/widget_table.cpp:980
+#, fuzzy
+msgid "Description"
+msgstr "Ekintzak"
+
+#: src/widgets/widget_table.cpp:1021
+msgid "Constant"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1583
+msgid "Image Not Found"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1713
+msgid "Click to expand the paragraph"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1716
+#, fuzzy
+msgid "Click to collapse the paragraph"
+msgstr "Egin klik zabaltzeko karpeta"
+
+#: src/widgets/widget_textview.cpp:1723
+#, fuzzy
+msgid "Click to edit entry properties"
+msgstr "Egin klik sortzeko sarrera edo kapitulu berri bat"
+
+#: src/widgets/widget_textview.cpp:1726
+msgid "Click to see list of entries tagged by this entry"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1736
+msgid "Entry text evaluated as link address"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1752
+msgid "Right click to edit paragraph"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1762
+msgid "Press Ctrl to follow the link"
+msgstr "Sakatu Ctrl estekari jarraitzeko"
+
+#: src/widgets/widget_textview.cpp:1763
+msgid "Press Ctrl to select"
+msgstr "Sakatu Ctrl hautatzeko"
+
+#: src/widgets/widget_textviewedit.cpp:950
+#, fuzzy
+msgid "Open"
+msgstr "Irekita"
+
+#: src/widgets/widget_textviewedit.cpp:1044
+msgid "image"
+msgstr ""
+
+#: src/widgets/widget_textviewedit.cpp:1262
+msgid "Add \"%1\" to Dictionary"
+msgstr "Gehitu \"%1\" hiztegira"
+
+#: src/widgets/widget_textviewedit.cpp:1263
+msgid "Ignore All"
+msgstr "Ez ikusiarena egin guztiei"
+
+#: src/widgets/widget_textviewedit.cpp:1268
+#, fuzzy
+msgid "no suggestions"
+msgstr "<i> (ez dago iradokizunik) </i>"
+
+#: src/widgets/widget_textviewsearch.cpp:94
+#, fuzzy
+msgid "Please enter a search phrase"
+msgstr "Idatzi pasahitz berria"
+
+#: src/widgets/widget_textviewsearch.cpp:97
+#, fuzzy
+msgid "No matches"
+msgstr "Ez da bat datorrenik aurkitu"
+
+#: src/widgets/widget_textviewsearch.cpp:331
+msgid "Click to jump to"
+msgstr ""
+
+#: src/widgets/widget_textviewsearch.cpp:336
+msgid "Right click to replace"
+msgstr ""
+
+#: src/widgets/widget_textviewtheme.cpp:267
+#, fuzzy
+msgid "Select Image"
+msgstr "Hautatu agenda bat"
+
+#: src/widgets/widget_textviewtheme.cpp:379
+msgid "Click to edit the theme"
+msgstr ""
+
+#: ui/calendar.ui:30
+#, fuzzy
+msgid "Copy Date"
+msgstr "Dataren arabera taldekatu"
+
+#: ui/calendar.ui:38
+msgid "Weekend Day"
+msgstr ""
+
+#: ui/calendar.ui:43
+msgid "Holiday"
+msgstr ""
+
+#: ui/calendar.ui:50
+msgid "Show Week Numbers"
+msgstr ""
+
+#: ui/calendar.ui:66
+#, fuzzy
+msgid "Create entry"
+msgstr "Create New..."
+
+#: ui/calendar.ui:78
+#, fuzzy
+msgid "Create milestone"
+msgstr "Create New..."
+
+#: ui/chart.ui:45
+#, fuzzy
+msgid "Style"
+msgstr "Izenburua"
+
+#: ui/chart.ui:62
+msgid "Line"
+msgstr ""
+
+#: ui/chart.ui:67
+msgid "Bars"
+msgstr ""
+
+#: ui/chart.ui:91
+msgid "Data Source"
+msgstr ""
+
+#: ui/chart.ui:125
+msgid "x-Axis Column"
+msgstr ""
+
+#: ui/chart.ui:142
+msgid "y-Axis Column"
+msgstr ""
+
+#: ui/chart.ui:165
+#, fuzzy
+msgid "Organization"
+msgstr "Hobespenak"
+
+#: ui/chart.ui:182
+#, fuzzy
+msgid "Group by"
+msgstr "Etiketaren arabera taldekatu"
+
+#: ui/chart.ui:190
+#, fuzzy
+msgid "Day"
+msgstr "Agenda"
+
+#: ui/chart.ui:191
+msgid "Week"
+msgstr ""
+
+#: ui/chart.ui:192
+#, fuzzy
+msgid "Month"
+msgstr "Hilabetero"
+
+#: ui/chart.ui:193
+#, fuzzy
+msgid "Year"
+msgstr "Urtero"
+
+#: ui/chart.ui:205
+msgid "Combine"
+msgstr ""
+
+#: ui/chart.ui:213
+#, fuzzy
+msgid "Cumulative: Periodic"
+msgstr "Metakorra"
+
+#: ui/chart.ui:214
+#, fuzzy
+msgid "Cumulative: Continuous"
+msgstr "Metakorra"
+
+#: ui/chart.ui:230
+#, fuzzy
+msgid "Advanced Options"
+msgstr "Testu aukerak"
+
+#: ui/chart.ui:270
+msgid "Underlay"
+msgstr ""
+
+#: ui/chart.ui:293
+msgid "Filter Table Rows"
+msgstr ""
+
+#: ui/chart.ui:310
+msgid "Column"
+msgstr ""
+
+#: ui/chart.ui:327
+msgid "Value = "
+msgstr ""
+
+#: ui/col_opt_arithmetic.ui:108
+#, fuzzy
+msgid "Operand A"
+msgstr "Hobespenak"
+
+#: ui/col_opt_arithmetic.ui:120 ui/col_opt_arithmetic.ui:157
+msgid "Function to modify the column value"
+msgstr ""
+
+#: ui/col_opt_arithmetic.ui:145
+#, fuzzy
+msgid "Operand B"
+msgstr "Hobespenak"
+
+#: ui/col_opt_arithmetic.ui:181
+#, fuzzy
+msgid "Format as"
+msgstr "Data-formatua"
+
+#: ui/col_opt_duration.ui:13
+#, fuzzy
+msgid "Begin Date"
+msgstr "Hasiera data"
+
+#: ui/col_opt_duration.ui:21 ui/col_opt_duration.ui:47 ui/col_opt_date.ui:21
+#, fuzzy
+msgid "Start Date"
+msgstr "Hasita"
+
+#: ui/col_opt_duration.ui:23 ui/col_opt_duration.ui:49 ui/col_opt_date.ui:23
+#, fuzzy
+msgid "Last Change Date"
+msgstr "Sailkatu aldatzeko azken denboraren arabera"
+
+#: ui/col_opt_duration.ui:24 ui/col_opt_duration.ui:50 ui/col_opt_date.ui:24
+#, fuzzy
+msgid "Finish Date"
+msgstr "Editatu kapituluak"
+
+#: ui/col_opt_duration.ui:25 ui/col_opt_duration.ui:51
+#, fuzzy
+msgid "Now"
+msgstr "Bat ere ez"
+
+#: ui/col_opt_duration.ui:26 ui/col_opt_duration.ui:52
+msgid "1st Column on Left"
+msgstr ""
+
+#: ui/col_opt_duration.ui:27 ui/col_opt_duration.ui:53
+msgid "2nd Column on Left"
+msgstr ""
+
+#: ui/col_opt_duration.ui:39
+#, fuzzy
+msgid "End Date"
+msgstr "Amaiera data"
+
+#: ui/col_opt_duration.ui:65 ui/col_opt_size.ui:13 ui/col_opt_date.ui:13
+#: ui/dlg_export.ui:76 ui/po_entry.ui:180
+msgid "Type"
+msgstr "Mota"
+
+#: ui/col_opt_duration.ui:73
+msgid "Calendar Days"
+msgstr ""
+
+#: ui/col_opt_duration.ui:74
+msgid "Work Days"
+msgstr ""
+
+#: ui/col_opt_size.ui:21
+#, fuzzy
+msgid "Char Count"
+msgstr "Sarrera"
+
+#. <item translatable="yes">Word Count</item> TODO: v3.1 or later
+#: ui/col_opt_size.ui:23
+msgid "Paragraph Count"
+msgstr ""
+
+#: ui/col_opt_bool.ui:14
+#, fuzzy
+msgid "Condition"
+msgstr "Ekintzak"
+
+#: ui/col_opt_bool.ui:20
+msgid "True if satisfies the selected filter"
+msgstr ""
+
+#: ui/col_opt_date.ui:35
+msgid "Customize Format"
+msgstr ""
+
+#: ui/col_opt_date.ui:41
+msgid ""
+"Y: year\n"
+"M: month number\n"
+"n: month name\n"
+"D: day\n"
+"d: week day\n"
+"W: week no\n"
+"h: hour\n"
+"m: minute\n"
+"s: second\n"
+"F: date\n"
+"T: time"
+msgstr ""
+
+#: ui/col_opt_subtag.ui:13
+msgid "Sub tag of"
+msgstr ""
+
+#: ui/col_opt_subtag.ui:21
+#, fuzzy
+msgid "Parent tag"
+msgstr "Oraingo sarrera besterik ez"
+
+#: ui/col_opt_subtag.ui:32
+#, fuzzy
+msgid "Select"
+msgstr "Hautatu agenda bat"
+
+#: ui/col_opt_subtag.ui:40
+msgid "First Occuring"
+msgstr ""
+
+#: ui/col_opt_subtag.ui:41
+msgid "Last Occuring"
+msgstr ""
+
+#: ui/col_opt_subtag.ui:42
+msgid "Least in Order"
+msgstr ""
+
+#: ui/col_opt_subtag.ui:43
+msgid "Greatest in Order"
+msgstr ""
+
+#: ui/col_opt_subtag.ui:44 ui/lifeograph.ui:480
+msgid "All"
+msgstr "Dena"
+
+#: ui/col_opt_tag_value.ui:33
+#, fuzzy
+msgid "Calculate"
+msgstr "Metakorra"
+
+#: ui/col_opt_tag_value.ui:41
+msgid "Total Planned"
+msgstr ""
+
+#: ui/col_opt_tag_value.ui:42
+msgid "Total Realized"
+msgstr ""
+
+#: ui/col_opt_tag_value.ui:43
+msgid "Total Remaining"
+msgstr ""
+
+#: ui/col_opt_tag_value.ui:44
+#, fuzzy
+msgid "Average Planned"
+msgstr "Batez bestekoa"
+
+#: ui/col_opt_tag_value.ui:45
+#, fuzzy
+msgid "Average Realized"
+msgstr "Batez bestekoa"
+
+#: ui/col_opt_tag_value.ui:46
+msgid "Average Remaining"
+msgstr ""
+
+#: ui/col_opt_tag_value.ui:47
+#, fuzzy
+msgid "Completion Percentage"
+msgstr "Amaituta"
+
+#: ui/col_opt_text.ui:13
+msgid "Field"
+msgstr ""
+
+#: ui/col_opt_text.ui:30
+msgid "Include"
+msgstr ""
+
+#: ui/col_opt_text.ui:42
+#, fuzzy
+msgid "Number or Date"
+msgstr "Kapitulu zenbakiduna"
+
+#: ui/col_opt_text.ui:48
+#, fuzzy
+msgid "Plain text"
+msgstr "Testu soileko fitxategia"
+
+#: ui/col_opt_text.ui:54
+#, fuzzy
+msgid "Tags within the text"
+msgstr "Ezarri gaia"
+
+#: ui/col_opt_text.ui:60
+msgid "Dates within the text"
+msgstr ""
+
+#: ui/col_opt_text.ui:66
+msgid "Comments within the text"
+msgstr ""
+
+#: ui/col_opt_text.ui:72
+#, fuzzy
+msgid "Indentations"
+msgstr "Hobespenak"
+
+#: ui/dlg_export.ui:42
+msgid "Export"
+msgstr "Esportatu"
+
+#: ui/dlg_export.ui:66
+msgid "Content"
+msgstr "Edukia"
+
+#: ui/dlg_export_opts_log.ui:33 ui/lifeograph-2.ui:47
+#, fuzzy
+msgid "Password"
+msgstr "Pasahitza:"
+
+#: ui/dlg_export_opts_log.ui:43 ui/lifeograph.ui:947 ui/lifeograph-2.ui:59
+msgid "Confirm"
+msgstr "Berretsi"
+
+#: ui/dlg_filter.ui:41 ui/dlg_smartadd.ui:51 ui/dlg_sync.ui:43
+msgid "Cancel"
+msgstr "Bertan behera utzi"
+
+#: ui/dlg_filter.ui:57
+msgid "Apply & Close"
+msgstr ""
+
+#: ui/dlg_gettext.ui:34
+#, fuzzy
+msgid "Please enter a name"
+msgstr "Idatzi pasahitz berria"
+
+#: ui/dlg_smartadd.ui:38
+msgid "Smart Add"
+msgstr ""
+
+#: ui/dlg_smartadd.ui:56
+msgid "Clear"
+msgstr ""
+
+#: ui/dlg_sync.ui:49
+msgid "Go"
+msgstr ""
+
+#: ui/dlg_sync.ui:60
+#, fuzzy
+msgid "Scheme"
+msgstr "Gaia"
+
+#: ui/dlg_sync.ui:70
+#, fuzzy
+msgid "Filters"
+msgstr "Iragazia"
+
+#: ui/dlg_sync.ui:120
+msgid "Apply to Similar"
+msgstr ""
+
+#: ui/dlg_sync.ui:125
+msgid "Apply action changes to all similar elements"
+msgstr ""
+
+#: ui/dlg_sync.ui:139
+msgid "I"
+msgstr ""
+
+#: ui/dlg_sync.ui:140
+#, fuzzy
+msgid "Ignore"
+msgstr "Ez ikusiarena egin guztiei"
+
+#: ui/dlg_sync.ui:146
+msgid "A"
+msgstr ""
+
+#: ui/dlg_sync.ui:147
+#, fuzzy
+msgid "Add remote"
+msgstr "Gehitu_Multzoa"
+
+#: ui/dlg_sync.ui:153
+msgid "O"
+msgstr ""
+
+#: ui/dlg_sync.ui:154
+#, fuzzy
+msgid "Overwrite local"
+msgstr "Gainean idatzi"
+
+#: ui/dlg_sync.ui:167
+#, fuzzy
+msgid "Tag Imported Entries"
+msgstr "Etiketatu inportatutako sarrerak"
+
+#: ui/dlg_sync.ui:218
+#, fuzzy
+msgid "Show New"
+msgstr "Aldatu balioa"
+
+#: ui/dlg_sync.ui:222
+#, fuzzy
+msgid "Show Changed"
+msgstr "Aldatu balioa"
+
+#: ui/dlg_sync.ui:228
+msgid "Show Accepted"
+msgstr ""
+
+#: ui/dlg_sync.ui:232
+#, fuzzy
+msgid "Show Ignored"
+msgstr "Ez ikusiarena egin guztiei"
+
+#: ui/dlg_sync.ui:238
+msgid "Only Show Different Details"
+msgstr ""
+
+#: ui/dlg_sync.ui:258
+#, fuzzy
+msgid "Changed"
+msgstr "Aldatu balioa"
+
+#: ui/dlg_sync.ui:271
+#, fuzzy
+msgid "New"
+msgstr "Bat ere ez"
+
+#: ui/dlg_sync.ui:333
+#, fuzzy
+msgid "Apply Scheme"
+msgstr "Ezarri izen berria"
+
+#: ui/flt_range.ui:9
+msgid "Include or exclude the lower bound"
+msgstr ""
+
+#: ui/flt_range.ui:22
+msgid "Lower bound"
+msgstr ""
+
+#: ui/flt_range.ui:37
+msgid "Upper bound"
+msgstr ""
+
+#: ui/flt_range.ui:43
+msgid "Include or exclude the upper bound"
+msgstr ""
+
+#: ui/flt_subtag.ui:10
+msgid "First"
+msgstr ""
+
+#: ui/flt_subtag.ui:11
+#, fuzzy
+msgid "Last"
+msgstr "Irakurritako azkena"
+
+#: ui/flt_subtag.ui:12
+#, fuzzy
+msgid "Highest"
+msgstr "Nabarmenduta:"
+
+#: ui/flt_subtag.ui:13
+msgid "Lowest"
+msgstr ""
+
+#: ui/flt_subtag.ui:19
+msgid "Subtag of"
+msgstr ""
+
+#: ui/flt_subtag.ui:24 ui/flt_subtag.ui:40
+msgid "Only include paragraphs with this tag"
+msgstr ""
+
+#: ui/flt_subtag.ui:29
+#, fuzzy
+msgid "Parent Tag"
+msgstr "Sor ezazu etiketa"
+
+#: ui/flt_subtag.ui:45
+msgid "Child Tag"
+msgstr ""
+
+#: ui/flt_text.ui:9
+#, fuzzy
+msgid "Contains text"
+msgstr "Jarraitu"
+
+#: ui/flt_text.ui:21 ui/lifeograph.ui:444
+msgid "Match case"
+msgstr ""
+
+#: ui/flt_text.ui:33
+msgid "Anywhere"
+msgstr ""
+
+#: ui/flt_text.ui:34
+#, fuzzy
+msgid "In the name"
+msgstr "Ezarri gaia"
+
+#: ui/lifeograph.ui:34
+msgid "Help"
+msgstr ""
+
+#: ui/lifeograph.ui:40 ui/preferences.ui:28
+msgid "Preferences"
+msgstr "Hobespenak"
+
+#: ui/lifeograph.ui:44
+msgid "About"
+msgstr "Honi buruz"
+
+#: ui/lifeograph.ui:48
+msgid "Quit"
+msgstr "Irten"
+
+#: ui/lifeograph.ui:63
+#, fuzzy
+msgid "Open the Folder Containing the Diary"
+msgstr "Egin klik zabaltzeko karpeta"
+
+#: ui/lifeograph.ui:68
+#, fuzzy
+msgid "Export/Save As..."
+msgstr "_Esportatu..."
+
+#: ui/lifeograph.ui:73
+msgid "Synchronize/Merge..."
+msgstr ""
+
+#: ui/lifeograph.ui:80
+msgid "Empty the Trash..."
+msgstr ""
+
+#: ui/lifeograph.ui:85
+msgid "Encrypt..."
+msgstr "Zifratu..."
+
+#: ui/lifeograph.ui:95
+msgid "Update All Date Separators in the Diary"
+msgstr ""
+
+#: ui/lifeograph.ui:126
+msgid "Diary default value for spell checking"
+msgstr ""
+
+#: ui/lifeograph.ui:127
+msgid "Spell Checking"
+msgstr "Ortografia-egiaztapena"
+
+#: ui/lifeograph.ui:160
+msgid "Startup Action"
+msgstr "Abio ekintza"
+
+#: ui/lifeograph.ui:167
+msgid "Show Most Current Entry"
+msgstr "Erakutsi sarrerarik ohikoena"
+
+#: ui/lifeograph.ui:168
+#, fuzzy
+msgid "Remember Last Entry"
+msgstr "Gogoratu azken elementua"
+
+#: ui/lifeograph.ui:169
+#, fuzzy
+msgid "Always Show a Fixed Entry"
+msgstr "Erakutsi beti doitutako elementua"
+
+#: ui/lifeograph.ui:181
+msgid "Item to Show"
+msgstr "Erakusteko elementua"
+
+#: ui/lifeograph.ui:198
+#, fuzzy
+msgid "Close without Saving..."
+msgstr "Irten gorde gabe..."
+
+#: ui/lifeograph.ui:202
+#, fuzzy
+msgid "Disable Auto Close for This Session"
+msgstr "Desgaitu saio honetatik irteteko aukera automatikoa"
+
+#: ui/lifeograph.ui:216
+msgid "Standard Diary Report"
+msgstr ""
+
+#: ui/lifeograph.ui:288
+msgid "Diaries"
+msgstr "Agendak"
+
+#: ui/lifeograph.ui:409
+msgid "Calendar"
+msgstr ""
+
+#: ui/lifeograph.ui:422 ui/lifeograph.ui:439
+msgid "Search"
+msgstr "Bilatu"
+
+#: ui/lifeograph.ui:469
+msgid "Enter text to replace matches with"
+msgstr "Sar ezazu testua bat egiten dutenak ordezteko"
+
+#: ui/lifeograph.ui:475 ui/tv_diary.ui:352
+msgid "Replace"
+msgstr "Ordeztu"
+
+#: ui/lifeograph.ui:482
+msgid "Replace all"
+msgstr "Ordeztu guztiak"
+
+#: ui/lifeograph.ui:505
+#, fuzzy
+msgid "Tables"
+msgstr "Iragazia"
+
+#: ui/lifeograph.ui:539 ui/lifeograph.ui:611
+msgid "Properties"
+msgstr ""
+
+#: ui/lifeograph.ui:601
+msgid "Zoom level"
+msgstr "Zoomaren maila"
+
+#: ui/lifeograph.ui:635
+#, fuzzy
+msgid "Themes"
+msgstr "Gaia"
+
+#: ui/lifeograph.ui:691
+msgid "Map"
+msgstr ""
+
+#: ui/lifeograph.ui:772
+msgid "Label"
+msgstr ""
+
+#: ui/lifeograph.ui:782
+msgid "Add an existing diary file"
+msgstr ""
+
+#: ui/lifeograph.ui:789
+#, fuzzy
+msgid "Create New"
+msgstr "Create New..."
+
+#: ui/lifeograph.ui:799 ui/lifeograph.ui:807
+msgid "Go back in the browsing history"
+msgstr "Zoaz atzera nabigatzailearen historian zehar"
+
+#: ui/lifeograph.ui:818 ui/po_entry.ui:7
+#, fuzzy
+msgid "Add"
+msgstr "Gehitu etiketa"
+
+#: ui/lifeograph.ui:819
+#, fuzzy
+msgid "Quick add a new entry"
+msgstr "Egin klik birritan egun batean sarrera berria sartzeko"
+
+#: ui/lifeograph.ui:848 ui/po_theme.ui:35
+msgid "Edit"
+msgstr "Editatu"
+
+#: ui/lifeograph.ui:857
+msgid "Close"
+msgstr ""
+
+#: ui/lifeograph.ui:859
+#, fuzzy
+msgid "Save close the diary"
+msgstr "Gorde ezazu agendaren kopia bat"
+
+#: ui/lifeograph.ui:957
+msgid "New Password"
+msgstr "Pasahitz berria"
+
+#: ui/lifeograph.ui:976
+msgid "Authenticate"
+msgstr "Benetakotu"
+
+#: ui/lifeograph.ui:1037
+#, fuzzy
+msgid "Sort by"
+msgstr "Ordenatu tamainaren arabera"
+
+#: ui/lifeograph.ui:1061
+#, fuzzy
+msgid "Save"
+msgstr "_Gorde"
+
+#: ui/lifeograph.ui:1068
+msgid "Read"
+msgstr "Irakurri"
+
+#: ui/lifeograph-2.ui:28
+#, fuzzy
+msgid "Where to Save The Diary?"
+msgstr "Non gorde agenda?"
+
+#: ui/lifeograph-2.ui:91
+msgid "Encrypt Diary Content"
+msgstr "Zifratutako agendaren edukia"
+
+#: ui/lifeograph-2.ui:111
+msgid ""
+"Knowledge is a single point which the ignorant have multiplied.\n"
+"~Attributed to Ali Ibn Abi Talib"
+msgstr ""
+
+#: ui/lifeograph-2.ui:124
+msgid "Welcome to Lifeograph, a parametric note taking application!"
+msgstr ""
+
+#: ui/lifeograph-2.ui:137
+#, fuzzy
+msgid ""
+"If this is your first time with the program, click here to start right away"
+msgstr ""
+"Ongi etorri Lifeograph aplikazio honetara, erraz erabiltzeko eguneroko "
+"agenda digitala.\n"
+"Hau baldin bada aplikazio honekin zure lehen aldia, erabil dezakezu hurrengo "
+"botoia hasteko:"
+
+#: ui/lifeograph-2.ui:153
+#, fuzzy
+msgid "Copyright (C) 2007-2024 Ahmet Öztürk"
+msgstr "Copyright (C) 2007-2010 Ahmet Öztürk"
+
+#: ui/lifeograph-2.ui:156
+msgid "Web Site"
+msgstr "Webgunea"
+
+#: ui/map.ui:29
+msgid "Copy to Clipboard"
+msgstr ""
+
+#: ui/map.ui:35
+msgid "Path"
+msgstr ""
+
+#: ui/map.ui:37
+#, fuzzy
+msgid "Add Point"
+msgstr "Gehitu_Multzoa"
+
+#: ui/map.ui:42
+msgid "Insert Point before Selected"
+msgstr ""
+
+#: ui/map.ui:47
+#, fuzzy
+msgid "Move Selected Point Here"
+msgstr "Kendu hautatutakoa"
+
+#: ui/map.ui:54
+#, fuzzy
+msgid "Remove Selected Point"
+msgstr "Kendu hautatutakoa"
+
+#: ui/map.ui:59
+msgid "Clear Path"
+msgstr ""
+
+#: ui/map.ui:65
+#, fuzzy
+msgid "Other Entries"
+msgstr "Iragazitako sarrerak besterik ez"
+
+#: ui/map.ui:67
+#, fuzzy
+msgid "Show Locations"
+msgstr "Kokalekua"
+
+#: ui/po_entry.ui:12
+msgid "Parent"
+msgstr ""
+
+#: ui/po_entry.ui:16
+#, fuzzy
+msgid "Sibling"
+msgstr "Ortografia-egiaztapena"
+
+#: ui/po_entry.ui:20
+msgid "Child"
+msgstr ""
+
+#: ui/po_entry.ui:24 ui/po_theme.ui:40
+msgid "Duplicate"
+msgstr ""
+
+#: ui/po_entry.ui:30
+#, fuzzy
+msgid "Merge Selected"
+msgstr "Kendu hautatutakoa"
+
+#: ui/po_entry.ui:35
+#, fuzzy
+msgid "Sort Siblings"
+msgstr "Ordenatu dataren arabera"
+
+#: ui/po_entry.ui:40
+msgid "A-Z"
+msgstr ""
+
+#: ui/po_entry.ui:44
+msgid "Z-A"
+msgstr ""
+
+#: ui/po_entry.ui:48
+msgid "Earliest First"
+msgstr ""
+
+#: ui/po_entry.ui:52
+#, fuzzy
+msgid "Latest First"
+msgstr "Iragazia"
+
+#: ui/po_entry.ui:56
+msgid "Shortest First"
+msgstr ""
+
+#: ui/po_entry.ui:60
+msgid "Longest First"
+msgstr ""
+
+#: ui/po_entry.ui:79
+#, fuzzy
+msgid "Move to Trash"
+msgstr "Ez dago zaborrontzian"
+
+#: ui/po_entry.ui:84
+#, fuzzy
+msgid "Restore"
+msgstr "_Leheneratu"
+
+#: ui/po_entry.ui:89 ui/po_theme.ui:47
+#, fuzzy
+msgid "Dismiss..."
+msgstr "_Baztertu"
+
+#: ui/po_entry.ui:99
+#, fuzzy
+msgid "Print..."
+msgstr "I_nprimatu..."
+
+#: ui/po_entry.ui:132
+msgid "To Do"
+msgstr "Egitekoa"
+
+#: ui/po_entry.ui:143
+msgid "In Progress"
+msgstr "Lanean"
+
+#: ui/po_entry.ui:201
+msgid "Color as a tag and calendar or chart background"
+msgstr ""
+
+#: ui/po_entry.ui:238
+msgid "Unitless"
+msgstr "Unitategabea"
+
+#: ui/po_entry.ui:251
+#, fuzzy
+msgid "Spellchecking"
+msgstr "Ortografia-egiaztapena"
+
+#: ui/po_entry.ui:279
+msgid "Hidden"
+msgstr ""
+
+#: ui/po_entry.ui:280
+#, fuzzy
+msgid "Normal"
+msgstr "Testu normala"
+
+#: ui/po_entry.ui:281 ui/tv_diary.ui:158
+#, fuzzy
+msgid "Highlighted"
+msgstr "Nabarmenduta:"
+
+#: ui/po_theme.ui:52
+#, fuzzy
+msgid "Reset to default"
+msgstr "Berrezarri lehenetsietara"
+
+#: ui/po_theme.ui:59
+msgid "Assign to Open Entry"
+msgstr ""
+
+#: ui/po_theme.ui:64
+#, fuzzy
+msgid "Assign to Selected Entries"
+msgstr "Etiketatu inportatutako sarrerak"
+
+#: ui/preferences.ui:44
+msgid "Privacy"
+msgstr "Pribatutasuna"
+
+#: ui/preferences.ui:65
+#, fuzzy
+msgid "Save Diary and Close When Idle"
+msgstr "Gorde agenda eta amaitu saioa ordenagailua inaktibo dagoenean"
+
+#: ui/preferences.ui:73
+msgid "Disabled"
+msgstr ""
+
+#: ui/preferences.ui:74
+msgid "For 30 Seconds"
+msgstr ""
+
+#: ui/preferences.ui:75
+msgid "For 45 Seconds"
+msgstr ""
+
+#: ui/preferences.ui:76
+msgid "For 1 Minute"
+msgstr ""
+
+#: ui/preferences.ui:77
+msgid "For 1½ Minute"
+msgstr ""
+
+#: ui/preferences.ui:78
+msgid "For 2 Minutes"
+msgstr ""
+
+#: ui/preferences.ui:79
+msgid "For 3 Minutes"
+msgstr ""
+
+#: ui/preferences.ui:80
+msgid "For 5 Minutes"
+msgstr ""
+
+#: ui/preferences.ui:81
+msgid "For 10 Minutes"
+msgstr ""
+
+#: ui/preferences.ui:82
+msgid "For 20 Minutes"
+msgstr ""
+
+#: ui/preferences.ui:83
+msgid "For 30 Minutes"
+msgstr ""
+
+#: ui/preferences.ui:101
+msgid "Auto Backups"
+msgstr ""
+
+#: ui/preferences.ui:123
+msgid "Create Daily Backups on Save"
+msgstr ""
+
+#: ui/preferences.ui:155
+msgid "Backup Folder"
+msgstr ""
+
+#: ui/preferences.ui:160
+msgid "Select The Folder for Daily Backups"
+msgstr ""
+
+#: ui/preferences.ui:179
+#, fuzzy
+msgid "Locale"
+msgstr "Kokalekua"
+
+#: ui/preferences.ui:200
+msgid "Date Order and Separator"
+msgstr ""
+
+#: ui/preferences.ui:211
+msgid "Year Month Day"
+msgstr "Urtea Hilabetea Eguna"
+
+#: ui/preferences.ui:212
+msgid "Day Month Year"
+msgstr "Eguna Hilabetea Urtea"
+
+#: ui/preferences.ui:213
+msgid "Month Day Year"
+msgstr "Hilabetea Eguna Urtea"
+
+#: ui/preferences.ui:220
+msgid ". (Dot)"
+msgstr ". (Puntu)"
+
+#: ui/preferences.ui:221
+msgid "/ (Slash)"
+msgstr "/ (Barra)"
+
+#: ui/preferences.ui:222
+msgid "- (Dash)"
+msgstr "- (Marratxoa)"
+
+#: ui/preferences.ui:242
+msgid "First Day of the Week"
+msgstr ""
+
+#: ui/preferences.ui:283
+#, fuzzy
+msgid "Preferred Units"
+msgstr "Hobespenak"
+
+#: ui/preferences.ui:294
+msgid "Metric"
+msgstr ""
+
+#: ui/preferences.ui:300
+msgid "Imperial"
+msgstr ""
+
+#: ui/preferences.ui:320
+msgid "Appearance"
+msgstr "Itxura"
+
+#: ui/preferences.ui:341
+msgid "Prefer Dark Gtk+ Theme"
+msgstr ""
+
+#: ui/print.ui:39
+msgid "What to Print?"
+msgstr "Zer inprimatu nahi?"
+
+#: ui/print.ui:48
+#, fuzzy
+msgid "Only Current Entry"
+msgstr "Oraingo sarrera besterik ez"
+
+#: ui/print.ui:54
+msgid "All Filtered Entries"
+msgstr "Iragazitako sarrera guztiak"
+
+#: ui/print.ui:60
+msgid "Entire Diary"
+msgstr "Agenda osoa"
+
+#: ui/print.ui:66
+msgid "Every Entry Begins on a New Page"
+msgstr ""
+
+#: ui/print.ui:78
+msgid "Text Options"
+msgstr "Testu aukerak"
+
+#: ui/print.ui:87
+#, fuzzy
+msgid "Use Theme Fonts in Entries"
+msgstr "Erabili gaiko letra-tipoak sarreretan"
+
+#: ui/print.ui:101
+#, fuzzy
+msgid "Use Custom Theme Colors"
+msgstr "Erabili gai pertsonalizatua"
+
+#: ui/print.ui:107
+msgid "Page Margins"
+msgstr ""
+
+#: ui/print.ui:120
+msgid "Full"
+msgstr ""
+
+#: ui/print.ui:126
+msgid "Half"
+msgstr ""
+
+#: ui/table.ui:7
+#, fuzzy
+msgid "Show Order Column"
+msgstr "Ezkutatu iruzkinak"
+
+#: ui/table.ui:11
+msgid "Group Lines"
+msgstr ""
+
+#: ui/table.ui:28
+msgid "Copy as Tab Delimited Text"
+msgstr ""
+
+#: ui/table.ui:53
+msgid "Basics"
+msgstr ""
+
+#: ui/table.ui:62
+#, fuzzy
+msgid "Date & Time"
+msgstr "Etiketaren izena:"
+
+#: ui/table.ui:64
+msgid "Size"
+msgstr ""
+
+#: ui/table.ui:65
+#, fuzzy
+msgid "Number"
+msgstr "Kapitulu zenbakiduna"
+
+#: ui/table.ui:66
+msgid "True / False"
+msgstr ""
+
+#: ui/table.ui:67
+#, fuzzy
+msgid "Tag Value"
+msgstr "Aldatu balioa"
+
+#: ui/table.ui:68
+msgid "Has Which Sub Tag"
+msgstr ""
+
+#: ui/table.ui:69
+#, fuzzy
+msgid "Completion"
+msgstr "Amaituta"
+
+#: ui/table.ui:70
+msgid "Todo Status"
+msgstr ""
+
+#: ui/table.ui:71
+#, fuzzy
+msgid "Gantt Chart"
+msgstr "Kapitulu berria"
+
+#: ui/table.ui:72
+msgid "Path Length in Map"
+msgstr ""
+
+#: ui/table.ui:74
+msgid "Arithmetic"
+msgstr ""
+
+#: ui/table.ui:87
+#, fuzzy
+msgid "Sorting"
+msgstr "Ordenatu dataren arabera"
+
+#: ui/table.ui:104
+#, fuzzy
+msgid "Ascending"
+msgstr "Izenburua"
+
+#: ui/table.ui:111
+#, fuzzy
+msgid "Descending"
+msgstr "Izenburua"
+
+#: ui/table.ui:120
+msgid "Combine identical cells"
+msgstr ""
+
+#: ui/table.ui:132
+msgid "Extras"
+msgstr ""
+
+#: ui/table.ui:143
+msgid "Get Value From"
+msgstr ""
+
+#: ui/table.ui:153 ui/table.ui:165
+msgid "First Parent Satisfying..."
+msgstr ""
+
+#: ui/table.ui:154 ui/table.ui:166
+msgid "Grandparent"
+msgstr ""
+
+#: ui/table.ui:155 ui/table.ui:167
+#, fuzzy
+msgid "Parent Entry"
+msgstr "Oraingo sarrera besterik ez"
+
+#: ui/table.ui:156 ui/table.ui:168
+msgid "Itself"
+msgstr ""
+
+#: ui/table.ui:157
+msgid "First Paragraph Satisfying..."
+msgstr ""
+
+#: ui/table.ui:158
+msgid "Last Paragraph Satisfying..."
+msgstr ""
+
+#: ui/table.ui:169
+msgid "Previous Paragraph Satisfying..."
+msgstr ""
+
+#: ui/table.ui:170
+msgid "Next Paragraph Satisfying..."
+msgstr ""
+
+#: ui/table.ui:198
+#, fuzzy
+msgid "Show as"
+msgstr "Aldatu balioa"
+
+#: ui/table.ui:215
+msgid "Satisfying"
+msgstr ""
+
+#: ui/table.ui:232
+#, fuzzy
+msgid "Summary Function"
+msgstr "Abio ekintza"
+
+#: ui/table.ui:250
+#, fuzzy
+msgid "Coloring"
+msgstr "Kolorea"
+
+#: ui/table.ui:267
+msgid "Negative values are RED"
+msgstr ""
+
+#: ui/table.ui:274
+msgid "From small to big, from RED to GREEN"
+msgstr ""
+
+#: ui/table.ui:281
+msgid "From small to big, from GREEN to RED"
+msgstr ""
+
+#: ui/table.ui:310
+msgid "Move column to left"
+msgstr ""
+
+#: ui/table.ui:320
+msgid "Add a column to left"
+msgstr ""
+
+#: ui/table.ui:326
+#, fuzzy
+msgid "Remove column"
+msgstr "Kendu guztiak"
+
+#: ui/table.ui:332
+msgid "Add a column to right"
+msgstr ""
+
+#: ui/table.ui:340
+#, fuzzy
+msgid "Move column to right"
+msgstr "Ez dago zaborrontzian"
+
+#: ui/table.ui:380
+#, fuzzy
+msgid "Entry Filter"
+msgstr "Iragazia"
+
+#: ui/table.ui:400
+#, fuzzy
+msgid "Paragraph Filter"
+msgstr "Iragazia"
+
+#: ui/tv_diary.ui:34
+msgid "Expand selection"
+msgstr ""
+
+#: ui/tv_diary.ui:58
+#, fuzzy
+msgid "Cut"
+msgstr "Oraingoa"
+
+#: ui/tv_diary.ui:65
+#, fuzzy
+msgid "Copy"
+msgstr "Kopiatu hemendik..."
+
+#: ui/tv_diary.ui:72
+msgid "Paste"
+msgstr ""
+
+#: ui/tv_diary.ui:83
+#, fuzzy
+msgid "Show more"
+msgstr "Ez ikusiarena egin guztiei"
+
+#: ui/tv_diary.ui:106
+msgid "Bold"
+msgstr "Letra lodia"
+
+#: ui/tv_diary.ui:120
+msgid "Italic"
+msgstr ""
+
+#: ui/tv_diary.ui:132
+msgid "Underlined"
+msgstr ""
+
+#: ui/tv_diary.ui:144
+msgid "Strikethrough"
+msgstr ""
+
+#: ui/tv_diary.ui:174
+msgid "Insert link"
+msgstr ""
+
+#: ui/tv_diary.ui:181
+msgid "Insert smiley"
+msgstr ""
+
+#: ui/tv_diary.ui:188
+msgid "Insert image"
+msgstr ""
+
+#: ui/tv_diary.ui:195 ui/tv_diary.ui:202
+#, fuzzy
+msgid "Insert chart"
+msgstr "Kapitulu berria"
+
+#: ui/tv_diary.ui:225
+msgid "Sentence case"
+msgstr ""
+
+#: ui/tv_diary.ui:236
+#, fuzzy
+msgid "Title Case"
+msgstr "Izenburua"
+
+#: ui/tv_diary.ui:247
+msgid "lower case"
+msgstr ""
+
+#: ui/tv_diary.ui:258
+msgid "UPPER CASE"
+msgstr ""
+
+#: ui/tv_diary.ui:274
+#, fuzzy
+msgid "Comment"
+msgstr "iruzkina"
+
+#: ui/tv_diary.ui:284
+#, fuzzy
+msgid "Subscript"
+msgstr "Ekintzak"
+
+#: ui/tv_diary.ui:296
+#, fuzzy
+msgid "Superscript"
+msgstr "Ekintzak"
+
+#: ui/tv_diary.ui:324
+#, fuzzy
+msgid "Spelling"
+msgstr "Ortografia-egiaztapena"
+
+#: ui/tv_diary.ui:373
+msgid "Decrease indent"
+msgstr ""
+
+#: ui/tv_diary.ui:404
+msgid "Increase indent"
+msgstr ""
+
+#: ui/tv_diary.ui:422
+msgid "H0"
+msgstr ""
+
+#: ui/tv_diary.ui:423
+#, fuzzy
+msgid "Normal text"
+msgstr "Testu normala"
+
+#: ui/tv_diary.ui:430
+#, fuzzy
+msgid "Subsubheading"
+msgstr "Bigarren mailako izenburua"
+
+#: ui/tv_diary.ui:446
+msgid "Subheading"
+msgstr "Bigarren mailako izenburua"
+
+#: ui/tv_diary.ui:465
+msgid "Plain"
+msgstr ""
+
+#: ui/tv_diary.ui:476
+msgid "To do"
+msgstr "Egitekoa"
+
+#: ui/tv_diary.ui:488
+msgid "In progress"
+msgstr "Egiten ari da"
+
+#: ui/tv_diary.ui:531
+#, fuzzy
+msgid "Bullet list"
+msgstr "Buleta"
+
+#: ui/tv_diary.ui:543
+#, fuzzy
+msgid "Numbered list"
+msgstr "Kapitulu zenbakiduna"
+
+#: ui/tv_diary.ui:555
+#, fuzzy
+msgid "Letter list"
+msgstr "Buleta"
+
+#: ui/tv_diary.ui:567
+#, fuzzy
+msgid "Roman number list"
+msgstr "Kapitulu zenbakiduna"
+
+#: ui/tv_diary.ui:584
+msgid "Use Small Letters"
+msgstr ""
+
+#: ui/tv_diary.ui:604
+msgid "Horizontal Rule"
+msgstr ""
+
+#: ui/tv_diary.ui:621
+msgid "Code"
+msgstr ""
+
+#: ui/tv_diary.ui:638
+#, fuzzy
+msgid "Quotation"
+msgstr "Ekintzak"
+
+#: ui/tv_diary_edit_chart.ui:25
+#, fuzzy
+msgid "Edit Chart"
+msgstr "Editatu kapituluak"
+
+#: ui/tv_diary_edit_chart.ui:36 ui/tv_diary_edit_image.ui:39
+#: ui/tv_diary_edit_table.ui:36
+#, fuzzy
+msgid "Remove image"
+msgstr "Ezaba ezazu etiketa"
+
+#: ui/tv_diary_edit_chart.ui:54 ui/tv_diary_edit_table.ui:55
+#, fuzzy
+msgid "Open chart"
+msgstr "Kapitulu berria"
+
+#: ui/tv_diary_edit_chart.ui:71 ui/tv_diary_edit_image.ui:77
+msgid "Smallest"
+msgstr ""
+
+#: ui/tv_diary_edit_chart.ui:83 ui/tv_diary_edit_image.ui:89
+msgid "Biggest"
+msgstr ""
+
+#: ui/tv_diary_edit_image.ui:28
+#, fuzzy
+msgid "Edit Image"
+msgstr "Editatu etiketa"
+
+#: ui/tv_diary_edit_image.ui:64
+msgid "Open image"
+msgstr ""
+
+#: ui/tv_diary_edit_image.ui:96
+msgid "Copy Image File to rel:/"
+msgstr ""
+
+#: ui/tv_diary_edit_link.ui:19
+#, fuzzy
+msgid "Edit Link"
+msgstr "Editatu"
+
+#: ui/tv_diary_edit_link.ui:30
+#, fuzzy
+msgid "Remove link"
+msgstr "Kendu guztiak"
+
+#: ui/tv_diary_edit_link.ui:63
+msgid "Evaluated"
+msgstr ""
+
+#: ui/tv_diary_edit_link.ui:88
+msgid "Go to link"
+msgstr ""
+
+#: ui/tv_diary_edit_table.ui:25
+#, fuzzy
+msgid "Edit Table"
+msgstr "Editatu etiketa"
+
+#: ui/tv_diary_edit_table.ui:63
+msgid "Expand All"
+msgstr ""
+
+#: ui/tv_diary_edit_tag.ui:20
+msgid "Edit Tag"
+msgstr "Editatu etiketa"
+
+#: ui/tv_diary_edit_tag.ui:31
+#, fuzzy
+msgid "Remove tag"
+msgstr "Ezaba ezazu etiketa"
+
+#: ui/tv_diary_edit_tag.ui:49
+#, fuzzy
+msgid "Go to tag"
+msgstr "Zoaz hurrengo bat-etortzera"
+
+#: ui/widget_entry_picker.ui:32
+msgid "Under"
+msgstr ""
+
+#: ui/widget_entry_picker.ui:45
+#, fuzzy
+msgid "Create a new entry (Ctrl + Enter)"
+msgstr "Sortu sarrera berri bat honen gainean: %1"
+
+#: ui/widget_filter_picker.ui:15
+msgid "label"
+msgstr ""
+
+#: ui/widget_picker.ui:31
+msgid "Add New"
+msgstr ""
+
+#: ui/widget_picker.ui:39
+#, fuzzy
+msgid "Search in the list"
+msgstr "Iragazia"
+
+#, fuzzy
+#~ msgid "Chapter"
+#~ msgstr "Kapituluak"
+
+#, fuzzy
+#~ msgid "Tag charts"
+#~ msgstr "Kapitulu berria"
+
+#~ msgid "Chapter Category"
+#~ msgstr "Kapitulu kategoria"
+
+#~ msgid "_DISMISS!"
+#~ msgstr "_BAZTERTU!"
+
+#~ msgid "_Save"
+#~ msgstr "_Gorde"
+
+#~ msgid "Only Filtered Entries"
+#~ msgstr "Iragazitako sarrerak besterik ez"
+
+#, fuzzy
+#~ msgid "Select Image File"
+#~ msgstr "Hautatu agenda bat"
+
+#~ msgid "About Lifeograph"
+#~ msgstr "Lifeograph honi buruz"
+
+#, fuzzy
+#~ msgid "Favored"
+#~ msgstr "Gogokoena"
+
+#, fuzzy
+#~ msgid "Chapter with %1 words spanning %2 days in %3"
+#~ msgstr "%3 horiekin %1 sarrerak hedatzen %2 egunetan"
+
+#, fuzzy
+#~ msgid "Entry with %1 word(s) in %2"
+#~ msgstr "Sarrera %1 hitzekin"
+
+#~ msgid "Completed"
+#~ msgstr "Amaituta"
+
+#~ msgid "Apply"
+#~ msgstr "Ezarri"
+
+#, fuzzy
+#~ msgid "Has NOT the tag"
+#~ msgstr "Ezarri gaia"
+
+#, fuzzy
+#~ msgid "Between Dates"
+#~ msgstr "Hasiera data"
+
+#, fuzzy
+#~ msgid "Between Entries"
+#~ msgstr "Iragazitako sarrerak besterik ez"
+
+#, fuzzy
+#~ msgid "Has Tag"
+#~ msgstr "Ezarri gaia"
+
+#, fuzzy
+#~ msgid "Has Theme"
+#~ msgstr "Ezarri gaia"
+
+#, fuzzy
+#~ msgid "Start"
+#~ msgstr "Hasita"
+
+#, fuzzy
+#~ msgid "Entries × Days"
+#~ msgstr "Sarrerak"
+
+#, fuzzy
+#~ msgid "Chapters"
+#~ msgstr "Kapituluak:"
+
+#, fuzzy
+#~ msgid "Chapters / Chapter Groups"
+#~ msgstr "Kapitulu kategoria"
+
+#~ msgid "File"
+#~ msgstr "Fitxategia"
+
+#~ msgid "Background color for this chapter's region in the graphs"
+#~ msgstr "Atzeko planoko kolorea kapitulu honetako aldean grafikoetan"
+
+#, fuzzy
+#~ msgid "Add Entry"
+#~ msgstr "Gehitu sarrera berri bat"
+
+#, fuzzy
+#~ msgid "Hide Entries"
+#~ msgstr "Ezkutuko sarrerak"
+
+#, fuzzy
+#~ msgid "Before"
+#~ msgstr "Hau _baino lehen"
+
+#, fuzzy
+#~ msgid "This"
+#~ msgstr "Honen _ostean"
+
+#, fuzzy
+#~ msgid "Create a New Diary..."
+#~ msgstr "Sortu agenda berri bat"
+
+#, fuzzy
+#~ msgid "Change"
+#~ msgstr "Aldatu balioa"
+
+#, fuzzy
+#~ msgid "Temporal Direction"
+#~ msgstr "Ekintzak"
+
+#, fuzzy
+#~ msgid "Current chapter group"
+#~ msgstr "Oraingo kategoria"
+
+#, fuzzy
+#~ msgid "Only search filtered entries"
+#~ msgstr "Iragazitako sarrerak besterik ez"
+
+#, fuzzy
+#~ msgid "Revert filter to the definition"
+#~ msgstr "Atzera jo iragazki aktiboa lehenetsitako agendara"
+
+#~ msgid "Today"
+#~ msgstr "Gaur"
+
+#~ msgid ""
+#~ "Go to today (creates a new entry if there isn't any or when already at "
+#~ "today)"
+#~ msgstr ""
+#~ "Zoaz gaurko egunera (elementurik ez balego berri bat sortuko du edo "
+#~ "oraindik gaurko egunean aritzeko)"
+
+#~ msgid "Log out"
+#~ msgstr "Saioa amaitu"
+
+#~ msgid "Save diary and logout"
+#~ msgstr "Gorde agenda eta irten"
+
+#~ msgid ""
+#~ "Knowing others is intelligence;\n"
+#~ "knowing yourself is true wisdom.\n"
+#~ "Mastering others is strength;\n"
+#~ "mastering yourself is true power.\n"
+#~ "\n"
+#~ "<i>Lao Tzu</i>"
+#~ msgstr ""
+#~ "Besteak ulertzeari inteligentzia deitzen zaio;\n"
+#~ "zeure burua ezagutzea benetako jakinduria da.\n"
+#~ "\n"
+#~ "Besteak kontrolatzeko indarra behar;\n"
+#~ "zeure burua kontrolatzea, horixe da benetako boterea.\n"
+#~ "\n"
+#~ "<i>Lao Tzu</i>"
+
+#~ msgid "Make Default"
+#~ msgstr "Lehenetsi"
+
+#~ msgid "Period"
+#~ msgstr "Periodoa"
+
+#, fuzzy
+#~ msgid "Remove from Entry"
+#~ msgstr "_Ezabatu sarreratik"
+
+#, fuzzy
+#~ msgid "Tag view"
+#~ msgstr "Etiketaren izena"
+
+#~ msgid "Edit active filter i.e. which entries are shown in the list"
+#~ msgstr ""
+#~ "Editatu iragazki aktiboa, adibidez sarrerak zerrendan erakusten direnean"
+
+#~ msgid "seconds"
+#~ msgstr "segundoak"
+
+#~ msgid "Order"
+#~ msgstr "Eskaera"
+
+#~ msgid "Separator"
+#~ msgstr "Bereizlea"
+
+#, fuzzy
+#~ msgid "Is NOT tagged by"
+#~ msgstr "Etiketatu gabe"
+
+#, fuzzy
+#~ msgid "Is tagged by"
+#~ msgstr "Etiketatu gabe"
+
+#, fuzzy
+#~ msgid "Colors"
+#~ msgstr "Kolorea"
+
+#~ msgid "Font"
+#~ msgstr "Letra-tipoa"
+
+#, fuzzy
+#~ msgid "Copyright (C) 2007-2019 Ahmet Öztürk"
+#~ msgstr "Copyright (C) 2007-2017 Ahmet Öztürk"
+
+#, fuzzy
+#~ msgid "Show formatting popover in entry view"
+#~ msgstr "Erakutsi formateatze tresna-barra sarrera ikuspegian"
+
+#~ msgid "Redo"
+#~ msgstr "Berregin"
+
+#~ msgid "TAGS"
+#~ msgstr "ETIKETAK"
+
+#~ msgid "Untagged"
+#~ msgstr "Etiketa kenduta"
+
+#~ msgid "Tag Category"
+#~ msgstr "Etiketa kategoria"
+
+#~ msgid "Dated Chapter"
+#~ msgstr "Data duen kapitulua"
+
+#, fuzzy
+#~ msgid "Add Todo"
+#~ msgstr "Gehitu etiketa"
+
+#~ msgid "Go to the previous entry in the list"
+#~ msgstr "Zoaz zerrendako aurreko sarrerara"
+
+#~ msgid "Next"
+#~ msgstr "Hurrengoa"
+
+#~ msgid "Go to the next entry in the list"
+#~ msgstr "Zoaz zerrendako hurrengo sarrerara"
+
+#~ msgid "Previous Match"
+#~ msgstr "Aurreko bat-etortzea"
+
+#~ msgid "Go to previous match"
+#~ msgstr "Zoaz aurreko bat-etortzera"
+
+#~ msgid "Next Match"
+#~ msgstr "Hurrengo bat-etortzea"
+
+#, fuzzy
+#~ msgid "Dated Chapter on %1"
+#~ msgstr "Data duen kapitulua"
+
+#~ msgid "Found in <b>%1</b> of <b>%2</b> entrie(s)"
+#~ msgstr "Bilatua hemen <b>%1</b>  sarrera <b>%2</b> honetatik (hauetatik)"
+
+#~ msgid "Filter and theme entries without tags"
+#~ msgstr "Iragazi eta izenburua ezarri sarrerei etiketarik gabe"
+
+#~ msgid "Create New..."
+#~ msgstr "Create New..."
+
+#~ msgid "highlighted text"
+#~ msgstr "Kolorez azpimarraturiko testua"
+
+#~ msgid "link"
+#~ msgstr "esteka"
+
+#~ msgid "broken link"
+#~ msgstr "apurturiko esteka"
+
+#~ msgid "match"
+#~ msgstr "bat-etortzea"
+
+#~ msgid "Click on the parts to edit. Non-editable parts adapt automatically."
+#~ msgstr ""
+#~ "Egin klik zatietan editatzeko. Editatzeko aukerarik ematen ez duten "
+#~ "zataiak automatikoki egokituko dira."
+
+#~ msgid "Also dismiss the entries associated with this tag"
+#~ msgstr "Baztertu etiketa honi loturiko sarrerak ere bai"
+
+#~ msgid "Also dismiss the tags in the category"
+#~ msgstr "Baztertu kategoriako etiketak ere bai"
+
+#~ msgid "Unlimited"
+#~ msgstr "Mugagabea"
+
+#~ msgid "Drop items here to change"
+#~ msgstr "Jarro hemen aldatzeko elementuak"
+
+#~ msgid "Tag category with %1 tags"
+#~ msgstr "Etiketa kategoria  %1 etiketekin"
+
+#~ msgid "Dated Chapter with %1 entries in %2 days"
+#~ msgstr "Kapituluari data jarrita %1 sarrerekin %2 egunetan"
+
+#~ msgid "Encrypted diary"
+#~ msgstr "Agenda zifratua"
+
+#~ msgid "Unencrypted diary"
+#~ msgstr "Agenda zifratugabea"
+
+#~ msgid "More..."
+#~ msgstr "Gehiago..."
+
+#~ msgid "Not To Do"
+#~ msgstr "Ez egitekoak"
+
+#, fuzzy
+#~ msgid "Underlay Previous Year"
+#~ msgstr "Aurreko bat-etortzea"
+
+#~ msgid "Hide"
+#~ msgstr "Ezkutatu"
+
+#, fuzzy
+#~ msgid "Trash"
+#~ msgstr "_Zaborrontzia"
+
+#, fuzzy
+#~ msgid "Remove"
+#~ msgstr "Ezaba ezazu etiketa"
+
+#~ msgid "In Trash"
+#~ msgstr "Zaborrontzian dago"
+
+#~ msgid "Regular"
+#~ msgstr "Erregularra"
+
+#~ msgid "Hide entries before this date"
+#~ msgstr "Ezkutatu data honen aurreko sarrerak"
+
+#~ msgid "Hide entries after this date"
+#~ msgstr "Ezkutatu data honen osteko sarrerak"
+
+#~ msgid "More Options"
+#~ msgstr "Aukera gehago"
+
+#~ msgid "Previous match"
+#~ msgstr "Aurreko bat-etortzea"
+
+#~ msgid "Next match"
+#~ msgstr "Hurrengo bat-etortzea"
+
+#, fuzzy
+#~ msgid "Toggle Filtering"
+#~ msgstr "_Txandakatu iragazketa"
+
+#~ msgid "Dismiss selected category"
+#~ msgstr "Baztertu hautatutako kategoria"
+
+#~ msgid "Apply new name"
+#~ msgstr "Ezarri izen berria"
+
+#~ msgid "Graph"
+#~ msgstr "Grafiko"
+
+#~ msgid "List"
+#~ msgstr "Zerrenda"
+
+#~ msgid "General"
+#~ msgstr "Orokorra"
+
+#~ msgid "Type & Unit"
+#~ msgstr "Mota & Unitate"
+
+#~ msgid "Boolean (Classic)"
+#~ msgstr "Boolear (Klasikoa)"
+
+#~ msgid "Actions"
+#~ msgstr "Ekintzak"
+
+#~ msgid ""
+#~ "Use the headerbar to edit the category or select the individual tags in "
+#~ "the category to edit their properties."
+#~ msgstr ""
+#~ "Erabili goiko barra editatzeko kategoria edo hautatzeko etiketa bereziak "
+#~ "kategorian bere ezaugarriak editatzeko."
+
+#~ msgid "Before logging out wait for"
+#~ msgstr "Saioa amaitzat eman baino lehenago itxaron apur batean"
+
+#~ msgid "Justify Text on the Page"
+#~ msgstr "Justifikatu testua orrialdean"
+
+#, fuzzy
+#~ msgid "Lifeograph:"
+#~ msgstr "Lifeograph"
+
+#~ msgid "lifeograph"
+#~ msgstr "lifeograph"
+
+#~ msgid "Entered password is wrong; please try again"
+#~ msgstr "Sartutako pasahitza ez da zuzena: saia zaitez berriro"
+
+#~ msgid "Diary is ready for importing"
+#~ msgstr "Agenda inportatzeko prest"
+
+#~ msgid "Untitled chapter"
+#~ msgstr "Izenbururik gabeko kapitulua"
+
+#~ msgid "_Dismiss..."
+#~ msgstr "_Baztertu"
+
+#, fuzzy
+#~ msgid "Import..."
+#~ msgstr "_Inportatu..."
+
+#, fuzzy
+#~ msgid "Open a Diary File..."
+#~ msgstr "_Ireki agenda fitxategia"
+
+#~ msgid "Import"
+#~ msgstr "Inportatu"
+
+#~ msgid "Diary File"
+#~ msgstr "Agenda fitxategia"
+
+#~ msgid "Tags"
+#~ msgstr "Etiketak"
+
+#~ msgid "Create a _New Diary..."
+#~ msgstr "Sortu agenda berri bat"
+
+#~ msgid "Please select a date"
+#~ msgstr "Hautatu data bat"
+
+#~ msgid "Create a new chapter on %1"
+#~ msgstr "Sortu sarrera berri bat kapitulu honetan: %1"
+
+#~ msgid "Re-enable Auto Logout"
+#~ msgstr "Berriro gaitu saiotik irteteko aukera automatikoa"
+
+#~ msgid "Create a new entry on the selected day in the calendar"
+#~ msgstr "Sortu sarrera berri bat hautatutako egunkariko egunean"
+
+#~ msgid "Create a new numbered chapter"
+#~ msgstr "Sortu kapitulu berri bat zenbakiduna"
+
+#~ msgid "Create a new free chapter"
+#~ msgstr "Sortu kapitulu aske berri bat"
+
+#~ msgid "Tools"
+#~ msgstr "Tresnak"
+
+#~ msgid "Type:"
+#~ msgstr "Mota:"
+
+#~ msgid "Encrypted Diary File"
+#~ msgstr "Kodetutako eguneroko fitxategia"
+
+#~ msgid "File:"
+#~ msgstr "Fitxategia:"
+
+#~ msgid "Browse..."
+#~ msgstr "Interneten begiratu..."
+
+#~ msgid "_Add Password"
+#~ msgstr "_Gehitu pasahitza"
+
+#~ msgid "C_hange Password"
+#~ msgstr "A_ldatu Pasahitza"
+
+#~ msgid "New Password:"
+#~ msgstr "Pasahitz berria:"
+
+#~ msgid "Confirm New Password:"
+#~ msgstr "Pasahitza berretsi:"
+
+#~ msgid "Confirm:"
+#~ msgstr "Berretsi:"
+
+#~ msgid "Unencrypted Diary File"
+#~ msgstr "Kodetu gabeko eguneroko fitxategia"
+
+#~ msgid "Current Password:"
+#~ msgstr "Oraingo pasahitza:"
+
+#~ msgid "<b>Colors:</b>"
+#~ msgstr "<b>Koloreak:</b>"
+
+#~ msgid "Font:"
+#~ msgstr "Letra-tipoa:"
+
+#~ msgid "Edit Theme"
+#~ msgstr "Gaia editatu"
+
+#~ msgid "Subheading:"
+#~ msgstr "Azpi-izenburua:"
+
+#~ msgid "Heading:"
+#~ msgstr "Izenburua:"
+
+#~ msgid "Background:"
+#~ msgstr "Atzeko planoa:"
+
+#~ msgid "<i>Untagged Entry</i>"
+#~ msgstr "<i>Etiketarik gabeko sarrera</i>"
+
+#~ msgid "Select or Create a Diary"
+#~ msgstr "Hautatu edo sortu eguneroko bat"
+
+#~ msgid "Launchpad Page"
+#~ msgstr "Launchpad Orria"
+
+#~ msgid "Enter text to be filtered"
+#~ msgstr "Sartu iragaziko den testua"
+
+#~ msgid "<<<%1 SECONDS TO LOG OUT>>>"
+#~ msgstr "<<<%1 SEGUNDO SAIOA IXTEKO>>>"
+
+#~ msgid "_Edit Tag"
+#~ msgstr "_Editatu etiketa"
+
+#~ msgid "_Delete Tag"
+#~ msgstr "_Ezabatu etiketa"
+
+#~ msgid ""
+#~ "%1\n"
+#~ "\n"
+#~ "%2 Entries"
+#~ msgstr ""
+#~ "%1\n"
+#~ "\n"
+#~ "%2 Sarrerak"
+
+#~ msgid "Are you sure, you want to dismiss?"
+#~ msgstr "Ziur zaude? Benetan baztertu nahi duzu?"
+
+#~ msgid ""
+#~ "Your changes will be backed up in \"%1.~backup~\". If you exit normally, "
+#~ "your diary is saved automatically."
+#~ msgstr ""
+#~ "Zure aldaketen babes kopia egingo da hemen \"%1.~backup~\". Modu "
+#~ "arruntean irteten bazara, zure egunerokoa modu automatikoan gordeko da."
+
+#~ msgid "Welcome new user!"
+#~ msgstr "Ongi etorri erabiltzaile berri hori!"
+
+#~ msgid "Group by Chapters: %1"
+#~ msgstr "kapituluaren arabera taldekatu"
+
+#~ msgid "Empty Diary"
+#~ msgstr "Hutsik dagoen egunerokoa"
+
+#~ msgid "_Continue"
+#~ msgstr "_Jarraitu"
+
+#~ msgid "<i>Earlier Entries</i>"
+#~ msgstr "<i>Aurreko sarrerak</i>"
+
+#~ msgid "_Change Password..."
+#~ msgstr "_Aldatu pasahitza..."
+
+#~ msgid "_Edit Chapters..."
+#~ msgstr "_Editatu kapituluak..."
+
+#~ msgid "<i>Untagged</i>"
+#~ msgstr "<i>Etiketarik gabe</i>"
+
+#~ msgid "Replace All"
+#~ msgstr "Ordeztu dena"
+
+#~ msgid "Go to today (creates a new entry if there isn't any)"
+#~ msgstr ""
+#~ "Zoaz \"gaur\" gunera (sarrera berria sortuko da aurretik ezer ez badago)"
+
+#~ msgid "Add C_hapter"
+#~ msgstr "Gehitu K_apitulua"
+
+#~ msgid "Remove Set"
+#~ msgstr "Ezabatu Multzoa"
+
+#~ msgid "Create A New Tag"
+#~ msgstr "Sortu etiketa berria"
+
+#~ msgid "Chapter Sets:"
+#~ msgstr "Kapitulu multzoak:"
+
+#~ msgid "Replace selected (if any) or next match"
+#~ msgstr ""
+#~ "Ordeztu hautatutakoa (baldin badago horrelakorik) hurrengo bat-etortzean"
+
+#~ msgid "Remove Chapter"
+#~ msgstr "Ezabatu kapitulua"
+
+#~ msgid "Log out Automatically on _Idle"
+#~ msgstr "Modu automatikoan saioa itxi _Idle honetan"
+
+#~ msgid "Are you sure, you want to delete selected tag?"
+#~ msgstr "Ziur zaude? Hautatu duzun etiketa benetan ezabatu nahi?"
+
+#~ msgid "E_xport/Backup Current Diary..."
+#~ msgstr "E_sportatu/Babes kopia egin eguneroko honena..."
+
+#~ msgid "_Create A New Diary..."
+#~ msgstr "_Sortu eguneroko berria..."
+
+#~ msgid "Untitled set"
+#~ msgstr "Izenbururik gabeko multzoa"
+
+#~ msgid "Diary Files (*.diary)"
+#~ msgstr "Eguneroko fitxategiak (*.diary)"
+
+#~ msgid "_Browse For a Diary..."
+#~ msgstr "_Arakatu eguneroko batetik..."
+
+#~ msgid "Remove from list"
+#~ msgstr "Ezabatu zerrendatik"
+
+#~ msgid ""
+#~ "You are about to open an old diary that has to be upgraded to the new "
+#~ "format. \n"
+#~ "\n"
+#~ "It is STRONGLY recommended to back up any diary before upgrading.\n"
+#~ "\n"
+#~ "After you upgrade a diary, you won't be able to open it in a previous "
+#~ "version of Lifeograph."
+#~ msgstr ""
+#~ "Formatu berrira egokitu den eguneroko zahar bat zabaltzera zoaz\n"
+#~ "\n"
+#~ "Edozein egunerokoren formatuaren eguneraketa egin baino lehen babes kopia "
+#~ "egitea GARRANTZITSUA dela gogora ezazu.\n"
+#~ "\n"
+#~ "Eguneroko baten formatua eguneratu eta gero, ezin izango duzu fitxategi "
+#~ "hori Lifeograph bertsio zahar batekin zabaldu."
+
+#~ msgid "Diary:"
+#~ msgstr "Egunerokoa:"
+
+#~ msgid ""
+#~ "Selected diary is not compatible with this version of Lifeograph. Please "
+#~ "select another file..."
+#~ msgstr ""
+#~ "Hautatu duzun egunerokoa ez da bateragarria Lifeograph bertsio honekin. "
+#~ "Mesedez, hautatu beste fitxategi bat..."
+
+#~ msgid "Failed to open diary. Please select anoter file..."
+#~ msgstr ""
+#~ "Egunerokoa zabaltzerakoan kale egin du. Mesedez, hautatu beste fitxategi "
+#~ "bat..."
+
+#~ msgid "Unencrypted diary. Press OK to open"
+#~ msgstr "Kodetu gabeko eguneroko fitxategia. Zabaltzeko sakatu OK"
+
+#~ msgid ""
+#~ "Knowing others is intelligence;\n"
+#~ "knowing yourself is true wisdom.\n"
+#~ "Mastering others is strength;\n"
+#~ "mastering yourself is true power.\n"
+#~ "\n"
+#~ "<i>--Lao Tzu</i>"
+#~ msgstr ""
+#~ "Besteak ulertzeari inteligentzia deitzen zaio;\n"
+#~ "zeure burua ezagutzea benetako jakinduria da.\n"
+#~ "\n"
+#~ "Besteak kontrolatzeko indarra behar;\n"
+#~ "zeure burua kontrolatzea, horixe da benetako boterea.\n"
+#~ "\n"
+#~ "<i>--Lao Tzu</i>"
+
+#~ msgid "Remove from _Favorites"
+#~ msgstr "_Gustukoenak horretatik ezabatu"
+
+#~ msgid "Add to _Favorites"
+#~ msgstr "_Gustukoenak horretara gehitu"
+
+#~ msgid "Replace all matches throughout entire diary"
+#~ msgstr "Ordeztu egunerokoan zehar dauden bat-etortze guztiak"

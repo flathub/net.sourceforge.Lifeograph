@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+Copyright (C) 2007-2024
+
+This file is part of Lifeograph.
+
+Lifeograph is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Lifeograph is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Lifeograph.  If not, see <http://www.gnu.org/licenses/>.
+
+Author: Ahmet Öztürk
+
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <object class="GtkBox" id="Bx_print">
+    <property name="margin-top">10</property>
+    <property name="margin-bottom">10</property>
+    <property name="margin-start">10</property>
+    <property name="margin-end">10</property>
+    <property name="spacing">15</property>
+    <property name="homogeneous">1</property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <property name="spacing">5</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="label" translatable="yes">What to Print?</property>
+            <property name="xalign">0</property>
+            <attributes>
+              <attribute name="weight" value="bold"></attribute>
+            </attributes>
+          </object>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="RB_print_current">
+            <property name="label" translatable="yes">Only Current Entry</property>
+            <property name="active">1</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="RB_print_filtered">
+            <property name="label" translatable="yes">All Filtered Entries</property>
+            <property name="group">RB_print_current</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="RB_print_all">
+            <property name="label" translatable="yes">Entire Diary</property>
+            <property name="group">RB_print_current</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="CB_one_entry_per_page">
+            <property name="label" translatable="yes">Every Entry Begins on a New Page</property>
+            <property name="margin-top">10</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <property name="spacing">5</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="label" translatable="yes">Text Options</property>
+            <property name="xalign">0</property>
+            <attributes>
+              <attribute name="weight" value="bold"></attribute>
+            </attributes>
+          </object>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="CB_use_theme_font">
+            <property name="label" translatable="yes">Use Theme Fonts in Entries</property>
+            <property name="active">1</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkFontButton" id="FB_print">
+            <property name="receives_default">1</property>
+            <property name="font">Sans 12</property>
+            <property name="language">en-us</property>
+            <property name="preview_text"></property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="CB_use_theme_colors">
+            <property name="label" translatable="yes">Use Custom Theme Colors</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="margin-top">15</property>
+            <property name="label" translatable="yes">Page Margins</property>
+            <property name="xalign">0</property>
+            <attributes>
+              <attribute name="weight" value="bold"></attribute>
+            </attributes>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="homogeneous">1</property>
+            <property name="css-classes">linked</property>
+            <child>
+              <object class="GtkToggleButton" id="RB_page_margin_full">
+                <property name="label" translatable="yes">Full</property>
+                <property name="active">1</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="RB_page_margin_half">
+                <property name="label" translatable="yes">Half</property>
+                <property name="group">RB_page_margin_full</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="RB_page_margin_off">
+                <property name="label" translatable="yes">Off</property>
+                <property name="group">RB_page_margin_full</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <object class="GtkBox" id="Bx_main">
+    <property name="hexpand">0</property>
+    <property name="spacing">10</property>
+    <child>
+      <object class="GtkComboBoxText" id="CB_type">
+        <items>
+          <item translatable="yes">First</item>
+          <item translatable="yes">Last</item>
+          <item translatable="yes">Highest</item>
+          <item translatable="yes">Lowest</item>
+        </items>
+      </object>
+    </child>
+    <child>
+      <object class="GtkLabel">
+        <property name="label" translatable="yes">Subtag of</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkEntry" id="E_tag_parent">
+        <property name="tooltip-text" translatable="yes">Only include paragraphs with this tag</property>
+        <property name="hexpand">1</property>
+        <property name="width-chars">16</property>
+        <property name="primary-icon-name">tag-16-symbolic</property>
+        <property name="primary-icon-activatable">0</property>
+        <property name="placeholder-text" translatable="yes">Parent Tag</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkDropDown" id="DD_rel">
+        <property name="hexpand">0</property>
+        <property name="show-arrow">0</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkEntry" id="E_tag_child">
+        <property name="tooltip-text" translatable="yes">Only include paragraphs with this tag</property>
+        <property name="hexpand">1</property>
+        <property name="width-chars">16</property>
+        <property name="primary-icon-name">tag-16-symbolic</property>
+        <property name="primary-icon-activatable">0</property>
+        <property name="placeholder-text" translatable="yes">Child Tag</property>
+      </object>
+    </child>
+  </object>
+</interface>

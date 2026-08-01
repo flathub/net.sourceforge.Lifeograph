@@ -1,0 +1,14 @@
+#ifndef LIFEOGRAPH_CONFIG_H
+#define LIFEOGRAPH_CONFIG_H
+
+#define PACKAGE "@PACKAGE_NAME@"
+#ifndef _WIN32
+#define DEF_SHAREDIR            "@SHAREDIR@"
+#define DEF_MANUALPATH          "@MANUALPATH@"
+#define DEF_EXAMPLEDIARYPATH    "@EXAMPLEDIARYPATH@"
+#define DEF_LOCALEDIR           "@LOCALEDIR@"
+#endif
+
+#define LIFEOGRAPH_DEBUG_BUILD @DEBUG_BUILD@
+
+#endif

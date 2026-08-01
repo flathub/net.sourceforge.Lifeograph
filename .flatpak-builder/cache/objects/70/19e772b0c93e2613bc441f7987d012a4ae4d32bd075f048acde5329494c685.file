@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-lifeographdiary">
+    <comment>Lifeograph diary</comment>
+    <comment xml:lang="tr">Lifeograph günlüğü</comment>
+    <comment xml:lang="de">Lifeograph Tagebuch</comment>
+    <magic priority="100">
+      <match type="string" offset="0" value="LIFEOGRAPHDB\n"/>
+    </magic>
+    <glob pattern="*.diary"/>
+  </mime-type>
+</mime-info>

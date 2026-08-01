@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+Copyright (C) 2007-2024
+
+This file is part of Lifeograph.
+
+Lifeograph is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Lifeograph is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Lifeograph.  If not, see <http://www.gnu.org/licenses/>.
+
+Author: Ahmet Öztürk
+
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+
+  <object class="GtkWindow" id="D_preferences">
+    <property name="title" translatable="yes">Preferences</property>
+    <property name="resizable">0</property>
+    <property name="modal">True</property>
+    <child>
+      <object class="GtkBox">
+        <property name="margin-start">15</property>
+        <property name="margin-end">15</property>
+        <property name="margin-top">15</property>
+        <property name="margin-bottom">15</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">10</property>
+        <child>
+          <object class="GtkLabel">
+            <!-- <property name="margin-top">15</property> -->
+            <property name="halign">start</property>
+            <property name="hexpand">0</property>
+            <property name="label" translatable="yes">Privacy</property>
+            <attributes>
+              <attribute name="weight" value="bold"></attribute>
+            </attributes>
+          </object>
+        </child>
+        <child>
+          <object class="GtkFrame">
+            <property name="child">
+              <object class="GtkListBox">
+                <property name="selection-mode">none</property>
+                <child>
+                  <object class="GtkListBoxRow">
+                    <property name="activatable">0</property>
+                    <property name="selectable">0</property>
+                    <property name="child">
+                      <object class="GtkBox">
+                        <property name="css-classes">wide-margin</property>
+                        <property name="spacing">20</property>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label" translatable="yes">Save Diary and Close When Idle</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkComboBoxText" id="CB_prefs_autologout">
+                            <property name="halign">end</property>
+                            <property name="hexpand">1</property>
+                            <items>
+                              <item id="0" translatable="yes">Disabled</item>
+                              <item id="30" translatable="yes">For 30 Seconds</item>
+                              <item id="45" translatable="yes">For 45 Seconds</item>
+                              <item id="60" translatable="yes">For 1 Minute</item>
+                              <item id="90" translatable="yes">For 1½ Minute</item>
+                              <item id="120" translatable="yes">For 2 Minutes</item>
+                              <item id="180" translatable="yes">For 3 Minutes</item>
+                              <item id="300" translatable="yes">For 5 Minutes</item>
+                              <item id="600" translatable="yes">For 10 Minutes</item>
+                              <item id="1200" translatable="yes">For 20 Minutes</item>
+                              <item id="1800" translatable="yes">For 30 Minutes</item>
+                            </items>
+                          </object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+              </object>
+            </property>
+          </object>
+        </child>
+<!--AUTO BACKUPS-->
+        <child>
+          <object class="GtkLabel">
+            <property name="margin-top">20</property>
+            <property name="halign">start</property>
+            <property name="hexpand">0</property>
+            <property name="label" translatable="yes">Auto Backups</property>
+            <attributes>
+              <attribute name="weight" value="bold"></attribute>
+            </attributes>
+          </object>
+        </child>
+        <child>
+          <object class="GtkFrame">
+            <property name="child">
+              <object class="GtkListBox">
+                <property name="selection-mode">none</property>
+                <child>
+                  <object class="GtkListBoxRow">
+                    <property name="activatable">0</property>
+                    <property name="selectable">0</property>
+                    <property name="child">
+                      <object class="GtkBox">
+                        <property name="css-classes">wide-margin</property>
+                        <property name="spacing">20</property>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="halign">start</property>
+                            <property name="label" translatable="yes">Create Daily Backups on Save</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkSwitch" id="Sw_prefs_save_backups">
+                            <property name="halign">end</property>
+                            <property name="hexpand">1</property>
+                          </object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkListBoxRow">
+                    <property name="activatable">0</property>
+                    <property name="selectable">0</property>
+                    <property name="child">
+                      <object class="GtkSeparator"/>
+                    </property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkListBoxRow">
+                    <property name="activatable">0</property>
+                    <property name="selectable">0</property>
+                    <property name="child">
+                      <object class="GtkBox">
+                        <property name="css-classes">wide-margin</property>
+                        <property name="spacing">20</property>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label" translatable="yes">Backup Folder</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="FCB_prefs_backup_path">
+                            <property name="tooltip-text" translatable="yes">Select The Folder for Daily Backups</property>
+                            <property name="halign">end</property>
+                            <property name="hexpand">1</property>
+                          </object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+              </object>
+            </property>
+          </object>
+        </child>
+<!--LOCALE-->
+        <child>
+          <object class="GtkLabel">
+            <property name="margin-top">20</property>
+            <property name="halign">start</property>
+            <property name="hexpand">0</property>
+            <property name="label" translatable="yes">Locale</property>
+            <attributes>
+              <attribute name="weight" value="bold"></attribute>
+            </attributes>
+          </object>
+        </child>
+        <child>
+          <object class="GtkFrame">
+            <property name="child">
+              <object class="GtkListBox">
+                <property name="selection-mode">none</property>
+                <child>
+                  <object class="GtkListBoxRow">
+                    <property name="activatable">0</property>
+                    <property name="selectable">0</property>
+                    <property name="child">
+                      <object class="GtkBox">
+                        <property name="css-classes">wide-margin</property>
+                        <property name="spacing">20</property>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label" translatable="yes">Date Order and Separator</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkBox">
+                            <property name="spacing">5</property>
+                            <property name="hexpand">1</property>
+                            <property name="halign">end</property>
+                            <child>
+                              <object class="GtkComboBoxText" id="CB_prefs_date_order">
+                                <items>
+                                  <item id="%1%2%3" translatable="yes">Year Month Day</item>
+                                  <item id="%3%2%1" translatable="yes">Day Month Year</item>
+                                  <item id="%2%3%1" translatable="yes">Month Day Year</item>
+                                </items>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkComboBoxText" id="CB_prefs_date_separator">
+                                <items>
+                                  <item id="." translatable="yes">. (Dot)</item>
+                                  <item id="/" translatable="yes">/ (Slash)</item>
+                                  <item id="-" translatable="yes">- (Dash)</item>
+                                </items>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkListBoxRow">
+                    <property name="activatable">0</property>
+                    <property name="selectable">0</property>
+                    <property name="child">
+                      <object class="GtkBox">
+                        <property name="css-classes">wide-margin</property>
+                        <property name="spacing">20</property>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label" translatable="yes">First Day of the Week</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkComboBoxText" id="CB_prefs_1st_week_day">
+                            <property name="hexpand">1</property>
+                            <property name="halign">end</property>
+                            <items>
+                              <item translatable="yes">Sunday</item>
+                              <item translatable="yes">Monday</item>
+                              <item translatable="yes">Tuesday</item>
+                              <item translatable="yes">Wednesday</item>
+                              <item translatable="yes">Thursday</item>
+                              <item translatable="yes">Friday</item>
+                              <item translatable="yes">Saturday</item>
+                            </items>
+                          </object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkListBoxRow">
+                    <property name="activatable">0</property>
+                    <property name="selectable">0</property>
+                    <property name="child">
+                      <object class="GtkSeparator"/>
+                    </property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkListBoxRow">
+                    <property name="activatable">0</property>
+                    <property name="selectable">0</property>
+                    <property name="child">
+                      <object class="GtkBox">
+                        <property name="css-classes">wide-margin</property>
+                        <property name="spacing">20</property>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label" translatable="yes">Preferred Units</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkBox">
+                            <property name="homogeneous">1</property>
+                            <property name="halign">end</property>
+                            <property name="hexpand">1</property>
+                            <property name="css-classes">linked</property>
+                            <child>
+                              <object class="GtkToggleButton" id="RB_prefs_units_metric">
+                                <property name="label" translatable="yes">Metric</property>
+                                <property name="active">1</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkToggleButton" id="RB_prefs_units_imperial">
+                                <property name="label" translatable="yes">Imperial</property>
+                                <property name="group">RB_prefs_units_metric</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+              </object>
+            </property>
+          </object>
+        </child>
+<!--APPEARANCE-->
+        <child type="label">
+          <object class="GtkLabel">
+            <property name="margin-top">20</property>
+            <property name="halign">start</property>
+            <property name="hexpand">0</property>
+            <property name="label" translatable="yes">Appearance</property>
+            <attributes>
+              <attribute name="weight" value="bold"></attribute>
+            </attributes>
+          </object>
+        </child>
+        <child>
+          <object class="GtkFrame">
+            <property name="child">
+              <object class="GtkListBox">
+                <property name="selection-mode">none</property>
+                <child>
+                  <object class="GtkListBoxRow">
+                    <property name="activatable">0</property>
+                    <property name="selectable">0</property>
+                    <property name="child">
+                      <object class="GtkBox">
+                        <property name="css-classes">wide-margin</property>
+                        <property name="spacing">20</property>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label" translatable="yes">Prefer Dark Gtk+ Theme</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkSwitch" id="Sw_prefs_use_dark_theme">
+                            <property name="hexpand">1</property>
+                            <property name="halign">end</property>
+                          </object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+              </object>
+            </property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

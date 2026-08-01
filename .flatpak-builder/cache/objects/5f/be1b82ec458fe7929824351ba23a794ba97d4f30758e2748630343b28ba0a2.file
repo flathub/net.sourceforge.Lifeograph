@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <object class="GtkBox" id="Bx_main">
+    <property name="hexpand">0</property>
+    <property name="spacing">5</property>
+    <child>
+      <object class="GtkLabel">
+        <property name="label" translatable="yes">Contains text</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkBox">
+        <property name="valign">center</property>
+        <child>
+          <object class="GtkEntry" id="E_text">
+          </object>
+        </child>
+        <child>
+          <object class="GtkToggleButton" id="TB_match_case">
+            <property name="tooltip-text" translatable="yes">Match case</property>
+            <property name="icon-name">font-x-generic-symbolic</property>
+          </object>
+        </child>
+        <style>
+          <class name="linked"/>
+        </style>
+      </object>
+    </child>
+    <child>
+      <object class="GtkComboBoxText" id="CB_extent">
+        <items>
+          <item translatable="yes">Anywhere</item>
+          <item translatable="yes">In the name</item>
+        </items>
+      </object>
+    </child>
+  </object>
+</interface>

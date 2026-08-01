@@ -1,0 +1,648 @@
+/***********************************************************************************
+
+    Copyright (C) 2007-2024 Ahmet Öztürk (aoz_2@yahoo.com)
+
+    This file is part of Lifeograph.
+
+    Lifeograph is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Lifeograph is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Lifeograph.  If not, see <http://www.gnu.org/licenses/>.
+
+***********************************************************************************/
+
+
+#include <sys/stat.h>
+#include <utime.h>
+
+#include "app_window.hpp"
+#include "glibmm/uriutils.h"
+#include "ui_login.hpp"
+#include "dialogs/dialog_password.hpp"
+
+
+using namespace LIFEO;
+using namespace HELPERS;
+
+
+UILogin::Colrec*    UILogin::colrec;
+String              UILogin::m_uri_cur;
+
+
+UILogin::UILogin()
+{
+    Gtk::TreeViewColumn* col_icon;
+    Gtk::TreeViewColumn* col_diary;
+
+    try
+    {
+        colrec = new Colrec;
+
+        auto builder{ Lifeograph::get_builder() };
+
+        m_Bx_login          = builder->get_widget< Gtk::Box >( "Bx_login" );
+        m_TV_diaries        = builder->get_widget< Gtk::TreeView >( "TV_diaries" );
+        m_TB_select         = builder->get_widget< Gtk::ToggleButton >( "B_login_select" );
+        m_B_new             = builder->get_widget< Gtk::Button >( "B_login_new_diary" );
+        m_B_open            = builder->get_widget< Gtk::Button >( "B_login_open_diary" );
+        m_B_remove_diary    = builder->get_widget< Gtk::Button >( "B_login_remove" );
+
+        m_Po_sort           = builder->get_widget< Gtk::Popover >( "Po_sorting" );
+        m_RB_sort_by_name   = builder->get_widget< Gtk::ToggleButton >( "RB_sort_diaries_name" );
+        m_RB_sort_by_save   = builder->get_widget< Gtk::ToggleButton >( "RB_sort_diaries_save" );
+        m_RB_sort_by_read   = builder->get_widget< Gtk::ToggleButton >( "RB_sort_diaries_read" );
+
+        col_icon = Gtk::manage( new Gtk::TreeView::Column( "", colrec->icon ) );
+        col_diary = Gtk::manage( new Gtk::TreeView::Column( _( "Name" ), colrec->name ) );
+        m_TVC_date = Gtk::manage( new Gtk::TreeView::Column( _( STRING::COLHEAD_BY_LAST_SAVE ),
+                                                             colrec->date ) );
+
+        m_LS_diaries = Gtk::ListStore::create( *colrec );
+        m_treesel_diaries = m_TV_diaries->get_selection();
+    }
+    catch( ... )
+    {
+        throw LIFEO::Error( "Failed to create the login view" );
+    }
+
+    m_RB_sort_by_save->set_active();
+
+    // LIST OF DIARIES
+    m_TV_diaries->set_model( m_LS_diaries );
+    col_diary->set_expand( true );
+    m_TV_diaries->append_column( *col_icon );
+    m_TV_diaries->append_column( *col_diary );
+    m_TV_diaries->append_column( *m_TVC_date );
+    m_LS_diaries->set_default_sort_func( sigc::mem_fun( *this, &UILogin::sort_by_date ) );
+    m_LS_diaries->set_sort_column( Gtk::ListStore::DEFAULT_SORT_COLUMN_ID,
+                                   Gtk::SortType::ASCENDING );
+    m_TV_diaries->set_has_tooltip( true );
+
+    auto drop_target{ Gtk::DropTarget::create( G_TYPE_FILE, Gdk::DragAction::COPY ) };
+    m_TV_diaries->add_controller( drop_target );
+
+    m_TVC_date->set_clickable( true );
+    m_TVC_date->signal_clicked().connect( [ this ](){ show_sort_Po(); } );
+
+    // setting the diary list as a popup parent is problematic:
+    m_Po_sort->set_parent( *AppWindow::p );
+
+    // STYLE of the current diary row
+    // I believe the following used to create a Gtk-CRITICAL warning about gtk_css_node_insert_after
+    // see: https://gitlab.gnome.org/GNOME/gtk/-/issues/3585 for more info
+    // is ths still an ssue?
+    m_TV_diaries->get_column( 1 )->set_cell_data_func(
+            * m_TV_diaries->get_column_cell_renderer( 1 ),
+            []( Gtk::CellRenderer* cell, const Gtk::TreeModel::const_iterator& iter )
+            {
+                String&& uri{ ( * iter )[ colrec->uri ] };
+                Gtk::CellRendererText* crt{ dynamic_cast< Gtk::CellRendererText* >( cell ) };
+
+                crt->property_ellipsize() = Pango::EllipsizeMode::MIDDLE;
+
+                if( uri == m_uri_cur )
+                {
+                    cell->property_cell_background_rgba() = Gdk::RGBA( "#dddddd" );
+                    crt->property_weight() = Pango::Weight::BOLD;
+                    crt->property_foreground_rgba() = Gdk::RGBA( "#bb3333" );
+                }
+                else
+                {
+                    cell->property_cell_background_rgba() = Gdk::RGBA( "transparent" );
+                    crt->property_weight() = Pango::Weight::NORMAL;
+                    crt->property_foreground_set() = false;
+                }
+            } );
+
+    // SIGNALS
+    m_TB_select->signal_toggled().connect(
+            sigc::mem_fun( *this, &UILogin::handle_select_mode_toggled ) );
+
+    m_B_remove_diary->signal_clicked().connect(
+            sigc::mem_fun( *this, &UILogin::remove_selected_diary ) );
+
+    m_treesel_diaries->signal_changed().connect(
+            sigc::mem_fun( *this, &UILogin::handle_diary_selection_changed ) );
+
+    m_TV_diaries->signal_row_activated().connect(
+            sigc::mem_fun( *this, &UILogin::handle_diary_activated ) );
+    m_TV_diaries->signal_query_tooltip().connect(
+            sigc::mem_fun( *this, &UILogin::handle_diary_tooltip ), true );
+
+    // CONTROLLERS
+    auto drop_target_file = Gtk::DropTarget::create( G_TYPE_FILE, Gdk::DragAction::COPY );
+    // TODO: 3.1: check the file type:
+    // m_drop_target->signal_accept().connect(
+    //         sigc::mem_fun( *this, UILogin::handle_drop_file_accept ), true );
+    drop_target_file->signal_drop().connect(
+            sigc::mem_fun( *this, &UILogin::handle_drop_file ), true );
+    m_TV_diaries->add_controller( drop_target_file );
+
+    if( Lifeograph::settings.rtflag_read_only )
+        m_B_new->set_visible( false );
+    else
+        m_B_new->signal_clicked().connect( sigc::mem_fun( *this, &UILogin::create_new_diary ) );
+
+    m_B_open->signal_clicked().connect( sigc::mem_fun( *this, &UILogin::add_existing_diary ) );
+
+    m_RB_sort_by_name->signal_toggled().connect( [ this ](){ refresh_sort_type(); } );
+    m_RB_sort_by_save->signal_toggled().connect( [ this ](){ refresh_sort_type(); } );
+    // the 3rd radiobutton is not necessary as untoggle signal takes care of that
+}
+
+void
+UILogin::handle_start()
+{
+    if( Lifeograph::settings.rtflag_force_welcome )
+    {
+        Gtk::Button* B_new_diary;
+        m_G_welcome = Lifeograph::get_builder2()->get_widget< Gtk::Grid >( "G_welcome" );
+        B_new_diary = Lifeograph::get_builder2()->get_widget< Gtk::Button >(
+                "B_welcome_new_diary" );
+
+        m_Bx_login->prepend( *m_G_welcome );
+
+        B_new_diary->signal_clicked().connect(
+                sigc::mem_fun( *this, &UILogin::create_new_diary ) );
+    }
+
+    if( Lifeograph::settings.rtflag_open_directly )
+        open_selected_diary( 0 );
+
+    if( not( Diary::d->is_open() ) ) // i.e. open directly was not successful
+        initialize();
+}
+
+void
+UILogin::initialize()
+{
+    m_B_new->set_visible( Lifeograph::settings.rtflag_read_only == false );
+    m_B_open->set_visible( Lifeograph::settings.rtflag_read_only == false );
+    m_TB_select->set_visible( Lifeograph::settings.rtflag_read_only == false );
+
+    populate_diaries();
+}
+
+void
+UILogin::handle_login()
+{
+    m_TB_select->set_active( false );
+    m_TB_select->set_visible( false );
+    m_B_new->set_visible( false );
+    m_B_open->set_visible( false );
+}
+
+void
+UILogin::handle_logout()
+{
+    initialize();
+
+    if( Lifeograph::settings.rtflag_force_welcome )
+    {
+        m_Bx_login->remove( *m_G_welcome );
+        Lifeograph::settings.rtflag_force_welcome = false;
+    }
+}
+
+void
+UILogin::add_diary_to_list( const String& uri, bool F_add_single )
+{
+    auto row  { *( m_LS_diaries->append() ) };
+
+    try
+    {
+        auto file       { Gio::File::create_for_commandline_arg( uri ) };
+        auto finfo      { file->query_info() };
+        auto file_time  { Date::make( m_sort_type == DST_READ ?
+                                      finfo->get_access_date_time().to_local() :
+                                      finfo->get_modification_date_time().to_local() ) };
+
+        row[ colrec->icon ]       = Lifeograph::icons->diary_32;
+
+        if( F_add_single )
+            row[ colrec->name ]   = "+++   " + finfo->get_display_name();
+        else
+            row[ colrec->name ]   = finfo->get_display_name();
+
+        row[ colrec->date ]       = Date::format_string_adv( file_time, "F,   h:m" );
+        row[ colrec->tooltip ]    = file->get_parse_name();
+        row[ colrec->uri ]        = uri;
+        row[ colrec->date_sort ]  = file_time;
+    }
+    catch( ... )
+    {
+        row[ colrec->name ]       = STR::compose( "*** ", _( "Error querying file" ), ":  ", uri );
+        row[ colrec->date ]       = "---";
+        row[ colrec->tooltip ]    = uri;
+        row[ colrec->uri ]        = uri;
+        row[ colrec->date_sort ]  = 0;
+    }
+
+    if( F_add_single ) // don't do in multiple additions mode i.e. while populating the list
+    {
+        m_TV_diaries->get_selection()->select( m_LS_diaries->get_path( row.get_iter() ) );
+        m_TV_diaries->scroll_to_row(  m_LS_diaries->get_path( row.get_iter() ), 0.05 );
+
+        Lifeograph::settings.recentfiles.insert( uri );
+    }
+}
+
+void
+UILogin::populate_diaries()
+{
+    m_LS_diaries->clear();
+
+    for( SetStrings::reverse_iterator iter = Lifeograph::settings.recentfiles.rbegin();
+         iter != Lifeograph::settings.recentfiles.rend();
+         ++iter )
+    {
+        add_diary_to_list( *iter, false );  // in multiple additions mode
+    }
+
+    if( m_LS_diaries->children().size() > 0 )
+        m_treesel_diaries->select( m_LS_diaries->get_iter( "0" ) );
+}
+
+void
+UILogin::refresh_sort_type()
+{
+    if( m_RB_sort_by_name->get_active() )
+    {
+        m_sort_type = DST_NAME;
+        m_TV_diaries->get_column( 2 )->set_title( _( STRING::COLHEAD_BY_LAST_SAVE ) );
+        m_LS_diaries->set_default_sort_func( sigc::mem_fun( *this, &UILogin::sort_by_name ) );
+    }
+    else if( m_RB_sort_by_save->get_active() )
+    {
+        m_sort_type = DST_SAVE;
+        m_TV_diaries->get_column( 2 )->set_title( _( STRING::COLHEAD_BY_LAST_SAVE ) );
+        m_LS_diaries->set_default_sort_func( sigc::mem_fun( *this, &UILogin::sort_by_date ) );
+    }
+    else
+    {
+        m_sort_type = DST_READ;
+        m_TV_diaries->get_column( 2 )->set_title( _( STRING::COLHEAD_BY_LAST_ACCESS ) );
+        m_LS_diaries->set_default_sort_func( sigc::mem_fun( *this, &UILogin::sort_by_date ) );
+    }
+
+    populate_diaries();
+}
+
+int
+UILogin::sort_by_date( const Gtk::TreeModel::const_iterator& itr1,
+                       const Gtk::TreeModel::const_iterator& itr2 )
+{
+    // SORT BY DATE (ONLY DESCENDINGLY FOR NOW)
+    const time_t item1 = ( *itr1 )[ colrec->date_sort ];
+    const time_t item2 = ( *itr2 )[ colrec->date_sort ];
+
+    if( item1 > item2 )
+        return -1;
+    else
+    if( item1 < item2 )
+        return 1;
+    else
+        return 0;
+}
+
+int
+UILogin::sort_by_name( const Gtk::TreeModel::const_iterator& itr1,
+                       const Gtk::TreeModel::const_iterator& itr2 )
+{
+    // SORT BY DATE (ONLY ASCENDINGLY FOR NOW)
+    const Ustring item1 = ( *itr1 )[ colrec->name ];
+    const Ustring item2 = ( *itr2 )[ colrec->name ];
+
+    if( item1 > item2 )
+        return 1;
+    else
+    if( item1 < item2 )
+        return -1;
+    else
+        return 0;
+}
+
+void
+UILogin::open_selected_diary( const int start_from_step, bool F_first_attempt )
+{
+    // BEWARE: clear the diary before returning unless successful
+
+    Result result{ LIFEO::SUCCESS };
+
+    switch( start_from_step )
+    {
+/******/case 0: //==================================================================================
+
+    // SET PATH
+    result = Diary::d->set_path( m_uri_cur,
+                                 Lifeograph::settings.rtflag_read_only ? Diary::SPT_READ_ONLY
+                                                                       : Diary::SPT_NORMAL );
+
+    switch( result )
+    {
+        case FILE_LOCKED:
+            if( F_first_attempt )
+            {
+                ask_what_to_do_with_lock();
+                return;
+            }
+            break;
+        case LIFEO::SUCCESS:
+            break;
+        case FILE_NOT_FOUND:
+            AppWindow::p->show_info( _( STRING::DIARY_NOT_FOUND ) );
+            break;
+        case FILE_NOT_READABLE:
+            AppWindow::p->show_info( _( STRING::DIARY_NOT_READABLE ) );
+            break;
+        default:
+            AppWindow::p->show_info( _( STRING::FAILED_TO_OPEN_DIARY ) );
+            break;
+    }
+    if( result != LIFEO::SUCCESS )
+    {
+        Diary::d->clear();
+        populate_diaries();
+        return;
+    }
+
+/******/case 1: //==================================================================================
+
+    // FORCE ACCESS TIME UPDATE
+    // for performance reasons atime update policy on linux is usually once per day. see: relatime
+    // TODO: 3.1: reimplement for uris or get rid of it
+// #ifndef _WIN32
+//     struct stat fst;    // file date stat
+//     struct utimbuf utb;
+//     stat( m_uri_cur.c_str(), &fst );
+//     utb.actime = time( NULL );
+//     utb.modtime = fst.st_mtime;
+//     utime( m_uri_cur.c_str(), &utb );
+// #endif
+
+    // READ HEADER
+    switch( result = Diary::d->read_header() )
+    {
+        case LIFEO::SUCCESS:
+            break;
+        case INCOMPATIBLE_FILE_OLD:
+            AppWindow::p->show_info( _( STRING::INCOMPATIBLE_DIARY_OLD ) );
+            break;
+        case INCOMPATIBLE_FILE_NEW:
+            AppWindow::p->show_info( _( STRING::INCOMPATIBLE_DIARY_NEW ) );
+            break;
+        case CORRUPT_FILE:
+            AppWindow::p->show_info( _( STRING::CORRUPT_DIARY ) );
+            break;
+        default:
+            AppWindow::p->show_info( _( STRING::FAILED_TO_OPEN_DIARY ) );
+            break;
+    }
+    if( result != LIFEO::SUCCESS )
+    {
+        Diary::d->clear();
+        populate_diaries(); // why is this needed?
+        return;
+    }
+
+    // HANDLE ENCRYPTION
+    if( Diary::d->is_encrypted() )
+    {
+        Gtk::TreePath   path;
+        Gdk::Rectangle  rect;
+        int             x, y;
+
+        // find the selected (very ugly):
+        m_LS_diaries->foreach_iter(
+                [ & ]( const Gtk::TreeModel::iterator& i )
+                {
+                    std::string&& sp{ ( *i )[ colrec->uri ] };
+                    if( sp == m_uri_cur )
+                    {
+                        path = m_LS_diaries->get_path( i );
+                        return true;
+                    }
+                    return false;
+                } );
+
+        m_TV_diaries->get_cell_area( path, * m_TV_diaries->get_column( 1 ), rect );
+        m_TV_diaries->convert_tree_to_widget_coords( rect.get_x(), rect.get_y(), x, y );
+        auto pt { m_TV_diaries->compute_point( *AppWindow::p, Gdk::Graphene::Point( x, y ) ) };
+        rect.set_x( pt->get_x() );
+        rect.set_y( pt->get_y() );
+
+        DialogPassword::launch( DialogPassword::OT_OPEN, Diary::d, &rect, AppWindow::p,
+                                [ this ](){ open_selected_diary( 2 ); },
+                                []{ Diary::d->clear(); } );
+
+        return;
+    }
+
+/******/case 2: //==================================================================================
+
+    // FINALLY READ BODY
+    switch( Diary::d->read_body() )
+    {
+        case LIFEO::SUCCESS:
+            DialogPassword::finish( Diary::d->get_uri() );
+            AppWindow::p->login();
+            break;
+        case WRONG_PASSWORD:
+            open_selected_diary( 0, false );
+            break;
+        case CORRUPT_FILE:
+            AppWindow::p->show_info( _( STRING::CORRUPT_DIARY ) );
+            // no break
+        default:
+            DialogPassword::finish( "" );   // "" denotes unsuccessful finish
+            break;
+    }
+    break;
+
+    } // end of the outermost switch
+}
+
+void
+UILogin::remove_selected_diary()
+{
+    if( m_treesel_diaries->count_selected_rows() == 1 )
+    {
+        auto          row   { *m_treesel_diaries->get_selected() };
+        const Ustring name  { row[ colrec->name ] };
+
+        m_uri_removed = row[ colrec->uri ];
+        Lifeograph::settings.recentfiles.erase( m_uri_removed );
+        AppWindow::p->show_info(
+                Ustring::compose( _( "Removed diary: %1" ),
+                                  "<b>" + Glib::uri_escape_string( name ) + "</b>" ),
+                _( "Undo" ), AppWindow::RESP_UNDO_REMOVE_DIARY );
+        populate_diaries();
+    }
+}
+
+void
+UILogin::undo_remove_selected_diary()
+{
+    Lifeograph::settings.recentfiles.insert( m_uri_removed );
+    populate_diaries();
+}
+
+void
+UILogin::create_new_diary()
+{
+    DialogDiaryFile::save(
+            _( "Where to Save the New Diary?" ),
+            Glib::filename_to_uri( Glib::get_home_dir() ),
+            "new diary.diary",
+            [ & ]( const String& path )
+            {
+                if( Diary::d->init_new( path, "" ) == LIFEO::SUCCESS )  // gtkmm4: provide password
+                {
+                    AppWindow::p->login();
+                    AppWindow::p->UI_diary->handle_diary_ready();
+                    AppWindow::p->UI_extra->handle_diary_ready();
+                    AppWindow::p->UI_diary->enable_editing();
+                }
+                else
+                    AppWindow::p->show_info( _( STRING::FAILED_TO_OPEN_DIARY ) );
+            } );
+}
+
+void
+UILogin::add_existing_diary()
+{
+    DialogDiaryFile::open(
+            _( "Select the Diary File to Add" ),
+            ( m_treesel_diaries->count_selected_rows() > 0 ? m_uri_cur : Glib::get_home_dir() ),
+            [ & ]( const String& uri ) { add_diary_to_list( uri ); } );
+}
+
+void
+UILogin::ask_what_to_do_with_lock()
+{
+    DialogMessage::init( AppWindow::p, _( "Unsaved changes from the last session detected" ) )
+                ->add_button( _( "_Discard Unsaved Changes" ),
+                              [ & ](){ open_selected_diary( 1 ); },
+                              "destructive-action" )
+                ->add_button( _( "Continue with _Unsaved Changes" ),
+                              [ & ](){ Diary::d->set_continue_from_lock();
+                                       open_selected_diary( 1 ); },
+                              "suggested-action" )
+                ->add_cancel_handler( [](){ Diary::d->clear(); } )
+                ->show();
+}
+
+void
+UILogin::handle_select_mode_toggled()
+{
+    if( m_TB_select->get_active() )
+    {
+        AppWindow::p->enter_selection_mode();
+        //m_TV_diaries->get_selection()->set_mode( Gtk::SELECTION_MULTIPLE );
+        m_TV_diaries->set_hover_selection( false );
+        m_B_remove_diary->set_visible( true );
+    }
+    else
+    {
+        AppWindow::p->exit_selection_mode();
+        //m_TV_diaries->get_selection()->set_mode( Gtk::SELECTION_SINGLE );
+        m_TV_diaries->set_hover_selection( true );
+        m_B_remove_diary->set_visible( false );
+    }
+    populate_diaries();
+}
+
+void
+UILogin::handle_diary_selection_changed()
+{
+    //m_flag_diary_activated = false;
+}
+
+void
+UILogin::handle_diary_activated( const Gtk::TreePath &path, Gtk::TreeView::Column* col )
+{
+    // not handled directly to prevent BUTTON RELEASE event to be sent to edit screen widgets
+
+    if( ! m_TB_select->get_active() )
+    {
+        //m_flag_diary_activated = true;
+        m_uri_cur = ( *m_treesel_diaries->get_selected() )[ colrec->uri ];
+        open_selected_diary( 0 );
+    }
+}
+
+bool
+UILogin::handle_diary_tooltip( int x, int y, bool, const Glib::RefPtr<Gtk::Tooltip>& tooltip )
+{
+    Gtk::TreeModel::Path path;
+    Gtk::TreeView::Column* column;
+    int cell_x, cell_y;
+    int bx, by;
+    m_TV_diaries->convert_widget_to_bin_window_coords( x, y, bx, by );
+    if( ! m_TV_diaries->get_path_at_pos( bx, by, path, column, cell_x, cell_y ) )
+        return false;
+    auto iter( m_TV_diaries->get_model()->get_iter( path ) );
+    if( !iter )
+        return false;
+    Gtk::TreeRow row = *( iter );
+    tooltip->set_text( row[ colrec->tooltip ] );
+    m_TV_diaries->set_tooltip_row( tooltip, path );
+    return true;
+}
+
+bool
+UILogin::handle_drop_file( const Glib::ValueBase& value, double x, double y )
+{
+    Glib::RefPtr< Gio::File > file;
+    String                    uri;
+
+    if     ( G_VALUE_HOLDS( value.gobj(), G_TYPE_FILE ) )
+    {
+        auto gfile = ( GFile* ) g_value_get_object( value.gobj() );
+        uri = g_file_get_uri( gfile );
+        file = Gio::File::create_for_uri( uri );
+    }
+    // else if( G_VALUE_HOLDS( value.gobj(), Glib::Value< String >::value_type() ) )
+    // {
+    //     Glib::Value< String >   value_string;
+    //     value_string.init( value.gobj() );
+    //     uri = value_string.get();
+    //     uri = uri.substr( 0, uri.find( '\n' ) - 1 );
+    //     file = Gio::File::create_for_uri( uri );
+    // }
+    else
+        return false;
+
+    if( is_dir( file ) )
+        return false;
+
+    if( Lifeograph::settings.recentfiles.find( uri ) != Lifeograph::settings.recentfiles.end() )
+        return false;
+
+    add_diary_to_list( uri );
+
+    PRINT_DEBUG( "Dropped: ", uri );
+
+    return true;
+}
+
+void
+UILogin::show_sort_Po()
+{
+    auto pt { m_TV_diaries->compute_point( *AppWindow::p,
+                                           Gdk::Graphene::Point( m_TVC_date->get_x_offset(),
+                                                                 0 ) ) };
+    Gdk::Rectangle rect{ static_cast< int >( pt->get_x() ), static_cast< int >( pt->get_y() ),
+                         m_TVC_date->get_width(),
+                         m_TVC_date->get_button()->get_allocated_height() };
+    m_Po_sort->set_pointing_to( rect );
+    m_Po_sort->popup();
+}

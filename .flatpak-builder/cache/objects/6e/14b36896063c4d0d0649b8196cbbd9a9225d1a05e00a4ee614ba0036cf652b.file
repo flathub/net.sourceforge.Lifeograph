@@ -1,0 +1,5 @@
+[Test]
+Description=mock-backend
+Exec=sh -c "G_TEST_SRCDIR=/app/share/installed-tests/geocode-glib-2 /app/libexec/geocode-glib-2/mock-backend"
+Type=session
+Output=TAP

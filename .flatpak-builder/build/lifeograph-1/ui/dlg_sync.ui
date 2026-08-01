@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+Copyright (C) 2007-2024
+
+This file is part of Lifeograph.
+
+Lifeograph is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Lifeograph is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Lifeograph.  If not, see <http://www.gnu.org/licenses/>.
+
+Author: Ahmet Öztürk
+
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+
+  <object class="GtkWindow" id="D_synchronize">
+    <property name="width-request">800</property>
+    <property name="height-request">700</property>
+    <property name="modal">True</property>
+    <property name="titlebar">
+      <object class="GtkHeaderBar">
+        <property name="show-title-buttons">False</property>
+        <child type="title">
+          <object class="GtkButton" id="FB_sync_diary">
+            <property name="width-request">400</property>
+            <property name="can-focus">False</property>
+            <!-- <property name="has-frame">0</property> -->
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="B_sync_cancel">
+            <property name="label" translatable="yes">Cancel</property>
+            <!-- <property name="has-frame">0</property> -->
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkButton" id="B_sync_go">
+            <property name="label" translatable="yes">Go</property>
+            <property name="css-classes">suggested-action</property>
+            <!-- <property name="has-frame">0</property> -->
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkMenuButton">
+            <property name="popover">Po_sync_scheme</property>
+            <!-- <property name="has-frame">0</property> -->
+            <child>
+              <object class="GtkLabel">
+                <property name="label" translatable="yes">Scheme</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkMenuButton">
+            <property name="popover">Po_sync_options</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="label" translatable="yes">Filters</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkButton" id="B_sync_unlock">
+            <!-- <property name="label" translatable="yes">Cancel</property> -->
+            <property name="css-classes">suggested-action</property>
+            <child>
+              <object class="GtkImage" >
+                <property name="icon-name">system-lock-screen-symbolic</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <property name="margin-bottom">10</property>
+        <property name="spacing">10</property>
+        <child>
+          <object class="GtkInfoBar" id="IB_sync">
+            <property name="show-close-button">1</property>
+            <child>
+              <object class="GtkBox">
+                <property name="hexpand">1</property>
+                <property name="spacing">16</property>
+                <child>
+                  <object class="GtkImage">
+                    <property name="icon-name">dialog-information-symbolic</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="L_sync_info">
+                    <property name="hexpand">1</property>
+                    <property name="halign">start</property>
+                    <property name="label">Placeholder text</property>
+                    <attributes>
+                      <attribute name="scale" value="1.2"></attribute>
+                    </attributes>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="margin-start">10</property>
+            <property name="margin-end">10</property>
+            <property name="spacing">15</property>
+            <child>
+              <object class="GtkBox" id="Bx_sync_recursive">
+                <property name="valign">center</property>
+                <property name="hexpand">1</property>
+                <property name="spacing">5</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="label" translatable="yes">Apply to Similar</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkSwitch" id="Sw_sync_similar">
+                    <property name="tooltip-text" translatable="yes">Apply action changes to all similar elements</property>
+                    <property name="valign">center</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox" id="Bx_sync_operations">
+                <property name="homogeneous">1</property>
+                <property name="halign">center</property>
+                <property name="hexpand">1</property>
+                <property name="css-classes">linked</property>
+                <child>
+                  <object class="GtkButton" id="B_sync_ignore">
+                    <property name="label" translatable="yes">I</property>
+                    <property name="tooltip-text" translatable="yes">Ignore</property>
+                    <property name="css-classes">sync-ignore</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="B_sync_add">
+                    <property name="label" translatable="yes">A</property>
+                    <property name="tooltip-text" translatable="yes">Add remote</property>
+                    <property name="css-classes">sync-add</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="B_sync_overwrite">
+                    <property name="label" translatable="yes">O</property>
+                    <property name="tooltip-text" translatable="yes">Overwrite local</property>
+                    <property name="css-classes">sync-overwr</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkEntry" id="E_sync_add_tag">
+                <property name="halign">end</property>
+                <property name="hexpand">1</property>
+                <property name="primary-icon-name">tag-16-symbolic</property>
+                <property name="primary-icon-activatable">0</property>
+                <property name="secondary-icon-activatable">0</property>
+                <property name="placeholder-text" translatable="yes">Tag Imported Entries</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkPaned" id="P_sync">
+            <property name="vexpand">1</property>
+            <property name="margin-start">10</property>
+            <property name="margin-end">10</property>
+            <property name="orientation">vertical</property>
+            <property name="wide-handle">1</property>
+            <property name="start-child">
+              <object class="GtkScrolledWindow">
+                <property name="vexpand">1</property>
+                <property name="child">
+                  <object class="GtkTreeView" id="TV_sync_content">
+                    <property name="search-column">0</property>
+                    <property name="fixed-height-mode">1</property>
+                    <property name="show-expanders">0</property>
+                    <property name="level-indentation">20</property>
+                    <property name="enable-grid-lines">vertical</property>
+                  </object>
+                </property>
+              </object>
+            </property>
+            <property name="end-child">
+              <object class="GtkScrolledWindow">
+                <property name="hexpand">1</property>
+                <property name="vexpand">1</property>
+                <property name="hscrollbar-policy">never</property>
+                <property name="child">
+                  <object class="GtkTreeView" id="TV_sync_compare">
+                    <property name="sensitive">0</property>
+                    <property name="enable-grid-lines">both</property>
+                    <child internal-child="selection">
+                      <object class="GtkTreeSelection"/>
+                    </child>
+                  </object>
+                </property>
+              </object>
+            </property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+
+  <menu id="menu_options">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Show New</attribute>
+        <attribute name="action">sync.show_new</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Show Changed</attribute>
+        <attribute name="action">sync.show_changed</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Show Accepted</attribute>
+        <attribute name="action">sync.show_accepted</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Show Ignored</attribute>
+        <attribute name="action">sync.show_ignored</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Only Show Different Details</attribute>
+        <attribute name="action">sync.only_show_different</attribute>
+      </item>
+    </section>
+  </menu>
+
+  <object class="GtkPopoverMenu" id="Po_sync_options">
+    <property name="menu-model">menu_options</property>
+  </object>
+
+  <object class="GtkPopover" id="Po_sync_scheme">
+    <property name="child">
+      <object class="GtkGrid">
+        <property name="orientation">vertical</property>
+        <property name="row-spacing">10</property>
+        <property name="column-spacing">10</property>
+        <property name="column-homogeneous">1</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="sensitive">0</property>
+            <property name="label" translatable="yes">Changed</property>
+            <attributes>
+              <attribute name="weight" value="bold"></attribute>
+            </attributes>
+            <layout>
+              <property name="column">0</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="sensitive">0</property>
+            <property name="label" translatable="yes">New</property>
+            <attributes>
+              <attribute name="weight" value="bold"></attribute>
+            </attributes>
+            <layout>
+              <property name="column">1</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkCheckButton" id="RB_sync_changed_ignore">
+                <property name="label" translatable="yes">IGNORE</property>
+                <property name="active">1</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkCheckButton" id="RB_sync_changed_add">
+                <property name="label" translatable="yes">ADD</property>
+                <property name="group">RB_sync_changed_ignore</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkCheckButton" id="RB_sync_changed_overwrite">
+                <property name="label" translatable="yes">OVERWRITE</property>
+                <property name="group">RB_sync_changed_ignore</property>
+              </object>
+            </child>
+            <layout>
+              <property name="column">0</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkCheckButton" id="RB_sync_new_ignore">
+                <property name="label" translatable="yes">IGNORE</property>
+                <property name="active">1</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkCheckButton" id="RB_sync_new_add">
+                <property name="label" translatable="yes">ADD</property>
+                <property name="group">RB_sync_new_ignore</property>
+              </object>
+            </child>
+            <layout>
+              <property name="column">1</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="B_sync_apply_scheme">
+            <property name="sensitive">0</property>
+            <property name="receives-default">1</property>
+            <property name="label" translatable="yes">Apply Scheme</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="row">2</property>
+              <property name="column-span">2</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </property>
+  </object>
+</interface>
+

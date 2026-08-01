@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <object class="GtkBox" id="Bx_container">
+    <property name="orientation">vertical</property>
+    <property name="spacing">5</property>
+    <child>
+      <object class="GtkBox">
+        <property name="spacing">15</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="sensitive">0</property>
+            <property name="label" translatable="yes">Sub tag of</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkEntry" id="E_tag_picker">
+            <property name="hexpand">1</property>
+            <property name="primary-icon-name">tag-16-symbolic</property>
+            <property name="primary-icon-activatable">0</property>
+            <property name="placeholder-text" translatable="yes">Parent tag</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkBox">
+        <property name="spacing">15</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="sensitive">0</property>
+            <property name="label" translatable="yes">Select</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkComboBoxText" id="CB_subtag_type">
+            <property name="hexpand">1</property>
+            <property name="halign">end</property>
+            <items>
+              <item translatable="yes">First Occuring</item>
+              <item translatable="yes">Last Occuring</item>
+              <item translatable="yes">Least in Order</item>
+              <item translatable="yes">Greatest in Order</item>
+              <item translatable="yes">All</item>
+            </items>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

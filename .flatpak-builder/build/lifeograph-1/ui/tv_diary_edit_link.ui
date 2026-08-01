@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <object class="GtkBox" id="Bx_edit_link">
+    <property name="orientation">vertical</property>
+    <property name="spacing">3</property>
+    <child>
+      <object class="GtkBox">
+        <property name="margin-top">3</property>
+        <property name="spacing">5</property>
+        <child>
+          <object class="GtkSeparator">
+            <property name="valign">center</property>
+            <property name="hexpand">1</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="label" translatable="yes">Edit Link</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkSeparator">
+            <property name="valign">center</property>
+            <property name="hexpand">1</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="B_remove">
+            <property name="tooltip-text" translatable="yes">Remove link</property>
+            <property name="has-frame">False</property>
+            <property name="icon-name">edit-delete-symbolic</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkStackSwitcher">
+        <property name="halign">center</property>
+        <property name="stack">St_type</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkBox">
+        <property name="spacing">5</property>
+        <child>
+          <object class="GtkStack" id="St_type">
+            <property name="hexpand">1</property>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">uri</property>
+                <property name="title" translatable="yes">Uri</property>
+                <property name="child">
+                  <object class="GtkEntry" id="E_uri">
+                    <property name="width-chars">35</property>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">evaluated</property>
+                <property name="title" translatable="yes">Evaluated</property>
+                <property name="child">
+                  <object class="GtkLabel" id="L_evaluated">
+                    <property name="ellipsize">end</property>
+                    <property name="max-width-chars">30</property>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">deid</property>
+                <property name="title" translatable="yes">Entry</property>
+                <property name="child">
+                  <object class="GtkEntry" id="WEP_deid">
+                    <property name="width-chars">35</property>
+                  </object>
+                </property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="B_go_to">
+            <property name="receives-default">1</property>
+            <property name="tooltip-text" translatable="yes">Go to link</property>
+            <child>
+              <object class="GtkImage">
+                <property name="icon-name">go-next</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

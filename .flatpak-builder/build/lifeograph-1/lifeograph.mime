@@ -1,0 +1,2 @@
+application/x-lifeographdiary; lifeograph '%s'; description="Lifeograph diary"; test=test -n "$DISPLAY"
+

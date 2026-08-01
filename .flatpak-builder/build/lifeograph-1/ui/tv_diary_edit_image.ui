@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+
+  <object class="GtkAdjustment" id="Adj_image_size">
+    <property name="upper">3</property>
+    <property name="value">3</property>
+    <property name="step-increment">1</property>
+    <property name="page-increment">1</property>
+  </object>
+
+  <object class="GtkBox" id="Bx_edit_image">
+    <property name="orientation">vertical</property>
+    <property name="spacing">3</property>
+    <child>
+      <object class="GtkBox">
+        <property name="margin-top">3</property>
+        <property name="spacing">5</property>
+        <property name="hexpand">1</property>
+        <child>
+          <object class="GtkSeparator">
+            <property name="valign">center</property>
+            <property name="hexpand">1</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="label" translatable="yes">Edit Image</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkSeparator">
+            <property name="valign">center</property>
+            <property name="hexpand">1</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="B_remove">
+            <property name="tooltip-text" translatable="yes">Remove image</property>
+            <property name="has-frame">False</property>
+            <property name="icon-name">edit-delete-symbolic</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkBox">
+        <property name="spacing">3</property>
+        <child>
+          <object class="GtkButton" id="FCB_select">
+            <property name="can-focus">False</property>
+            <property name="hexpand">True</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkEntry" id="E_uri">
+            <property name="hexpand">1</property>
+            <property name="width-chars">40</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="B_open">
+            <property name="receives-default">1</property>
+            <property name="tooltip-text" translatable="yes">Open image</property>
+            <property name="icon-name">go-next</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkBox">
+        <property name="margin-start">15</property>
+        <property name="margin-end">15</property>
+        <property name="spacing">10</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="label" translatable="yes">Smallest</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkScale" id="Sc_size">
+            <property name="width-request">250</property>
+            <property name="hexpand">1</property>
+            <property name="adjustment">Adj_image_size</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="label" translatable="yes">Biggest</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButton" id="MoB_copy_to_rel">
+        <property name="label" translatable="yes">Copy Image File to rel:/</property>
+      </object>
+    </child>
+  </object>
+</interface>

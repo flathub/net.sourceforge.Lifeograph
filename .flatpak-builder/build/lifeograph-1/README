@@ -1,0 +1,40 @@
+Description
+-----------
+
+Lifeograph is an off-line and private journal and note taking application.
+It offers a rich feature set presented in a clean and simple user interface.
+
+
+
+Requirements
+------------
+
+For compilation, Lifeograph requires development versions of the
+following packages to be installed on the system:
+	* gtkmm-4.0 (v4.10 or newer),
+	* enchant-2,
+	* gcrypt
+	* shumate-1.0, and
+	* meson
+
+
+
+Configuring, Building & Installation (Meson)
+--------------------------------------------
+
+At the root of Lifeograph source,
+
+    1) Set up the build system:
+
+        $ meson setup --buildtype=release --prefix=/usr builddir
+
+    2) Start building:
+
+        $ cd builddir; ninja
+
+    3) Install:
+
+        $ ninja install
+
+Install may require super user privileges depending on the
+install prefix.

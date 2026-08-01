@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+Copyright (C) 2007-2024
+
+This file is part of Lifeograph.
+
+Lifeograph is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Lifeograph is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Lifeograph.  If not, see <http://www.gnu.org/licenses/>.
+
+Author: Ahmet Öztürk
+
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+
+  <object class="GtkWindow" id="D_filter">
+    <property name="width-request">720</property>
+    <property name="height-request">540</property>
+    <property name="modal">True</property>
+    <property name="titlebar">
+      <object class="GtkHeaderBar">
+        <property name="show-title-buttons">False</property>
+        <child type="title">
+          <object class="GtkEntry" id="E_name">
+            <property name="width-chars">25</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="B_cancel">
+            <property name="label" translatable="yes">Cancel</property>
+            <!-- <property name="has-frame">0</property> -->
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkBox">
+            <property name="css-classes">linked</property>
+            <child>
+              <object class="GtkButton" id="B_revert">
+                <property name="icon-name">edit-undo-symbolic</property>
+                <property name="css-classes">destructive-action</property>
+                <!-- <property name="has-frame">0</property> -->
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="B_apply">
+                <property name="label" translatable="yes">Apply &amp; Close</property>
+                <property name="css-classes">suggested-action</property>
+                <!-- <property name="has-frame">0</property> -->
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkScrolledWindow">
+            <property name="vexpand">1</property>
+            <property name="child">
+              <object class="GtkViewport" id="Vp_contents">
+                <property name="margin-start">5</property>
+              </object>
+            </property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

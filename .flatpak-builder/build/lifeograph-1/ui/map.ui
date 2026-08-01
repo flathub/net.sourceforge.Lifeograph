@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+Copyright (C) 2007-2024
+
+This file is part of Lifeograph.
+
+Lifeograph is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Lifeograph is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Lifeograph.  If not, see <http://www.gnu.org/licenses/>.
+
+Author: Ahmet Öztürk
+
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <menu id="menu_map">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Copy to Clipboard</attribute>
+        <attribute name="action">map.copy_coords</attribute>
+        <attribute name="hidden-when">action-disabled</attribute>
+      </item>
+    </section>
+    <section>
+      <attribute name="label" translatable="yes">Path</attribute>
+      <item>
+        <attribute name="label" translatable="yes">Add Point</attribute>
+        <attribute name="action">map.add_point</attribute>
+        <attribute name="hidden-when">action-disabled</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Insert Point before Selected</attribute>
+        <attribute name="action">map.insert_point</attribute>
+        <attribute name="hidden-when">action-disabled</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Move Selected Point Here</attribute>
+        <attribute name="action">map.assign_coord_to_para</attribute>
+        <attribute name="hidden-when">action-disabled</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Remove Selected Point</attribute>
+        <attribute name="action">map.remove_selected_point</attribute>
+        <attribute name="hidden-when">action-disabled</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Clear Path</attribute>
+        <attribute name="action">map.clear_path</attribute>
+        <attribute name="hidden-when">action-disabled</attribute>
+      </item>
+    </section>
+    <section>
+      <attribute name="label" translatable="yes">Other Entries</attribute>
+      <item>
+        <attribute name="label" translatable="yes">Show Locations</attribute>
+        <attribute name="action">map.show_locations</attribute>
+        <attribute name="hidden-when">action-disabled</attribute>
+      </item>
+    </section>
+  </menu>
+
+  <object class="GtkPopoverMenu" id="Po_actions">
+    <property name="cascade-popdown">False</property>
+    <property name="menu-model">menu_map</property>
+  </object>
+</interface>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <object class="GtkBox" id="Bx_container">
+    <property name="orientation">vertical</property>
+    <property name="spacing">5</property>
+    <child>
+      <object class="GtkGrid">
+        <property name="row-spacing">1</property>
+        <property name="column-spacing">1</property>
+        <property name="column-homogeneous">1</property>
+        <child>
+          <object class="GtkToggleButton" id="RB_add">
+            <property name="label">A + B</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="GtkToggleButton" id="RB_sub">
+            <property name="label">A − B</property>
+            <property name="group">RB_add</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="GtkToggleButton" id="RB_mul">
+            <property name="label">A × B</property>
+            <property name="group">RB_add</property>
+            <layout>
+              <property name="column">2</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="GtkToggleButton" id="RB_div">
+            <property name="label">A ÷ B</property>
+            <property name="group">RB_add</property>
+            <layout>
+              <property name="column">3</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="GtkToggleButton" id="RB_pow">
+            <property name="group">RB_add</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="label">A&lt;sup&gt;B&lt;/sup&gt;</property>
+                <property name="use-markup">1</property>
+              </object>
+            </child>
+            <layout>
+              <property name="column">0</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="GtkToggleButton" id="RB_rot">
+            <property name="group">RB_add</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="label">&lt;sup&gt;B&lt;/sup&gt;⎷A</property>
+                <property name="use-markup">1</property>
+              </object>
+            </child>
+            <layout>
+              <property name="column">1</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="GtkToggleButton" id="RB_mod">
+            <property name="group">RB_add</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="label">[A]&lt;sub&gt;B&lt;/sub&gt;</property>
+                <property name="use-markup">1</property>
+              </object>
+            </child>
+            <layout>
+              <property name="column">2</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkBox">
+        <property name="spacing">15</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="sensitive">0</property>
+            <property name="halign">start</property>
+            <property name="label" translatable="yes">Operand A</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="spacing">5</property>
+            <property name="halign">end</property>
+            <property name="hexpand">1</property>
+            <child>
+              <object class="GtkDropDown" id="DD_opA_unary">
+                <property name="hexpand">0</property>
+                <property name="show-arrow">0</property>
+                <property name="tooltip-text" translatable="yes">Function to modify the column value</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkDropDown" id="DD_opA_type">
+              </object>
+            </child>
+            <child>
+              <object class="GtkEntry" id="E_opA_v">
+                <property name="width-chars">18</property>
+                <property name="input-purpose">number</property>
+                <property name="hexpand">1</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkBox">
+        <property name="spacing">15</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="sensitive">0</property>
+            <property name="halign">start</property>
+            <property name="label" translatable="yes">Operand B</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="spacing">5</property>
+            <property name="halign">end</property>
+            <property name="hexpand">1</property>
+            <child>
+              <object class="GtkDropDown" id="DD_opB_unary">
+                <property name="hexpand">0</property>
+                <property name="show-arrow">0</property>
+                <property name="tooltip-text" translatable="yes">Function to modify the column value</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkDropDown" id="DD_opB_type">
+              </object>
+            </child>
+            <child>
+              <object class="GtkEntry" id="E_opB_v">
+                <property name="width-chars">18</property>
+                <property name="input-purpose">number</property>
+                <property name="hexpand">1</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkBox">
+        <property name="spacing">15</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="sensitive">0</property>
+            <property name="label" translatable="yes">Format as</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkDropDown" id="DD_format">
+            <property name="halign">end</property>
+            <property name="hexpand">1</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

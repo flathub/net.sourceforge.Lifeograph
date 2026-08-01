@@ -1,0 +1,3208 @@
+# Ukrainian translation for lifeograph
+# Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
+# This file is distributed under the same license as the lifeograph package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lifeograph\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-03 21:59+0300\n"
+"PO-Revision-Date: 2014-02-19 14:10+0000\n"
+"Last-Translator: Andrij Mizyk <andmizyk@gmail.com>\n"
+"Language-Team: Ukrainian <uk@li.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2014-07-20 06:36+0000\n"
+"X-Generator: Launchpad (build 17114)\n"
+
+#: net.sourceforge.Lifeograph.desktop.in:5
+#: net.sourceforge.Lifeograph.metainfo.xml.in:7
+msgid "Lifeograph"
+msgstr "Lifeograph"
+
+#: net.sourceforge.Lifeograph.desktop.in:6 src/diaryelements/diarydata.cpp:77
+msgid "Diary"
+msgstr "Щоденник"
+
+#: net.sourceforge.Lifeograph.desktop.in:7
+msgid "Keep a private journal of your life"
+msgstr "Ведення особистого щоденника"
+
+#: net.sourceforge.Lifeograph.desktop.in:8
+msgid "journal;note;to-do;tag;statistics;"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.desktop.in:19
+msgid "Open a New Window"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.desktop.in:23
+msgid "Open a New Read-Only Window"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:8
+msgid "Advanced personal note taking application"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:11
+msgid ""
+"Lifeograph is a powerful note-taking application that can be used to keep an "
+"encrypted diary, to plan a journey, to manage todos and long term goals, to "
+"write down ideas in an organized way, to track regular activities and many "
+"more. Lifeograph strives to deliver an abundance of advanced features in a "
+"clean and streamlined user interface."
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:17
+msgid "Main features of Lifeograph:"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:21
+msgid "Completely local workflow: all data is owned solely by the user"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:22
+msgid "Encrypted (with AES256) and unencrypted diaries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:23
+msgid "Powerful and intuitive parametric tagging system"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:24
+msgid "Todo management system"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:25
+msgid ""
+"WYSIWYG rich text formatting (i.e. no separate edit &amp; preview modes)"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:26
+msgid "Image thumbnails, tables, and charts in entries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:27
+msgid "Searching and replacing of text"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:28
+msgid "Advanced filtering of entries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:29
+msgid "Integrated map for travel notes and planning"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:30
+msgid ""
+"Live tables that are created on the fly based on the user defined rules "
+"which can also be pasted into spread-sheet programs"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:31
+msgid "Live statistical charts that are created from the values in the tables"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:32
+msgid "Themes in text editor, including background images"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:33
+#, fuzzy
+msgid "Favorite entries"
+msgstr "Всі записи"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:34
+msgid "Spell checking"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:35
+msgid "Links between entries and to URIs"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:36
+msgid ""
+"Automatically created back-links to entries referring to the current entry"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:37
+msgid "Printing individual entries or whole diaries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:38
+msgid ""
+"Automatically logs out when not used for some time (to protect your diary "
+"when you forget to log out)"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:39
+msgid "Multiple automatic backups to prevent data loss"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:45
+msgid "Editing screen"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:49
+msgid "Integrated map"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:53 ui/lifeograph.ui:573
+#, fuzzy
+msgid "Charts"
+msgstr "Нова категорія"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:65
+msgid ""
+"New main icon that reflects the improved functionality as a second brain"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:66
+msgid "UI upgraded to GTK4 replacing the deprecated UI elements with new ones"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:67
+msgid ""
+"All file I/O is moved to Gio for compatibility with network addresses and "
+"virtual drives, etc..."
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:68
+msgid ""
+"Wiki style formatting markup is largely omitted in favor of a WYSIWYG style "
+"formatting system [[inline comments are an exception]]"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:69
+msgid ""
+"Paragraph folding that creates folds automatically based on heading and "
+"indentation levels"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:70
+msgid ""
+"New references button that pops up a list of referencing entries/paragraphs "
+"for the current entry (a.k.a back-links)"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:71
+msgid ""
+"Context-sensitive right-click menu that displays specific options for tags, "
+"images, dates, etc. based on the cursor location"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:72
+msgid "Tables can also be inserted into the entries now"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:73
+msgid "Added buttons for visiting link items to the right-click popover menu"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:74
+msgid "Added horizontal rules which can also be combined with text"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:75
+msgid ""
+"Entries can now be ordered, grouped, and arranged freely, irrespective of "
+"the their types"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:76
+#, fuzzy
+msgid "Added an option to merge selected entries"
+msgstr "Тільки Фільтровані Записи"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:77
+msgid "Added many new filterers"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:78
+msgid "All filters can be negated now"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:79
+msgid "Table columns are resizable now"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:80
+msgid "Many new column types added"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:81
+msgid "Group lines in a hierarchical view by any column"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:82
+msgid "Conditional coloring of cell values"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:83
+msgid "Completion columns show a progress bar in the background"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:84
+msgid ""
+"Option to combine identical consequent cells in a column to get cleaner "
+"tables"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:85
+msgid "Added a new vertical bars style to charts"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:86
+msgid ""
+"A basic inline table was added to allow creation of basic charts without "
+"creating a table first"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:87
+msgid "Added navigation icons to the calendar widget"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:88
+msgid "Added the ability to mark custom days as holidays"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:89
+msgid "Added the ability to change the first day of the week"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:90
+msgid "Searching is multi-threaded now for speed gains and responsiveness"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:91
+msgid "Migrated from libchamplain to libshumate which also works under Windows"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:92
+msgid "Many many more. See the NEWS for a complete list"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:97
+#: net.sourceforge.Lifeograph.metainfo.xml.in:104
+#: net.sourceforge.Lifeograph.metainfo.xml.in:110
+msgid "Bug fixes"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:98
+msgid "Added Danish translation"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:99
+msgid "Updated Simplified Chinese, Dutch, French, and Italian translations"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:105
+msgid "Updated Italian translation"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:115
+msgid "Unified different elements such as chapters and tags into entry"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:116
+msgid "New inline tags that are assigned to the paragraphs as well as entries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:117
+msgid "New integrated map to assign locations and travel paths to entries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:118
+msgid "New custom calendar widget that integrates with the program more nicely"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:119
+msgid "New table view for very basic spreadsheet like functionality"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:120
+msgid "Completion percentages for entries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:121
+msgid "Support for background images in the entry editor"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:122
+msgid "a new toolbar-like right-click popover that replaced the toolbar"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:123
+msgid "Vastly more capable text search and entry list filtering"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:124
+msgid "Printing system improvements"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:125
+msgid "Both functionally and visually improved charts"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:126
+msgid "Many many more"
+msgstr ""
+
+#: x-lifeographdiary.xml.in:4
+#, fuzzy
+msgid "Lifeograph diary"
+msgstr "Lifeograph"
+
+#: src/app_window.cpp:637
+msgid "%1 SECONDS TO CLOSE"
+msgstr ""
+
+#: src/app_window.cpp:692
+msgid "Diary couldn't be saved. A rescue copy is saved at the location below:"
+msgstr ""
+
+#: src/app_window.cpp:694 src/printing.cpp:301
+msgid "_Close"
+msgstr ""
+
+#: src/app_window.cpp:702
+#, fuzzy
+msgid "Are you sure you want to close the diary without saving?"
+msgstr "Ви впевнені, що бажаєте вийти без збереження?"
+
+#: src/app_window.cpp:705
+msgid ""
+"Your changes will be backed up in %1. If you exit normally, your diary is "
+"saved automatically."
+msgstr ""
+"Зміни будуть зарезервовано через %1. Якщо ви вийдете звичайним способом, "
+"зміни будуть збережені."
+
+#: src/app_window.cpp:710
+#, fuzzy
+msgid "Close _without Saving"
+msgstr "_Вийти без Збереження"
+
+#: src/app_window.cpp:779
+msgid "Are you sure, you want to dismiss %1?"
+msgstr ""
+
+#. must come before add_extra_info
+#: src/app_window.cpp:784
+msgid "This operation cannot be undone!"
+msgstr "Ця дія не може бути відмінена!"
+
+#: src/app_window.cpp:785
+msgid "_Dismiss"
+msgstr ""
+
+#: src/dialogs/dialog_export.cpp:275
+msgid "Lifeograph Diary File"
+msgstr ""
+
+#: src/dialogs/dialog_export.cpp:323
+#, fuzzy
+msgid "Where to Save the Diary File?"
+msgstr "Куди зберегти щоденник"
+
+#: src/dialogs/dialog_export.cpp:341
+msgid "Plain Text File"
+msgstr ""
+
+#. TRANSLATORS: this is the title of file chooser dialog for saving a new diary
+#: src/dialogs/dialog_export.cpp:352
+msgid "Where to Save the Text File?"
+msgstr ""
+
+#: src/dialogs/dialog_password.cpp:121
+msgid "Continue"
+msgstr ""
+
+#: src/dialogs/dialog_password.cpp:124
+msgid "Add Password"
+msgstr "Додати пароль"
+
+#: src/dialogs/dialog_password.cpp:127
+msgid "Change Password"
+msgstr "Змінити пароль"
+
+#: src/dialogs/dialog_password.cpp:141 ui/lifeograph.ui:901
+#, fuzzy
+msgid "Please enter password"
+msgstr "Будь ласка, введіть пароль для вибраного щоденника..."
+
+#: src/dialogs/dialog_password.cpp:144
+#, fuzzy
+msgid "Please enter a new password"
+msgstr "Будь ласка, введіть пароль для вибраного щоденника..."
+
+#: src/dialogs/dialog_password.cpp:147
+msgid "Please enter the current and new passwords"
+msgstr ""
+
+#: src/dialogs/dialog_password.cpp:233
+msgid "Wrong password. Please retry..."
+msgstr "Неправильний пароль. Будь ласка, спробуйте ще раз..."
+
+#: src/dialogs/dialog_sync.cpp:82 src/dialogs/dialog_sync.cpp:165
+#: src/strings.hpp:180 src/ui_login.cpp:64 ui/lifeograph.ui:1054 ui/table.ui:42
+msgid "Name"
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:83
+msgid "Status"
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:85
+#, fuzzy
+msgid "Action"
+msgstr "Дії"
+
+#: src/dialogs/dialog_sync.cpp:87
+msgid "Local"
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:88
+#, fuzzy
+msgid "Remote"
+msgstr "Забрати закладку"
+
+#: src/dialogs/dialog_sync.cpp:191
+msgid "Click to select a diary file..."
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:251
+#, fuzzy
+msgid "Select a diary file for synchronizing"
+msgstr "Виберіть файл щоденника, щоб імпортувати"
+
+#: src/dialogs/dialog_sync.cpp:280
+#, fuzzy
+msgid "Selected file does not seem to be a valid diary"
+msgstr "Вибраний файл не може бути прочитаним"
+
+#: src/dialogs/dialog_sync.cpp:284 src/dialogs/dialog_sync.cpp:299
+msgid "Selected file cannot be read"
+msgstr "Вибраний файл не може бути прочитаним"
+
+#: src/dialogs/dialog_sync.cpp:326
+msgid "Please select what to import/sync and press Go"
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:649 src/strings.hpp:186
+msgid "Options"
+msgstr "Опції"
+
+#: src/dialogs/dialog_sync.cpp:699
+msgid "DIARY"
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:700
+msgid "ENTRIES"
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:701
+msgid "THEMES"
+msgstr "ТЕМИ"
+
+#: src/dialogs/dialog_sync.cpp:702
+msgid "FILTERS"
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:703
+msgid "CHARTS"
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:704
+msgid "TABLES"
+msgstr ""
+
+#. chapter category
+#: src/diaryelements/diary.cpp:1319 src/diaryelements/diary.cpp:1687
+#: src/diaryelements/diary.cpp:1694
+#, fuzzy
+msgid "Chapter Category:"
+msgstr "Нова категорія"
+
+#: src/diaryelements/diary.cpp:2954
+#, fuzzy
+msgid "New Entry"
+msgstr "Запис"
+
+#: src/diaryelements/diarydata.cpp:76 src/strings.hpp:193 ui/table.ui:73
+#, fuzzy
+msgid "Theme"
+msgstr "Теми"
+
+#: src/diaryelements/diarydata.cpp:76
+#, fuzzy
+msgid "Filter"
+msgstr "Фільтр"
+
+#: src/diaryelements/diarydata.cpp:76
+msgid "Chart"
+msgstr ""
+
+#: src/diaryelements/diarydata.cpp:76 ui/chart.ui:108
+msgid "Table"
+msgstr ""
+
+#: src/diaryelements/diarydata.cpp:77 src/strings.hpp:208 ui/table.ui:366
+msgid "Paragraph"
+msgstr ""
+
+#: src/diaryelements/diarydata.cpp:77 ui/table.ui:361
+#: ui/tv_diary_edit_link.ui:75
+msgid "Entry"
+msgstr "Запис"
+
+#: src/diaryelements/entry.cpp:1536
+msgid "Created"
+msgstr "Створено"
+
+#: src/diaryelements/entry.cpp:1537
+#, fuzzy
+msgid "Edited"
+msgstr "Змінити"
+
+#: src/diaryelements/entry.cpp:1539 ui/table.ui:63
+#, fuzzy
+msgid "Duration"
+msgstr "Дії"
+
+#: src/helpers.cpp:292
+msgid "day(s)"
+msgstr ""
+
+#: src/helpers.cpp:751
+msgid "FAILED"
+msgstr ""
+
+#: src/helpers.cpp:1794 src/helpers.cpp:1817
+msgid "All Files"
+msgstr "Всі файли"
+
+#: src/helpers.cpp:1819
+#, fuzzy
+msgid "Image Files"
+msgstr "Файли щоденника"
+
+#: src/helpers.cpp:1840
+#, fuzzy
+msgid "Diary files"
+msgstr "Файли щоденника"
+
+#: src/helpers.hpp:871
+msgid "_Cancel"
+msgstr ""
+
+#: src/lifeograph.cpp:56
+msgid "Name Only"
+msgstr ""
+
+#: src/lifeograph.cpp:57
+msgid "Name - Description"
+msgstr ""
+
+#: src/lifeograph.cpp:58
+#, fuzzy
+msgid "Number - Name"
+msgstr "Розділ"
+
+#: src/lifeograph.cpp:59
+msgid "Date - Name"
+msgstr ""
+
+#: src/lifeograph.cpp:60
+msgid "Milestone"
+msgstr ""
+
+#: src/printing.cpp:301
+msgid "Printing failed"
+msgstr ""
+
+#: src/strings.hpp:143 ui/dlg_sync.ui:292 ui/dlg_sync.ui:319
+msgid "ADD"
+msgstr ""
+
+#: src/strings.hpp:144
+msgid "All Entries"
+msgstr "Всі записи"
+
+#: src/strings.hpp:145
+msgid "All Paragraphs"
+msgstr ""
+
+#: src/strings.hpp:146 ui/po_entry.ui:124
+msgid "Auto"
+msgstr ""
+
+#: src/strings.hpp:147 ui/chart.ui:215
+msgid "Average"
+msgstr ""
+
+#: src/strings.hpp:148
+#, fuzzy
+msgid "Background Image"
+msgstr "Тло"
+
+#: src/strings.hpp:149
+msgid "Boolean"
+msgstr ""
+
+#: src/strings.hpp:150 ui/po_entry.ui:159 ui/tv_diary.ui:512
+msgid "Canceled"
+msgstr ""
+
+#: src/strings.hpp:151
+msgid "Category"
+msgstr ""
+
+#: src/strings.hpp:152
+msgid "CHANGED"
+msgstr ""
+
+#: src/strings.hpp:153
+msgid "Chart Intervals"
+msgstr ""
+
+#: src/strings.hpp:154
+msgid "Chart Underlay"
+msgstr ""
+
+#: src/strings.hpp:155 ui/po_entry.ui:196
+#, fuzzy
+msgid "Color"
+msgstr "Кольори"
+
+#: src/strings.hpp:156 ui/po_entry.ui:271
+msgid "Comment Style"
+msgstr ""
+
+#: src/strings.hpp:157 ui/lifeograph.ui:143
+msgid "Completion Tag"
+msgstr ""
+
+#: src/strings.hpp:158 ui/col_opt_duration.ui:22 ui/col_opt_duration.ui:48
+#: ui/col_opt_date.ui:22
+#, fuzzy
+msgid "Creation Date"
+msgstr "Розділ"
+
+#: src/strings.hpp:159
+msgid "Cumulative"
+msgstr ""
+
+#: src/strings.hpp:160
+#, fuzzy
+msgid "Current Entry"
+msgstr "Тільки Фільтровані Записи"
+
+#: src/strings.hpp:161
+msgid "Current Entry + Descendants"
+msgstr ""
+
+#: src/strings.hpp:162
+msgid "Date"
+msgstr ""
+
+#: src/strings.hpp:163
+#, fuzzy
+msgid "Definition"
+msgstr "Дії"
+
+#: src/strings.hpp:164
+msgid "DELETED"
+msgstr ""
+
+#: src/strings.hpp:165 ui/po_entry.ui:151 ui/tv_diary.ui:500
+msgid "Done"
+msgstr ""
+
+#: src/strings.hpp:166 ui/tv_diary_edit_date.ui:19
+#, fuzzy
+msgid "Edit Date"
+msgstr "Змінити"
+
+#: src/strings.hpp:167 ui/po_entry.ui:168
+msgid "Favorite"
+msgstr ""
+
+#: src/strings.hpp:168
+#, fuzzy
+msgid "List Filter"
+msgstr "Фільтр"
+
+#: src/strings.hpp:169
+#, fuzzy
+msgid "Search Filter"
+msgstr "Фільтр"
+
+#: src/strings.hpp:170
+msgid "Format"
+msgstr ""
+
+#: src/strings.hpp:171
+msgid "ID"
+msgstr ""
+
+#: src/strings.hpp:172 ui/dlg_sync.ui:286 ui/dlg_sync.ui:313
+msgid "IGNORE"
+msgstr ""
+
+#: src/strings.hpp:173
+msgid "INTACT"
+msgstr ""
+
+#: src/strings.hpp:174
+msgid "Language"
+msgstr ""
+
+#: src/strings.hpp:175
+#, fuzzy
+msgid "Last Entry"
+msgstr "Запис"
+
+#: src/strings.hpp:176
+msgid "Location"
+msgstr ""
+
+#: src/strings.hpp:177
+msgid "Map Path"
+msgstr ""
+
+#: src/strings.hpp:178
+msgid "Monthly"
+msgstr ""
+
+#: src/strings.hpp:179
+msgid "N/A"
+msgstr ""
+
+#: src/strings.hpp:181
+msgid "NEW"
+msgstr ""
+
+#: src/strings.hpp:182
+msgid "New Column"
+msgstr ""
+
+#: src/strings.hpp:183 ui/lifeograph.ui:519
+#, fuzzy
+msgid "New Table"
+msgstr "Фільтр"
+
+#: src/strings.hpp:184
+#, fuzzy
+msgid "No"
+msgstr "Нічого"
+
+#: src/strings.hpp:185 src/widgets/widget_chart.cpp:312
+#: src/widgets/widget_chart.cpp:339 src/widgets/widget_chart.cpp:401
+#: ui/widget_entry_picker.ui:38
+msgid "None"
+msgstr "Нічого"
+
+#: src/strings.hpp:187
+msgid "OTHER"
+msgstr ""
+
+#: src/strings.hpp:188 ui/dlg_sync.ui:298
+msgid "OVERWRITE"
+msgstr ""
+
+#: src/strings.hpp:189
+msgid "Progressed"
+msgstr ""
+
+#: src/strings.hpp:190
+#, fuzzy
+msgid "Startup Entry"
+msgstr "Запуск"
+
+#: src/strings.hpp:191
+msgid "Title Style"
+msgstr ""
+
+#: src/strings.hpp:192
+msgid "Type Name"
+msgstr ""
+
+#: src/strings.hpp:194
+#, fuzzy
+msgid "Theme Base"
+msgstr "Теми"
+
+#: src/strings.hpp:195
+#, fuzzy
+msgid "Theme Font"
+msgstr "Теми"
+
+#: src/strings.hpp:196
+#, fuzzy
+msgid "Theme Heading"
+msgstr "Заголовок:"
+
+#: src/strings.hpp:197
+msgid "Theme Highlight"
+msgstr ""
+
+#: src/strings.hpp:198
+#, fuzzy
+msgid "Theme Subheading"
+msgstr "Підрозділ:"
+
+#: src/strings.hpp:199
+#, fuzzy
+msgid "Theme Text"
+msgstr "Теми"
+
+#: src/strings.hpp:200
+#, fuzzy
+msgid "Todo"
+msgstr "Додати закладку"
+
+#: src/strings.hpp:201
+msgid "Trashed"
+msgstr ""
+
+#: src/strings.hpp:202 ui/po_entry.ui:214
+msgid "Unit"
+msgstr ""
+
+#: src/strings.hpp:203
+msgid "Value Type"
+msgstr ""
+
+#: src/strings.hpp:204
+msgid "Yearly"
+msgstr ""
+
+#: src/strings.hpp:205
+msgid "Yes"
+msgstr ""
+
+#: src/strings.hpp:207 ui/col_opt_tag_value.ui:13 ui/col_opt_tag_value.ui:20
+#, fuzzy
+msgid "Tag"
+msgstr "Мітки"
+
+#: src/strings.hpp:213
+msgid "January"
+msgstr ""
+
+#: src/strings.hpp:214
+msgid "February"
+msgstr ""
+
+#: src/strings.hpp:215
+msgid "March"
+msgstr ""
+
+#: src/strings.hpp:216
+msgid "April"
+msgstr ""
+
+#: src/strings.hpp:217
+msgid "May"
+msgstr ""
+
+#: src/strings.hpp:218
+msgid "June"
+msgstr ""
+
+#: src/strings.hpp:219
+msgid "July"
+msgstr ""
+
+#: src/strings.hpp:220
+msgid "August"
+msgstr ""
+
+#: src/strings.hpp:221
+msgid "September"
+msgstr ""
+
+#: src/strings.hpp:222
+msgid "October"
+msgstr ""
+
+#: src/strings.hpp:223
+msgid "November"
+msgstr ""
+
+#: src/strings.hpp:224
+msgid "December"
+msgstr ""
+
+#: src/strings.hpp:229 ui/preferences.ui:250
+msgid "Sunday"
+msgstr ""
+
+#: src/strings.hpp:230 ui/preferences.ui:251
+msgid "Monday"
+msgstr ""
+
+#: src/strings.hpp:231 ui/preferences.ui:252
+msgid "Tuesday"
+msgstr ""
+
+#: src/strings.hpp:232 ui/preferences.ui:253
+msgid "Wednesday"
+msgstr ""
+
+#: src/strings.hpp:233 ui/preferences.ui:254
+msgid "Thursday"
+msgstr ""
+
+#: src/strings.hpp:234 ui/preferences.ui:255
+msgid "Friday"
+msgstr ""
+
+#: src/strings.hpp:235 ui/preferences.ui:256
+msgid "Saturday"
+msgstr ""
+
+#: src/strings.hpp:246 ui/lifeograph-2.ui:154
+msgid "Personal, digital diary"
+msgstr "Персональний цифровий щоденник"
+
+#: src/strings.hpp:249
+msgid "Changes could not be written to diary!"
+msgstr "Зміни не можуть бути записаними в щоденник!"
+
+#: src/strings.hpp:252
+msgid "Check if you have write permissions on the file and containing folder"
+msgstr "Перевірте, чи маєте ви права на зміни в цьому каталозі або на цей файл"
+
+#: src/strings.hpp:256 ui/print.ui:132 ui/table.ui:97 ui/table.ui:260
+msgid "Off"
+msgstr ""
+
+#. TRANSLATORS: title of an empty diary entry
+#: src/strings.hpp:260
+msgid "<empty entry>"
+msgstr "<empty entry>"
+
+#: src/strings.hpp:263
+msgid "Please enter password for selected diary..."
+msgstr "Будь ласка, введіть пароль для вибраного щоденника..."
+
+#: src/strings.hpp:266
+msgid "Program logged out to protect your privacy. Please re-enter password..."
+msgstr ""
+"Програма вийшла, щоб захистити приватність. Будь ласка, введіть пароль ще "
+"раз..."
+
+#: src/strings.hpp:270
+#, fuzzy
+msgid ""
+"Selected diary is in an older format which is not compatible with this "
+"version of Lifeograph. Please select another file..."
+msgstr ""
+"Вибраний щоденник не сумісний з цією версією Lifeograph. Будь ласка, "
+"виберіть інший файл..."
+
+#: src/strings.hpp:275
+#, fuzzy
+msgid ""
+"Selected diary is in a newer format which is not compatible with this "
+"version of Lifeograph. Please consider upgrading your program."
+msgstr ""
+"Вибраний щоденник не сумісний з цією версією Lifeograph. Будь ласка, "
+"виберіть інший файл..."
+
+#: src/strings.hpp:280
+msgid ""
+"Selected file is not a valid Lifeograph diary. Please select another file..."
+msgstr ""
+"Вибраний файл не є робочим щоденником Lifeograph. Будь ласка, виберіть інший "
+"файл..."
+
+#: src/strings.hpp:285
+msgid "Selected file is not found. Please select another file..."
+msgstr ""
+
+#: src/strings.hpp:289
+msgid ""
+"Selected file is not readable. Please check file permissions or select "
+"another file..."
+msgstr ""
+
+#: src/strings.hpp:293
+msgid "You do not have permission to change this file."
+msgstr ""
+
+#: src/strings.hpp:296
+msgid ""
+"Selected file is locked which means either it is being edited by another "
+"instance of Lifeograph or the last session with it did not finish correctly. "
+"This file cannot be opened as long as the lock file (%1) is there."
+msgstr ""
+
+#: src/strings.hpp:303
+msgid ""
+"You are about to open an old diary that will be upgraded to the new format.\n"
+"\n"
+"Lifeograph will create a backup copy of the current diary for you in the "
+"same directory. Please keep that copy until you are sure that everything is "
+"all right."
+msgstr ""
+
+#: src/strings.hpp:309
+msgid "Failed to open diary. Please select another file..."
+msgstr ""
+
+#: src/strings.hpp:313
+msgid "Press Open to continue"
+msgstr "Натисніть \"Відкрити\", щоб продовжити"
+
+#: src/strings.hpp:316
+msgid "Last Read"
+msgstr ""
+
+#: src/strings.hpp:319
+msgid "Last Saved"
+msgstr ""
+
+#: src/strings.hpp:322
+msgid "(Drop a tag here to filter)"
+msgstr ""
+
+#: src/strings.hpp:325 ui/lifeograph.ui:90
+msgid "Change Password..."
+msgstr "Змінити пароль..."
+
+#. TRANSLATORS: e.g. Tag with 5 entries
+#: src/strings.hpp:329
+msgid "%1 with %2 entrie(s)"
+msgstr ""
+
+#: src/strings.hpp:332
+msgid "Tag with %1 entrie(s). Average value = %2"
+msgstr ""
+
+#: src/strings.hpp:335
+msgid "Tag with %1 entrie(s). Total value = %2"
+msgstr ""
+
+#: src/strings.hpp:338
+msgid "New theme"
+msgstr "Нова тема"
+
+#: src/strings.hpp:341
+#, fuzzy
+msgid "New chapter"
+msgstr "Нова категорія"
+
+#: src/strings.hpp:344
+msgid "New category"
+msgstr "Нова категорія"
+
+#: src/strings.hpp:347
+msgid "Default"
+msgstr "Типова"
+
+#: src/strings.hpp:350
+#, fuzzy
+msgid "<Default>"
+msgstr "Типова"
+
+#: src/strings.hpp:353
+#, fuzzy
+msgid "Diary Report"
+msgstr "Файл щоденника"
+
+#: src/ui_diary.cpp:484
+msgid "Are You Sure You Want to Upgrade The Diary?"
+msgstr "Ви впевнені, що бажаєте оновити словник"
+
+#: src/ui_diary.cpp:486
+msgid "Upgrade The Diary"
+msgstr "Оновити Щоденник"
+
+#. this should never occur?
+#: src/ui_diary.cpp:502
+msgid "Cannot edit a read-only diary"
+msgstr ""
+
+#: src/ui_diary.cpp:730
+#, fuzzy
+msgid "Are You Sure You Want to Empty The Trash?"
+msgstr "Ви впевнені, що бажаєте оновити словник"
+
+#: src/ui_diary.cpp:731
+msgid "Empty The Trash"
+msgstr ""
+
+#: src/ui_entry.cpp:330
+msgid "word(s)"
+msgstr ""
+
+#: src/ui_entry.cpp:540
+msgid "Also dismiss child entries"
+msgstr ""
+
+#: src/ui_extra.cpp:134 src/ui_extra.cpp:136 ui/lifeograph.ui:584
+#, fuzzy
+msgid "New Chart"
+msgstr "Нова категорія"
+
+#: src/ui_extra.cpp:589
+msgid "<b>%1</b> instances found"
+msgstr ""
+
+#: src/ui_extra.cpp:592
+msgid "Search text within entries"
+msgstr ""
+
+#: src/ui_login.cpp:242
+msgid "Error querying file"
+msgstr ""
+
+#: src/ui_login.cpp:484
+msgid "Removed diary: %1"
+msgstr ""
+
+#: src/ui_login.cpp:486
+msgid "Undo"
+msgstr "Відмінити"
+
+#: src/ui_login.cpp:502
+#, fuzzy
+msgid "Where to Save the New Diary?"
+msgstr "Куди зберегти щоденник"
+
+#: src/ui_login.cpp:523
+#, fuzzy
+msgid "Select the Diary File to Add"
+msgstr "Вибрати щоденник"
+
+#: src/ui_login.cpp:531
+msgid "Unsaved changes from the last session detected"
+msgstr ""
+
+#: src/ui_login.cpp:532
+msgid "_Discard Unsaved Changes"
+msgstr ""
+
+#: src/ui_login.cpp:535
+msgid "Continue with _Unsaved Changes"
+msgstr ""
+
+#: src/widgets/calendar.cpp:105
+msgid "DATE IS NOT SET"
+msgstr ""
+
+#: src/widgets/chart.cpp:574
+msgid "INSUFFICIENT DATA"
+msgstr ""
+
+#: src/widgets/table.cpp:490
+msgid "ADD COLUMNS"
+msgstr ""
+
+#: src/widgets/widget_chart.cpp:315
+#, fuzzy
+msgid "Previous Year"
+msgstr "Попередній"
+
+#: src/widgets/widget_chart.cpp:398
+#, fuzzy
+msgid "Count"
+msgstr "Запис"
+
+#: src/widgets/widget_entrypicker.cpp:120
+#, fuzzy
+msgid "Create New Entry: %1"
+msgstr "_Створити Новий Щоденник..."
+
+#: src/widgets/widget_filter.cpp:62
+msgid "Whose status is one of"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:219
+msgid "Is favorite"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:229
+msgid "Is trashed"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:238
+#, fuzzy
+msgid "Has the unit"
+msgstr "Системна тема"
+
+#: src/widgets/widget_filter.cpp:257
+#, fuzzy
+msgid "Is entry"
+msgstr "Запис"
+
+#: src/widgets/widget_filter.cpp:278
+msgid "Is descendant of"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:280
+msgid "Or itself"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:306
+#, fuzzy
+msgid "Has the tag"
+msgstr "Системна тема"
+
+#: src/widgets/widget_filter.cpp:407
+msgid "Planned"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:408
+msgid "Realized"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:409
+msgid "Remaining"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:475
+#, fuzzy
+msgid "Has the theme"
+msgstr "Системна тема"
+
+#: src/widgets/widget_filter.cpp:541 src/widgets/widget_filter.cpp:593
+msgid "Between"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:627
+msgid "Completion is in range"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:696
+#, fuzzy
+msgid "Satisfies filter"
+msgstr "Фільтр"
+
+#: src/widgets/widget_filter.cpp:704
+msgid "Is image"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:711
+msgid "Has map coordinates"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:721
+msgid "Title style is"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:757
+msgid "Heading level is"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:908
+msgid "OR"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:910
+msgid "AND"
+msgstr ""
+
+#: src/widgets/widget_map.cpp:251
+#, fuzzy
+msgid "New Location"
+msgstr "Нова категорія"
+
+#: src/widgets/widget_table.cpp:973 ui/table.ui:61
+msgid "Text"
+msgstr ""
+
+#. the same id and SRC_value as title
+#: src/widgets/widget_table.cpp:974 ui/tv_diary_edit_link.ui:52
+msgid "Uri"
+msgstr ""
+
+#: src/widgets/widget_table.cpp:978
+msgid "Title"
+msgstr ""
+
+#: src/widgets/widget_table.cpp:979
+msgid "Ancestors + Title"
+msgstr ""
+
+#: src/widgets/widget_table.cpp:980
+#, fuzzy
+msgid "Description"
+msgstr "Дії"
+
+#: src/widgets/widget_table.cpp:1021
+msgid "Constant"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1583
+msgid "Image Not Found"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1713
+msgid "Click to expand the paragraph"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1716
+msgid "Click to collapse the paragraph"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1723
+msgid "Click to edit entry properties"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1726
+msgid "Click to see list of entries tagged by this entry"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1736
+msgid "Entry text evaluated as link address"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1752
+msgid "Right click to edit paragraph"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1762
+msgid "Press Ctrl to follow the link"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1763
+msgid "Press Ctrl to select"
+msgstr ""
+
+#: src/widgets/widget_textviewedit.cpp:950
+msgid "Open"
+msgstr ""
+
+#: src/widgets/widget_textviewedit.cpp:1044
+msgid "image"
+msgstr ""
+
+#: src/widgets/widget_textviewedit.cpp:1262
+msgid "Add \"%1\" to Dictionary"
+msgstr ""
+
+#: src/widgets/widget_textviewedit.cpp:1263
+msgid "Ignore All"
+msgstr ""
+
+#: src/widgets/widget_textviewedit.cpp:1268
+msgid "no suggestions"
+msgstr ""
+
+#: src/widgets/widget_textviewsearch.cpp:94
+#, fuzzy
+msgid "Please enter a search phrase"
+msgstr "Будь ласка, введіть пароль для вибраного щоденника..."
+
+#: src/widgets/widget_textviewsearch.cpp:97
+msgid "No matches"
+msgstr ""
+
+#: src/widgets/widget_textviewsearch.cpp:331
+msgid "Click to jump to"
+msgstr ""
+
+#: src/widgets/widget_textviewsearch.cpp:336
+msgid "Right click to replace"
+msgstr ""
+
+#: src/widgets/widget_textviewtheme.cpp:267
+#, fuzzy
+msgid "Select Image"
+msgstr "Вибрати щоденник"
+
+#: src/widgets/widget_textviewtheme.cpp:379
+msgid "Click to edit the theme"
+msgstr ""
+
+#: ui/calendar.ui:30
+#, fuzzy
+msgid "Copy Date"
+msgstr "Впорядкувати за датою створення"
+
+#: ui/calendar.ui:38
+msgid "Weekend Day"
+msgstr ""
+
+#: ui/calendar.ui:43
+msgid "Holiday"
+msgstr ""
+
+#: ui/calendar.ui:50
+msgid "Show Week Numbers"
+msgstr ""
+
+#: ui/calendar.ui:66
+#, fuzzy
+msgid "Create entry"
+msgstr "Створити Нову..."
+
+#: ui/calendar.ui:78
+#, fuzzy
+msgid "Create milestone"
+msgstr "Створити Нову..."
+
+#: ui/chart.ui:45
+msgid "Style"
+msgstr ""
+
+#: ui/chart.ui:62
+msgid "Line"
+msgstr ""
+
+#: ui/chart.ui:67
+msgid "Bars"
+msgstr ""
+
+#: ui/chart.ui:91
+msgid "Data Source"
+msgstr ""
+
+#: ui/chart.ui:125
+msgid "x-Axis Column"
+msgstr ""
+
+#: ui/chart.ui:142
+msgid "y-Axis Column"
+msgstr ""
+
+#: ui/chart.ui:165
+#, fuzzy
+msgid "Organization"
+msgstr "Дії"
+
+#: ui/chart.ui:182
+msgid "Group by"
+msgstr ""
+
+#: ui/chart.ui:190
+#, fuzzy
+msgid "Day"
+msgstr "Щоденник"
+
+#: ui/chart.ui:191
+msgid "Week"
+msgstr ""
+
+#: ui/chart.ui:192
+msgid "Month"
+msgstr ""
+
+#: ui/chart.ui:193
+msgid "Year"
+msgstr ""
+
+#: ui/chart.ui:205
+msgid "Combine"
+msgstr ""
+
+#: ui/chart.ui:213
+msgid "Cumulative: Periodic"
+msgstr ""
+
+#: ui/chart.ui:214
+msgid "Cumulative: Continuous"
+msgstr ""
+
+#: ui/chart.ui:230
+#, fuzzy
+msgid "Advanced Options"
+msgstr "Опції"
+
+#: ui/chart.ui:270
+msgid "Underlay"
+msgstr ""
+
+#: ui/chart.ui:293
+msgid "Filter Table Rows"
+msgstr ""
+
+#: ui/chart.ui:310
+msgid "Column"
+msgstr ""
+
+#: ui/chart.ui:327
+msgid "Value = "
+msgstr ""
+
+#: ui/col_opt_arithmetic.ui:108
+msgid "Operand A"
+msgstr ""
+
+#: ui/col_opt_arithmetic.ui:120 ui/col_opt_arithmetic.ui:157
+msgid "Function to modify the column value"
+msgstr ""
+
+#: ui/col_opt_arithmetic.ui:145
+msgid "Operand B"
+msgstr ""
+
+#: ui/col_opt_arithmetic.ui:181
+msgid "Format as"
+msgstr ""
+
+#: ui/col_opt_duration.ui:13
+#, fuzzy
+msgid "Begin Date"
+msgstr "Розділ"
+
+#: ui/col_opt_duration.ui:21 ui/col_opt_duration.ui:47 ui/col_opt_date.ui:21
+#, fuzzy
+msgid "Start Date"
+msgstr "Запуск"
+
+#: ui/col_opt_duration.ui:23 ui/col_opt_duration.ui:49 ui/col_opt_date.ui:23
+#, fuzzy
+msgid "Last Change Date"
+msgstr "Змінено"
+
+#: ui/col_opt_duration.ui:24 ui/col_opt_duration.ui:50 ui/col_opt_date.ui:24
+#, fuzzy
+msgid "Finish Date"
+msgstr "Змінити"
+
+#: ui/col_opt_duration.ui:25 ui/col_opt_duration.ui:51
+#, fuzzy
+msgid "Now"
+msgstr "Нічого"
+
+#: ui/col_opt_duration.ui:26 ui/col_opt_duration.ui:52
+msgid "1st Column on Left"
+msgstr ""
+
+#: ui/col_opt_duration.ui:27 ui/col_opt_duration.ui:53
+msgid "2nd Column on Left"
+msgstr ""
+
+#: ui/col_opt_duration.ui:39
+#, fuzzy
+msgid "End Date"
+msgstr "Змінити"
+
+#: ui/col_opt_duration.ui:65 ui/col_opt_size.ui:13 ui/col_opt_date.ui:13
+#: ui/dlg_export.ui:76 ui/po_entry.ui:180
+#, fuzzy
+msgid "Type"
+msgstr "Тип:"
+
+#: ui/col_opt_duration.ui:73
+msgid "Calendar Days"
+msgstr ""
+
+#: ui/col_opt_duration.ui:74
+msgid "Work Days"
+msgstr ""
+
+#: ui/col_opt_size.ui:21
+#, fuzzy
+msgid "Char Count"
+msgstr "Запис"
+
+#. <item translatable="yes">Word Count</item> TODO: 3.1 or later
+#: ui/col_opt_size.ui:23
+msgid "Paragraph Count"
+msgstr ""
+
+#: ui/col_opt_bool.ui:14
+#, fuzzy
+msgid "Condition"
+msgstr "Дії"
+
+#: ui/col_opt_bool.ui:20
+msgid "True if satisfies the selected filter"
+msgstr ""
+
+#: ui/col_opt_date.ui:35
+msgid "Customize Format"
+msgstr ""
+
+#: ui/col_opt_date.ui:41
+msgid ""
+"Y: year\n"
+"M: month number\n"
+"n: month name\n"
+"D: day\n"
+"d: week day\n"
+"W: week no\n"
+"h: hour\n"
+"m: minute\n"
+"s: second\n"
+"F: date\n"
+"T: time"
+msgstr ""
+
+#: ui/col_opt_subtag.ui:13
+msgid "Sub tag of"
+msgstr ""
+
+#: ui/col_opt_subtag.ui:21
+#, fuzzy
+msgid "Parent tag"
+msgstr "Тільки Фільтровані Записи"
+
+#: ui/col_opt_subtag.ui:32
+#, fuzzy
+msgid "Select"
+msgstr "Вибрати щоденник"
+
+#: ui/col_opt_subtag.ui:40
+msgid "First Occuring"
+msgstr ""
+
+#: ui/col_opt_subtag.ui:41
+msgid "Last Occuring"
+msgstr ""
+
+#: ui/col_opt_subtag.ui:42
+msgid "Least in Order"
+msgstr ""
+
+#: ui/col_opt_subtag.ui:43
+msgid "Greatest in Order"
+msgstr ""
+
+#: ui/col_opt_subtag.ui:44 ui/lifeograph.ui:480
+msgid "All"
+msgstr ""
+
+#: ui/col_opt_tag_value.ui:33
+msgid "Calculate"
+msgstr ""
+
+#: ui/col_opt_tag_value.ui:41
+msgid "Total Planned"
+msgstr ""
+
+#: ui/col_opt_tag_value.ui:42
+msgid "Total Realized"
+msgstr ""
+
+#: ui/col_opt_tag_value.ui:43
+msgid "Total Remaining"
+msgstr ""
+
+#: ui/col_opt_tag_value.ui:44
+msgid "Average Planned"
+msgstr ""
+
+#: ui/col_opt_tag_value.ui:45
+msgid "Average Realized"
+msgstr ""
+
+#: ui/col_opt_tag_value.ui:46
+msgid "Average Remaining"
+msgstr ""
+
+#: ui/col_opt_tag_value.ui:47
+msgid "Completion Percentage"
+msgstr ""
+
+#: ui/col_opt_text.ui:13
+msgid "Field"
+msgstr ""
+
+#: ui/col_opt_text.ui:30
+msgid "Include"
+msgstr ""
+
+#: ui/col_opt_text.ui:42
+#, fuzzy
+msgid "Number or Date"
+msgstr "Розділ"
+
+#: ui/col_opt_text.ui:48
+msgid "Plain text"
+msgstr ""
+
+#: ui/col_opt_text.ui:54
+#, fuzzy
+msgid "Tags within the text"
+msgstr "Системна тема"
+
+#: ui/col_opt_text.ui:60
+msgid "Dates within the text"
+msgstr ""
+
+#: ui/col_opt_text.ui:66
+msgid "Comments within the text"
+msgstr ""
+
+#: ui/col_opt_text.ui:72
+msgid "Indentations"
+msgstr ""
+
+#: ui/dlg_export.ui:42
+msgid "Export"
+msgstr "Експортувати"
+
+#: ui/dlg_export.ui:66
+#, fuzzy
+msgid "Content"
+msgstr "_Продовжити"
+
+#: ui/dlg_export_opts_log.ui:33 ui/lifeograph-2.ui:47
+#, fuzzy
+msgid "Password"
+msgstr "Пароль:"
+
+#: ui/dlg_export_opts_log.ui:43 ui/lifeograph.ui:947 ui/lifeograph-2.ui:59
+#, fuzzy
+msgid "Confirm"
+msgstr "Підтвердження:"
+
+#: ui/dlg_filter.ui:41 ui/dlg_smartadd.ui:51 ui/dlg_sync.ui:43
+msgid "Cancel"
+msgstr ""
+
+#: ui/dlg_filter.ui:57
+msgid "Apply & Close"
+msgstr ""
+
+#: ui/dlg_gettext.ui:34
+#, fuzzy
+msgid "Please enter a name"
+msgstr "Будь ласка, введіть пароль для вибраного щоденника..."
+
+#: ui/dlg_smartadd.ui:38
+msgid "Smart Add"
+msgstr ""
+
+#: ui/dlg_smartadd.ui:56
+msgid "Clear"
+msgstr ""
+
+#: ui/dlg_sync.ui:49
+msgid "Go"
+msgstr ""
+
+#: ui/dlg_sync.ui:60
+#, fuzzy
+msgid "Scheme"
+msgstr "Теми"
+
+#: ui/dlg_sync.ui:70
+#, fuzzy
+msgid "Filters"
+msgstr "Фільтр"
+
+#: ui/dlg_sync.ui:120
+msgid "Apply to Similar"
+msgstr ""
+
+#: ui/dlg_sync.ui:125
+msgid "Apply action changes to all similar elements"
+msgstr ""
+
+#: ui/dlg_sync.ui:139
+msgid "I"
+msgstr ""
+
+#: ui/dlg_sync.ui:140
+#, fuzzy
+msgid "Ignore"
+msgstr "Змінено"
+
+#: ui/dlg_sync.ui:146
+msgid "A"
+msgstr ""
+
+#: ui/dlg_sync.ui:147
+#, fuzzy
+msgid "Add remote"
+msgstr "Забрати закладку"
+
+#: ui/dlg_sync.ui:153
+msgid "O"
+msgstr ""
+
+#: ui/dlg_sync.ui:154
+msgid "Overwrite local"
+msgstr ""
+
+#: ui/dlg_sync.ui:167
+#, fuzzy
+msgid "Tag Imported Entries"
+msgstr "Всі записи"
+
+#: ui/dlg_sync.ui:218
+#, fuzzy
+msgid "Show New"
+msgstr "Змінено"
+
+#: ui/dlg_sync.ui:222
+#, fuzzy
+msgid "Show Changed"
+msgstr "Змінено"
+
+#: ui/dlg_sync.ui:228
+msgid "Show Accepted"
+msgstr ""
+
+#: ui/dlg_sync.ui:232
+#, fuzzy
+msgid "Show Ignored"
+msgstr "Змінено"
+
+#: ui/dlg_sync.ui:238
+msgid "Only Show Different Details"
+msgstr ""
+
+#: ui/dlg_sync.ui:258
+#, fuzzy
+msgid "Changed"
+msgstr "Змінено"
+
+#: ui/dlg_sync.ui:271
+#, fuzzy
+msgid "New"
+msgstr "Нічого"
+
+#: ui/dlg_sync.ui:333
+#, fuzzy
+msgid "Apply Scheme"
+msgstr "Застосувати нове ім'я"
+
+#: ui/flt_range.ui:9
+msgid "Include or exclude the lower bound"
+msgstr ""
+
+#: ui/flt_range.ui:22
+msgid "Lower bound"
+msgstr ""
+
+#: ui/flt_range.ui:37
+msgid "Upper bound"
+msgstr ""
+
+#: ui/flt_range.ui:43
+msgid "Include or exclude the upper bound"
+msgstr ""
+
+#: ui/flt_subtag.ui:10
+msgid "First"
+msgstr ""
+
+#: ui/flt_subtag.ui:11
+msgid "Last"
+msgstr ""
+
+#: ui/flt_subtag.ui:12
+msgid "Highest"
+msgstr ""
+
+#: ui/flt_subtag.ui:13
+msgid "Lowest"
+msgstr ""
+
+#: ui/flt_subtag.ui:19
+msgid "Subtag of"
+msgstr ""
+
+#: ui/flt_subtag.ui:24 ui/flt_subtag.ui:40
+msgid "Only include paragraphs with this tag"
+msgstr ""
+
+#: ui/flt_subtag.ui:29
+#, fuzzy
+msgid "Parent Tag"
+msgstr "Закласти"
+
+#: ui/flt_subtag.ui:45
+msgid "Child Tag"
+msgstr ""
+
+#: ui/flt_text.ui:9
+#, fuzzy
+msgid "Contains text"
+msgstr "_Продовжити"
+
+#: ui/flt_text.ui:21 ui/lifeograph.ui:444
+msgid "Match case"
+msgstr ""
+
+#: ui/flt_text.ui:33
+msgid "Anywhere"
+msgstr ""
+
+#: ui/flt_text.ui:34
+#, fuzzy
+msgid "In the name"
+msgstr "Нова тема"
+
+#: ui/lifeograph.ui:34
+msgid "Help"
+msgstr ""
+
+#: ui/lifeograph.ui:40 ui/preferences.ui:28
+msgid "Preferences"
+msgstr "Налаштування"
+
+#: ui/lifeograph.ui:44
+msgid "About"
+msgstr "Про програму"
+
+#: ui/lifeograph.ui:48
+msgid "Quit"
+msgstr ""
+
+#: ui/lifeograph.ui:63
+msgid "Open the Folder Containing the Diary"
+msgstr ""
+
+#: ui/lifeograph.ui:68
+#, fuzzy
+msgid "Export/Save As..."
+msgstr "Експортувати"
+
+#: ui/lifeograph.ui:73
+msgid "Synchronize/Merge..."
+msgstr ""
+
+#: ui/lifeograph.ui:80
+msgid "Empty the Trash..."
+msgstr ""
+
+#: ui/lifeograph.ui:85
+msgid "Encrypt..."
+msgstr ""
+
+#: ui/lifeograph.ui:95
+msgid "Update All Date Separators in the Diary"
+msgstr ""
+
+#: ui/lifeograph.ui:126
+msgid "Diary default value for spell checking"
+msgstr ""
+
+#: ui/lifeograph.ui:127
+msgid "Spell Checking"
+msgstr ""
+
+#: ui/lifeograph.ui:160
+#, fuzzy
+msgid "Startup Action"
+msgstr "Запуск"
+
+#: ui/lifeograph.ui:167
+msgid "Show Most Current Entry"
+msgstr ""
+
+#: ui/lifeograph.ui:168
+msgid "Remember Last Entry"
+msgstr ""
+
+#: ui/lifeograph.ui:169
+msgid "Always Show a Fixed Entry"
+msgstr ""
+
+#: ui/lifeograph.ui:181
+msgid "Item to Show"
+msgstr ""
+
+#: ui/lifeograph.ui:198
+#, fuzzy
+msgid "Close without Saving..."
+msgstr "_Вийти без Збереження"
+
+#: ui/lifeograph.ui:202
+msgid "Disable Auto Close for This Session"
+msgstr ""
+
+#: ui/lifeograph.ui:216
+msgid "Standard Diary Report"
+msgstr ""
+
+#: ui/lifeograph.ui:288
+msgid "Diaries"
+msgstr "Щоденники"
+
+#: ui/lifeograph.ui:409
+msgid "Calendar"
+msgstr ""
+
+#: ui/lifeograph.ui:422 ui/lifeograph.ui:439
+#, fuzzy
+msgid "Search"
+msgstr "Фільтр"
+
+#: ui/lifeograph.ui:469
+#, fuzzy
+msgid "Enter text to replace matches with"
+msgstr "Введіть текст, який потрібно фільтрувати"
+
+#: ui/lifeograph.ui:475 ui/tv_diary.ui:352
+msgid "Replace"
+msgstr "Замінити"
+
+#: ui/lifeograph.ui:482
+msgid "Replace all"
+msgstr "Видалити все"
+
+#: ui/lifeograph.ui:505
+#, fuzzy
+msgid "Tables"
+msgstr "Фільтр"
+
+#: ui/lifeograph.ui:539 ui/lifeograph.ui:611
+msgid "Properties"
+msgstr ""
+
+#: ui/lifeograph.ui:601
+msgid "Zoom level"
+msgstr ""
+
+#: ui/lifeograph.ui:635
+#, fuzzy
+msgid "Themes"
+msgstr "Теми"
+
+#: ui/lifeograph.ui:691
+msgid "Map"
+msgstr ""
+
+#: ui/lifeograph.ui:772
+msgid "Label"
+msgstr ""
+
+#: ui/lifeograph.ui:782
+msgid "Add an existing diary file"
+msgstr ""
+
+#: ui/lifeograph.ui:789
+#, fuzzy
+msgid "Create New"
+msgstr "Створити Нову..."
+
+#: ui/lifeograph.ui:799 ui/lifeograph.ui:807
+msgid "Go back in the browsing history"
+msgstr ""
+
+#: ui/lifeograph.ui:818 ui/po_entry.ui:7
+#, fuzzy
+msgid "Add"
+msgstr "Додати закладку"
+
+#: ui/lifeograph.ui:819
+msgid "Quick add a new entry"
+msgstr ""
+
+#: ui/lifeograph.ui:848 ui/po_theme.ui:35
+msgid "Edit"
+msgstr "Змінити"
+
+#: ui/lifeograph.ui:857
+msgid "Close"
+msgstr ""
+
+#: ui/lifeograph.ui:859
+#, fuzzy
+msgid "Save close the diary"
+msgstr "Зберегти копію щоденника"
+
+#: ui/lifeograph.ui:957
+#, fuzzy
+msgid "New Password"
+msgstr "Новий Пароль:"
+
+#: ui/lifeograph.ui:976
+msgid "Authenticate"
+msgstr "Автентифікація"
+
+#: ui/lifeograph.ui:1037
+#, fuzzy
+msgid "Sort by"
+msgstr "Впорядкувати за розміром"
+
+#: ui/lifeograph.ui:1061
+msgid "Save"
+msgstr ""
+
+#: ui/lifeograph.ui:1068
+msgid "Read"
+msgstr "Читати"
+
+#: ui/lifeograph-2.ui:28
+#, fuzzy
+msgid "Where to Save The Diary?"
+msgstr "Куди зберегти щоденник"
+
+#: ui/lifeograph-2.ui:91
+msgid "Encrypt Diary Content"
+msgstr ""
+
+#: ui/lifeograph-2.ui:111
+msgid ""
+"Knowledge is a single point which the ignorant have multiplied.\n"
+"~Attributed to Ali Ibn Abi Talib"
+msgstr ""
+
+#: ui/lifeograph-2.ui:124
+msgid "Welcome to Lifeograph, a parametric note taking application!"
+msgstr ""
+
+#: ui/lifeograph-2.ui:137
+msgid ""
+"If this is your first time with the program, click here to start right away"
+msgstr ""
+
+#: ui/lifeograph-2.ui:153
+#, fuzzy
+msgid "Copyright (C) 2007-2024 Ahmet Öztürk"
+msgstr "Авторське право (C) 2007-2018 Ahmet Öztürk"
+
+#: ui/lifeograph-2.ui:156
+msgid "Web Site"
+msgstr ""
+
+#: ui/map.ui:29
+msgid "Copy to Clipboard"
+msgstr ""
+
+#: ui/map.ui:35
+msgid "Path"
+msgstr ""
+
+#: ui/map.ui:37
+msgid "Add Point"
+msgstr ""
+
+#: ui/map.ui:42
+msgid "Insert Point before Selected"
+msgstr ""
+
+#: ui/map.ui:47
+#, fuzzy
+msgid "Move Selected Point Here"
+msgstr "Видалити з листа"
+
+#: ui/map.ui:54
+#, fuzzy
+msgid "Remove Selected Point"
+msgstr "Видалити з листа"
+
+#: ui/map.ui:59
+msgid "Clear Path"
+msgstr ""
+
+#: ui/map.ui:65
+#, fuzzy
+msgid "Other Entries"
+msgstr "Тільки Фільтровані Записи"
+
+#: ui/map.ui:67
+msgid "Show Locations"
+msgstr ""
+
+#: ui/po_entry.ui:12
+msgid "Parent"
+msgstr ""
+
+#: ui/po_entry.ui:16
+msgid "Sibling"
+msgstr ""
+
+#: ui/po_entry.ui:20
+msgid "Child"
+msgstr ""
+
+#: ui/po_entry.ui:24 ui/po_theme.ui:40
+msgid "Duplicate"
+msgstr ""
+
+#: ui/po_entry.ui:30
+#, fuzzy
+msgid "Merge Selected"
+msgstr "Видалити з листа"
+
+#: ui/po_entry.ui:35
+#, fuzzy
+msgid "Sort Siblings"
+msgstr "Впорядкувати за датою створення"
+
+#: ui/po_entry.ui:40
+msgid "A-Z"
+msgstr ""
+
+#: ui/po_entry.ui:44
+msgid "Z-A"
+msgstr ""
+
+#: ui/po_entry.ui:48
+msgid "Earliest First"
+msgstr ""
+
+#: ui/po_entry.ui:52
+#, fuzzy
+msgid "Latest First"
+msgstr "Фільтр"
+
+#: ui/po_entry.ui:56
+msgid "Shortest First"
+msgstr ""
+
+#: ui/po_entry.ui:60
+msgid "Longest First"
+msgstr ""
+
+#: ui/po_entry.ui:79
+msgid "Move to Trash"
+msgstr ""
+
+#: ui/po_entry.ui:84
+msgid "Restore"
+msgstr ""
+
+#: ui/po_entry.ui:89 ui/po_theme.ui:47
+msgid "Dismiss..."
+msgstr ""
+
+#: ui/po_entry.ui:99
+msgid "Print..."
+msgstr ""
+
+#: ui/po_entry.ui:132
+msgid "To Do"
+msgstr ""
+
+#: ui/po_entry.ui:143
+msgid "In Progress"
+msgstr ""
+
+#: ui/po_entry.ui:201
+msgid "Color as a tag and calendar or chart background"
+msgstr ""
+
+#: ui/po_entry.ui:238
+msgid "Unitless"
+msgstr ""
+
+#: ui/po_entry.ui:251
+msgid "Spellchecking"
+msgstr ""
+
+#: ui/po_entry.ui:279
+msgid "Hidden"
+msgstr ""
+
+#: ui/po_entry.ui:280
+msgid "Normal"
+msgstr ""
+
+#: ui/po_entry.ui:281 ui/tv_diary.ui:158
+msgid "Highlighted"
+msgstr ""
+
+#: ui/po_theme.ui:52
+#, fuzzy
+msgid "Reset to default"
+msgstr "Типова"
+
+#: ui/po_theme.ui:59
+msgid "Assign to Open Entry"
+msgstr ""
+
+#: ui/po_theme.ui:64
+#, fuzzy
+msgid "Assign to Selected Entries"
+msgstr "Тільки Фільтровані Записи"
+
+#: ui/preferences.ui:44
+msgid "Privacy"
+msgstr "Конфіденційність"
+
+#: ui/preferences.ui:65
+#, fuzzy
+msgid "Save Diary and Close When Idle"
+msgstr "Зберегти щоденник і вийти"
+
+#: ui/preferences.ui:73
+msgid "Disabled"
+msgstr ""
+
+#: ui/preferences.ui:74
+msgid "For 30 Seconds"
+msgstr ""
+
+#: ui/preferences.ui:75
+msgid "For 45 Seconds"
+msgstr ""
+
+#: ui/preferences.ui:76
+msgid "For 1 Minute"
+msgstr ""
+
+#: ui/preferences.ui:77
+msgid "For 1½ Minute"
+msgstr ""
+
+#: ui/preferences.ui:78
+msgid "For 2 Minutes"
+msgstr ""
+
+#: ui/preferences.ui:79
+msgid "For 3 Minutes"
+msgstr ""
+
+#: ui/preferences.ui:80
+msgid "For 5 Minutes"
+msgstr ""
+
+#: ui/preferences.ui:81
+msgid "For 10 Minutes"
+msgstr ""
+
+#: ui/preferences.ui:82
+msgid "For 20 Minutes"
+msgstr ""
+
+#: ui/preferences.ui:83
+msgid "For 30 Minutes"
+msgstr ""
+
+#: ui/preferences.ui:101
+msgid "Auto Backups"
+msgstr ""
+
+#: ui/preferences.ui:123
+msgid "Create Daily Backups on Save"
+msgstr ""
+
+#: ui/preferences.ui:155
+msgid "Backup Folder"
+msgstr ""
+
+#: ui/preferences.ui:160
+msgid "Select The Folder for Daily Backups"
+msgstr ""
+
+#: ui/preferences.ui:179
+msgid "Locale"
+msgstr ""
+
+#: ui/preferences.ui:200
+msgid "Date Order and Separator"
+msgstr ""
+
+#: ui/preferences.ui:211
+msgid "Year Month Day"
+msgstr ""
+
+#: ui/preferences.ui:212
+msgid "Day Month Year"
+msgstr ""
+
+#: ui/preferences.ui:213
+msgid "Month Day Year"
+msgstr ""
+
+#: ui/preferences.ui:220
+msgid ". (Dot)"
+msgstr ""
+
+#: ui/preferences.ui:221
+msgid "/ (Slash)"
+msgstr ""
+
+#: ui/preferences.ui:222
+msgid "- (Dash)"
+msgstr ""
+
+#: ui/preferences.ui:242
+msgid "First Day of the Week"
+msgstr ""
+
+#: ui/preferences.ui:283
+#, fuzzy
+msgid "Preferred Units"
+msgstr "Налаштування"
+
+#: ui/preferences.ui:294
+msgid "Metric"
+msgstr ""
+
+#: ui/preferences.ui:300
+msgid "Imperial"
+msgstr ""
+
+#: ui/preferences.ui:320
+msgid "Appearance"
+msgstr "Зовнішній вигляд"
+
+#: ui/preferences.ui:341
+msgid "Prefer Dark Gtk+ Theme"
+msgstr ""
+
+#: ui/print.ui:39
+msgid "What to Print?"
+msgstr ""
+
+#: ui/print.ui:48
+#, fuzzy
+msgid "Only Current Entry"
+msgstr "Тільки Фільтровані Записи"
+
+#: ui/print.ui:54
+#, fuzzy
+msgid "All Filtered Entries"
+msgstr "Тільки Фільтровані Записи"
+
+#: ui/print.ui:60
+msgid "Entire Diary"
+msgstr ""
+
+#: ui/print.ui:66
+msgid "Every Entry Begins on a New Page"
+msgstr ""
+
+#: ui/print.ui:78
+#, fuzzy
+msgid "Text Options"
+msgstr "Опції"
+
+#: ui/print.ui:87
+msgid "Use Theme Fonts in Entries"
+msgstr ""
+
+#: ui/print.ui:101
+#, fuzzy
+msgid "Use Custom Theme Colors"
+msgstr "Інша тема"
+
+#: ui/print.ui:107
+msgid "Page Margins"
+msgstr ""
+
+#: ui/print.ui:120
+msgid "Full"
+msgstr ""
+
+#: ui/print.ui:126
+msgid "Half"
+msgstr ""
+
+#: ui/table.ui:7
+msgid "Show Order Column"
+msgstr ""
+
+#: ui/table.ui:11
+msgid "Group Lines"
+msgstr ""
+
+#: ui/table.ui:28
+msgid "Copy as Tab Delimited Text"
+msgstr ""
+
+#: ui/table.ui:53
+msgid "Basics"
+msgstr ""
+
+#: ui/table.ui:62
+msgid "Date & Time"
+msgstr ""
+
+#: ui/table.ui:64
+msgid "Size"
+msgstr ""
+
+#: ui/table.ui:65
+#, fuzzy
+msgid "Number"
+msgstr "Розділ"
+
+#: ui/table.ui:66
+msgid "True / False"
+msgstr ""
+
+#: ui/table.ui:67
+#, fuzzy
+msgid "Tag Value"
+msgstr "Змінено"
+
+#: ui/table.ui:68
+msgid "Has Which Sub Tag"
+msgstr ""
+
+#: ui/table.ui:69
+#, fuzzy
+msgid "Completion"
+msgstr "Опції"
+
+#: ui/table.ui:70
+msgid "Todo Status"
+msgstr ""
+
+#: ui/table.ui:71
+#, fuzzy
+msgid "Gantt Chart"
+msgstr "Нова категорія"
+
+#: ui/table.ui:72
+msgid "Path Length in Map"
+msgstr ""
+
+#: ui/table.ui:74
+msgid "Arithmetic"
+msgstr ""
+
+#: ui/table.ui:87
+#, fuzzy
+msgid "Sorting"
+msgstr "Впорядкувати за датою створення"
+
+#: ui/table.ui:104
+msgid "Ascending"
+msgstr ""
+
+#: ui/table.ui:111
+msgid "Descending"
+msgstr ""
+
+#: ui/table.ui:120
+msgid "Combine identical cells"
+msgstr ""
+
+#: ui/table.ui:132
+msgid "Extras"
+msgstr ""
+
+#: ui/table.ui:143
+msgid "Get Value From"
+msgstr ""
+
+#: ui/table.ui:153 ui/table.ui:165
+msgid "First Parent Satisfying..."
+msgstr ""
+
+#: ui/table.ui:154 ui/table.ui:166
+msgid "Grandparent"
+msgstr ""
+
+#: ui/table.ui:155 ui/table.ui:167
+#, fuzzy
+msgid "Parent Entry"
+msgstr "Тільки Фільтровані Записи"
+
+#: ui/table.ui:156 ui/table.ui:168
+msgid "Itself"
+msgstr ""
+
+#: ui/table.ui:157
+msgid "First Paragraph Satisfying..."
+msgstr ""
+
+#: ui/table.ui:158
+msgid "Last Paragraph Satisfying..."
+msgstr ""
+
+#: ui/table.ui:169
+msgid "Previous Paragraph Satisfying..."
+msgstr ""
+
+#: ui/table.ui:170
+msgid "Next Paragraph Satisfying..."
+msgstr ""
+
+#: ui/table.ui:198
+#, fuzzy
+msgid "Show as"
+msgstr "Змінено"
+
+#: ui/table.ui:215
+msgid "Satisfying"
+msgstr ""
+
+#: ui/table.ui:232
+msgid "Summary Function"
+msgstr ""
+
+#: ui/table.ui:250
+#, fuzzy
+msgid "Coloring"
+msgstr "Кольори"
+
+#: ui/table.ui:267
+msgid "Negative values are RED"
+msgstr ""
+
+#: ui/table.ui:274
+msgid "From small to big, from RED to GREEN"
+msgstr ""
+
+#: ui/table.ui:281
+msgid "From small to big, from GREEN to RED"
+msgstr ""
+
+#: ui/table.ui:310
+msgid "Move column to left"
+msgstr ""
+
+#: ui/table.ui:320
+msgid "Add a column to left"
+msgstr ""
+
+#: ui/table.ui:326
+#, fuzzy
+msgid "Remove column"
+msgstr "Забрати закладку"
+
+#: ui/table.ui:332
+msgid "Add a column to right"
+msgstr ""
+
+#: ui/table.ui:340
+msgid "Move column to right"
+msgstr ""
+
+#: ui/table.ui:380
+#, fuzzy
+msgid "Entry Filter"
+msgstr "Фільтр"
+
+#: ui/table.ui:400
+#, fuzzy
+msgid "Paragraph Filter"
+msgstr "Фільтр"
+
+#: ui/tv_diary.ui:34
+msgid "Expand selection"
+msgstr ""
+
+#: ui/tv_diary.ui:58
+#, fuzzy
+msgid "Cut"
+msgstr "Запис"
+
+#: ui/tv_diary.ui:65
+#, fuzzy
+msgid "Copy"
+msgstr "Впорядкувати за датою створення"
+
+#: ui/tv_diary.ui:72
+msgid "Paste"
+msgstr ""
+
+#: ui/tv_diary.ui:83
+#, fuzzy
+msgid "Show more"
+msgstr "Змінено"
+
+#: ui/tv_diary.ui:106
+msgid "Bold"
+msgstr ""
+
+#: ui/tv_diary.ui:120
+msgid "Italic"
+msgstr ""
+
+#: ui/tv_diary.ui:132
+msgid "Underlined"
+msgstr ""
+
+#: ui/tv_diary.ui:144
+msgid "Strikethrough"
+msgstr ""
+
+#: ui/tv_diary.ui:174
+msgid "Insert link"
+msgstr ""
+
+#: ui/tv_diary.ui:181
+msgid "Insert smiley"
+msgstr ""
+
+#: ui/tv_diary.ui:188
+msgid "Insert image"
+msgstr ""
+
+#: ui/tv_diary.ui:195 ui/tv_diary.ui:202
+#, fuzzy
+msgid "Insert chart"
+msgstr "Нова категорія"
+
+#: ui/tv_diary.ui:225
+msgid "Sentence case"
+msgstr ""
+
+#: ui/tv_diary.ui:236
+msgid "Title Case"
+msgstr ""
+
+#: ui/tv_diary.ui:247
+msgid "lower case"
+msgstr ""
+
+#: ui/tv_diary.ui:258
+msgid "UPPER CASE"
+msgstr ""
+
+#: ui/tv_diary.ui:274
+msgid "Comment"
+msgstr ""
+
+#: ui/tv_diary.ui:284
+#, fuzzy
+msgid "Subscript"
+msgstr "Дії"
+
+#: ui/tv_diary.ui:296
+#, fuzzy
+msgid "Superscript"
+msgstr "Дії"
+
+#: ui/tv_diary.ui:324
+msgid "Spelling"
+msgstr ""
+
+#: ui/tv_diary.ui:373
+msgid "Decrease indent"
+msgstr ""
+
+#: ui/tv_diary.ui:404
+msgid "Increase indent"
+msgstr ""
+
+#: ui/tv_diary.ui:422
+msgid "H0"
+msgstr ""
+
+#: ui/tv_diary.ui:423
+msgid "Normal text"
+msgstr ""
+
+#: ui/tv_diary.ui:430
+#, fuzzy
+msgid "Subsubheading"
+msgstr "Підрозділ:"
+
+#: ui/tv_diary.ui:446
+#, fuzzy
+msgid "Subheading"
+msgstr "Підрозділ:"
+
+#: ui/tv_diary.ui:465
+msgid "Plain"
+msgstr ""
+
+#: ui/tv_diary.ui:476
+msgid "To do"
+msgstr ""
+
+#: ui/tv_diary.ui:488
+msgid "In progress"
+msgstr ""
+
+#: ui/tv_diary.ui:531
+msgid "Bullet list"
+msgstr ""
+
+#: ui/tv_diary.ui:543
+#, fuzzy
+msgid "Numbered list"
+msgstr "Розділ"
+
+#: ui/tv_diary.ui:555
+msgid "Letter list"
+msgstr ""
+
+#: ui/tv_diary.ui:567
+#, fuzzy
+msgid "Roman number list"
+msgstr "Розділ"
+
+#: ui/tv_diary.ui:584
+msgid "Use Small Letters"
+msgstr ""
+
+#: ui/tv_diary.ui:604
+msgid "Horizontal Rule"
+msgstr ""
+
+#: ui/tv_diary.ui:621
+msgid "Code"
+msgstr ""
+
+#: ui/tv_diary.ui:638
+#, fuzzy
+msgid "Quotation"
+msgstr "Дії"
+
+#: ui/tv_diary_edit_chart.ui:25
+#, fuzzy
+msgid "Edit Chart"
+msgstr "Змінити"
+
+#: ui/tv_diary_edit_chart.ui:36 ui/tv_diary_edit_image.ui:39
+#: ui/tv_diary_edit_table.ui:36
+#, fuzzy
+msgid "Remove image"
+msgstr "Забрати закладку"
+
+#: ui/tv_diary_edit_chart.ui:54 ui/tv_diary_edit_table.ui:55
+#, fuzzy
+msgid "Open chart"
+msgstr "Нова категорія"
+
+#: ui/tv_diary_edit_chart.ui:71 ui/tv_diary_edit_image.ui:77
+msgid "Smallest"
+msgstr ""
+
+#: ui/tv_diary_edit_chart.ui:83 ui/tv_diary_edit_image.ui:89
+msgid "Biggest"
+msgstr ""
+
+#: ui/tv_diary_edit_image.ui:28
+#, fuzzy
+msgid "Edit Image"
+msgstr "Змінити"
+
+#: ui/tv_diary_edit_image.ui:64
+msgid "Open image"
+msgstr ""
+
+#: ui/tv_diary_edit_image.ui:96
+msgid "Copy Image File to rel:/"
+msgstr ""
+
+#: ui/tv_diary_edit_link.ui:19
+#, fuzzy
+msgid "Edit Link"
+msgstr "Змінити"
+
+#: ui/tv_diary_edit_link.ui:30
+#, fuzzy
+msgid "Remove link"
+msgstr "Забрати закладку"
+
+#: ui/tv_diary_edit_link.ui:63
+msgid "Evaluated"
+msgstr ""
+
+#: ui/tv_diary_edit_link.ui:88
+msgid "Go to link"
+msgstr ""
+
+#: ui/tv_diary_edit_table.ui:25
+#, fuzzy
+msgid "Edit Table"
+msgstr "Змінити"
+
+#: ui/tv_diary_edit_table.ui:63
+msgid "Expand All"
+msgstr ""
+
+#: ui/tv_diary_edit_tag.ui:20
+#, fuzzy
+msgid "Edit Tag"
+msgstr "Змінити"
+
+#: ui/tv_diary_edit_tag.ui:31
+#, fuzzy
+msgid "Remove tag"
+msgstr "Забрати закладку"
+
+#: ui/tv_diary_edit_tag.ui:49
+#, fuzzy
+msgid "Go to tag"
+msgstr "Системна тема"
+
+#: ui/widget_entry_picker.ui:32
+msgid "Under"
+msgstr ""
+
+#: ui/widget_entry_picker.ui:45
+msgid "Create a new entry (Ctrl + Enter)"
+msgstr ""
+
+#: ui/widget_filter_picker.ui:15
+msgid "label"
+msgstr ""
+
+#: ui/widget_picker.ui:31
+msgid "Add New"
+msgstr ""
+
+#: ui/widget_picker.ui:39
+#, fuzzy
+msgid "Search in the list"
+msgstr "Фільтр"
+
+#, fuzzy
+#~ msgid "Chapter"
+#~ msgstr "Розділи"
+
+#, fuzzy
+#~ msgid "Tag charts"
+#~ msgstr "Нова категорія"
+
+#, fuzzy
+#~ msgid "Chapter Category"
+#~ msgstr "Нова категорія"
+
+#~ msgid "Only Filtered Entries"
+#~ msgstr "Тільки Фільтровані Записи"
+
+#, fuzzy
+#~ msgid "Select Image File"
+#~ msgstr "Вибрати щоденник"
+
+#~ msgid "About Lifeograph"
+#~ msgstr "Про Lifeograph"
+
+#, fuzzy
+#~ msgid "Has NOT the tag"
+#~ msgstr "Системна тема"
+
+#, fuzzy
+#~ msgid "Has NOT the theme"
+#~ msgstr "Системна тема"
+
+#, fuzzy
+#~ msgid "Between Entries"
+#~ msgstr "Тільки Фільтровані Записи"
+
+#, fuzzy
+#~ msgid "Has Tag"
+#~ msgstr "тема"
+
+#, fuzzy
+#~ msgid "Has Theme"
+#~ msgstr "тема"
+
+#, fuzzy
+#~ msgid "Start"
+#~ msgstr "Запуск"
+
+#, fuzzy
+#~ msgid "Chapters"
+#~ msgstr "Розділи"
+
+#, fuzzy
+#~ msgid "Chapters / Chapter Groups"
+#~ msgstr "Нова категорія"
+
+#~ msgid "File"
+#~ msgstr "Файл"
+
+#, fuzzy
+#~ msgid "Add Entry"
+#~ msgstr "Запис"
+
+#, fuzzy
+#~ msgid "Hide Entries"
+#~ msgstr "Всі записи"
+
+#, fuzzy
+#~ msgid "Create a New Diary..."
+#~ msgstr "_Створити Новий Щоденник..."
+
+#, fuzzy
+#~ msgid "Change"
+#~ msgstr "Змінено"
+
+#, fuzzy
+#~ msgid "Temporal Direction"
+#~ msgstr "Дії"
+
+#, fuzzy
+#~ msgid "Current chapter group"
+#~ msgstr "Розділ"
+
+#, fuzzy
+#~ msgid "Only search filtered entries"
+#~ msgstr "Тільки Фільтровані Записи"
+
+#~ msgid "Today"
+#~ msgstr "Сьогодні"
+
+#~ msgid "Log out"
+#~ msgstr "Вийти"
+
+#~ msgid "Save diary and logout"
+#~ msgstr "Зберегти щоденник і вийти"
+
+#, fuzzy
+#~ msgid "Make Default"
+#~ msgstr "Типова"
+
+#, fuzzy
+#~ msgid "Remove from Entry"
+#~ msgstr "Видалити з листа"
+
+#, fuzzy
+#~ msgid "Tag view"
+#~ msgstr "Назва закладки"
+
+#~ msgid "seconds"
+#~ msgstr "секунди"
+
+#, fuzzy
+#~ msgid "Colors"
+#~ msgstr "Кольори"
+
+#~ msgid "Font"
+#~ msgstr "Шрифт"
+
+#~ msgid "Redo"
+#~ msgstr "Повторити"
+
+#~ msgid "TAGS"
+#~ msgstr "МІТКИ"
+
+#, fuzzy
+#~ msgid "Active Filter"
+#~ msgstr "Фільтр"
+
+#, fuzzy
+#~ msgid "Tag Category"
+#~ msgstr "Нова категорія"
+
+#, fuzzy
+#~ msgid "Dated Chapter"
+#~ msgstr "Розділ"
+
+#, fuzzy
+#~ msgid "Add Todo"
+#~ msgstr "Додати закладку"
+
+#~ msgid "Next"
+#~ msgstr "Наступний"
+
+#, fuzzy
+#~ msgid "Dated Chapter on %1"
+#~ msgstr "Розділ"
+
+#~ msgid "Create New..."
+#~ msgstr "Створити Нову..."
+
+#~ msgid "Unlimited"
+#~ msgstr "Необмежений"
+
+#, fuzzy
+#~ msgid "Remove"
+#~ msgstr "Забрати закладку"
+
+#, fuzzy
+#~ msgid "More Options"
+#~ msgstr "Опції"
+
+#~ msgid "Apply new name"
+#~ msgstr "Застосувати нове ім'я"
+
+#~ msgid "Graph"
+#~ msgstr "Графік"
+
+#~ msgid "Actions"
+#~ msgstr "Дії"
+
+#~ msgid "Before logging out wait for"
+#~ msgstr "Перед виходом чекайте"
+
+#, fuzzy
+#~ msgid "Lifeograph:"
+#~ msgstr "Lifeograph"
+
+#~ msgid "lifeograph"
+#~ msgstr "lifeograph"
+
+#~ msgid "Entered password is wrong; please try again"
+#~ msgstr "Введений пароль неправильний; Будь ласка, спробуйте ще раз"
+
+#~ msgid "Diary is ready for importing"
+#~ msgstr "Щоденник готовий до імпортування"
+
+#~ msgid "Untitled chapter"
+#~ msgstr "Розділ без назви"
+
+#, fuzzy
+#~ msgid "Import..."
+#~ msgstr "Імпортувати"
+
+#, fuzzy
+#~ msgid "Open a Diary File..."
+#~ msgstr "Файл щоденника"
+
+#~ msgid "Import"
+#~ msgstr "Імпортувати"
+
+#~ msgid "Tags"
+#~ msgstr "Мітки"
+
+#, fuzzy
+#~ msgid "Create a _New Diary..."
+#~ msgstr "_Створити Новий Щоденник..."
+
+#~ msgid "Select or Create a Diary"
+#~ msgstr "Виберіть або Створіть Щоденник"
+
+#~ msgid "_Create A New Diary..."
+#~ msgstr "_Створити Новий Щоденник..."
+
+#~ msgid ""
+#~ "Lifeograph is licensed under GNU Public License v3.\n"
+#~ "\n"
+#~ "You should have received a copy of the GNU General Public License\n"
+#~ "along with Lifeograph.  If not, see http://www.gnu.org/licenses"
+#~ msgstr ""
+#~ "Lifeograph ліцензований під Публічній Ліцензії GNU v3.\n"
+#~ "\n"
+#~ "Ви мали отримати копію Публічної Ліцензії GNU\n"
+#~ "разом з Lifeograph. Якщо ні, перегляньте http://www.gnu.org/licenses"
+
+#~ msgid "FAVORITE"
+#~ msgstr "УЛЮБЛЕНЕ"
+
+#, fuzzy
+#~ msgid "Create _New Diary..."
+#~ msgstr "_Створити Новий Щоденник..."
+
+#~ msgid "Log out now without saving"
+#~ msgstr "Вийти зараз без збереження"
+
+#~ msgid ""
+#~ "You are about to open an old diary that has to be upgraded to the new "
+#~ "format. \n"
+#~ "\n"
+#~ "It is STRONGLY recommended to back up any diary before upgrading.\n"
+#~ "\n"
+#~ "After you upgrade a diary, you won't be able to open it in a previous "
+#~ "version of Lifeograph."
+#~ msgstr ""
+#~ "Ви спробували відкрити старий щоденник, який має бути оновлений до нового "
+#~ "формату. \n"
+#~ "\n"
+#~ "Ми ДУЖЕ рекомендуємо зберегти резервну копію перед оновленням.\n"
+#~ "\n"
+#~ "Після оновлення щоденника, ви не зможете відкрити його старою версією "
+#~ "Lifeograph."
+
+#~ msgid "Preview"
+#~ msgstr "Перегляд"
+
+#~ msgid "_Add Password"
+#~ msgstr "_Добавити Пароль"
+
+#~ msgid "C_hange Password"
+#~ msgstr "Зм_інити Пароль"
+
+#~ msgid "Current Password:"
+#~ msgstr "Поточний пароль:"
+
+#~ msgid "Confirm New Password:"
+#~ msgstr "Підтвердіть Новий Пароль:"
+
+#~ msgid "Welcome new user!"
+#~ msgstr "Ласкаво просимо, новий користувач!"
+
+#~ msgid "Diary Files (*.diary)"
+#~ msgstr "Файли Щоденника (*.diary)"
+
+#~ msgid "Failed to open diary. Please select anoter file..."
+#~ msgstr "Не вдалося відкрити щоденник. Будь ласка, виберіть інший файл..."

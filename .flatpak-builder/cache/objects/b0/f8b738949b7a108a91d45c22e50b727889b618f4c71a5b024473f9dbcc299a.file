@@ -1,0 +1,357 @@
+/***********************************************************************************
+
+    Copyright (C) 2007-2024 Ahmet Öztürk (aoz_2@yahoo.com)
+
+    This file is part of Lifeograph.
+
+    Lifeograph is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Lifeograph is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Lifeograph.  If not, see <http://www.gnu.org/licenses/>.
+
+***********************************************************************************/
+
+#include "../lifeograph.hpp"
+#include "../app_window.hpp"
+#include "dialog_export.hpp"
+#include "glibmm/refptr.h"
+
+using namespace LIFEO;
+
+// DIALOG SAVE GENERIC =============================================================================
+/*DialogSaveGeneric::DialogSaveGeneric( const Ustring& title )
+{
+    m_Dlg = Gtk::FileDialog::create();
+    m_Dlg->set_title( title );
+    m_Dlg->set_accept_label( _( "_Save" ) );
+    // gtkmm4: set_do_overwrite_confirmation( true );
+    //set_transient_for( * AppWindow::p );
+}
+
+std::string
+DialogSaveGeneric::get_filename( const std::string& extension )
+{
+    auto fname( FileChooserDialog::get_filename() );
+
+    if( ! extension.empty() && extension != "." )
+        if( ! STR::ends_with( fname, extension ) )
+            fname.append( extension );
+
+    return fname;
+}*/
+
+// DIALOG SAVE DIARY ===============================================================================
+/* TODO: 3.1: gtkmm4: move the password entries to the exporter but for the new diary creation, we may...
+                 ...consider using the deprecated FileChooserWidget
+
+DialogSaveDiary::DialogSaveDiary( BaseObjectType* cobject,
+                                  const Glib::RefPtr< Gtk::Builder > &refbuilder )
+:   DialogSaveGeneric( cobject, refbuilder )
+{
+    try
+    {
+        auto builder{ Lifeograph::get_builder2() };
+        m_ChB_encrypt   = builder->get_widget< Gtk::CheckButton >( "check_save_encrypt" );
+        m_G_password    = builder->get_widget< Gtk::Grid >( "grid_save_password" );
+        m_E_password    = builder->get_widget< Gtk::Entry >( "entry_save_password" );
+        m_E_confirm     = builder->get_widget< Gtk::Entry >( "entry_save_confirm" );
+    }
+    catch( ... )
+    {
+        throw HELPERS::Error( "creation of save dialog failed" );
+    }
+
+    m_ChB_encrypt->signal_toggled().connect(
+            sigc::mem_fun( *this, &DialogSaveDiary::handle_encryption_toggled ) );
+    m_E_password->signal_changed().connect(
+            sigc::mem_fun( *this, &DialogSaveDiary::handle_password_changed ) );
+    m_E_confirm->signal_changed().connect(
+            sigc::mem_fun( *this, &DialogSaveDiary::handle_password_changed ) );
+}*/
+
+void
+DialogDiaryFile::open( const Ustring& title,
+                       const String& init_path,
+                       const FuncVoidString& open_func )
+{
+    auto dlg { Gtk::FileDialog::create() };
+
+    FileChooserButton::add_diary_file_filters( dlg );
+
+    dlg->set_title( title );
+    dlg->set_initial_folder( Gio::File::create_for_path( init_path ) );
+
+    dlg->open( *AppWindow::p,
+               sigc::bind( sigc::ptr_fun( &DialogDiaryFile::handle_open_result ),
+                           dlg,
+                           open_func ) );
+}
+void
+DialogDiaryFile::handle_open_result( Glib::RefPtr< Gio::AsyncResult >& result,
+                                     const Glib::RefPtr< Gtk::FileDialog >& dlg,
+                                     const FuncVoidString& open_func )
+{
+    try
+    {
+        auto file{ dlg->open_finish( result ) };
+        open_func( file->get_uri() );
+    }
+    catch( const Gtk::DialogError& err )
+    {
+        print_info( "No file selected: ", err.what() );
+    }
+    catch( const Glib::Error& err )
+    {
+        print_error( "Unexpected exception: ", err.what() );
+    }
+}
+
+void
+DialogDiaryFile::save( const Ustring& title,
+                       const String& init_uri, const String& init_name,
+                       const FuncVoidString& save_func )
+{
+    auto dlg{ Gtk::FileDialog::create() };
+
+    FileChooserButton::add_diary_file_filters( dlg );
+
+    dlg->set_title( title );
+    dlg->set_initial_folder( Gio::File::create_for_uri( init_uri ) );
+    dlg->set_initial_name( init_name );
+
+    dlg->save( *AppWindow::p,
+               sigc::bind( sigc::ptr_fun( &DialogDiaryFile::handle_save_result ),
+                           dlg,
+                           save_func ) );
+}
+void
+DialogDiaryFile::handle_save_result( Glib::RefPtr< Gio::AsyncResult >& result,
+                                     const Glib::RefPtr< Gtk::FileDialog >& dlg,
+                                     const FuncVoidString& save_func )
+{
+    try
+    {
+        auto file{ dlg->save_finish( result ) };
+        save_func( file->get_uri() );
+    }
+    catch( const Gtk::DialogError& err )
+    {
+        print_info( "No file selected. ", err.what() );
+    }
+    catch( const Glib::Error& err )
+    {
+        print_error( "Unexpected exception. ", err.what() );
+    }
+}
+
+// DIALOG OPEN DIARY ===============================================================================
+/*DialogOpenDiary::DialogOpenDiary()
+    // TRANSLATORS: this is the title of file chooser dialog for selecting a new diary
+:   Gtk::FileChooserDialog( _( "Select a Diary" ), Gtk::FileChooser::Action::OPEN )
+{
+    // Gtk gets confused if cancel is not stock:
+    add_button( _( "Cancel" ), Gtk::ResponseType::CANCEL );
+    add_button( _( "Open" ), Gtk::ResponseType::OK );
+
+    init_filters();
+    add_filter( filter_any );
+    add_filter( filter_diary );
+    set_filter( filter_diary );
+
+    signal_selection_changed().connect(
+            sigc::mem_fun( *this, &DialogOpenDiary::handle_selection_changed ) );
+
+    set_transient_for( * AppWindow::p );
+
+    set_default_response( Gtk::ResponseType::OK );
+}*/
+
+/*void
+DialogOpenDiary::handle_selection_changed()
+{
+    bool flag_enable( get_current_name().size() > 0 );  // check if anything is selected
+    if( flag_enable )
+        flag_enable = ( !is_dir( get_file() ) );
+
+    set_response_sensitive( Gtk::ResponseType::OK, flag_enable );
+}*/
+
+// DIALOG EXPORT ===================================================================================
+DialogExport::DialogExport( BaseObjectType* cobject, const Glib::RefPtr< Gtk::Builder >& builder )
+:   Gtk::Window( cobject ), m_p2W_options( nullptr )
+{
+    Gtk::Button* B_cancel;
+
+    m_WFP_contents  = Gtk::Builder::get_widget_derived< WidgetFilterPicker >(
+            builder, "MB_export_filter"  );
+    m_CB_type       = builder->get_widget< Gtk::ComboBoxText >( "CB_export_type" );
+    m_Bx_contents   = builder->get_widget< Gtk::Box >( "Bx_contents" );
+    B_cancel        = builder->get_widget< Gtk::Button >( "B_export_cancel" );
+    m_B_export      = builder->get_widget< Gtk::Button >( "B_export_go" );
+
+    add_saver( new ExporterLifeograph( Diary::d ) );
+    add_saver( new ExporterText( Diary::d ) );
+
+    m_WFP_contents->set_clearable( true );
+    m_WFP_contents->set_show_edit_button( false );
+    m_WFP_contents->set_show_cur_entry( true );
+    m_WFP_contents->set_obj_classes( FOC::ENTRIES );
+    m_WFP_contents->Sg_changed.connect(
+            [ this ]( const Filter* filter ) { m_saver_cur->m_p2filter = filter; } );
+
+    m_CB_type->signal_changed().connect( [ this ](){ handle_save_type_changed(); } );
+    m_B_export->signal_clicked().connect( [ this ](){ handle_go(); } );
+    B_cancel->signal_clicked().connect( [ this ](){ hide(); } );
+
+    m_CB_type->set_active( 0 );    // defaults to lifeograph diary
+}
+
+void
+DialogExport::add_saver( Diarysaver* saver )
+{
+    m_savers.push_back( saver );
+    m_CB_type->append( saver->m_name );
+    saver->m_Sg_updated.connect(
+            sigc::mem_fun( *this, &DialogExport::handle_readiness_changed ) );
+}
+
+void
+DialogExport::handle_save_type_changed()
+{
+    m_saver_cur = m_savers[ m_CB_type->get_active_row_number() ];
+    m_saver_cur->m_p2filter = m_WFP_contents->get_active();
+
+    if( m_p2W_options )
+    {
+        m_Bx_contents->remove( *m_p2W_options );
+    }
+
+    m_p2W_options = m_saver_cur->draw_options();
+
+    if( m_p2W_options )
+        m_Bx_contents->append( *m_p2W_options );
+
+    handle_readiness_changed();
+}
+
+void
+DialogExport::handle_readiness_changed()
+{
+    m_F_saver_ready = m_saver_cur->is_ready();
+
+    m_B_export->set_sensitive( m_F_saver_ready );
+}
+
+void
+DialogExport::on_show()
+{
+    m_WFP_contents->set_diary( Diary::d );
+    m_WFP_contents->set_active( nullptr );
+
+    Gtk::Window::on_show();
+}
+
+void
+DialogExport::handle_go()
+{
+    m_saver_cur->save();
+    hide();
+}
+
+// EXPORTERS =======================================================================================
+Diarysaver::Diarysaver( const Glib::ustring& name, Diary* diary )
+:   m_name( name ), m_p2diary( diary )
+{
+}
+
+ExporterLifeograph::ExporterLifeograph( Diary* diary )
+:   Diarysaver( _( "Lifeograph Diary File" ), diary )
+{
+}
+
+bool
+ExporterLifeograph::is_ready()
+{
+    const auto pw_1     { m_E_password_1->get_text() };
+    const auto pw_2     { m_E_password_2->get_text() };
+
+    const bool pw_1_ok  { pw_1.empty() || pw_1.length() >= Diary::PASSPHRASE_MIN_SIZE };
+    const bool pw_2_ok  { pw_1_ok && pw_2 == pw_1 };
+
+    if( pw_1_ok )
+        m_E_password_1->remove_css_class( "error" );
+    else
+        m_E_password_1->add_css_class( "error" );
+
+    if( pw_2_ok )
+        m_E_password_2->remove_css_class( "error" );
+    else
+        m_E_password_2->add_css_class( "error" );
+
+    return( pw_1_ok && pw_2_ok );
+}
+
+Gtk::Widget*
+ExporterLifeograph::draw_options()
+{
+    auto&& builder{ Lifeograph::get_builder() };
+    Lifeograph::load_gui( builder, Lifeograph::SHAREDIR + "/ui/dlg_export_opts_log.ui" );
+
+    m_G_contents    = builder->get_widget< Gtk::Grid >( "G_export_contents_log" );
+    m_E_password_1  = Gtk::Builder::get_widget_derived< EntryClear >( builder,
+                                                                      "E_export_password_1" );
+    m_E_password_2  = Gtk::Builder::get_widget_derived< EntryClear >( builder,
+                                                                      "E_export_password_2" );
+
+    m_E_password_1->signal_changed().connect( [ this ](){ m_Sg_updated.emit(); } );
+    m_E_password_2->signal_changed().connect( [ this ](){ m_Sg_updated.emit(); } );
+
+    return m_G_contents;
+}
+
+void
+ExporterLifeograph::save()
+{
+    auto file_diary { Gio::File::create_for_uri( m_p2diary->get_uri() ) };
+    DialogDiaryFile::save(  _( "Where to Save the Diary File?" ),
+                            file_diary->get_parent()->get_uri(),
+                            m_p2diary->get_name() + ".backup",
+                            sigc::bind( sigc::ptr_fun( &ExporterLifeograph::save2 ),
+                                        m_E_password_1->get_text(),
+                                        m_p2filter,
+                                        m_p2diary ) );
+}
+void
+ExporterLifeograph::save2( const String& uri,
+                           const String& pass,
+                           const Filter* filter,
+                           Diary* p2diary )
+{
+    p2diary->write_copy( uri, pass, filter );
+}
+
+ExporterText::ExporterText( Diary* diary )
+: Diarysaver( _( "Plain Text File" ), diary )
+{
+
+}
+
+void
+ExporterText::save()
+{
+    static DialogDiaryFile dlg;
+    auto                   file_diary { Gio::File::create_for_uri( m_p2diary->get_uri() ) };
+    // TRANSLATORS: this is the title of file chooser dialog for saving a new diary
+    dlg.save(   _( "Where to Save the Text File?" ),
+                file_diary->get_parent()->get_uri(),
+                m_p2diary->get_name() + ".txt",
+                [ & ]( const String& uri ) { m_p2diary->write_txt( uri, m_p2filter ); } );
+}

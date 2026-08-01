@@ -1,0 +1,3642 @@
+# Sinhalese translation for lifeograph
+# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
+# This file is distributed under the same license as the lifeograph package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lifeograph\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-03 21:59+0300\n"
+"PO-Revision-Date: 2014-06-12 13:23+0000\n"
+"Last-Translator: Chinthaka Bandara Arampath <chinthakaara.cba@gmail.com>\n"
+"Language-Team: Sinhalese <si@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2014-07-20 06:36+0000\n"
+"X-Generator: Launchpad (build 17114)\n"
+
+#: net.sourceforge.Lifeograph.desktop.in:5
+#: net.sourceforge.Lifeograph.metainfo.xml.in:7
+msgid "Lifeograph"
+msgstr "Lifeoraph"
+
+#: net.sourceforge.Lifeograph.desktop.in:6 src/diaryelements/diarydata.cpp:77
+msgid "Diary"
+msgstr "දිනපොත"
+
+#: net.sourceforge.Lifeograph.desktop.in:7
+msgid "Keep a private journal of your life"
+msgstr "ඔබගේ ජීවිතයේ පෞද්ගලික චර්යා සටහන් පොතක් තබාගන්න"
+
+#: net.sourceforge.Lifeograph.desktop.in:8
+msgid "journal;note;to-do;tag;statistics;"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.desktop.in:19
+msgid "Open a New Window"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.desktop.in:23
+msgid "Open a New Read-Only Window"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:8
+msgid "Advanced personal note taking application"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:11
+msgid ""
+"Lifeograph is a powerful note-taking application that can be used to keep an "
+"encrypted diary, to plan a journey, to manage todos and long term goals, to "
+"write down ideas in an organized way, to track regular activities and many "
+"more. Lifeograph strives to deliver an abundance of advanced features in a "
+"clean and streamlined user interface."
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:17
+msgid "Main features of Lifeograph:"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:21
+msgid "Completely local workflow: all data is owned solely by the user"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:22
+msgid "Encrypted (with AES256) and unencrypted diaries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:23
+msgid "Powerful and intuitive parametric tagging system"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:24
+msgid "Todo management system"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:25
+msgid ""
+"WYSIWYG rich text formatting (i.e. no separate edit &amp; preview modes)"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:26
+#, fuzzy
+msgid "Image thumbnails, tables, and charts in entries"
+msgstr "ඇතුලත් කිරීම් තුල තේමා අකුරු භාවිත කරන්න"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:27
+msgid "Searching and replacing of text"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:28
+msgid "Advanced filtering of entries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:29
+msgid "Integrated map for travel notes and planning"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:30
+msgid ""
+"Live tables that are created on the fly based on the user defined rules "
+"which can also be pasted into spread-sheet programs"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:31
+msgid "Live statistical charts that are created from the values in the tables"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:32
+msgid "Themes in text editor, including background images"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:33
+#, fuzzy
+msgid "Favorite entries"
+msgstr "සම්බන්ධක ආනයනය කල ඇතුලත් කිරීම්:"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:34
+#, fuzzy
+msgid "Spell checking"
+msgstr "අකුරු පිරික්සමින්"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:35
+msgid "Links between entries and to URIs"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:36
+msgid ""
+"Automatically created back-links to entries referring to the current entry"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:37
+msgid "Printing individual entries or whole diaries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:38
+msgid ""
+"Automatically logs out when not used for some time (to protect your diary "
+"when you forget to log out)"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:39
+msgid "Multiple automatic backups to prevent data loss"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:45
+msgid "Editing screen"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:49
+msgid "Integrated map"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:53 ui/lifeograph.ui:573
+#, fuzzy
+msgid "Charts"
+msgstr "නව ප්‍රභේදය"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:65
+msgid ""
+"New main icon that reflects the improved functionality as a second brain"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:66
+msgid "UI upgraded to GTK4 replacing the deprecated UI elements with new ones"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:67
+msgid ""
+"All file I/O is moved to Gio for compatibility with network addresses and "
+"virtual drives, etc..."
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:68
+msgid ""
+"Wiki style formatting markup is largely omitted in favor of a WYSIWYG style "
+"formatting system [[inline comments are an exception]]"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:69
+msgid ""
+"Paragraph folding that creates folds automatically based on heading and "
+"indentation levels"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:70
+msgid ""
+"New references button that pops up a list of referencing entries/paragraphs "
+"for the current entry (a.k.a back-links)"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:71
+msgid ""
+"Context-sensitive right-click menu that displays specific options for tags, "
+"images, dates, etc. based on the cursor location"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:72
+msgid "Tables can also be inserted into the entries now"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:73
+msgid "Added buttons for visiting link items to the right-click popover menu"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:74
+msgid "Added horizontal rules which can also be combined with text"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:75
+msgid ""
+"Entries can now be ordered, grouped, and arranged freely, irrespective of "
+"the their types"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:76
+#, fuzzy
+msgid "Added an option to merge selected entries"
+msgstr "සම්බන්ධක ආනයනය කල ඇතුලත් කිරීම්:"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:77
+msgid "Added many new filterers"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:78
+msgid "All filters can be negated now"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:79
+msgid "Table columns are resizable now"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:80
+msgid "Many new column types added"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:81
+msgid "Group lines in a hierarchical view by any column"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:82
+msgid "Conditional coloring of cell values"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:83
+msgid "Completion columns show a progress bar in the background"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:84
+msgid ""
+"Option to combine identical consequent cells in a column to get cleaner "
+"tables"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:85
+msgid "Added a new vertical bars style to charts"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:86
+msgid ""
+"A basic inline table was added to allow creation of basic charts without "
+"creating a table first"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:87
+msgid "Added navigation icons to the calendar widget"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:88
+msgid "Added the ability to mark custom days as holidays"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:89
+msgid "Added the ability to change the first day of the week"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:90
+msgid "Searching is multi-threaded now for speed gains and responsiveness"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:91
+msgid "Migrated from libchamplain to libshumate which also works under Windows"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:92
+msgid "Many many more. See the NEWS for a complete list"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:97
+#: net.sourceforge.Lifeograph.metainfo.xml.in:104
+#: net.sourceforge.Lifeograph.metainfo.xml.in:110
+msgid "Bug fixes"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:98
+msgid "Added Danish translation"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:99
+msgid "Updated Simplified Chinese, Dutch, French, and Italian translations"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:105
+msgid "Updated Italian translation"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:115
+msgid "Unified different elements such as chapters and tags into entry"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:116
+msgid "New inline tags that are assigned to the paragraphs as well as entries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:117
+msgid "New integrated map to assign locations and travel paths to entries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:118
+msgid "New custom calendar widget that integrates with the program more nicely"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:119
+msgid "New table view for very basic spreadsheet like functionality"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:120
+msgid "Completion percentages for entries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:121
+msgid "Support for background images in the entry editor"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:122
+msgid "a new toolbar-like right-click popover that replaced the toolbar"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:123
+msgid "Vastly more capable text search and entry list filtering"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:124
+msgid "Printing system improvements"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:125
+msgid "Both functionally and visually improved charts"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:126
+msgid "Many many more"
+msgstr ""
+
+#: x-lifeographdiary.xml.in:4
+#, fuzzy
+msgid "Lifeograph diary"
+msgstr "Lifeograph දිනපොත් ගොනුව"
+
+#: src/app_window.cpp:637
+#, fuzzy
+msgid "%1 SECONDS TO CLOSE"
+msgstr "%1 ඉවත්වීම සදහා තත්පර"
+
+#: src/app_window.cpp:692
+msgid "Diary couldn't be saved. A rescue copy is saved at the location below:"
+msgstr ""
+
+#: src/app_window.cpp:694 src/printing.cpp:301
+msgid "_Close"
+msgstr ""
+
+#: src/app_window.cpp:702
+#, fuzzy
+msgid "Are you sure you want to close the diary without saving?"
+msgstr "ඔබට සුරකිමකින් තොරව පිටවීමට අවශ්‍ය බව විශ්වාසද ?"
+
+#: src/app_window.cpp:705
+msgid ""
+"Your changes will be backed up in %1. If you exit normally, your diary is "
+"saved automatically."
+msgstr ""
+"ඔබගේ වෙනස්කම් %1 කින් බලගැන්වේවි. ඔබ සාමාන්‍ය පරිදි ඉවත්වුවහොත්, ඔබගේ දිනපොත ස්වයන්ක්‍රියව "
+"සුරැකේ."
+
+#: src/app_window.cpp:710
+#, fuzzy
+msgid "Close _without Saving"
+msgstr "_සුරකිමකින් තොරව ඉවත්වන්න."
+
+#: src/app_window.cpp:779
+msgid "Are you sure, you want to dismiss %1?"
+msgstr "ඔබට විශ්වාසද, ඔබට නිෂ්ප්‍රභා කිරීමට අවශ්‍යද?"
+
+#. must come before add_extra_info
+#: src/app_window.cpp:784
+msgid "This operation cannot be undone!"
+msgstr "මෙම ක්‍රියාව නොකරන ලද බවට පත්කිරීමට නොහැක."
+
+#: src/app_window.cpp:785
+msgid "_Dismiss"
+msgstr "_ඉවතලන්න"
+
+#: src/dialogs/dialog_export.cpp:275
+msgid "Lifeograph Diary File"
+msgstr "Lifeograph දිනපොත් ගොනුව"
+
+#: src/dialogs/dialog_export.cpp:323
+#, fuzzy
+msgid "Where to Save the Diary File?"
+msgstr "දිනපොත සුරකින්නේ කොහෙද?"
+
+#: src/dialogs/dialog_export.cpp:341
+msgid "Plain Text File"
+msgstr "සරල පාඨ ගොනුව"
+
+#. TRANSLATORS: this is the title of file chooser dialog for saving a new diary
+#: src/dialogs/dialog_export.cpp:352
+msgid "Where to Save the Text File?"
+msgstr "සරල පාත ගොනුව සුරකිය යුත්තේ කොහෙද?"
+
+#: src/dialogs/dialog_password.cpp:121
+msgid "Continue"
+msgstr "දිගටම කරගෙන යන්න"
+
+#: src/dialogs/dialog_password.cpp:124
+msgid "Add Password"
+msgstr "මුර පදය ඇතුල්කරන්න"
+
+#: src/dialogs/dialog_password.cpp:127
+msgid "Change Password"
+msgstr "මුරපදය වෙනස් කරන්න"
+
+#: src/dialogs/dialog_password.cpp:141 ui/lifeograph.ui:901
+#, fuzzy
+msgid "Please enter password"
+msgstr "කරුණාකර මුරපදය ඇතුල්කරන්න සදහා..."
+
+#: src/dialogs/dialog_password.cpp:144
+#, fuzzy
+msgid "Please enter a new password"
+msgstr "කරුණාකර අලුත් මුරපදය ඇතුල්කරන්න"
+
+#: src/dialogs/dialog_password.cpp:147
+#, fuzzy
+msgid "Please enter the current and new passwords"
+msgstr "කරුණාකර පවතින හා නව මුරපද ඇතුල්කරන්න"
+
+#: src/dialogs/dialog_password.cpp:233
+msgid "Wrong password. Please retry..."
+msgstr "වැරදි මුරපදය, කරුණාකර නැවත උත්සහකරන්න.."
+
+#: src/dialogs/dialog_sync.cpp:82 src/dialogs/dialog_sync.cpp:165
+#: src/strings.hpp:180 src/ui_login.cpp:64 ui/lifeograph.ui:1054 ui/table.ui:42
+msgid "Name"
+msgstr "නාමය"
+
+#: src/dialogs/dialog_sync.cpp:83
+msgid "Status"
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:85
+#, fuzzy
+msgid "Action"
+msgstr "ක්‍රියාමාර්ග"
+
+#: src/dialogs/dialog_sync.cpp:87
+#, fuzzy
+msgid "Local"
+msgstr "ස්ථානය"
+
+#: src/dialogs/dialog_sync.cpp:88
+#, fuzzy
+msgid "Remote"
+msgstr "සම්බන්ධකය ඉවත්කරන්න"
+
+#: src/dialogs/dialog_sync.cpp:191
+msgid "Click to select a diary file..."
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:251
+#, fuzzy
+msgid "Select a diary file for synchronizing"
+msgstr "ආනයනය කිරීම සදහා දිනපොත් ගොනුවක් තෝරන්න."
+
+#: src/dialogs/dialog_sync.cpp:280
+msgid "Selected file does not seem to be a valid diary"
+msgstr "තොරා ඇති ගොනුව වලංගු දිනපොතක් නොවිය හැක."
+
+#: src/dialogs/dialog_sync.cpp:284 src/dialogs/dialog_sync.cpp:299
+msgid "Selected file cannot be read"
+msgstr "තෝරා ඇති ගොනුව කියවිය නොහැක."
+
+#: src/dialogs/dialog_sync.cpp:326
+#, fuzzy
+msgid "Please select what to import/sync and press Go"
+msgstr "කරුණාකර දිනයක් හෝ මාතෘකාවක් තෝරන්න"
+
+#: src/dialogs/dialog_sync.cpp:649 src/strings.hpp:186
+msgid "Options"
+msgstr "අභිරුචි"
+
+#: src/dialogs/dialog_sync.cpp:699
+msgid "DIARY"
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:700
+msgid "ENTRIES"
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:701
+msgid "THEMES"
+msgstr "තේමා"
+
+#: src/dialogs/dialog_sync.cpp:702
+msgid "FILTERS"
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:703
+msgid "CHARTS"
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:704
+msgid "TABLES"
+msgstr ""
+
+#. chapter category
+#: src/diaryelements/diary.cpp:1319 src/diaryelements/diary.cpp:1687
+#: src/diaryelements/diary.cpp:1694
+#, fuzzy
+msgid "Chapter Category:"
+msgstr "නව ප්‍රභේදය"
+
+#: src/diaryelements/diary.cpp:2954
+#, fuzzy
+msgid "New Entry"
+msgstr "ඇතුලත් කිරීම"
+
+#: src/diaryelements/diarydata.cpp:76 src/strings.hpp:193 ui/table.ui:73
+#, fuzzy
+msgid "Theme"
+msgstr "තේමාවන්"
+
+#: src/diaryelements/diarydata.cpp:76
+#, fuzzy
+msgid "Filter"
+msgstr "පෙරන්න"
+
+#: src/diaryelements/diarydata.cpp:76
+msgid "Chart"
+msgstr ""
+
+#: src/diaryelements/diarydata.cpp:76 ui/chart.ui:108
+msgid "Table"
+msgstr ""
+
+#: src/diaryelements/diarydata.cpp:77 src/strings.hpp:208 ui/table.ui:366
+msgid "Paragraph"
+msgstr ""
+
+#: src/diaryelements/diarydata.cpp:77 ui/table.ui:361
+#: ui/tv_diary_edit_link.ui:75
+msgid "Entry"
+msgstr "ඇතුලත් කිරීම"
+
+#: src/diaryelements/entry.cpp:1536
+msgid "Created"
+msgstr "තනන ලදි"
+
+#: src/diaryelements/entry.cpp:1537
+#, fuzzy
+msgid "Edited"
+msgstr "සංස්කරණය"
+
+#: src/diaryelements/entry.cpp:1539 ui/table.ui:63
+#, fuzzy
+msgid "Duration"
+msgstr "ක්‍රියාමාර්ග"
+
+#: src/helpers.cpp:292
+msgid "day(s)"
+msgstr ""
+
+#: src/helpers.cpp:751
+msgid "FAILED"
+msgstr ""
+
+#: src/helpers.cpp:1794 src/helpers.cpp:1817
+msgid "All Files"
+msgstr "සියලුම ගොනු"
+
+#: src/helpers.cpp:1819
+#, fuzzy
+msgid "Image Files"
+msgstr "දිනපොත් ගොනු"
+
+#: src/helpers.cpp:1840
+#, fuzzy
+msgid "Diary files"
+msgstr "දිනපොත් ගොනු"
+
+#: src/helpers.hpp:871
+msgid "_Cancel"
+msgstr ""
+
+#: src/lifeograph.cpp:56
+#, fuzzy
+msgid "Name Only"
+msgstr "නාමය"
+
+#: src/lifeograph.cpp:57
+msgid "Name - Description"
+msgstr ""
+
+#: src/lifeograph.cpp:58
+#, fuzzy
+msgid "Number - Name"
+msgstr "පරිච්ඡේදය ඉවත්කරන්න"
+
+#: src/lifeograph.cpp:59
+#, fuzzy
+msgid "Date - Name"
+msgstr "සම්බන්ධක නාමය"
+
+#: src/lifeograph.cpp:60
+#, fuzzy
+msgid "Milestone"
+msgstr "යලි පිහිටුවන්න"
+
+#: src/printing.cpp:301
+msgid "Printing failed"
+msgstr ""
+
+#: src/strings.hpp:143 ui/dlg_sync.ui:292 ui/dlg_sync.ui:319
+msgid "ADD"
+msgstr ""
+
+#: src/strings.hpp:144
+msgid "All Entries"
+msgstr "සියලුම ඇතුලත් කිරීම්."
+
+#: src/strings.hpp:145
+msgid "All Paragraphs"
+msgstr ""
+
+#: src/strings.hpp:146 ui/po_entry.ui:124
+msgid "Auto"
+msgstr ""
+
+#: src/strings.hpp:147 ui/chart.ui:215
+msgid "Average"
+msgstr ""
+
+#: src/strings.hpp:148
+#, fuzzy
+msgid "Background Image"
+msgstr "පසුබිම"
+
+#: src/strings.hpp:149
+msgid "Boolean"
+msgstr ""
+
+#: src/strings.hpp:150 ui/po_entry.ui:159 ui/tv_diary.ui:512
+msgid "Canceled"
+msgstr ""
+
+#: src/strings.hpp:151
+msgid "Category"
+msgstr "වර්ගය"
+
+#: src/strings.hpp:152
+msgid "CHANGED"
+msgstr ""
+
+#: src/strings.hpp:153
+msgid "Chart Intervals"
+msgstr ""
+
+#: src/strings.hpp:154
+msgid "Chart Underlay"
+msgstr ""
+
+#: src/strings.hpp:155 ui/po_entry.ui:196
+#, fuzzy
+msgid "Color"
+msgstr "වර්ණ"
+
+#: src/strings.hpp:156 ui/po_entry.ui:271
+#, fuzzy
+msgid "Comment Style"
+msgstr "c.\tඅර්ථ කථන සගවන්න"
+
+#: src/strings.hpp:157 ui/lifeograph.ui:143
+msgid "Completion Tag"
+msgstr ""
+
+#: src/strings.hpp:158 ui/col_opt_duration.ui:22 ui/col_opt_duration.ui:48
+#: ui/col_opt_date.ui:22
+#, fuzzy
+msgid "Creation Date"
+msgstr "පරිච්ඡේදය ඉවත්කරන්න"
+
+#: src/strings.hpp:159
+msgid "Cumulative"
+msgstr ""
+
+#: src/strings.hpp:160
+#, fuzzy
+msgid "Current Entry"
+msgstr "පවතින ඇතුලත් කිරීම පමණි"
+
+#: src/strings.hpp:161
+msgid "Current Entry + Descendants"
+msgstr ""
+
+#: src/strings.hpp:162
+msgid "Date"
+msgstr "දවස"
+
+#: src/strings.hpp:163
+#, fuzzy
+msgid "Definition"
+msgstr "ක්‍රියාමාර්ග"
+
+#: src/strings.hpp:164
+msgid "DELETED"
+msgstr ""
+
+#: src/strings.hpp:165 ui/po_entry.ui:151 ui/tv_diary.ui:500
+msgid "Done"
+msgstr ""
+
+#: src/strings.hpp:166 ui/tv_diary_edit_date.ui:19
+#, fuzzy
+msgid "Edit Date"
+msgstr "පරිච්ඡේද සංස්කරණය"
+
+#: src/strings.hpp:167 ui/po_entry.ui:168
+#, fuzzy
+msgid "Favorite"
+msgstr "ප්‍රියතම දෑ පෙරන්න"
+
+#: src/strings.hpp:168
+#, fuzzy
+msgid "List Filter"
+msgstr "පෙරන්න"
+
+#: src/strings.hpp:169
+#, fuzzy
+msgid "Search Filter"
+msgstr "පෙරන්න"
+
+#: src/strings.hpp:170
+msgid "Format"
+msgstr ""
+
+#: src/strings.hpp:171
+msgid "ID"
+msgstr ""
+
+#: src/strings.hpp:172 ui/dlg_sync.ui:286 ui/dlg_sync.ui:313
+msgid "IGNORE"
+msgstr ""
+
+#: src/strings.hpp:173
+msgid "INTACT"
+msgstr ""
+
+#: src/strings.hpp:174
+msgid "Language"
+msgstr ""
+
+#: src/strings.hpp:175
+#, fuzzy
+msgid "Last Entry"
+msgstr "මෙම ඇතුලත් කිරීම සගවන්න"
+
+#: src/strings.hpp:176
+msgid "Location"
+msgstr "ස්ථානය"
+
+#: src/strings.hpp:177
+msgid "Map Path"
+msgstr ""
+
+#: src/strings.hpp:178
+msgid "Monthly"
+msgstr ""
+
+#: src/strings.hpp:179
+msgid "N/A"
+msgstr ""
+
+#: src/strings.hpp:181
+msgid "NEW"
+msgstr ""
+
+#: src/strings.hpp:182
+msgid "New Column"
+msgstr ""
+
+#: src/strings.hpp:183 ui/lifeograph.ui:519
+#, fuzzy
+msgid "New Table"
+msgstr "පෙරන්න"
+
+#: src/strings.hpp:184
+#, fuzzy
+msgid "No"
+msgstr "ශුන්‍යය"
+
+#: src/strings.hpp:185 src/widgets/widget_chart.cpp:312
+#: src/widgets/widget_chart.cpp:339 src/widgets/widget_chart.cpp:401
+#: ui/widget_entry_picker.ui:38
+msgid "None"
+msgstr "ශුන්‍යය"
+
+#: src/strings.hpp:187
+msgid "OTHER"
+msgstr ""
+
+#: src/strings.hpp:188 ui/dlg_sync.ui:298
+msgid "OVERWRITE"
+msgstr ""
+
+#: src/strings.hpp:189
+msgid "Progressed"
+msgstr ""
+
+#: src/strings.hpp:190
+#, fuzzy
+msgid "Startup Entry"
+msgstr "ආරම්භය"
+
+#: src/strings.hpp:191
+#, fuzzy
+msgid "Title Style"
+msgstr "ශීර්ෂය"
+
+#: src/strings.hpp:192
+#, fuzzy
+msgid "Type Name"
+msgstr "සම්බන්ධක නාමය"
+
+#: src/strings.hpp:194
+#, fuzzy
+msgid "Theme Base"
+msgstr "තේමාවන්"
+
+#: src/strings.hpp:195
+#, fuzzy
+msgid "Theme Font"
+msgstr "තේමාවන්"
+
+#: src/strings.hpp:196
+#, fuzzy
+msgid "Theme Heading"
+msgstr "ශීර්ෂ පාඨය"
+
+#: src/strings.hpp:197
+#, fuzzy
+msgid "Theme Highlight"
+msgstr "ඉස්මතු කර දැක්වීම"
+
+#: src/strings.hpp:198
+#, fuzzy
+msgid "Theme Subheading"
+msgstr "අනු ශිර්ෂ පාඨය"
+
+#: src/strings.hpp:199
+#, fuzzy
+msgid "Theme Text"
+msgstr "තේමාවන්"
+
+#: src/strings.hpp:200
+#, fuzzy
+msgid "Todo"
+msgstr "සම්බන්ධකයක් එකතු කරන්න"
+
+#: src/strings.hpp:201
+msgid "Trashed"
+msgstr ""
+
+#: src/strings.hpp:202 ui/po_entry.ui:214
+#, fuzzy
+msgid "Unit"
+msgstr "නිර්නාමික කාණ්ඩය"
+
+#: src/strings.hpp:203
+msgid "Value Type"
+msgstr ""
+
+#: src/strings.hpp:204
+msgid "Yearly"
+msgstr ""
+
+#: src/strings.hpp:205
+msgid "Yes"
+msgstr ""
+
+#: src/strings.hpp:207 ui/col_opt_tag_value.ui:13 ui/col_opt_tag_value.ui:20
+#, fuzzy
+msgid "Tag"
+msgstr "සම්බන්ධක"
+
+#: src/strings.hpp:213
+msgid "January"
+msgstr ""
+
+#: src/strings.hpp:214
+msgid "February"
+msgstr ""
+
+#: src/strings.hpp:215
+msgid "March"
+msgstr ""
+
+#: src/strings.hpp:216
+msgid "April"
+msgstr ""
+
+#: src/strings.hpp:217
+msgid "May"
+msgstr ""
+
+#: src/strings.hpp:218
+msgid "June"
+msgstr ""
+
+#: src/strings.hpp:219
+msgid "July"
+msgstr ""
+
+#: src/strings.hpp:220
+msgid "August"
+msgstr ""
+
+#: src/strings.hpp:221
+msgid "September"
+msgstr ""
+
+#: src/strings.hpp:222
+msgid "October"
+msgstr ""
+
+#: src/strings.hpp:223
+msgid "November"
+msgstr ""
+
+#: src/strings.hpp:224
+msgid "December"
+msgstr ""
+
+#: src/strings.hpp:229 ui/preferences.ui:250
+msgid "Sunday"
+msgstr ""
+
+#: src/strings.hpp:230 ui/preferences.ui:251
+msgid "Monday"
+msgstr ""
+
+#: src/strings.hpp:231 ui/preferences.ui:252
+msgid "Tuesday"
+msgstr ""
+
+#: src/strings.hpp:232 ui/preferences.ui:253
+msgid "Wednesday"
+msgstr ""
+
+#: src/strings.hpp:233 ui/preferences.ui:254
+msgid "Thursday"
+msgstr ""
+
+#: src/strings.hpp:234 ui/preferences.ui:255
+msgid "Friday"
+msgstr ""
+
+#: src/strings.hpp:235 ui/preferences.ui:256
+msgid "Saturday"
+msgstr ""
+
+#: src/strings.hpp:246 ui/lifeograph-2.ui:154
+msgid "Personal, digital diary"
+msgstr "පෞද්ගලික, විද්‍යුත් දිනපොත"
+
+#: src/strings.hpp:249
+msgid "Changes could not be written to diary!"
+msgstr "වෙනස්කම් දිනපොතට ලිවිය නොහැක!"
+
+#: src/strings.hpp:252
+msgid "Check if you have write permissions on the file and containing folder"
+msgstr "ගොනුව හා ඇතුලත්වන ෆෝල්ඩරයට ඔබට ලිවීමේ අවසරය තිබේදැයි පරික්ෂා කර බලන්න."
+
+#: src/strings.hpp:256 ui/print.ui:132 ui/table.ui:97 ui/table.ui:260
+msgid "Off"
+msgstr "අක්‍රීය"
+
+#. TRANSLATORS: title of an empty diary entry
+#: src/strings.hpp:260
+msgid "<empty entry>"
+msgstr "<ශූන්‍ය ඇතුලත් කිරීමකි>"
+
+#: src/strings.hpp:263
+msgid "Please enter password for selected diary..."
+msgstr "කරුණාකර තෝරා ඇති දිනපොත සදහා මුර පදයක් ඇතුල්කරන්න..."
+
+#: src/strings.hpp:266
+msgid "Program logged out to protect your privacy. Please re-enter password..."
+msgstr ""
+"ඔබගේ පෞද්ගලිකත්වය සුරැකීම සදහා වැඩසටහනෙන් ඉවත්වී ඇත. කරුණාකර ඔබගේ මුරපදය නැවත "
+"ඇතුල්කරන්න....."
+
+#: src/strings.hpp:270
+#, fuzzy
+msgid ""
+"Selected diary is in an older format which is not compatible with this "
+"version of Lifeograph. Please select another file..."
+msgstr ""
+"තෝරා ඇති දිනපොත Lifeograph හි මෙම අනුවාදය සමග ගැලපෙන්නේ නැත. කරුණාකර වෙනත් ගොනුවක් "
+"තෝරන්න......."
+
+#: src/strings.hpp:275
+#, fuzzy
+msgid ""
+"Selected diary is in a newer format which is not compatible with this "
+"version of Lifeograph. Please consider upgrading your program."
+msgstr ""
+"තෝරා ඇති දිනපොත Lifeograph හි මෙම අනුවාදය සමග ගැලපෙන්නේ නැත. කරුණාකර වෙනත් ගොනුවක් "
+"තෝරන්න......."
+
+#: src/strings.hpp:280
+msgid ""
+"Selected file is not a valid Lifeograph diary. Please select another file..."
+msgstr "තෝරා ඇති ගොනුව වලංගු Lifeograph දිනපොතක් නොවේ. කරුණාකර වෙනත් ගොනුවක් තෝරන්න...."
+
+#: src/strings.hpp:285
+msgid "Selected file is not found. Please select another file..."
+msgstr "තෝරා ඇති ගොනුව සොයා ගත නොහැක. කරුණ කර වෙනත් ගොනුවක් තෝරන්න..."
+
+#: src/strings.hpp:289
+msgid ""
+"Selected file is not readable. Please check file permissions or select "
+"another file..."
+msgstr ""
+"තෝරා ඇති ගොනුව කියවිය නොහැක. කරුණාකර ගොනු අවසරය පරික්ෂ කර හෝ වෙනත් ගොනුවක් තෝරන්න..."
+
+#: src/strings.hpp:293
+msgid "You do not have permission to change this file."
+msgstr ""
+
+#: src/strings.hpp:296
+msgid ""
+"Selected file is locked which means either it is being edited by another "
+"instance of Lifeograph or the last session with it did not finish correctly. "
+"This file cannot be opened as long as the lock file (%1) is there."
+msgstr ""
+"තොර ඇති ගොනුව අගුලු දමා ඇත. එනම් එය Lifeograph හි වෙනත් දෘෂ්ටාන්තයක් මගින් සංස්කරණය කරමින් "
+"පවතී හෝ එයට අදාල පසුගිය වාරය නියමිත ආකාරයට අවසන් කර නැත. මෙම ගොනුව අගුලු දමා තිබෙන තුරු "
+"විවෘත කල නොහැක."
+
+#: src/strings.hpp:303
+msgid ""
+"You are about to open an old diary that will be upgraded to the new format.\n"
+"\n"
+"Lifeograph will create a backup copy of the current diary for you in the "
+"same directory. Please keep that copy until you are sure that everything is "
+"all right."
+msgstr ""
+
+#: src/strings.hpp:309
+msgid "Failed to open diary. Please select another file..."
+msgstr "දිනපොත විවෘත කිරීමට අසමත් විය. කරුණාකර වෙනත් ගොනුවක් තෝරන්න..."
+
+#: src/strings.hpp:313
+msgid "Press Open to continue"
+msgstr "නොකඩවාම කරගෙන යාම සදහා \tවිවෘත කිරීම ඔබන්න"
+
+#: src/strings.hpp:316
+msgid "Last Read"
+msgstr "අවසාන කියවීම"
+
+#: src/strings.hpp:319
+msgid "Last Saved"
+msgstr "අන්තිමට කල සුරැකීම"
+
+#: src/strings.hpp:322
+#, fuzzy
+msgid "(Drop a tag here to filter)"
+msgstr "වෙනස් කිරීම සදහා අයිතම මෙහි දමන්න"
+
+#: src/strings.hpp:325 ui/lifeograph.ui:90
+msgid "Change Password..."
+msgstr "මුරපදය වෙනස් කරන්න..."
+
+#. TRANSLATORS: e.g. Tag with 5 entries
+#: src/strings.hpp:329
+#, fuzzy
+msgid "%1 with %2 entrie(s)"
+msgstr "%1 ඇතුලත් කිරීම් සමග සම්බන්ධ කරන්න"
+
+#: src/strings.hpp:332
+msgid "Tag with %1 entrie(s). Average value = %2"
+msgstr ""
+
+#: src/strings.hpp:335
+msgid "Tag with %1 entrie(s). Total value = %2"
+msgstr ""
+
+#: src/strings.hpp:338
+msgid "New theme"
+msgstr "නව තේමාව"
+
+#: src/strings.hpp:341
+#, fuzzy
+msgid "New chapter"
+msgstr "නව ප්‍රභේදය"
+
+#: src/strings.hpp:344
+msgid "New category"
+msgstr "නව ප්‍රභේදය"
+
+#: src/strings.hpp:347
+msgid "Default"
+msgstr "සාමාන්‍ය"
+
+#: src/strings.hpp:350
+#, fuzzy
+msgid "<Default>"
+msgstr "සාමාන්‍ය"
+
+#: src/strings.hpp:353
+#, fuzzy
+msgid "Diary Report"
+msgstr "දිනපොත පැහැර හැරීම"
+
+#: src/ui_diary.cpp:484
+msgid "Are You Sure You Want to Upgrade The Diary?"
+msgstr "ඔබට දිනපොත ඉහළ ශ්‍රේණියට දැමීමට අවශ්‍යබව විශ්වාසද?"
+
+#: src/ui_diary.cpp:486
+msgid "Upgrade The Diary"
+msgstr "දිනපොත ඉහළ ශ්‍රේණියට දමන්න"
+
+#. this should never occur?
+#: src/ui_diary.cpp:502
+msgid "Cannot edit a read-only diary"
+msgstr ""
+
+#: src/ui_diary.cpp:730
+#, fuzzy
+msgid "Are You Sure You Want to Empty The Trash?"
+msgstr "ඔබට දිනපොත ඉහළ ශ්‍රේණියට දැමීමට අවශ්‍යබව විශ්වාසද?"
+
+#: src/ui_diary.cpp:731
+msgid "Empty The Trash"
+msgstr ""
+
+#: src/ui_entry.cpp:330
+#, fuzzy
+msgid "word(s)"
+msgstr "මුරපදය"
+
+#: src/ui_entry.cpp:540
+#, fuzzy
+msgid "Also dismiss child entries"
+msgstr "මේ තුල ඇති ඇතුලත් කිරීමුත් නොසලකා හරින්න"
+
+#: src/ui_extra.cpp:134 src/ui_extra.cpp:136 ui/lifeograph.ui:584
+#, fuzzy
+msgid "New Chart"
+msgstr "නව ප්‍රභේදය"
+
+#: src/ui_extra.cpp:589
+msgid "<b>%1</b> instances found"
+msgstr ""
+
+#: src/ui_extra.cpp:592
+#, fuzzy
+msgid "Search text within entries"
+msgstr "ඇතුලත් කිරීම් %1 ක් සමග පරිච්ඡේදය"
+
+#: src/ui_login.cpp:242
+msgid "Error querying file"
+msgstr ""
+
+#: src/ui_login.cpp:484
+msgid "Removed diary: %1"
+msgstr "දිනපොත ඉවත් කරන්න: %1"
+
+#: src/ui_login.cpp:486
+msgid "Undo"
+msgstr "අහෝසිය"
+
+#: src/ui_login.cpp:502
+#, fuzzy
+msgid "Where to Save the New Diary?"
+msgstr "දිනපොත සුරකින්නේ කොහෙද?"
+
+#: src/ui_login.cpp:523
+#, fuzzy
+msgid "Select the Diary File to Add"
+msgstr "දිනපොතක් තෝරන්න."
+
+#: src/ui_login.cpp:531
+msgid "Unsaved changes from the last session detected"
+msgstr ""
+
+#: src/ui_login.cpp:532
+msgid "_Discard Unsaved Changes"
+msgstr ""
+
+#: src/ui_login.cpp:535
+msgid "Continue with _Unsaved Changes"
+msgstr ""
+
+#: src/widgets/calendar.cpp:105
+msgid "DATE IS NOT SET"
+msgstr ""
+
+#: src/widgets/chart.cpp:574
+msgid "INSUFFICIENT DATA"
+msgstr "ප්‍රමාණවත් නොවන දත්ත"
+
+#: src/widgets/table.cpp:490
+msgid "ADD COLUMNS"
+msgstr ""
+
+#: src/widgets/widget_chart.cpp:315
+#, fuzzy
+msgid "Previous Year"
+msgstr "පෙර"
+
+#: src/widgets/widget_chart.cpp:398
+#, fuzzy
+msgid "Count"
+msgstr "ඇතුලත් කිරීම් අවසාන වෙනස් කිරීම කලේ %1"
+
+#: src/widgets/widget_entrypicker.cpp:120
+#, fuzzy
+msgid "Create New Entry: %1"
+msgstr "නව ඇතුලත් කිරීමක් සකසන්න %1"
+
+#: src/widgets/widget_filter.cpp:62
+msgid "Whose status is one of"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:219
+#, fuzzy
+msgid "Is favorite"
+msgstr "ප්‍රියතම දෑ පෙරන්න"
+
+#: src/widgets/widget_filter.cpp:229
+msgid "Is trashed"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:238
+#, fuzzy
+msgid "Has the unit"
+msgstr "පද්ධති තේමාව"
+
+#: src/widgets/widget_filter.cpp:257
+#, fuzzy
+msgid "Is entry"
+msgstr "මෙම ඇතුලත් කිරීම සගවන්න"
+
+#: src/widgets/widget_filter.cpp:278
+msgid "Is descendant of"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:280
+msgid "Or itself"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:306
+#, fuzzy
+msgid "Has the tag"
+msgstr "පද්ධති තේමාව"
+
+#: src/widgets/widget_filter.cpp:407
+msgid "Planned"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:408
+msgid "Realized"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:409
+msgid "Remaining"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:475
+#, fuzzy
+msgid "Has the theme"
+msgstr "පද්ධති තේමාව"
+
+#: src/widgets/widget_filter.cpp:541 src/widgets/widget_filter.cpp:593
+msgid "Between"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:627
+msgid "Completion is in range"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:696
+#, fuzzy
+msgid "Satisfies filter"
+msgstr "පෙරන්න"
+
+#: src/widgets/widget_filter.cpp:704
+msgid "Is image"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:711
+msgid "Has map coordinates"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:721
+msgid "Title style is"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:757
+#, fuzzy
+msgid "Heading level is"
+msgstr "ශීර්ෂ පාඨය"
+
+#: src/widgets/widget_filter.cpp:908
+#, fuzzy
+msgid "OR"
+msgstr "අනුමත කරනවා"
+
+#: src/widgets/widget_filter.cpp:910
+msgid "AND"
+msgstr ""
+
+#: src/widgets/widget_map.cpp:251
+#, fuzzy
+msgid "New Location"
+msgstr "ස්ථානය"
+
+#: src/widgets/widget_table.cpp:973 ui/table.ui:61
+#, fuzzy
+msgid "Text"
+msgstr "පාඨ"
+
+#. the same id and SRC_value as title
+#: src/widgets/widget_table.cpp:974 ui/tv_diary_edit_link.ui:52
+msgid "Uri"
+msgstr ""
+
+#: src/widgets/widget_table.cpp:978
+msgid "Title"
+msgstr "ශීර්ෂය"
+
+#: src/widgets/widget_table.cpp:979
+msgid "Ancestors + Title"
+msgstr ""
+
+#: src/widgets/widget_table.cpp:980
+#, fuzzy
+msgid "Description"
+msgstr "ක්‍රියාමාර්ග"
+
+#: src/widgets/widget_table.cpp:1021
+msgid "Constant"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1583
+msgid "Image Not Found"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1713
+msgid "Click to expand the paragraph"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1716
+#, fuzzy
+msgid "Click to collapse the paragraph"
+msgstr "අඩංගු ෆෝල්ඩරය විවෘත කිරීම සදහා ඔබන්න"
+
+#: src/widgets/widget_textview.cpp:1723
+#, fuzzy
+msgid "Click to edit entry properties"
+msgstr "අලුත් ඇතුලත් කිරීමක්, පරිච්ඡේදයක් හෝ මාතෘකාවක් සැකසීම සදහා ඔබන්න"
+
+#: src/widgets/widget_textview.cpp:1726
+msgid "Click to see list of entries tagged by this entry"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1736
+msgid "Entry text evaluated as link address"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1752
+msgid "Right click to edit paragraph"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1762
+msgid "Press Ctrl to follow the link"
+msgstr "සබැඳිය අනුගමනය කිරීම සදහා Ctrl ඔබන්න"
+
+#: src/widgets/widget_textview.cpp:1763
+msgid "Press Ctrl to select"
+msgstr "තේරීම සදහා Ctrl ඔබන්න"
+
+#: src/widgets/widget_textviewedit.cpp:950
+msgid "Open"
+msgstr ""
+
+#: src/widgets/widget_textviewedit.cpp:1044
+msgid "image"
+msgstr ""
+
+#: src/widgets/widget_textviewedit.cpp:1262
+msgid "Add \"%1\" to Dictionary"
+msgstr "ශබ්දකෝෂයට \"%1\" එකතු කරන්න"
+
+#: src/widgets/widget_textviewedit.cpp:1263
+msgid "Ignore All"
+msgstr "සියල්ල නොසලකා හරින්න"
+
+#: src/widgets/widget_textviewedit.cpp:1268
+#, fuzzy
+msgid "no suggestions"
+msgstr "<i>(ඉඟි නොමැත)</i>"
+
+#: src/widgets/widget_textviewsearch.cpp:94
+#, fuzzy
+msgid "Please enter a search phrase"
+msgstr "කරුණාකර අලුත් මුරපදය ඇතුල්කරන්න"
+
+#: src/widgets/widget_textviewsearch.cpp:97
+#, fuzzy
+msgid "No matches"
+msgstr "සමාන වූ දේ සොයා ගැනීමට නොහැකි විය"
+
+#: src/widgets/widget_textviewsearch.cpp:331
+msgid "Click to jump to"
+msgstr ""
+
+#: src/widgets/widget_textviewsearch.cpp:336
+msgid "Right click to replace"
+msgstr ""
+
+#: src/widgets/widget_textviewtheme.cpp:267
+#, fuzzy
+msgid "Select Image"
+msgstr "දිනපොතක් තෝරන්න."
+
+#: src/widgets/widget_textviewtheme.cpp:379
+msgid "Click to edit the theme"
+msgstr ""
+
+#: ui/calendar.ui:30
+#, fuzzy
+msgid "Copy Date"
+msgstr "දිනය අනුව කාණ්ඩය"
+
+#: ui/calendar.ui:38
+msgid "Weekend Day"
+msgstr ""
+
+#: ui/calendar.ui:43
+msgid "Holiday"
+msgstr ""
+
+#: ui/calendar.ui:50
+msgid "Show Week Numbers"
+msgstr ""
+
+#: ui/calendar.ui:66
+#, fuzzy
+msgid "Create entry"
+msgstr "අලුතින් නිර්මාණය"
+
+#: ui/calendar.ui:78
+#, fuzzy
+msgid "Create milestone"
+msgstr "අලුතින් නිර්මාණය"
+
+#: ui/chart.ui:45
+#, fuzzy
+msgid "Style"
+msgstr "ශීර්ෂය"
+
+#: ui/chart.ui:62
+msgid "Line"
+msgstr ""
+
+#: ui/chart.ui:67
+msgid "Bars"
+msgstr ""
+
+#: ui/chart.ui:91
+msgid "Data Source"
+msgstr ""
+
+#: ui/chart.ui:125
+msgid "x-Axis Column"
+msgstr ""
+
+#: ui/chart.ui:142
+msgid "y-Axis Column"
+msgstr ""
+
+#: ui/chart.ui:165
+#, fuzzy
+msgid "Organization"
+msgstr "ක්‍රියාමාර්ග"
+
+#: ui/chart.ui:182
+#, fuzzy
+msgid "Group by"
+msgstr "සම්බන්ධක අනුව කාණ්ඩය"
+
+#: ui/chart.ui:190
+#, fuzzy
+msgid "Day"
+msgstr "දිනපොත"
+
+#: ui/chart.ui:191
+msgid "Week"
+msgstr ""
+
+#: ui/chart.ui:192
+msgid "Month"
+msgstr ""
+
+#: ui/chart.ui:193
+msgid "Year"
+msgstr ""
+
+#: ui/chart.ui:205
+msgid "Combine"
+msgstr ""
+
+#: ui/chart.ui:213
+msgid "Cumulative: Periodic"
+msgstr ""
+
+#: ui/chart.ui:214
+msgid "Cumulative: Continuous"
+msgstr ""
+
+#: ui/chart.ui:230
+#, fuzzy
+msgid "Advanced Options"
+msgstr "විකල්ප පාඨ"
+
+#: ui/chart.ui:270
+msgid "Underlay"
+msgstr ""
+
+#: ui/chart.ui:293
+msgid "Filter Table Rows"
+msgstr ""
+
+#: ui/chart.ui:310
+msgid "Column"
+msgstr ""
+
+#: ui/chart.ui:327
+msgid "Value = "
+msgstr ""
+
+#: ui/col_opt_arithmetic.ui:108
+msgid "Operand A"
+msgstr ""
+
+#: ui/col_opt_arithmetic.ui:120 ui/col_opt_arithmetic.ui:157
+msgid "Function to modify the column value"
+msgstr ""
+
+#: ui/col_opt_arithmetic.ui:145
+msgid "Operand B"
+msgstr ""
+
+#: ui/col_opt_arithmetic.ui:181
+msgid "Format as"
+msgstr ""
+
+#: ui/col_opt_duration.ui:13
+#, fuzzy
+msgid "Begin Date"
+msgstr "ආරම්භක දිනය"
+
+#: ui/col_opt_duration.ui:21 ui/col_opt_duration.ui:47 ui/col_opt_date.ui:21
+#, fuzzy
+msgid "Start Date"
+msgstr "ආරම්භය"
+
+#: ui/col_opt_duration.ui:23 ui/col_opt_duration.ui:49 ui/col_opt_date.ui:23
+#, fuzzy
+msgid "Last Change Date"
+msgstr "අවසානයට වෙනස් කල වෙලාව අනුව වර්ග කරන්න"
+
+#: ui/col_opt_duration.ui:24 ui/col_opt_duration.ui:50 ui/col_opt_date.ui:24
+#, fuzzy
+msgid "Finish Date"
+msgstr "පරිච්ඡේද සංස්කරණය"
+
+#: ui/col_opt_duration.ui:25 ui/col_opt_duration.ui:51
+#, fuzzy
+msgid "Now"
+msgstr "ශුන්‍යය"
+
+#: ui/col_opt_duration.ui:26 ui/col_opt_duration.ui:52
+msgid "1st Column on Left"
+msgstr ""
+
+#: ui/col_opt_duration.ui:27 ui/col_opt_duration.ui:53
+msgid "2nd Column on Left"
+msgstr ""
+
+#: ui/col_opt_duration.ui:39
+#, fuzzy
+msgid "End Date"
+msgstr "පරිච්ඡේද සංස්කරණය"
+
+#: ui/col_opt_duration.ui:65 ui/col_opt_size.ui:13 ui/col_opt_date.ui:13
+#: ui/dlg_export.ui:76 ui/po_entry.ui:180
+msgid "Type"
+msgstr "වර්ගය"
+
+#: ui/col_opt_duration.ui:73
+msgid "Calendar Days"
+msgstr ""
+
+#: ui/col_opt_duration.ui:74
+msgid "Work Days"
+msgstr ""
+
+#: ui/col_opt_size.ui:21
+#, fuzzy
+msgid "Char Count"
+msgstr "ඇතුලත් කිරීම් අවසාන වෙනස් කිරීම කලේ %1"
+
+#. <item translatable="yes">Word Count</item> TODO: v3.1 or later
+#: ui/col_opt_size.ui:23
+msgid "Paragraph Count"
+msgstr ""
+
+#: ui/col_opt_bool.ui:14
+#, fuzzy
+msgid "Condition"
+msgstr "ක්‍රියාමාර්ග"
+
+#: ui/col_opt_bool.ui:20
+msgid "True if satisfies the selected filter"
+msgstr ""
+
+#: ui/col_opt_date.ui:35
+msgid "Customize Format"
+msgstr ""
+
+#: ui/col_opt_date.ui:41
+msgid ""
+"Y: year\n"
+"M: month number\n"
+"n: month name\n"
+"D: day\n"
+"d: week day\n"
+"W: week no\n"
+"h: hour\n"
+"m: minute\n"
+"s: second\n"
+"F: date\n"
+"T: time"
+msgstr ""
+
+#: ui/col_opt_subtag.ui:13
+msgid "Sub tag of"
+msgstr ""
+
+#: ui/col_opt_subtag.ui:21
+#, fuzzy
+msgid "Parent tag"
+msgstr "පවතින ඇතුලත් කිරීම පමණි"
+
+#: ui/col_opt_subtag.ui:32
+#, fuzzy
+msgid "Select"
+msgstr "දිනපොතක් තෝරන්න."
+
+#: ui/col_opt_subtag.ui:40
+msgid "First Occuring"
+msgstr ""
+
+#: ui/col_opt_subtag.ui:41
+msgid "Last Occuring"
+msgstr ""
+
+#: ui/col_opt_subtag.ui:42
+msgid "Least in Order"
+msgstr ""
+
+#: ui/col_opt_subtag.ui:43
+msgid "Greatest in Order"
+msgstr ""
+
+#: ui/col_opt_subtag.ui:44 ui/lifeograph.ui:480
+msgid "All"
+msgstr ""
+
+#: ui/col_opt_tag_value.ui:33
+msgid "Calculate"
+msgstr ""
+
+#: ui/col_opt_tag_value.ui:41
+msgid "Total Planned"
+msgstr ""
+
+#: ui/col_opt_tag_value.ui:42
+msgid "Total Realized"
+msgstr ""
+
+#: ui/col_opt_tag_value.ui:43
+msgid "Total Remaining"
+msgstr ""
+
+#: ui/col_opt_tag_value.ui:44
+msgid "Average Planned"
+msgstr ""
+
+#: ui/col_opt_tag_value.ui:45
+msgid "Average Realized"
+msgstr ""
+
+#: ui/col_opt_tag_value.ui:46
+msgid "Average Remaining"
+msgstr ""
+
+#: ui/col_opt_tag_value.ui:47
+msgid "Completion Percentage"
+msgstr ""
+
+#: ui/col_opt_text.ui:13
+msgid "Field"
+msgstr ""
+
+#: ui/col_opt_text.ui:30
+msgid "Include"
+msgstr ""
+
+#: ui/col_opt_text.ui:42
+#, fuzzy
+msgid "Number or Date"
+msgstr "පරිච්ඡේදය ඉවත්කරන්න"
+
+#: ui/col_opt_text.ui:48
+#, fuzzy
+msgid "Plain text"
+msgstr "සරල පාඨ ගොනුව"
+
+#: ui/col_opt_text.ui:54
+#, fuzzy
+msgid "Tags within the text"
+msgstr "පද්ධති තේමාව"
+
+#: ui/col_opt_text.ui:60
+msgid "Dates within the text"
+msgstr ""
+
+#: ui/col_opt_text.ui:66
+msgid "Comments within the text"
+msgstr ""
+
+#: ui/col_opt_text.ui:72
+msgid "Indentations"
+msgstr ""
+
+#: ui/dlg_export.ui:42
+msgid "Export"
+msgstr "අපනයනය"
+
+#: ui/dlg_export.ui:66
+msgid "Content"
+msgstr "අන්තර්ගතය"
+
+#: ui/dlg_export_opts_log.ui:33 ui/lifeograph-2.ui:47
+#, fuzzy
+msgid "Password"
+msgstr "මුරපදය:"
+
+#: ui/dlg_export_opts_log.ui:43 ui/lifeograph.ui:947 ui/lifeograph-2.ui:59
+msgid "Confirm"
+msgstr "තහවරු කිරීම"
+
+#: ui/dlg_filter.ui:41 ui/dlg_smartadd.ui:51 ui/dlg_sync.ui:43
+msgid "Cancel"
+msgstr ""
+
+#: ui/dlg_filter.ui:57
+msgid "Apply & Close"
+msgstr ""
+
+#: ui/dlg_gettext.ui:34
+#, fuzzy
+msgid "Please enter a name"
+msgstr "කරුණාකර අලුත් මුරපදය ඇතුල්කරන්න"
+
+#: ui/dlg_smartadd.ui:38
+msgid "Smart Add"
+msgstr ""
+
+#: ui/dlg_smartadd.ui:56
+msgid "Clear"
+msgstr ""
+
+#: ui/dlg_sync.ui:49
+msgid "Go"
+msgstr ""
+
+#: ui/dlg_sync.ui:60
+#, fuzzy
+msgid "Scheme"
+msgstr "තේමාවන්"
+
+#: ui/dlg_sync.ui:70
+#, fuzzy
+msgid "Filters"
+msgstr "පෙරන්න"
+
+#: ui/dlg_sync.ui:120
+msgid "Apply to Similar"
+msgstr ""
+
+#: ui/dlg_sync.ui:125
+msgid "Apply action changes to all similar elements"
+msgstr ""
+
+#: ui/dlg_sync.ui:139
+msgid "I"
+msgstr ""
+
+#: ui/dlg_sync.ui:140
+#, fuzzy
+msgid "Ignore"
+msgstr "සියල්ල නොසලකා හරින්න"
+
+#: ui/dlg_sync.ui:146
+msgid "A"
+msgstr ""
+
+#: ui/dlg_sync.ui:147
+#, fuzzy
+msgid "Add remote"
+msgstr "කාණ්ඩය එකතු කරන්න"
+
+#: ui/dlg_sync.ui:153
+#, fuzzy
+msgid "O"
+msgstr "අනුමත කරනවා"
+
+#: ui/dlg_sync.ui:154
+#, fuzzy
+msgid "Overwrite local"
+msgstr "මත ලියන්න"
+
+#: ui/dlg_sync.ui:167
+#, fuzzy
+msgid "Tag Imported Entries"
+msgstr "සම්බන්ධක ආනයනය කල ඇතුලත් කිරීම්:"
+
+#: ui/dlg_sync.ui:218
+#, fuzzy
+msgid "Show New"
+msgstr "වෙනස්විය"
+
+#: ui/dlg_sync.ui:222
+#, fuzzy
+msgid "Show Changed"
+msgstr "වෙනස්විය"
+
+#: ui/dlg_sync.ui:228
+msgid "Show Accepted"
+msgstr ""
+
+#: ui/dlg_sync.ui:232
+#, fuzzy
+msgid "Show Ignored"
+msgstr "සියල්ල නොසලකා හරින්න"
+
+#: ui/dlg_sync.ui:238
+msgid "Only Show Different Details"
+msgstr ""
+
+#: ui/dlg_sync.ui:258
+#, fuzzy
+msgid "Changed"
+msgstr "වෙනස්විය"
+
+#: ui/dlg_sync.ui:271
+#, fuzzy
+msgid "New"
+msgstr "ශුන්‍යය"
+
+#: ui/dlg_sync.ui:333
+#, fuzzy
+msgid "Apply Scheme"
+msgstr "අලුත් නම යොදන්න"
+
+#: ui/flt_range.ui:9
+msgid "Include or exclude the lower bound"
+msgstr ""
+
+#: ui/flt_range.ui:22
+#, fuzzy
+msgid "Lower bound"
+msgstr "ඉදිරි කොටස"
+
+#: ui/flt_range.ui:37
+msgid "Upper bound"
+msgstr ""
+
+#: ui/flt_range.ui:43
+msgid "Include or exclude the upper bound"
+msgstr ""
+
+#: ui/flt_subtag.ui:10
+msgid "First"
+msgstr ""
+
+#: ui/flt_subtag.ui:11
+#, fuzzy
+msgid "Last"
+msgstr "අවසාන කියවීම"
+
+#: ui/flt_subtag.ui:12
+#, fuzzy
+msgid "Highest"
+msgstr "ඉස්මතු කිරීම:"
+
+#: ui/flt_subtag.ui:13
+msgid "Lowest"
+msgstr ""
+
+#: ui/flt_subtag.ui:19
+msgid "Subtag of"
+msgstr ""
+
+#: ui/flt_subtag.ui:24 ui/flt_subtag.ui:40
+#, fuzzy
+msgid "Only include paragraphs with this tag"
+msgstr "මෙම සම්බන්ධකය සමග ඇති ඇතුලත් කිරීම් පෙරන්න"
+
+#: ui/flt_subtag.ui:29
+#, fuzzy
+msgid "Parent Tag"
+msgstr "සම්බන්ධකය සකසන්න"
+
+#: ui/flt_subtag.ui:45
+msgid "Child Tag"
+msgstr ""
+
+#: ui/flt_text.ui:9
+#, fuzzy
+msgid "Contains text"
+msgstr "දිගටම කරගෙන යන්න"
+
+#: ui/flt_text.ui:21 ui/lifeograph.ui:444
+msgid "Match case"
+msgstr ""
+
+#: ui/flt_text.ui:33
+msgid "Anywhere"
+msgstr ""
+
+#: ui/flt_text.ui:34
+#, fuzzy
+msgid "In the name"
+msgstr "නව තේමාව"
+
+#: ui/lifeograph.ui:34
+msgid "Help"
+msgstr ""
+
+#: ui/lifeograph.ui:40 ui/preferences.ui:28
+msgid "Preferences"
+msgstr "අභිමත"
+
+#: ui/lifeograph.ui:44
+msgid "About"
+msgstr "පිළිබඳ"
+
+#: ui/lifeograph.ui:48
+msgid "Quit"
+msgstr "පිටවීම"
+
+#: ui/lifeograph.ui:63
+#, fuzzy
+msgid "Open the Folder Containing the Diary"
+msgstr "අඩංගු ෆෝල්ඩරය විවෘත කිරීම සදහා ඔබන්න"
+
+#: ui/lifeograph.ui:68
+#, fuzzy
+msgid "Export/Save As..."
+msgstr "_අපනයනය"
+
+#: ui/lifeograph.ui:73
+msgid "Synchronize/Merge..."
+msgstr ""
+
+#: ui/lifeograph.ui:80
+msgid "Empty the Trash..."
+msgstr ""
+
+#: ui/lifeograph.ui:85
+msgid "Encrypt..."
+msgstr "කේත ගත කරන්න"
+
+#: ui/lifeograph.ui:95
+msgid "Update All Date Separators in the Diary"
+msgstr ""
+
+#: ui/lifeograph.ui:126
+msgid "Diary default value for spell checking"
+msgstr ""
+
+#: ui/lifeograph.ui:127
+msgid "Spell Checking"
+msgstr "අකුරු පිරික්සමින්"
+
+#: ui/lifeograph.ui:160
+msgid "Startup Action"
+msgstr "ආරම්භක ක්‍රියාව"
+
+#: ui/lifeograph.ui:167
+msgid "Show Most Current Entry"
+msgstr "අලුත්ම ඇතුලත් කිරීම පෙන්වන්න"
+
+#: ui/lifeograph.ui:168
+#, fuzzy
+msgid "Remember Last Entry"
+msgstr "අවසාන අයිතමය මතක තබාගන්න"
+
+#: ui/lifeograph.ui:169
+#, fuzzy
+msgid "Always Show a Fixed Entry"
+msgstr "සෑම විටම ස්ථාපිත අයිතමයක් පෙන්වන්න"
+
+#: ui/lifeograph.ui:181
+msgid "Item to Show"
+msgstr "දර්ශනය සදහා වූ අයිතම"
+
+#: ui/lifeograph.ui:198
+#, fuzzy
+msgid "Close without Saving..."
+msgstr "_සුරකිමකින් තොරව ඉවත්වන්න."
+
+#: ui/lifeograph.ui:202
+msgid "Disable Auto Close for This Session"
+msgstr ""
+
+#: ui/lifeograph.ui:216
+msgid "Standard Diary Report"
+msgstr ""
+
+#: ui/lifeograph.ui:288
+msgid "Diaries"
+msgstr "දිනපොත්"
+
+#: ui/lifeograph.ui:409
+msgid "Calendar"
+msgstr ""
+
+#: ui/lifeograph.ui:422 ui/lifeograph.ui:439
+#, fuzzy
+msgid "Search"
+msgstr "පෙරන්න"
+
+#: ui/lifeograph.ui:469
+msgid "Enter text to replace matches with"
+msgstr "ගැලපෙන දෑ ආදේශ කිරීම සදහා පාඨ ඇතුල් කරන්න"
+
+#: ui/lifeograph.ui:475 ui/tv_diary.ui:352
+msgid "Replace"
+msgstr "යළි පිහිටුවන්න"
+
+#: ui/lifeograph.ui:482
+msgid "Replace all"
+msgstr "සියල්ල ආදේශ කරන්න"
+
+#: ui/lifeograph.ui:505
+#, fuzzy
+msgid "Tables"
+msgstr "පෙරන්න"
+
+#: ui/lifeograph.ui:539 ui/lifeograph.ui:611
+msgid "Properties"
+msgstr ""
+
+#: ui/lifeograph.ui:601
+msgid "Zoom level"
+msgstr ""
+
+#: ui/lifeograph.ui:635
+#, fuzzy
+msgid "Themes"
+msgstr "තේමාවන්"
+
+#: ui/lifeograph.ui:691
+msgid "Map"
+msgstr ""
+
+#: ui/lifeograph.ui:772
+msgid "Label"
+msgstr ""
+
+#: ui/lifeograph.ui:782
+msgid "Add an existing diary file"
+msgstr ""
+
+#: ui/lifeograph.ui:789
+msgid "Create New"
+msgstr "අලුතින් නිර්මාණය"
+
+#: ui/lifeograph.ui:799 ui/lifeograph.ui:807
+msgid "Go back in the browsing history"
+msgstr "ගවේෂණ ඉතිහාසය තුල ආපස්සට යන්න"
+
+#: ui/lifeograph.ui:818 ui/po_entry.ui:7
+#, fuzzy
+msgid "Add"
+msgstr "සම්බන්ධකයක් එකතු කරන්න"
+
+#: ui/lifeograph.ui:819
+#, fuzzy
+msgid "Quick add a new entry"
+msgstr "නව අතුල්කිරීමක් එකතු කිරීම සදහා දිනයක් මත දෙවරක් ටික් ගාන්න"
+
+#: ui/lifeograph.ui:848 ui/po_theme.ui:35
+msgid "Edit"
+msgstr "සංස්කරණය"
+
+#: ui/lifeograph.ui:857
+msgid "Close"
+msgstr ""
+
+#: ui/lifeograph.ui:859
+#, fuzzy
+msgid "Save close the diary"
+msgstr "දිනපොතේ පිටපතක් සුරකින්න"
+
+#: ui/lifeograph.ui:957
+msgid "New Password"
+msgstr "නව මුරපදය"
+
+#: ui/lifeograph.ui:976
+msgid "Authenticate"
+msgstr "සත්‍යාපනය කරන්න"
+
+#: ui/lifeograph.ui:1037
+#, fuzzy
+msgid "Sort by"
+msgstr "ප්‍රමාණය අනුව වර්ග කරන්න"
+
+#: ui/lifeograph.ui:1061
+msgid "Save"
+msgstr ""
+
+#: ui/lifeograph.ui:1068
+msgid "Read"
+msgstr "කියවන්න"
+
+#: ui/lifeograph-2.ui:28
+#, fuzzy
+msgid "Where to Save The Diary?"
+msgstr "දිනපොත සුරකින්නේ කොහෙද?"
+
+#: ui/lifeograph-2.ui:91
+msgid "Encrypt Diary Content"
+msgstr "දිනපොතෙහි අන්තර්ගතය කේතාංකන ගත කරන්න"
+
+#: ui/lifeograph-2.ui:111
+msgid ""
+"Knowledge is a single point which the ignorant have multiplied.\n"
+"~Attributed to Ali Ibn Abi Talib"
+msgstr ""
+
+#: ui/lifeograph-2.ui:124
+msgid "Welcome to Lifeograph, a parametric note taking application!"
+msgstr ""
+
+#: ui/lifeograph-2.ui:137
+msgid ""
+"If this is your first time with the program, click here to start right away"
+msgstr ""
+
+#: ui/lifeograph-2.ui:153
+#, fuzzy
+msgid "Copyright (C) 2007-2024 Ahmet Öztürk"
+msgstr "පිටපත් අයිතිය (C) 2007-2010 Ahmet Öztürk"
+
+#: ui/lifeograph-2.ui:156
+msgid "Web Site"
+msgstr ""
+
+#: ui/map.ui:29
+msgid "Copy to Clipboard"
+msgstr ""
+
+#: ui/map.ui:35
+msgid "Path"
+msgstr ""
+
+#: ui/map.ui:37
+#, fuzzy
+msgid "Add Point"
+msgstr "කාණ්ඩය එකතු කරන්න"
+
+#: ui/map.ui:42
+msgid "Insert Point before Selected"
+msgstr ""
+
+#: ui/map.ui:47
+#, fuzzy
+msgid "Move Selected Point Here"
+msgstr "කාණ්ඩය ඉවත් කරන්න"
+
+#: ui/map.ui:54
+#, fuzzy
+msgid "Remove Selected Point"
+msgstr "කාණ්ඩය ඉවත් කරන්න"
+
+#: ui/map.ui:59
+msgid "Clear Path"
+msgstr ""
+
+#: ui/map.ui:65
+#, fuzzy
+msgid "Other Entries"
+msgstr "පෙරන ලද ඇතුලත් කිරීම් පමණි."
+
+#: ui/map.ui:67
+#, fuzzy
+msgid "Show Locations"
+msgstr "ස්ථානය"
+
+#: ui/po_entry.ui:12
+msgid "Parent"
+msgstr ""
+
+#: ui/po_entry.ui:16
+#, fuzzy
+msgid "Sibling"
+msgstr "අකුරු පිරික්සමින්"
+
+#: ui/po_entry.ui:20
+msgid "Child"
+msgstr ""
+
+#: ui/po_entry.ui:24 ui/po_theme.ui:40
+#, fuzzy
+msgid "Duplicate"
+msgstr "අනුපිටපත් තේමාව"
+
+#: ui/po_entry.ui:30
+#, fuzzy
+msgid "Merge Selected"
+msgstr "කාණ්ඩය ඉවත් කරන්න"
+
+#: ui/po_entry.ui:35
+#, fuzzy
+msgid "Sort Siblings"
+msgstr "දවස අනුව වර්ග කරන්න"
+
+#: ui/po_entry.ui:40
+msgid "A-Z"
+msgstr ""
+
+#: ui/po_entry.ui:44
+msgid "Z-A"
+msgstr ""
+
+#: ui/po_entry.ui:48
+msgid "Earliest First"
+msgstr ""
+
+#: ui/po_entry.ui:52
+#, fuzzy
+msgid "Latest First"
+msgstr "පෙරන්න"
+
+#: ui/po_entry.ui:56
+msgid "Shortest First"
+msgstr ""
+
+#: ui/po_entry.ui:60
+msgid "Longest First"
+msgstr ""
+
+#: ui/po_entry.ui:79
+#, fuzzy
+msgid "Move to Trash"
+msgstr "_අපද්‍රවය බඳුනට දමන්න"
+
+#: ui/po_entry.ui:84
+#, fuzzy
+msgid "Restore"
+msgstr "යලි පිහිටුවන්න"
+
+#: ui/po_entry.ui:89 ui/po_theme.ui:47
+#, fuzzy
+msgid "Dismiss..."
+msgstr "_නිෂ්ප්‍රභ කරන්න..."
+
+#: ui/po_entry.ui:99
+#, fuzzy
+msgid "Print..."
+msgstr "_මුද්‍රණය..."
+
+#: ui/po_entry.ui:132
+msgid "To Do"
+msgstr ""
+
+#: ui/po_entry.ui:143
+msgid "In Progress"
+msgstr ""
+
+#: ui/po_entry.ui:201
+msgid "Color as a tag and calendar or chart background"
+msgstr ""
+
+#: ui/po_entry.ui:238
+#, fuzzy
+msgid "Unitless"
+msgstr "නිර්නාමික කාණ්ඩය"
+
+#: ui/po_entry.ui:251
+#, fuzzy
+msgid "Spellchecking"
+msgstr "අකුරු පිරික්සමින්"
+
+#: ui/po_entry.ui:279
+msgid "Hidden"
+msgstr ""
+
+#: ui/po_entry.ui:280
+#, fuzzy
+msgid "Normal"
+msgstr "දේහ පාඨ"
+
+#: ui/po_entry.ui:281 ui/tv_diary.ui:158
+#, fuzzy
+msgid "Highlighted"
+msgstr "ඉස්මතු කිරීම:"
+
+#: ui/po_theme.ui:52
+#, fuzzy
+msgid "Reset to default"
+msgstr "සාමාන්‍ය"
+
+#: ui/po_theme.ui:59
+msgid "Assign to Open Entry"
+msgstr ""
+
+#: ui/po_theme.ui:64
+#, fuzzy
+msgid "Assign to Selected Entries"
+msgstr "සම්බන්ධක ආනයනය කල ඇතුලත් කිරීම්:"
+
+#: ui/preferences.ui:44
+msgid "Privacy"
+msgstr "පෞද්ගලිකත්වය"
+
+#: ui/preferences.ui:65
+#, fuzzy
+msgid "Save Diary and Close When Idle"
+msgstr "දිනපොත සුරක්ෂිත කොට අකර්මණ්‍ය විටදී ඉවත් වන්න"
+
+#: ui/preferences.ui:73
+msgid "Disabled"
+msgstr ""
+
+#: ui/preferences.ui:74
+msgid "For 30 Seconds"
+msgstr ""
+
+#: ui/preferences.ui:75
+msgid "For 45 Seconds"
+msgstr ""
+
+#: ui/preferences.ui:76
+msgid "For 1 Minute"
+msgstr ""
+
+#: ui/preferences.ui:77
+msgid "For 1½ Minute"
+msgstr ""
+
+#: ui/preferences.ui:78
+msgid "For 2 Minutes"
+msgstr ""
+
+#: ui/preferences.ui:79
+msgid "For 3 Minutes"
+msgstr ""
+
+#: ui/preferences.ui:80
+msgid "For 5 Minutes"
+msgstr ""
+
+#: ui/preferences.ui:81
+msgid "For 10 Minutes"
+msgstr ""
+
+#: ui/preferences.ui:82
+msgid "For 20 Minutes"
+msgstr ""
+
+#: ui/preferences.ui:83
+msgid "For 30 Minutes"
+msgstr ""
+
+#: ui/preferences.ui:101
+msgid "Auto Backups"
+msgstr ""
+
+#: ui/preferences.ui:123
+msgid "Create Daily Backups on Save"
+msgstr ""
+
+#: ui/preferences.ui:155
+msgid "Backup Folder"
+msgstr ""
+
+#: ui/preferences.ui:160
+msgid "Select The Folder for Daily Backups"
+msgstr ""
+
+#: ui/preferences.ui:179
+#, fuzzy
+msgid "Locale"
+msgstr "ස්ථානය"
+
+#: ui/preferences.ui:200
+msgid "Date Order and Separator"
+msgstr ""
+
+#: ui/preferences.ui:211
+msgid "Year Month Day"
+msgstr ""
+
+#: ui/preferences.ui:212
+msgid "Day Month Year"
+msgstr ""
+
+#: ui/preferences.ui:213
+msgid "Month Day Year"
+msgstr ""
+
+#: ui/preferences.ui:220
+msgid ". (Dot)"
+msgstr ""
+
+#: ui/preferences.ui:221
+msgid "/ (Slash)"
+msgstr ""
+
+#: ui/preferences.ui:222
+msgid "- (Dash)"
+msgstr ""
+
+#: ui/preferences.ui:242
+msgid "First Day of the Week"
+msgstr ""
+
+#: ui/preferences.ui:283
+#, fuzzy
+msgid "Preferred Units"
+msgstr "අභිමත"
+
+#: ui/preferences.ui:294
+msgid "Metric"
+msgstr ""
+
+#: ui/preferences.ui:300
+msgid "Imperial"
+msgstr ""
+
+#: ui/preferences.ui:320
+msgid "Appearance"
+msgstr "පෙනුම"
+
+#: ui/preferences.ui:341
+msgid "Prefer Dark Gtk+ Theme"
+msgstr ""
+
+#: ui/print.ui:39
+msgid "What to Print?"
+msgstr "මුද්‍රණය කරන්නේ කුමක්ද?"
+
+#: ui/print.ui:48
+#, fuzzy
+msgid "Only Current Entry"
+msgstr "පවතින ඇතුලත් කිරීම පමණි"
+
+#: ui/print.ui:54
+msgid "All Filtered Entries"
+msgstr "සියලුම පෙරන ලද ඇතුලත් කිරීම්"
+
+#: ui/print.ui:60
+msgid "Entire Diary"
+msgstr "සම්පුර්ණ දිනපොත"
+
+#: ui/print.ui:66
+msgid "Every Entry Begins on a New Page"
+msgstr ""
+
+#: ui/print.ui:78
+msgid "Text Options"
+msgstr "විකල්ප පාඨ"
+
+#: ui/print.ui:87
+#, fuzzy
+msgid "Use Theme Fonts in Entries"
+msgstr "ඇතුලත් කිරීම් තුල තේමා අකුරු භාවිත කරන්න"
+
+#: ui/print.ui:101
+#, fuzzy
+msgid "Use Custom Theme Colors"
+msgstr "ව්‍යවහාර තේමාව භාවිත කරන්න"
+
+#: ui/print.ui:107
+msgid "Page Margins"
+msgstr ""
+
+#: ui/print.ui:120
+msgid "Full"
+msgstr ""
+
+#: ui/print.ui:126
+msgid "Half"
+msgstr ""
+
+#: ui/table.ui:7
+#, fuzzy
+msgid "Show Order Column"
+msgstr "c.\tඅර්ථ කථන සගවන්න"
+
+#: ui/table.ui:11
+msgid "Group Lines"
+msgstr ""
+
+#: ui/table.ui:28
+msgid "Copy as Tab Delimited Text"
+msgstr ""
+
+#: ui/table.ui:53
+msgid "Basics"
+msgstr ""
+
+#: ui/table.ui:62
+#, fuzzy
+msgid "Date & Time"
+msgstr "සම්බන්ධක නාමය"
+
+#: ui/table.ui:64
+msgid "Size"
+msgstr ""
+
+#: ui/table.ui:65
+#, fuzzy
+msgid "Number"
+msgstr "පරිච්ඡේදය ඉවත්කරන්න"
+
+#: ui/table.ui:66
+msgid "True / False"
+msgstr ""
+
+#: ui/table.ui:67
+#, fuzzy
+msgid "Tag Value"
+msgstr "වෙනස්විය"
+
+#: ui/table.ui:68
+msgid "Has Which Sub Tag"
+msgstr ""
+
+#: ui/table.ui:69
+#, fuzzy
+msgid "Completion"
+msgstr "අභිරුචි"
+
+#: ui/table.ui:70
+msgid "Todo Status"
+msgstr ""
+
+#: ui/table.ui:71
+#, fuzzy
+msgid "Gantt Chart"
+msgstr "නව ප්‍රභේදය"
+
+#: ui/table.ui:72
+msgid "Path Length in Map"
+msgstr ""
+
+#: ui/table.ui:74
+msgid "Arithmetic"
+msgstr ""
+
+#: ui/table.ui:87
+#, fuzzy
+msgid "Sorting"
+msgstr "දවස අනුව වර්ග කරන්න"
+
+#: ui/table.ui:104
+#, fuzzy
+msgid "Ascending"
+msgstr "ශීර්ෂ පාඨය"
+
+#: ui/table.ui:111
+#, fuzzy
+msgid "Descending"
+msgstr "ශීර්ෂ පාඨය"
+
+#: ui/table.ui:120
+msgid "Combine identical cells"
+msgstr ""
+
+#: ui/table.ui:132
+msgid "Extras"
+msgstr ""
+
+#: ui/table.ui:143
+msgid "Get Value From"
+msgstr ""
+
+#: ui/table.ui:153 ui/table.ui:165
+msgid "First Parent Satisfying..."
+msgstr ""
+
+#: ui/table.ui:154 ui/table.ui:166
+msgid "Grandparent"
+msgstr ""
+
+#: ui/table.ui:155 ui/table.ui:167
+#, fuzzy
+msgid "Parent Entry"
+msgstr "පවතින ඇතුලත් කිරීම පමණි"
+
+#: ui/table.ui:156 ui/table.ui:168
+msgid "Itself"
+msgstr ""
+
+#: ui/table.ui:157
+msgid "First Paragraph Satisfying..."
+msgstr ""
+
+#: ui/table.ui:158
+msgid "Last Paragraph Satisfying..."
+msgstr ""
+
+#: ui/table.ui:169
+msgid "Previous Paragraph Satisfying..."
+msgstr ""
+
+#: ui/table.ui:170
+msgid "Next Paragraph Satisfying..."
+msgstr ""
+
+#: ui/table.ui:198
+#, fuzzy
+msgid "Show as"
+msgstr "වෙනස්විය"
+
+#: ui/table.ui:215
+msgid "Satisfying"
+msgstr ""
+
+#: ui/table.ui:232
+#, fuzzy
+msgid "Summary Function"
+msgstr "ආරම්භක ක්‍රියාව"
+
+#: ui/table.ui:250
+#, fuzzy
+msgid "Coloring"
+msgstr "වර්ණ"
+
+#: ui/table.ui:267
+msgid "Negative values are RED"
+msgstr ""
+
+#: ui/table.ui:274
+msgid "From small to big, from RED to GREEN"
+msgstr ""
+
+#: ui/table.ui:281
+msgid "From small to big, from GREEN to RED"
+msgstr ""
+
+#: ui/table.ui:310
+msgid "Move column to left"
+msgstr ""
+
+#: ui/table.ui:320
+msgid "Add a column to left"
+msgstr ""
+
+#: ui/table.ui:326
+#, fuzzy
+msgid "Remove column"
+msgstr "සම්බන්ධකය ඉවත්කරන්න"
+
+#: ui/table.ui:332
+msgid "Add a column to right"
+msgstr ""
+
+#: ui/table.ui:340
+#, fuzzy
+msgid "Move column to right"
+msgstr "_අපද්‍රවය බඳුනට දමන්න"
+
+#: ui/table.ui:380
+#, fuzzy
+msgid "Entry Filter"
+msgstr "පෙරන්න"
+
+#: ui/table.ui:400
+#, fuzzy
+msgid "Paragraph Filter"
+msgstr "පෙරන්න"
+
+#: ui/tv_diary.ui:34
+msgid "Expand selection"
+msgstr ""
+
+#: ui/tv_diary.ui:58
+#, fuzzy
+msgid "Cut"
+msgstr "පවතින වර්ගය"
+
+#: ui/tv_diary.ui:65
+#, fuzzy
+msgid "Copy"
+msgstr "දිනය අනුව කාණ්ඩය"
+
+#: ui/tv_diary.ui:72
+msgid "Paste"
+msgstr ""
+
+#: ui/tv_diary.ui:83
+#, fuzzy
+msgid "Show more"
+msgstr "සියල්ල නොසලකා හරින්න"
+
+#: ui/tv_diary.ui:106
+msgid "Bold"
+msgstr ""
+
+#: ui/tv_diary.ui:120
+msgid "Italic"
+msgstr ""
+
+#: ui/tv_diary.ui:132
+msgid "Underlined"
+msgstr ""
+
+#: ui/tv_diary.ui:144
+msgid "Strikethrough"
+msgstr ""
+
+#: ui/tv_diary.ui:174
+#, fuzzy
+msgid "Insert link"
+msgstr "මූනිස්සම ඇතුල් කරන්න"
+
+#: ui/tv_diary.ui:181
+#, fuzzy
+msgid "Insert smiley"
+msgstr "මූනිස්සම ඇතුල් කරන්න"
+
+#: ui/tv_diary.ui:188
+#, fuzzy
+msgid "Insert image"
+msgstr "මූනිස්සම ඇතුල් කරන්න"
+
+#: ui/tv_diary.ui:195 ui/tv_diary.ui:202
+#, fuzzy
+msgid "Insert chart"
+msgstr "හෝදිසි කොටුව ඇතුල් කරන්න"
+
+#: ui/tv_diary.ui:225
+msgid "Sentence case"
+msgstr ""
+
+#: ui/tv_diary.ui:236
+#, fuzzy
+msgid "Title Case"
+msgstr "ශීර්ෂය"
+
+#: ui/tv_diary.ui:247
+msgid "lower case"
+msgstr ""
+
+#: ui/tv_diary.ui:258
+msgid "UPPER CASE"
+msgstr ""
+
+#: ui/tv_diary.ui:274
+#, fuzzy
+msgid "Comment"
+msgstr "c.\tඅර්ථ කථන සගවන්න"
+
+#: ui/tv_diary.ui:284
+#, fuzzy
+msgid "Subscript"
+msgstr "ක්‍රියාමාර්ග"
+
+#: ui/tv_diary.ui:296
+#, fuzzy
+msgid "Superscript"
+msgstr "ක්‍රියාමාර්ග"
+
+#: ui/tv_diary.ui:324
+#, fuzzy
+msgid "Spelling"
+msgstr "අකුරු පිරික්සමින්"
+
+#: ui/tv_diary.ui:373
+msgid "Decrease indent"
+msgstr ""
+
+#: ui/tv_diary.ui:404
+msgid "Increase indent"
+msgstr ""
+
+#: ui/tv_diary.ui:422
+msgid "H0"
+msgstr ""
+
+#: ui/tv_diary.ui:423
+#, fuzzy
+msgid "Normal text"
+msgstr "දේහ පාඨ"
+
+#: ui/tv_diary.ui:430
+#, fuzzy
+msgid "Subsubheading"
+msgstr "අනු ශිර්ෂ පාඨය"
+
+#: ui/tv_diary.ui:446
+msgid "Subheading"
+msgstr "අනු ශිර්ෂ පාඨය"
+
+#: ui/tv_diary.ui:465
+msgid "Plain"
+msgstr ""
+
+#: ui/tv_diary.ui:476
+msgid "To do"
+msgstr ""
+
+#: ui/tv_diary.ui:488
+msgid "In progress"
+msgstr ""
+
+#: ui/tv_diary.ui:531
+msgid "Bullet list"
+msgstr ""
+
+#: ui/tv_diary.ui:543
+#, fuzzy
+msgid "Numbered list"
+msgstr "පරිච්ඡේදය ඉවත්කරන්න"
+
+#: ui/tv_diary.ui:555
+msgid "Letter list"
+msgstr ""
+
+#: ui/tv_diary.ui:567
+#, fuzzy
+msgid "Roman number list"
+msgstr "පරිච්ඡේදය ඉවත්කරන්න"
+
+#: ui/tv_diary.ui:584
+msgid "Use Small Letters"
+msgstr ""
+
+#: ui/tv_diary.ui:604
+msgid "Horizontal Rule"
+msgstr ""
+
+#: ui/tv_diary.ui:621
+msgid "Code"
+msgstr ""
+
+#: ui/tv_diary.ui:638
+#, fuzzy
+msgid "Quotation"
+msgstr "ක්‍රියාමාර්ග"
+
+#: ui/tv_diary_edit_chart.ui:25
+#, fuzzy
+msgid "Edit Chart"
+msgstr "පරිච්ඡේද සංස්කරණය"
+
+#: ui/tv_diary_edit_chart.ui:36 ui/tv_diary_edit_image.ui:39
+#: ui/tv_diary_edit_table.ui:36
+#, fuzzy
+msgid "Remove image"
+msgstr "සම්බන්ධකය ඉවත්කරන්න"
+
+#: ui/tv_diary_edit_chart.ui:54 ui/tv_diary_edit_table.ui:55
+#, fuzzy
+msgid "Open chart"
+msgstr "අනෙකක් විවෘත කරන්න"
+
+#: ui/tv_diary_edit_chart.ui:71 ui/tv_diary_edit_image.ui:77
+msgid "Smallest"
+msgstr ""
+
+#: ui/tv_diary_edit_chart.ui:83 ui/tv_diary_edit_image.ui:89
+msgid "Biggest"
+msgstr ""
+
+#: ui/tv_diary_edit_image.ui:28
+#, fuzzy
+msgid "Edit Image"
+msgstr "සම්බන්ධක සංස්කරණය කරන්න"
+
+#: ui/tv_diary_edit_image.ui:64
+msgid "Open image"
+msgstr ""
+
+#: ui/tv_diary_edit_image.ui:96
+msgid "Copy Image File to rel:/"
+msgstr ""
+
+#: ui/tv_diary_edit_link.ui:19
+#, fuzzy
+msgid "Edit Link"
+msgstr "සංස්කරණය"
+
+#: ui/tv_diary_edit_link.ui:30
+#, fuzzy
+msgid "Remove link"
+msgstr "සම්බන්ධකය ඉවත්කරන්න"
+
+#: ui/tv_diary_edit_link.ui:63
+msgid "Evaluated"
+msgstr ""
+
+#: ui/tv_diary_edit_link.ui:88
+msgid "Go to link"
+msgstr ""
+
+#: ui/tv_diary_edit_table.ui:25
+#, fuzzy
+msgid "Edit Table"
+msgstr "සම්බන්ධක සංස්කරණය කරන්න"
+
+#: ui/tv_diary_edit_table.ui:63
+msgid "Expand All"
+msgstr ""
+
+#: ui/tv_diary_edit_tag.ui:20
+msgid "Edit Tag"
+msgstr "සම්බන්ධක සංස්කරණය කරන්න"
+
+#: ui/tv_diary_edit_tag.ui:31
+#, fuzzy
+msgid "Remove tag"
+msgstr "සම්බන්ධකය ඉවත්කරන්න"
+
+#: ui/tv_diary_edit_tag.ui:49
+#, fuzzy
+msgid "Go to tag"
+msgstr "මීළඟ ගැලපීමට යන්න"
+
+#: ui/widget_entry_picker.ui:32
+msgid "Under"
+msgstr ""
+
+#: ui/widget_entry_picker.ui:45
+#, fuzzy
+msgid "Create a new entry (Ctrl + Enter)"
+msgstr "මත නව ඇතුලත් කිරීමක් සකසන්න %1"
+
+#: ui/widget_filter_picker.ui:15
+msgid "label"
+msgstr ""
+
+#: ui/widget_picker.ui:31
+msgid "Add New"
+msgstr ""
+
+#: ui/widget_picker.ui:39
+#, fuzzy
+msgid "Search in the list"
+msgstr "පෙරන්න"
+
+#~ msgid "Chapter"
+#~ msgstr "පරිච්ඡේදය"
+
+#, fuzzy
+#~ msgid "Tag charts"
+#~ msgstr "නව ප්‍රභේදය"
+
+#, fuzzy
+#~ msgid "Chapter Category"
+#~ msgstr "නව ප්‍රභේදය"
+
+#~ msgid "_DISMISS!"
+#~ msgstr "_නිෂ්ප්‍රභා කරන්න!"
+
+#~ msgid "Only Filtered Entries"
+#~ msgstr "පෙරන ලද ඇතුලත් කිරීම් පමණි."
+
+#, fuzzy
+#~ msgid "Select Image File"
+#~ msgstr "දිනපොතක් තෝරන්න."
+
+#~ msgid "About Lifeograph"
+#~ msgstr "Lifeoraph ගැන"
+
+#, fuzzy
+#~ msgid "Favored"
+#~ msgstr "ප්‍රියතම දෑ පෙරන්න"
+
+#, fuzzy
+#~ msgid "Chapter with %1 words spanning %2 days in %3"
+#~ msgstr "දින %2 ක් දක්වා විහිදෙන ඇතුලත් කිරීම් සමග %3"
+
+#, fuzzy
+#~ msgid "Has NOT the tag"
+#~ msgstr "පද්ධති තේමාව"
+
+#, fuzzy
+#~ msgid "Has NOT the theme"
+#~ msgstr "පද්ධති තේමාව"
+
+#, fuzzy
+#~ msgid "Between Entries"
+#~ msgstr "පෙරන ලද ඇතුලත් කිරීම් පමණි."
+
+#, fuzzy
+#~ msgid "Has Tag"
+#~ msgstr "_තේමාව යළි පිහිටුවන්න"
+
+#, fuzzy
+#~ msgid "Has Theme"
+#~ msgstr "_තේමාව යළි පිහිටුවන්න"
+
+#, fuzzy
+#~ msgid "Start"
+#~ msgstr "ආරම්භය"
+
+#, fuzzy
+#~ msgid "Entries × Days"
+#~ msgstr "ඇතුලත් කිරීම්"
+
+#~ msgid "Chapters"
+#~ msgstr "පරිච්ඡේද"
+
+#, fuzzy
+#~ msgid "Chapters / Chapter Groups"
+#~ msgstr "නව ප්‍රභේදය"
+
+#~ msgid "File"
+#~ msgstr "ගොනුව"
+
+#, fuzzy
+#~ msgid "Add Entry"
+#~ msgstr "අලුත් ඇතුලත් කිරීමක් එකතු කරන්න"
+
+#, fuzzy
+#~ msgid "Hide Entries"
+#~ msgstr "ඇතුලත් කිරීම්"
+
+#, fuzzy
+#~ msgid "Create a New Diary..."
+#~ msgstr "_නව දිනපොතක් සැකසීම"
+
+#, fuzzy
+#~ msgid "Change"
+#~ msgstr "වෙනස්විය"
+
+#, fuzzy
+#~ msgid "Temporal Direction"
+#~ msgstr "ක්‍රියාමාර්ග"
+
+#, fuzzy
+#~ msgid "Current chapter group"
+#~ msgstr "පවතින වර්ගය"
+
+#, fuzzy
+#~ msgid "Only search filtered entries"
+#~ msgstr "පෙරන ලද ඇතුලත් කිරීම් පමණි."
+
+#, fuzzy
+#~ msgid "Revert filter to the definition"
+#~ msgstr "දිනපොත පැහැර හැරීම"
+
+#~ msgid "Today"
+#~ msgstr "අද"
+
+#~ msgid ""
+#~ "Go to today (creates a new entry if there isn't any or when already at "
+#~ "today)"
+#~ msgstr "අද දිනයට යන්න (කිසිවක් නොමැතිනම් නව ඇතුලත් කිරීමක් සකසනු ලැබේ)"
+
+#~ msgid "Log out"
+#~ msgstr "ඉවත් වීම"
+
+#~ msgid "Save diary and logout"
+#~ msgstr "දිනපොත සුරක්ෂිත කොට ඉවත්වන්න"
+
+#, fuzzy
+#~ msgid ""
+#~ "Knowing others is intelligence;\n"
+#~ "knowing yourself is true wisdom.\n"
+#~ "Mastering others is strength;\n"
+#~ "mastering yourself is true power.\n"
+#~ "\n"
+#~ "<i>Lao Tzu</i>"
+#~ msgstr ""
+#~ "අනෙක් අය දැනගැනීම ඥානයයි;\n"
+#~ "තමා ගැනම දැනගැනීම නියම ප්‍රඥාවයි;\n"
+#~ "අනෙක් අය ප්‍රගුණ කිරීම ශක්තියයි;\n"
+#~ "තමාව ප්‍රගුණ කිරීම නියම බලයයි;"
+
+#, fuzzy
+#~ msgid "Make Default"
+#~ msgstr "සාමාන්‍ය"
+
+#~ msgid "Period"
+#~ msgstr "කාල සීමාව"
+
+#, fuzzy
+#~ msgid "Remove from Entry"
+#~ msgstr "ඇතුලත් කිරීම් වලින් ඉවත් කරන්න"
+
+#, fuzzy
+#~ msgid "Tag view"
+#~ msgstr "සම්බන්ධක නාමය"
+
+#, fuzzy
+#~ msgid "Edit active filter i.e. which entries are shown in the list"
+#~ msgstr "ලැයිස්තුවේ මීළඟ ඇතුලත් කිරීමට යන්න"
+
+#~ msgid "seconds"
+#~ msgstr "ක් තත්පර"
+
+#, fuzzy
+#~ msgid "Is tagged by"
+#~ msgstr "<i>විසන්ධි කල</i>"
+
+#, fuzzy
+#~ msgid "Colors"
+#~ msgstr "වර්ණ"
+
+#~ msgid "Font"
+#~ msgstr "අක්ෂරය"
+
+#, fuzzy
+#~ msgid "Copyright (C) 2007-2019 Ahmet Öztürk"
+#~ msgstr "පිටපත් අයිතිය (C) 2007-2017 Ahmet Öztürk"
+
+#, fuzzy
+#~ msgid "Show formatting popover in entry view"
+#~ msgstr "ඇතුලත් කිරීමේ දර්ශනයේදී ආකෘතිකරණ මෙවලම් පටිය පෙන්වන්න"
+
+#~ msgid "Redo"
+#~ msgstr "නැවත කරන්න"
+
+#~ msgid "TAGS"
+#~ msgstr "සම්බන්ධක"
+
+#, fuzzy
+#~ msgid "Active Filter"
+#~ msgstr "පෙරන්න"
+
+#, fuzzy
+#~ msgid "Tag Category"
+#~ msgstr "වර්ගය"
+
+#, fuzzy
+#~ msgid "Dated Chapter"
+#~ msgstr "පරිච්ඡේදය එකතු කරන්න"
+
+#, fuzzy
+#~ msgid "Add Todo"
+#~ msgstr "සම්බන්ධකයක් එකතු කරන්න"
+
+#~ msgid "Go to the previous entry in the list"
+#~ msgstr "ලැයිස්තුවේ පෙර ඇතුල්කිරීමට යන්න"
+
+#~ msgid "Next"
+#~ msgstr "ඊළඟ"
+
+#~ msgid "Go to the next entry in the list"
+#~ msgstr "ලැයිස්තුවේ මීළඟ ඇතුලත් කිරීමට යන්න"
+
+#~ msgid "Previous Match"
+#~ msgstr "පෙර ගැලපීම"
+
+#~ msgid "Go to previous match"
+#~ msgstr "පෙර ගැලපීමට යන්න"
+
+#~ msgid "Next Match"
+#~ msgstr "මීළඟ ගැලපීම"
+
+#, fuzzy
+#~ msgid "Dated Chapter on %1"
+#~ msgstr "පරිච්ඡේදය එකතු කරන්න"
+
+#~ msgid "Found in <b>%1</b> of <b>%2</b> entrie(s)"
+#~ msgstr "<b>%2</b> හි  <b>%1</b> යන ඇතුලත් කිරීම් තුලදී සොයාගන්න ලදී."
+
+#, fuzzy
+#~ msgid "Filter and theme entries without tags"
+#~ msgstr "මෙම සම්බන්ධකය සමග ඇති ඇතුලත් කිරීම් පෙරන්න"
+
+#~ msgid "Create New..."
+#~ msgstr "නව සැකසීමක්..."
+
+#~ msgid "highlighted text"
+#~ msgstr "ඉස්මතු කල පාඨ"
+
+#~ msgid "link"
+#~ msgstr "සබැඳිය"
+
+#~ msgid "broken link"
+#~ msgstr "කැඩුණු සබැඳිය"
+
+#~ msgid "match"
+#~ msgstr "ගැලපීම"
+
+#~ msgid "Also dismiss the entries associated with this tag"
+#~ msgstr "මෙම සම්බන්ධකයට අදාල ඇතුලත් කිරීමුත් නොසලකා හරින්න"
+
+#~ msgid "Also dismiss the tags in the category"
+#~ msgstr "මෙම කාණ්ඩයේ සම්බන්ධකත් නොසලකා හරින්න"
+
+#~ msgid "Unlimited"
+#~ msgstr "සීමා රහිත"
+
+#~ msgid "Drop items here to change"
+#~ msgstr "වෙනස් කිරීම සදහා අයිතම මෙහි දමන්න"
+
+#~ msgid "Tag category with %1 tags"
+#~ msgstr "වර්ගය %1 සම්බන්ධක සමග සම්බන්ධ කරන්න"
+
+#, fuzzy
+#~ msgid "Dated Chapter with %1 entries in %2 days"
+#~ msgstr "දින %2 කින් ඇතුලත් කිරීම් %1 ක් සමග පරිච්ඡේදය"
+
+#~ msgid "Encrypted diary"
+#~ msgstr "කේතාංකන ගත කල දිනපොත"
+
+#~ msgid "Unencrypted diary"
+#~ msgstr "කේතාංකනය නොකළ දිනපොත"
+
+#~ msgid "More..."
+#~ msgstr "තවත්..."
+
+#, fuzzy
+#~ msgid "Underlay Previous Year"
+#~ msgstr "පෙර ගැලපීම"
+
+#, fuzzy
+#~ msgid "Remove"
+#~ msgstr "සම්බන්ධකය ඉවත්කරන්න"
+
+#, fuzzy
+#~ msgid "Not in Trash"
+#~ msgstr "_අපද්‍රවය බඳුනට දමන්න"
+
+#, fuzzy
+#~ msgid "Hide entries before this date"
+#~ msgstr "මෙම ඇතුලත් කිරීමට පෙර දෑ සගවන්න"
+
+#, fuzzy
+#~ msgid "Hide entries after this date"
+#~ msgstr "මෙම ඇතුලත් කිරීමට පසු දෑ සගවන්න"
+
+#, fuzzy
+#~ msgid "More Options"
+#~ msgstr "විකල්ප පාඨ"
+
+#~ msgid "Previous match"
+#~ msgstr "පෙර ගැලපුම"
+
+#~ msgid "Next match"
+#~ msgstr "මීලග ගැලපුම"
+
+#~ msgid "Dismiss selected category"
+#~ msgstr "තෝරා ඇති වර්ගය නොසලකා හරින්න"
+
+#~ msgid "Apply new name"
+#~ msgstr "අලුත් නම යොදන්න"
+
+#~ msgid "Graph"
+#~ msgstr "ප්‍රස්ථාරය"
+
+#~ msgid "Actions"
+#~ msgstr "ක්‍රියාමාර්ග"
+
+#~ msgid "Before logging out wait for"
+#~ msgstr "ඉවත්ව යාමට පෙර රැදී සිටින්න"
+
+#~ msgid "Justify Text on the Page"
+#~ msgstr "පිටුව තුල ඇති පාඨ පේළි ගසන්න"
+
+#, fuzzy
+#~ msgid "Lifeograph:"
+#~ msgstr "Lifeoraph"
+
+#~ msgid "lifeograph"
+#~ msgstr "Lifeoraph"
+
+#~ msgid "Entered password is wrong; please try again"
+#~ msgstr "ඔබ ඇතුල්කල මුරපදය වැරදිය; නැවත උත්සාහ කරන්න."
+
+#~ msgid "Diary is ready for importing"
+#~ msgstr "දිනපොත ආනයනය කිරීම සදහා සුදානම්ය."
+
+#~ msgid "Untitled chapter"
+#~ msgstr "නිර්නාමික පරිච්ඡේදය"
+
+#~ msgid "_Dismiss..."
+#~ msgstr "_නිෂ්ප්‍රභ කරන්න..."
+
+#, fuzzy
+#~ msgid "Import..."
+#~ msgstr "_ආනයනය"
+
+#, fuzzy
+#~ msgid "Open a Diary File..."
+#~ msgstr "දිනපොත් ගොනුව"
+
+#~ msgid "Import"
+#~ msgstr "ආනයනය"
+
+#~ msgid "Diary File"
+#~ msgstr "දිනපොත් ගොනුව"
+
+#~ msgid "Tags"
+#~ msgstr "සම්බන්ධක"
+
+#, fuzzy
+#~ msgid "Create a _New Diary..."
+#~ msgstr "_නව දිනපොතක් සැකසීම"
+
+#~ msgid "Please select a date"
+#~ msgstr "කරුණාකර දිනයක් තෝරන්න"
+
+#~ msgid "Create a new chapter on %1"
+#~ msgstr "මත නව පරිච්ඡේදයක් සකසන්න %1"
+
+#~ msgid "Create a new entry on the selected day in the calendar"
+#~ msgstr "දින දර්ශනයේ තෝරා ඇති දිනට අලුත් ඇතුලත් කිරීමක් සකසන්න"
+
+#, fuzzy
+#~ msgid "Create a new numbered chapter"
+#~ msgstr "මත නව පරිච්ඡේදයක් සකසන්න %1"
+
+#, fuzzy
+#~ msgid "Create a new free chapter"
+#~ msgstr "මත නව පරිච්ඡේදයක් සකසන්න %1"
+
+#~ msgid "Tools"
+#~ msgstr "මෙවලම්"
+
+#~ msgid "Remove from the list"
+#~ msgstr "ලැයිස්තුවෙන් ඉවත් කරන්න"
+
+#~ msgid "Select or Create a Diary"
+#~ msgstr "දිනපොතක් තේරීම හෝ සැකසීම"
+
+#~ msgid "_Browse For a Diary..."
+#~ msgstr "_දිනපොතක් සදහා සෙවීම"
+
+#~ msgid "_Create A New Diary..."
+#~ msgstr "_නව දිනපොතක් සැකසීම"
+
+#~ msgid "Launchpad Page"
+#~ msgstr "Launchpad පිටුව"
+
+#~ msgid ""
+#~ "Lifeograph is licensed under GNU Public License v3.\n"
+#~ "\n"
+#~ "You should have received a copy of the GNU General Public License\n"
+#~ "along with Lifeograph.  If not, see http://www.gnu.org/licenses"
+#~ msgstr ""
+#~ "Lifeograph GNU පොදු බලපත්‍රය v3 යටතේ අවසර ලබා ඇත\n"
+#~ "\n"
+#~ "ඔබට Lifeograph සමග GNU සාමාන්‍ය පොදු බලපත්‍ර පිටපතක් ලැබී තිබිය යුතුය. එසේ නොමැතිනම්, "
+#~ "http://www.gnu.org/licenses බලන්න"
+
+#~ msgid "FAVORITE"
+#~ msgstr "ප්‍රියතම"
+
+#, fuzzy
+#~ msgid "Create _New Diary..."
+#~ msgstr "අලුත් දිනපොතක් නිර්මාණය කරන්න"
+
+#, fuzzy
+#~ msgid "Create A New Diary"
+#~ msgstr "_නව දිනපොතක් සැකසීම"
+
+#, fuzzy
+#~ msgid ""
+#~ "Knowing others is intelligence;\n"
+#~ "knowing yourself is true wisdom.\n"
+#~ "Mastering others is strength;\n"
+#~ "mastering yourself is true power.\n"
+#~ "<i>--Lao Tzu</i>"
+#~ msgstr ""
+#~ "අනෙක් අය දැනගැනීම ඥානයයි;\n"
+#~ "තමා ගැනම දැනගැනීම නියම ප්‍රඥාවයි;\n"
+#~ "අනෙක් අය ප්‍රගුණ කිරීම ශක්තියයි;\n"
+#~ "තමාව ප්‍රගුණ කිරීම නියම බලයයි;"
+
+#~ msgid "_Continue"
+#~ msgstr "_ඉදිරියට යන්න"
+
+#, fuzzy
+#~ msgid "New todo group"
+#~ msgstr "නව මාතෘකාව"
+
+#~ msgid "New topic"
+#~ msgstr "නව මාතෘකාව"
+
+#~ msgid "Enter text to be filtered"
+#~ msgstr "පෙරීම සදහා පාඨ ඇතුල් කරන්න"
+
+#~ msgid "Topic with %1 entries"
+#~ msgstr "%1 ඇතුලත් කිරීම් සමග මාතෘකාව"
+
+#~ msgid "Browse For a Diary..."
+#~ msgstr "දිනපොතක් සදහා ගවේෂණය කරන්න"
+
+#~ msgid "Log out now without saving"
+#~ msgstr "සුරකිමකින් තොරව දැන්මම ඉවත්වන්න"
+
+#~ msgid "_Toggle Entry Favoredness"
+#~ msgstr "_පුරුක් ඇතුලත් කිරීම් ප්‍රසාදය"
+
+#~ msgid "Create a new chapter that starts on the selected day in the calendar"
+#~ msgstr "දින දර්ශනයේ තෝරා ඇති දිනෙන් පටන් ගන්නා අලුත් පරිච්ඡේදයක් සකසන්න"
+
+#~ msgid "Topic"
+#~ msgstr "මාතෘකාව"
+
+#~ msgid "Create a new topic"
+#~ msgstr "අලුත් මාතෘකාවක් සකස්කරන්න"
+
+#, fuzzy
+#~ msgid "Create a new todo group"
+#~ msgstr "අලුත් මාතෘකාවක් සකස්කරන්න"
+
+#~ msgid "Make Diary's Default Theme"
+#~ msgstr "මෙය දිනපොතේ කිසිවක් නොකළහොත් තේමාව බවට පත් කරන්න"
+
+#~ msgid "Partial Import"
+#~ msgstr "අසම්පුර්ණ ආනයනය"
+
+#~ msgid "theme"
+#~ msgstr "තේමාව"
+
+#~ msgid ""
+#~ "You are about to open an old diary that has to be upgraded to the new "
+#~ "format. \n"
+#~ "\n"
+#~ "It is STRONGLY recommended to back up any diary before upgrading.\n"
+#~ "\n"
+#~ "After you upgrade a diary, you won't be able to open it in a previous "
+#~ "version of Lifeograph."
+#~ msgstr ""
+#~ "ඔබ අලුත් ආකෘතියට ඉහල දැමිය යුතු පැරණි දිනපොතක් විවෘත කිරීමට ආසන්නය.\n"
+#~ "ඉහළ ශ්‍රේණියට දැමීමට පෙර ඕනෑම දිනපොතක ආරක්‍ෂිත පිටපතක් තබා ගත යුතු බව තරයේ නිර්දේශ "
+#~ "කරමු.\n"
+#~ "ඔබ දිනපොත ඉහළ ශ්‍රේණියට දැමීමෙන් පසු, Lifeograph හි පැරණි අනුවාදයකින් එය විවෘත කිරීමට "
+#~ "ඔබට නොහැකිවනු ඇත."
+
+#~ msgid "Custom theme"
+#~ msgstr "ව්‍යවහාර තේමාව"
+
+#~ msgid "Remove active date and tag filters"
+#~ msgstr "ක්‍රියාකාරී දිනය හා සම්බන්ධක පෙරන ඉවත් කරන්න"
+
+#~ msgid "Filter trashed entries"
+#~ msgstr "ඉවත් කල ඇතුලත් කිරීම් පෙරන්න"
+
+#~ msgid "Body Text"
+#~ msgstr "දේහ පාඨය"
+
+#~ msgid "Preview"
+#~ msgstr "පූර්ව දර්ශණය"
+
+#~ msgid "Failed to open diary. Please select anoter file..."
+#~ msgstr "දිනපොත විවෘත කිරීමට අසමත් විය. කරුණාකර වෙනත් ගොනුවක් තෝරන්න..."
+
+#~ msgid "Unencrypted diary. Press OK to open"
+#~ msgstr "ආරක්ෂා නොකළ දිනපොතකි. විවෘත කිරීම සදහා හරි ඔබන්න"
+
+#~ msgid "_Edit Tag"
+#~ msgstr "සම්බන්ධක සංස්කරණය කරන්න"
+
+#~ msgid "_Delete Tag"
+#~ msgstr "සම්බන්ධක මකා දමන්න"
+
+#~ msgid "Remove from _Favorites"
+#~ msgstr "ප්‍රියතම දෑ වලින් ඉවත්කරන්න"
+
+#~ msgid "Add to _Favorites"
+#~ msgstr "ප්‍රියතම දෑ වලට එකතු කරන්න"
+
+#~ msgid "Empty Diary"
+#~ msgstr "හිස් දිනපොතකි"
+
+#~ msgid "<i>Untagged Entry</i>"
+#~ msgstr "<i>සම්බන්ධ නොකල ඇතුලත් කිරීම</i>"
+
+#~ msgid "<i>Earlier Entries</i>"
+#~ msgstr "<i>පෙර ඇතුලත් කිරීම්</i>"
+
+#~ msgid ""
+#~ "%1\n"
+#~ "\n"
+#~ "%2 Entries"
+#~ msgstr ""
+#~ "%1\n"
+#~ "\n"
+#~ "ඇතුලත් කිරීම් %2"
+
+#~ msgid ""
+#~ "Your changes will be backed up in \"%1.~backup~\". If you exit normally, "
+#~ "your diary is saved automatically."
+#~ msgstr ""
+#~ "ඔබගේ වෙනස්කම් \"%1.~backup~\" කින් බලගැන්වේවි. ඔබ සාමාන්‍ය පරිදි ඉවත් වුවහොත්, ඔබගේ "
+#~ "දිනපොත ස්වයංක්‍රියව සුරැකේවි."
+
+#~ msgid "Are you sure, you want to delete selected tag?"
+#~ msgstr "තෝරා ඇති සම්බන්ධක මකාදැමීමට අවශ්‍ය බව ඔබට විශ්වාසද?"
+
+#~ msgid "Are you sure, you want to dismiss?"
+#~ msgstr "ඔබට ඉවත ලෑමට අවශ්‍ය බව විශ්වාසද?"
+
+#~ msgid "Replace All"
+#~ msgstr "සියල්ල ආදේශ කරන්න"
+
+#~ msgid "Welcome new user!"
+#~ msgstr "නව පරිශීලක සාදරයෙන් පිළිගනිමු!"
+
+#~ msgid "Group by Chapters: %1"
+#~ msgstr "පරිච්ඡේද අනුව කාණ්ඩ: %1"
+
+#~ msgid "Diary:"
+#~ msgstr "දිනපොත:"
+
+#~ msgid "_Change Password..."
+#~ msgstr "_මුරපදය වෙනස් කරන්න"
+
+#~ msgid "Log out Automatically on _Idle"
+#~ msgstr "අකර්මණ්‍යව තිබෙන විටදී ස්වයංක්‍රියව ඉවත්වන්න."
+
+#~ msgid "_Edit Chapters..."
+#~ msgstr "_පරිච්ඡේද සංස්කරණය කිරීම"
+
+#~ msgid "E_xport/Backup Current Diary..."
+#~ msgstr "අපනයනය/පවතින දිනපොත උපස්ථ කිරීම"
+
+#~ msgid "Go to today (creates a new entry if there isn't any)"
+#~ msgstr "අද දිනයට යන්න (කිසිවක් නොමැති නම් අලුත් අතුල්කිරීමක් සකසයි)"
+
+#~ msgid "Replace selected (if any) or next match"
+#~ msgstr "තෝරා ඇති (යමක් තිබේනම්) හෝ මීලග ගැලපුම ආදේශ කරන්න"
+
+#~ msgid "Replace all matches throughout entire diary"
+#~ msgstr "දිනපොත පුරාම තිබෙන ගැලපුම් ආදේශ කරන්න"
+
+#~ msgid "Current Password:"
+#~ msgstr "භාවිත රහස්පදය:"
+
+#~ msgid "Create A New Tag"
+#~ msgstr "නව සම්බන්ධකයක් සකසන්න"
+
+#~ msgid "Chapter Sets:"
+#~ msgstr "පරිච්ඡේද කාණ්ඩය"
+
+#~ msgid "Edit Theme"
+#~ msgstr "තේමාව සංස්කරණය"
+
+#~ msgid "Chapters:"
+#~ msgstr "පරිච්ඡේද:"
+
+#~ msgid "<b>Colors:</b>"
+#~ msgstr "<b>වර්ණ:</b>"
+
+#~ msgid "Font:"
+#~ msgstr "අකුර:"
+
+#~ msgid "Subheading:"
+#~ msgstr "අනු ශිර්ෂ නාමය:"
+
+#~ msgid "Heading:"
+#~ msgstr "ශිර්ෂ නාමය:"
+
+#~ msgid "Background:"
+#~ msgstr "පසුබිම:"
+
+#~ msgid "Type:"
+#~ msgstr "ආකාරය:"
+
+#~ msgid "_Add Password"
+#~ msgstr "_මුරපදය එකතු කරන්න"
+
+#~ msgid "C_hange Password"
+#~ msgstr "මුරපදය වෙනස්කරන්න"
+
+#~ msgid "New Password:"
+#~ msgstr "නව මුරපදය:"
+
+#~ msgid "Confirm New Password:"
+#~ msgstr "නව මුරපදය තහවුරු කරන්න:"
+
+#~ msgid "Encrypted Diary File"
+#~ msgstr "ආරක්‍ෂිත දිනපොත් ගොනුව"
+
+#~ msgid "File:"
+#~ msgstr "ගොනුව:"
+
+#~ msgid "Browse..."
+#~ msgstr "ගවේශණය..."
+
+#~ msgid "Confirm:"
+#~ msgstr "තහවුරු කිරීම:"
+
+#~ msgid "Unencrypted Diary File"
+#~ msgstr "ආරක්ෂා නොකළ දිනපොත් ගොනුව"
+
+#~ msgid "Diary Files (*.diary)"
+#~ msgstr "දිනපොත් ගොනු (*.diary)"
+
+#~ msgid "Remove from list"
+#~ msgstr "ලැයිස්තුවෙන් ඉවත් කරන්න"

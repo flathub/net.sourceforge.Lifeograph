@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   inkscape:export-ydpi="192"
+   inkscape:export-xdpi="192"
+   inkscape:export-filename="/home/ahmet/Projects/Software/lifeograph/branches/trunk/icons/png/todo_open-32.png"
+   sodipodi:docname="map-point.svg"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   version="1.1"
+   id="svg4030"
+   height="32"
+   width="32"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs4032" />
+  <sodipodi:namedview
+     inkscape:document-rotation="0"
+     inkscape:snap-midpoints="false"
+     inkscape:snap-nodes="true"
+     inkscape:object-nodes="true"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-global="true"
+     inkscape:snap-grids="true"
+     inkscape:bbox-nodes="false"
+     inkscape:snap-bbox="true"
+     inkscape:window-maximized="1"
+     inkscape:window-y="0"
+     inkscape:window-x="0"
+     inkscape:window-height="1048"
+     inkscape:window-width="1920"
+     inkscape:document-units="px"
+     inkscape:grid-bbox="true"
+     showgrid="true"
+     inkscape:current-layer="layer1"
+     inkscape:cy="15.556349"
+     inkscape:cx="19.334951"
+     inkscape:zoom="22.627417"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1">
+    <inkscape:grid
+       originy="16"
+       originx="16"
+       spacingy="1"
+       spacingx="1"
+       snapvisiblegridlinesonly="true"
+       enabled="true"
+       visible="true"
+       empspacing="5"
+       id="grid5416"
+       type="xygrid"
+       units="px" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata4035">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     style="display:inline"
+     inkscape:groupmode="layer"
+     inkscape:label="open"
+     id="layer1">
+    <path
+       style="opacity:1;fill:#f4c2c8;fill-opacity:1;stroke:#a51d2d;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       d="M 16,1.0000001 C 9.0000001,1.0000001 4.0000001,7.0684277 4.0000001,13 4.0000001,23 13,22.572388 15,31 h 2 c 2,-8.5719 10.999999,-8 10.999999,-18 0,-6 -5,-11.9999999 -11.999999,-11.9999999 z"
+       id="path909"
+       sodipodi:nodetypes="ssccss" />
+    <path
+       style="opacity:1;fill:#a51d2d;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       d="m 16,7 c 3.254566,0.069824 6.000001,2.508336 6.000001,6 0,3.433227 -2.596328,6 -6.000001,6 -3.403673,0 -6,-2.715026 -6,-6 0,-3.2849744 2.745434,-6.0698241 6,-6 z"
+       id="path1"
+       sodipodi:nodetypes="zszzz" />
+    <circle
+       style="fill:none;fill-opacity:1;stroke:#3d3846;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path2"
+       cx="16"
+       cy="13"
+       r="7" />
+  </g>
+</svg>

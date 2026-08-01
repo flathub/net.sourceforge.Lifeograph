@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <object class="GtkBox" id="Bx_button">
+    <property name="spacing">5</property>
+    <child>
+      <object class="GtkImage">
+        <property name="icon-name">filter-16-symbolic</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkLabel" id="L_name">
+        <property name="halign">start</property>
+        <property name="hexpand">1</property>
+        <property name="label" translatable="yes">label</property>
+        <property name="ellipsize">end</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImage">
+        <property name="icon-name">pan-down-symbolic</property>
+      </object>
+    </child>
+  </object>
+</interface>

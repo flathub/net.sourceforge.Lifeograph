@@ -1,0 +1,3190 @@
+# Dutch translation for lifeograph
+# Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
+# This file is distributed under the same license as the lifeograph package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lifeograph\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-03 21:59+0300\n"
+"PO-Revision-Date: 2022-04-21 00:06+0000\n"
+"Last-Translator: Ahmet Öztürk <Unknown>\n"
+"Language-Team: Dutch <nl@li.org>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2024-04-04 02:44+0000\n"
+"X-Generator: Launchpad (build aec24aef7a9042c99ef3e238d8b0ca01df9e1a9f)\n"
+
+#: net.sourceforge.Lifeograph.desktop.in:5
+#: net.sourceforge.Lifeograph.metainfo.xml.in:7
+#, fuzzy
+msgid "Lifeograph"
+msgstr "Lifeograph"
+
+#: net.sourceforge.Lifeograph.desktop.in:6 src/diaryelements/diarydata.cpp:77
+msgid "Diary"
+msgstr "Dagboek"
+
+#: net.sourceforge.Lifeograph.desktop.in:7
+msgid "Keep a private journal of your life"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.desktop.in:8
+msgid "journal;note;to-do;tag;statistics;"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.desktop.in:19
+msgid "Open a New Window"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.desktop.in:23
+msgid "Open a New Read-Only Window"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:8
+msgid "Advanced personal note taking application"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:11
+msgid ""
+"Lifeograph is a powerful note-taking application that can be used to keep an "
+"encrypted diary, to plan a journey, to manage todos and long term goals, to "
+"write down ideas in an organized way, to track regular activities and many "
+"more. Lifeograph strives to deliver an abundance of advanced features in a "
+"clean and streamlined user interface."
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:17
+msgid "Main features of Lifeograph:"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:21
+msgid "Completely local workflow: all data is owned solely by the user"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:22
+msgid "Encrypted (with AES256) and unencrypted diaries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:23
+msgid "Powerful and intuitive parametric tagging system"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:24
+msgid "Todo management system"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:25
+msgid ""
+"WYSIWYG rich text formatting (i.e. no separate edit &amp; preview modes)"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:26
+msgid "Image thumbnails, tables, and charts in entries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:27
+msgid "Searching and replacing of text"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:28
+msgid "Advanced filtering of entries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:29
+msgid "Integrated map for travel notes and planning"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:30
+msgid ""
+"Live tables that are created on the fly based on the user defined rules "
+"which can also be pasted into spread-sheet programs"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:31
+msgid "Live statistical charts that are created from the values in the tables"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:32
+msgid "Themes in text editor, including background images"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:33
+#, fuzzy
+msgid "Favorite entries"
+msgstr "Favoriet"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:34
+msgid "Spell checking"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:35
+msgid "Links between entries and to URIs"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:36
+msgid ""
+"Automatically created back-links to entries referring to the current entry"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:37
+msgid "Printing individual entries or whole diaries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:38
+msgid ""
+"Automatically logs out when not used for some time (to protect your diary "
+"when you forget to log out)"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:39
+msgid "Multiple automatic backups to prevent data loss"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:45
+msgid "Editing screen"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:49
+msgid "Integrated map"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:53 ui/lifeograph.ui:573
+#, fuzzy
+msgid "Charts"
+msgstr "Grafiek"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:65
+msgid ""
+"New main icon that reflects the improved functionality as a second brain"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:66
+msgid "UI upgraded to GTK4 replacing the deprecated UI elements with new ones"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:67
+msgid ""
+"All file I/O is moved to Gio for compatibility with network addresses and "
+"virtual drives, etc..."
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:68
+msgid ""
+"Wiki style formatting markup is largely omitted in favor of a WYSIWYG style "
+"formatting system [[inline comments are an exception]]"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:69
+msgid ""
+"Paragraph folding that creates folds automatically based on heading and "
+"indentation levels"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:70
+msgid ""
+"New references button that pops up a list of referencing entries/paragraphs "
+"for the current entry (a.k.a back-links)"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:71
+msgid ""
+"Context-sensitive right-click menu that displays specific options for tags, "
+"images, dates, etc. based on the cursor location"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:72
+msgid "Tables can also be inserted into the entries now"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:73
+msgid "Added buttons for visiting link items to the right-click popover menu"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:74
+msgid "Added horizontal rules which can also be combined with text"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:75
+msgid ""
+"Entries can now be ordered, grouped, and arranged freely, irrespective of "
+"the their types"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:76
+msgid "Added an option to merge selected entries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:77
+msgid "Added many new filterers"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:78
+msgid "All filters can be negated now"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:79
+msgid "Table columns are resizable now"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:80
+msgid "Many new column types added"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:81
+msgid "Group lines in a hierarchical view by any column"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:82
+msgid "Conditional coloring of cell values"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:83
+msgid "Completion columns show a progress bar in the background"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:84
+msgid ""
+"Option to combine identical consequent cells in a column to get cleaner "
+"tables"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:85
+msgid "Added a new vertical bars style to charts"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:86
+msgid ""
+"A basic inline table was added to allow creation of basic charts without "
+"creating a table first"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:87
+msgid "Added navigation icons to the calendar widget"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:88
+msgid "Added the ability to mark custom days as holidays"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:89
+msgid "Added the ability to change the first day of the week"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:90
+msgid "Searching is multi-threaded now for speed gains and responsiveness"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:91
+msgid "Migrated from libchamplain to libshumate which also works under Windows"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:92
+msgid "Many many more. See the NEWS for a complete list"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:97
+#: net.sourceforge.Lifeograph.metainfo.xml.in:104
+#: net.sourceforge.Lifeograph.metainfo.xml.in:110
+msgid "Bug fixes"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:98
+msgid "Added Danish translation"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:99
+msgid "Updated Simplified Chinese, Dutch, French, and Italian translations"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:105
+msgid "Updated Italian translation"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:115
+msgid "Unified different elements such as chapters and tags into entry"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:116
+msgid "New inline tags that are assigned to the paragraphs as well as entries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:117
+msgid "New integrated map to assign locations and travel paths to entries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:118
+msgid "New custom calendar widget that integrates with the program more nicely"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:119
+msgid "New table view for very basic spreadsheet like functionality"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:120
+msgid "Completion percentages for entries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:121
+msgid "Support for background images in the entry editor"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:122
+msgid "a new toolbar-like right-click popover that replaced the toolbar"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:123
+msgid "Vastly more capable text search and entry list filtering"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:124
+msgid "Printing system improvements"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:125
+msgid "Both functionally and visually improved charts"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:126
+msgid "Many many more"
+msgstr ""
+
+#: x-lifeographdiary.xml.in:4
+#, fuzzy
+msgid "Lifeograph diary"
+msgstr "Lifeograph dagboekbestand"
+
+#: src/app_window.cpp:637
+#, fuzzy
+msgid "%1 SECONDS TO CLOSE"
+msgstr "%1 SECONDEN VOOR UITLOGGEN"
+
+#: src/app_window.cpp:692
+msgid "Diary couldn't be saved. A rescue copy is saved at the location below:"
+msgstr ""
+
+#: src/app_window.cpp:694 src/printing.cpp:301
+msgid "_Close"
+msgstr ""
+
+#: src/app_window.cpp:702
+#, fuzzy
+msgid "Are you sure you want to close the diary without saving?"
+msgstr "Weet u zeker dat u wilt uitloggen zonder op te slaan?"
+
+#: src/app_window.cpp:705
+msgid ""
+"Your changes will be backed up in %1. If you exit normally, your diary is "
+"saved automatically."
+msgstr ""
+"Binnen %1 zullen uw wijzigingen opgeslagen worden. Als u normaal afsluit, "
+"wordt uw dagboek automatisch opgeslaan."
+
+#: src/app_window.cpp:710
+#, fuzzy
+msgid "Close _without Saving"
+msgstr "_Uitloggen zonder op te slaan"
+
+#: src/app_window.cpp:779
+msgid "Are you sure, you want to dismiss %1?"
+msgstr "Weet u zeker dat u %1 wilt sluiten?"
+
+#. must come before add_extra_info
+#: src/app_window.cpp:784
+msgid "This operation cannot be undone!"
+msgstr "Deze bewerking kan niet ongedaan gemaakt worden!"
+
+#: src/app_window.cpp:785
+msgid "_Dismiss"
+msgstr "_Verwerpen"
+
+#: src/dialogs/dialog_export.cpp:275
+msgid "Lifeograph Diary File"
+msgstr "Lifeograph dagboekbestand"
+
+#: src/dialogs/dialog_export.cpp:323
+#, fuzzy
+msgid "Where to Save the Diary File?"
+msgstr "Waar wilt u het dagboek opslaan?"
+
+#: src/dialogs/dialog_export.cpp:341
+msgid "Plain Text File"
+msgstr "Plattetekst bestand"
+
+#. TRANSLATORS: this is the title of file chooser dialog for saving a new diary
+#: src/dialogs/dialog_export.cpp:352
+msgid "Where to Save the Text File?"
+msgstr "Waar wil je het dagboekbestand opslaan?"
+
+#: src/dialogs/dialog_password.cpp:121
+msgid "Continue"
+msgstr "Doorgaan"
+
+#: src/dialogs/dialog_password.cpp:124
+msgid "Add Password"
+msgstr "Wachtwoord toevoegen"
+
+#: src/dialogs/dialog_password.cpp:127
+msgid "Change Password"
+msgstr "Wachtwoord wijzigen"
+
+#: src/dialogs/dialog_password.cpp:141 ui/lifeograph.ui:901
+msgid "Please enter password"
+msgstr "Wachtwoord"
+
+#: src/dialogs/dialog_password.cpp:144
+msgid "Please enter a new password"
+msgstr "Voer een nieuwe wachtwoord in"
+
+#: src/dialogs/dialog_password.cpp:147
+msgid "Please enter the current and new passwords"
+msgstr "Voer het huidige en nieuwe wachtwoord in"
+
+#: src/dialogs/dialog_password.cpp:233
+msgid "Wrong password. Please retry..."
+msgstr "Verkeerd paswoord. Gelieve opnieuw te proberen..."
+
+#: src/dialogs/dialog_sync.cpp:82 src/dialogs/dialog_sync.cpp:165
+#: src/strings.hpp:180 src/ui_login.cpp:64 ui/lifeograph.ui:1054 ui/table.ui:42
+msgid "Name"
+msgstr "Naam:"
+
+#: src/dialogs/dialog_sync.cpp:83
+msgid "Status"
+msgstr "Status"
+
+#: src/dialogs/dialog_sync.cpp:85
+msgid "Action"
+msgstr "Actie"
+
+#: src/dialogs/dialog_sync.cpp:87
+msgid "Local"
+msgstr "Plaatselijk"
+
+#: src/dialogs/dialog_sync.cpp:88
+msgid "Remote"
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:191
+msgid "Click to select a diary file..."
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:251
+msgid "Select a diary file for synchronizing"
+msgstr "Selecteer een dagboekbestand om te synchroniseren"
+
+#: src/dialogs/dialog_sync.cpp:280
+msgid "Selected file does not seem to be a valid diary"
+msgstr "Geselecteerd bestand lijkt geen geldig dagboek te zijn"
+
+#: src/dialogs/dialog_sync.cpp:284 src/dialogs/dialog_sync.cpp:299
+msgid "Selected file cannot be read"
+msgstr "Geselecteerd bestand kan niet worden gelezen"
+
+#: src/dialogs/dialog_sync.cpp:326
+msgid "Please select what to import/sync and press Go"
+msgstr "Selecteer wat u wilt importeren/synchroniseren en druk op Go"
+
+#: src/dialogs/dialog_sync.cpp:649 src/strings.hpp:186
+#, fuzzy
+msgid "Options"
+msgstr "Actie"
+
+#: src/dialogs/dialog_sync.cpp:699
+msgid "DIARY"
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:700
+msgid "ENTRIES"
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:701
+msgid "THEMES"
+msgstr "THEMA'S"
+
+#: src/dialogs/dialog_sync.cpp:702
+msgid "FILTERS"
+msgstr "FILTERS"
+
+#: src/dialogs/dialog_sync.cpp:703
+msgid "CHARTS"
+msgstr "GRAFIEKEN"
+
+#: src/dialogs/dialog_sync.cpp:704
+msgid "TABLES"
+msgstr "TABELLEN"
+
+#. chapter category
+#: src/diaryelements/diary.cpp:1319 src/diaryelements/diary.cpp:1687
+#: src/diaryelements/diary.cpp:1694
+#, fuzzy
+msgid "Chapter Category:"
+msgstr "Hoofdstukcategorie"
+
+#: src/diaryelements/diary.cpp:2954
+#, fuzzy
+msgid "New Entry"
+msgstr "Nieuwe categorie"
+
+#: src/diaryelements/diarydata.cpp:76 src/strings.hpp:193 ui/table.ui:73
+msgid "Theme"
+msgstr "Stijl"
+
+#: src/diaryelements/diarydata.cpp:76
+msgid "Filter"
+msgstr "Filteren"
+
+#: src/diaryelements/diarydata.cpp:76
+msgid "Chart"
+msgstr "Grafiek"
+
+#: src/diaryelements/diarydata.cpp:76 ui/chart.ui:108
+msgid "Table"
+msgstr "Tabel"
+
+#: src/diaryelements/diarydata.cpp:77 src/strings.hpp:208 ui/table.ui:366
+msgid "Paragraph"
+msgstr "Paragraaf"
+
+#: src/diaryelements/diarydata.cpp:77 ui/table.ui:361
+#: ui/tv_diary_edit_link.ui:75
+msgid "Entry"
+msgstr ""
+
+#: src/diaryelements/entry.cpp:1536
+msgid "Created"
+msgstr ""
+
+#: src/diaryelements/entry.cpp:1537
+#, fuzzy
+msgid "Edited"
+msgstr "Bewerkingsdatum"
+
+#: src/diaryelements/entry.cpp:1539 ui/table.ui:63
+msgid "Duration"
+msgstr ""
+
+#: src/helpers.cpp:292
+msgid "day(s)"
+msgstr ""
+
+#: src/helpers.cpp:751
+msgid "FAILED"
+msgstr ""
+
+#: src/helpers.cpp:1794 src/helpers.cpp:1817
+msgid "All Files"
+msgstr "Alle bestanden"
+
+#: src/helpers.cpp:1819
+msgid "Image Files"
+msgstr "Afbeeldingbestanden"
+
+#: src/helpers.cpp:1840
+#, fuzzy
+msgid "Diary files"
+msgstr "Dagboekbestand"
+
+#: src/helpers.hpp:871
+msgid "_Cancel"
+msgstr "_Annuleren"
+
+#: src/lifeograph.cpp:56
+#, fuzzy
+msgid "Name Only"
+msgstr "Naam:"
+
+#: src/lifeograph.cpp:57
+msgid "Name - Description"
+msgstr ""
+
+#: src/lifeograph.cpp:58
+msgid "Number - Name"
+msgstr ""
+
+#: src/lifeograph.cpp:59
+#, fuzzy
+msgid "Date - Name"
+msgstr "Labelnaam"
+
+#: src/lifeograph.cpp:60
+msgid "Milestone"
+msgstr ""
+
+#: src/printing.cpp:301
+msgid "Printing failed"
+msgstr ""
+
+#: src/strings.hpp:143 ui/dlg_sync.ui:292 ui/dlg_sync.ui:319
+msgid "ADD"
+msgstr "TOEVOEGEN"
+
+#: src/strings.hpp:144
+msgid "All Entries"
+msgstr ""
+
+#: src/strings.hpp:145
+#, fuzzy
+msgid "All Paragraphs"
+msgstr "Paragraaf"
+
+#: src/strings.hpp:146 ui/po_entry.ui:124
+msgid "Auto"
+msgstr "Automatisch"
+
+#: src/strings.hpp:147 ui/chart.ui:215
+msgid "Average"
+msgstr "Gemiddelde"
+
+#: src/strings.hpp:148
+#, fuzzy
+msgid "Background Image"
+msgstr "Achtergrond:"
+
+#: src/strings.hpp:149
+msgid "Boolean"
+msgstr "Booleans"
+
+#: src/strings.hpp:150 ui/po_entry.ui:159 ui/tv_diary.ui:512
+msgid "Canceled"
+msgstr "Geannuleerd"
+
+#: src/strings.hpp:151
+msgid "Category"
+msgstr "Categorie"
+
+#: src/strings.hpp:152
+msgid "CHANGED"
+msgstr "VERANDERD"
+
+#: src/strings.hpp:153
+msgid "Chart Intervals"
+msgstr "Grafiek intervallen"
+
+#: src/strings.hpp:154
+msgid "Chart Underlay"
+msgstr "Grafiekonderlaag"
+
+#: src/strings.hpp:155 ui/po_entry.ui:196
+msgid "Color"
+msgstr "Kleur"
+
+#: src/strings.hpp:156 ui/po_entry.ui:271
+msgid "Comment Style"
+msgstr ""
+
+#: src/strings.hpp:157 ui/lifeograph.ui:143
+#, fuzzy
+msgid "Completion Tag"
+msgstr "Voltooid"
+
+#: src/strings.hpp:158 ui/col_opt_duration.ui:22 ui/col_opt_duration.ui:48
+#: ui/col_opt_date.ui:22
+#, fuzzy
+msgid "Creation Date"
+msgstr "Begindatum"
+
+#: src/strings.hpp:159
+msgid "Cumulative"
+msgstr "Cumulatief"
+
+#: src/strings.hpp:160
+#, fuzzy
+msgid "Current Entry"
+msgstr "Huidig wachtwoord:"
+
+#: src/strings.hpp:161
+msgid "Current Entry + Descendants"
+msgstr ""
+
+#: src/strings.hpp:162
+msgid "Date"
+msgstr "Datum"
+
+#: src/strings.hpp:163
+msgid "Definition"
+msgstr "Definitie"
+
+#: src/strings.hpp:164
+msgid "DELETED"
+msgstr "VERWIJDERD"
+
+#: src/strings.hpp:165 ui/po_entry.ui:151 ui/tv_diary.ui:500
+msgid "Done"
+msgstr "Gereed"
+
+#: src/strings.hpp:166 ui/tv_diary_edit_date.ui:19
+msgid "Edit Date"
+msgstr "Bewerkingsdatum"
+
+#: src/strings.hpp:167 ui/po_entry.ui:168
+msgid "Favorite"
+msgstr "Favoriet"
+
+#: src/strings.hpp:168
+#, fuzzy
+msgid "List Filter"
+msgstr "Filteren"
+
+#: src/strings.hpp:169
+#, fuzzy
+msgid "Search Filter"
+msgstr "Nieuw filter"
+
+#: src/strings.hpp:170
+msgid "Format"
+msgstr ""
+
+#: src/strings.hpp:171
+msgid "ID"
+msgstr "ID"
+
+#: src/strings.hpp:172 ui/dlg_sync.ui:286 ui/dlg_sync.ui:313
+msgid "IGNORE"
+msgstr "NEGEREN"
+
+#: src/strings.hpp:173
+msgid "INTACT"
+msgstr "INTACT"
+
+#: src/strings.hpp:174
+msgid "Language"
+msgstr "Taal"
+
+#: src/strings.hpp:175
+msgid "Last Entry"
+msgstr ""
+
+#: src/strings.hpp:176
+msgid "Location"
+msgstr ""
+
+#: src/strings.hpp:177
+msgid "Map Path"
+msgstr ""
+
+#: src/strings.hpp:178
+msgid "Monthly"
+msgstr "Maandelijks"
+
+#: src/strings.hpp:179
+msgid "N/A"
+msgstr "NIET BESCHIKBAAR"
+
+#: src/strings.hpp:181
+msgid "NEW"
+msgstr "NIEUW"
+
+#: src/strings.hpp:182
+msgid "New Column"
+msgstr ""
+
+#: src/strings.hpp:183 ui/lifeograph.ui:519
+msgid "New Table"
+msgstr "Nieuw tabbel"
+
+#: src/strings.hpp:184
+msgid "No"
+msgstr ""
+
+#: src/strings.hpp:185 src/widgets/widget_chart.cpp:312
+#: src/widgets/widget_chart.cpp:339 src/widgets/widget_chart.cpp:401
+#: ui/widget_entry_picker.ui:38
+msgid "None"
+msgstr "Geen"
+
+#: src/strings.hpp:187
+msgid "OTHER"
+msgstr "OVERIG"
+
+#: src/strings.hpp:188 ui/dlg_sync.ui:298
+msgid "OVERWRITE"
+msgstr "OVERSCHRIJVEN"
+
+#: src/strings.hpp:189
+msgid "Progressed"
+msgstr ""
+
+#: src/strings.hpp:190
+msgid "Startup Entry"
+msgstr ""
+
+#: src/strings.hpp:191
+#, fuzzy
+msgid "Title Style"
+msgstr "Titel"
+
+#: src/strings.hpp:192
+msgid "Type Name"
+msgstr ""
+
+#: src/strings.hpp:194
+msgid "Theme Base"
+msgstr ""
+
+#: src/strings.hpp:195
+msgid "Theme Font"
+msgstr "Thema lettertype"
+
+#: src/strings.hpp:196
+msgid "Theme Heading"
+msgstr "Themakoptekst"
+
+#: src/strings.hpp:197
+msgid "Theme Highlight"
+msgstr ""
+
+#: src/strings.hpp:198
+msgid "Theme Subheading"
+msgstr "Thema ondertitel"
+
+#: src/strings.hpp:199
+msgid "Theme Text"
+msgstr "Thema tekst"
+
+#: src/strings.hpp:200
+msgid "Todo"
+msgstr "Taken"
+
+#: src/strings.hpp:201
+msgid "Trashed"
+msgstr "Weggegooid"
+
+#: src/strings.hpp:202 ui/po_entry.ui:214
+msgid "Unit"
+msgstr "Eenheid"
+
+#: src/strings.hpp:203
+msgid "Value Type"
+msgstr ""
+
+#: src/strings.hpp:204
+msgid "Yearly"
+msgstr "Jaarlijks"
+
+#: src/strings.hpp:205
+msgid "Yes"
+msgstr "Ja"
+
+#: src/strings.hpp:207 ui/col_opt_tag_value.ui:13 ui/col_opt_tag_value.ui:20
+msgid "Tag"
+msgstr "Trefwoord"
+
+#: src/strings.hpp:213
+msgid "January"
+msgstr "Januari"
+
+#: src/strings.hpp:214
+msgid "February"
+msgstr "Februari"
+
+#: src/strings.hpp:215
+msgid "March"
+msgstr "Maart"
+
+#: src/strings.hpp:216
+msgid "April"
+msgstr "April"
+
+#: src/strings.hpp:217
+msgid "May"
+msgstr "Mei"
+
+#: src/strings.hpp:218
+msgid "June"
+msgstr "Juni"
+
+#: src/strings.hpp:219
+msgid "July"
+msgstr "Juli"
+
+#: src/strings.hpp:220
+msgid "August"
+msgstr "Augustus"
+
+#: src/strings.hpp:221
+msgid "September"
+msgstr "September"
+
+#: src/strings.hpp:222
+msgid "October"
+msgstr "Oktober"
+
+#: src/strings.hpp:223
+msgid "November"
+msgstr "November"
+
+#: src/strings.hpp:224
+msgid "December"
+msgstr "December"
+
+#: src/strings.hpp:229 ui/preferences.ui:250
+msgid "Sunday"
+msgstr ""
+
+#: src/strings.hpp:230 ui/preferences.ui:251
+msgid "Monday"
+msgstr ""
+
+#: src/strings.hpp:231 ui/preferences.ui:252
+msgid "Tuesday"
+msgstr ""
+
+#: src/strings.hpp:232 ui/preferences.ui:253
+msgid "Wednesday"
+msgstr ""
+
+#: src/strings.hpp:233 ui/preferences.ui:254
+msgid "Thursday"
+msgstr ""
+
+#: src/strings.hpp:234 ui/preferences.ui:255
+msgid "Friday"
+msgstr ""
+
+#: src/strings.hpp:235 ui/preferences.ui:256
+msgid "Saturday"
+msgstr ""
+
+#: src/strings.hpp:246 ui/lifeograph-2.ui:154
+msgid "Personal, digital diary"
+msgstr "Persoonlijk digitaal dagboek"
+
+#: src/strings.hpp:249
+msgid "Changes could not be written to diary!"
+msgstr "De wijzigingen kondern niet naar het dagboek worden weggeschreven!"
+
+#: src/strings.hpp:252
+msgid "Check if you have write permissions on the file and containing folder"
+msgstr ""
+"Kijk na of u schrijfrechten heeft op het bestand en de map waarin het zich "
+"bevindt."
+
+#: src/strings.hpp:256 ui/print.ui:132 ui/table.ui:97 ui/table.ui:260
+msgid "Off"
+msgstr "Uit"
+
+#. TRANSLATORS: title of an empty diary entry
+#: src/strings.hpp:260
+msgid "<empty entry>"
+msgstr "<leeg blad>"
+
+#: src/strings.hpp:263
+msgid "Please enter password for selected diary..."
+msgstr "Gelieve het paswoord in te geven voor het gekozen dagboek..."
+
+#: src/strings.hpp:266
+msgid "Program logged out to protect your privacy. Please re-enter password..."
+msgstr ""
+"Het programma heeft uitgelogd om uw privacy te beschermen. Gelieve het "
+"paswoord opnieuw in te geven.."
+
+#: src/strings.hpp:270
+msgid ""
+"Selected diary is in an older format which is not compatible with this "
+"version of Lifeograph. Please select another file..."
+msgstr ""
+"Het geselecteerde dagboek heeft een ouder formaat dat niet compatibel is met "
+"deze versie van Lifeograph. Selecteer een ander bestand..."
+
+#: src/strings.hpp:275
+msgid ""
+"Selected diary is in a newer format which is not compatible with this "
+"version of Lifeograph. Please consider upgrading your program."
+msgstr ""
+"Het geselecteerde dagboek heeft een nieuwere indeling die niet compatibel is "
+"met deze versie van Lifeograph. Overweeg om uw programma te upgraden."
+
+#: src/strings.hpp:280
+msgid ""
+"Selected file is not a valid Lifeograph diary. Please select another file..."
+msgstr ""
+"Het geselecteerde bestand is geen geldig Lifeograph dagboek. Gelieve een "
+"ander bestand te kiezen..."
+
+#: src/strings.hpp:285
+msgid "Selected file is not found. Please select another file..."
+msgstr ""
+"Het geselecteerde bestand is niet gevonden. Selecteer een ander bestand..."
+
+#: src/strings.hpp:289
+msgid ""
+"Selected file is not readable. Please check file permissions or select "
+"another file..."
+msgstr ""
+"Het geselecteerde bestand is niet leesbaar. Controleer de bestandsrechten of "
+"selecteer een ander bestand..."
+
+#: src/strings.hpp:293
+msgid "You do not have permission to change this file."
+msgstr "U heeft geen schrijfrechten om dit bestand te wijzigen."
+
+#: src/strings.hpp:296
+msgid ""
+"Selected file is locked which means either it is being edited by another "
+"instance of Lifeograph or the last session with it did not finish correctly. "
+"This file cannot be opened as long as the lock file (%1) is there."
+msgstr ""
+"Het geselecteerde bestand is vergrendeld, wat betekent dat het wordt bewerkt "
+"door een ander exemplaar van Lifeograph of dat de laatste sessie ermee niet "
+"correct is voltooid. Dit bestand kan niet worden geopend zolang het "
+"vergrendelingsbestand (%1) aanwezig is."
+
+#: src/strings.hpp:303
+msgid ""
+"You are about to open an old diary that will be upgraded to the new format.\n"
+"\n"
+"Lifeograph will create a backup copy of the current diary for you in the "
+"same directory. Please keep that copy until you are sure that everything is "
+"all right."
+msgstr ""
+"U staat op het punt een oud dagboek te openen dat zal worden geüpgraded naar "
+"het nieuwe formaat.\n"
+"\n"
+"Lifeograph maakt voor u een reservekopie van het huidige dagboek in dezelfde "
+"map. Bewaar die kopie totdat u zeker weet dat alles in orde is."
+
+#: src/strings.hpp:309
+msgid "Failed to open diary. Please select another file..."
+msgstr "Kan dagboek niet openen. Selecteer een ander bestand..."
+
+#: src/strings.hpp:313
+msgid "Press Open to continue"
+msgstr "Druk op Openen om door te gaan"
+
+#: src/strings.hpp:316
+msgid "Last Read"
+msgstr "Laatst gelezen"
+
+#: src/strings.hpp:319
+msgid "Last Saved"
+msgstr "Laatst opgeslagen"
+
+#: src/strings.hpp:322
+msgid "(Drop a tag here to filter)"
+msgstr "(Laat hier een tag achter om te filteren)"
+
+#: src/strings.hpp:325 ui/lifeograph.ui:90
+msgid "Change Password..."
+msgstr "Wachtwoord wijzigen…"
+
+#. TRANSLATORS: e.g. Tag with 5 entries
+#: src/strings.hpp:329
+msgid "%1 with %2 entrie(s)"
+msgstr ""
+
+#: src/strings.hpp:332
+msgid "Tag with %1 entrie(s). Average value = %2"
+msgstr ""
+
+#: src/strings.hpp:335
+msgid "Tag with %1 entrie(s). Total value = %2"
+msgstr ""
+
+#: src/strings.hpp:338
+msgid "New theme"
+msgstr "Nieuw thema"
+
+#: src/strings.hpp:341
+msgid "New chapter"
+msgstr "Nieuw hoofdstuk"
+
+#: src/strings.hpp:344
+msgid "New category"
+msgstr "Nieuwe categorie"
+
+#: src/strings.hpp:347
+msgid "Default"
+msgstr "Standaard"
+
+#: src/strings.hpp:350
+msgid "<Default>"
+msgstr "<Standaard>"
+
+#: src/strings.hpp:353
+#, fuzzy
+msgid "Diary Report"
+msgstr "Dagboekbestand"
+
+#: src/ui_diary.cpp:484
+msgid "Are You Sure You Want to Upgrade The Diary?"
+msgstr "Bent u zeker dat u het dagboek wilt upgraden?"
+
+#: src/ui_diary.cpp:486
+msgid "Upgrade The Diary"
+msgstr "Dagboek upgraden"
+
+#. this should never occur?
+#: src/ui_diary.cpp:502
+msgid "Cannot edit a read-only diary"
+msgstr ""
+
+#: src/ui_diary.cpp:730
+msgid "Are You Sure You Want to Empty The Trash?"
+msgstr "Weet je zeker dat je de prullenbak wilt legen?"
+
+#: src/ui_diary.cpp:731
+msgid "Empty The Trash"
+msgstr "Leeg de prullenbak"
+
+#: src/ui_entry.cpp:330
+msgid "word(s)"
+msgstr ""
+
+#: src/ui_entry.cpp:540
+msgid "Also dismiss child entries"
+msgstr ""
+
+#: src/ui_extra.cpp:134 src/ui_extra.cpp:136 ui/lifeograph.ui:584
+msgid "New Chart"
+msgstr "Nieuw Diagram"
+
+#: src/ui_extra.cpp:589
+msgid "<b>%1</b> instances found"
+msgstr ""
+
+#: src/ui_extra.cpp:592
+msgid "Search text within entries"
+msgstr ""
+
+#: src/ui_login.cpp:242
+msgid "Error querying file"
+msgstr ""
+
+#: src/ui_login.cpp:484
+msgid "Removed diary: %1"
+msgstr "Dagboek verwijderd: %1"
+
+#: src/ui_login.cpp:486
+msgid "Undo"
+msgstr "Ongedaan maken"
+
+#: src/ui_login.cpp:502
+#, fuzzy
+msgid "Where to Save the New Diary?"
+msgstr "Waar wilt u het dagboek opslaan?"
+
+#: src/ui_login.cpp:523
+#, fuzzy
+msgid "Select the Diary File to Add"
+msgstr "Selecteer een Dagboek"
+
+#: src/ui_login.cpp:531
+msgid "Unsaved changes from the last session detected"
+msgstr ""
+
+#: src/ui_login.cpp:532
+msgid "_Discard Unsaved Changes"
+msgstr ""
+
+#: src/ui_login.cpp:535
+msgid "Continue with _Unsaved Changes"
+msgstr ""
+
+#: src/widgets/calendar.cpp:105
+msgid "DATE IS NOT SET"
+msgstr "DATUM IS NIET INGESTELD"
+
+#: src/widgets/chart.cpp:574
+msgid "INSUFFICIENT DATA"
+msgstr "NIET GENOEG DATA"
+
+#: src/widgets/table.cpp:490
+msgid "ADD COLUMNS"
+msgstr "KOLOMMEN TOEVOEGEN"
+
+#: src/widgets/widget_chart.cpp:315
+#, fuzzy
+msgid "Previous Year"
+msgstr "Vorige"
+
+#: src/widgets/widget_chart.cpp:398
+msgid "Count"
+msgstr ""
+
+#: src/widgets/widget_entrypicker.cpp:120
+msgid "Create New Entry: %1"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:62
+msgid "Whose status is one of"
+msgstr "Wiens status is een van"
+
+#: src/widgets/widget_filter.cpp:219
+msgid "Is favorite"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:229
+msgid "Is trashed"
+msgstr "Is weggegooid"
+
+#: src/widgets/widget_filter.cpp:238
+#, fuzzy
+msgid "Has the unit"
+msgstr "Heeft de tag"
+
+#: src/widgets/widget_filter.cpp:257
+msgid "Is entry"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:278
+msgid "Is descendant of"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:280
+msgid "Or itself"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:306
+msgid "Has the tag"
+msgstr "Heeft de tag"
+
+#: src/widgets/widget_filter.cpp:407
+msgid "Planned"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:408
+msgid "Realized"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:409
+msgid "Remaining"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:475
+msgid "Has the theme"
+msgstr "Heeft de thema"
+
+#: src/widgets/widget_filter.cpp:541 src/widgets/widget_filter.cpp:593
+msgid "Between"
+msgstr "Tussen"
+
+#: src/widgets/widget_filter.cpp:627
+msgid "Completion is in range"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:696
+msgid "Satisfies filter"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:704
+msgid "Is image"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:711
+msgid "Has map coordinates"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:721
+msgid "Title style is"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:757
+msgid "Heading level is"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:908
+msgid "OR"
+msgstr "OF"
+
+#: src/widgets/widget_filter.cpp:910
+msgid "AND"
+msgstr "EN"
+
+#: src/widgets/widget_map.cpp:251
+#, fuzzy
+msgid "New Location"
+msgstr "Nieuwe categorie"
+
+#: src/widgets/widget_table.cpp:973 ui/table.ui:61
+#, fuzzy
+msgid "Text"
+msgstr "Tekst:"
+
+#. the same id and SRC_value as title
+#: src/widgets/widget_table.cpp:974 ui/tv_diary_edit_link.ui:52
+msgid "Uri"
+msgstr ""
+
+#: src/widgets/widget_table.cpp:978
+msgid "Title"
+msgstr "Titel"
+
+#: src/widgets/widget_table.cpp:979
+msgid "Ancestors + Title"
+msgstr ""
+
+#: src/widgets/widget_table.cpp:980
+#, fuzzy
+msgid "Description"
+msgstr "Definitie"
+
+#: src/widgets/widget_table.cpp:1021
+msgid "Constant"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1583
+msgid "Image Not Found"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1713
+msgid "Click to expand the paragraph"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1716
+#, fuzzy
+msgid "Click to collapse the paragraph"
+msgstr "Klik om de corresponderende map te openen"
+
+#: src/widgets/widget_textview.cpp:1723
+msgid "Click to edit entry properties"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1726
+msgid "Click to see list of entries tagged by this entry"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1736
+msgid "Entry text evaluated as link address"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1752
+msgid "Right click to edit paragraph"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1762
+msgid "Press Ctrl to follow the link"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1763
+msgid "Press Ctrl to select"
+msgstr "Druk op Ctrl om link te volgen"
+
+#: src/widgets/widget_textviewedit.cpp:950
+#, fuzzy
+msgid "Open"
+msgstr "Geopend"
+
+#: src/widgets/widget_textviewedit.cpp:1044
+msgid "image"
+msgstr ""
+
+#: src/widgets/widget_textviewedit.cpp:1262
+msgid "Add \"%1\" to Dictionary"
+msgstr "Voeg \"%1\" toe aan woordenboek"
+
+#: src/widgets/widget_textviewedit.cpp:1263
+msgid "Ignore All"
+msgstr ""
+
+#: src/widgets/widget_textviewedit.cpp:1268
+msgid "no suggestions"
+msgstr "geen suggesties"
+
+#: src/widgets/widget_textviewsearch.cpp:94
+#, fuzzy
+msgid "Please enter a search phrase"
+msgstr "Voer een nieuwe wachtwoord in"
+
+#: src/widgets/widget_textviewsearch.cpp:97
+#, fuzzy
+msgid "No matches"
+msgstr "Geen overeenkomsten gevonden"
+
+#: src/widgets/widget_textviewsearch.cpp:331
+msgid "Click to jump to"
+msgstr ""
+
+#: src/widgets/widget_textviewsearch.cpp:336
+msgid "Right click to replace"
+msgstr ""
+
+#: src/widgets/widget_textviewtheme.cpp:267
+msgid "Select Image"
+msgstr ""
+
+#: src/widgets/widget_textviewtheme.cpp:379
+msgid "Click to edit the theme"
+msgstr ""
+
+#: ui/calendar.ui:30
+#, fuzzy
+msgid "Copy Date"
+msgstr "Groeperen per datum"
+
+#: ui/calendar.ui:38
+msgid "Weekend Day"
+msgstr ""
+
+#: ui/calendar.ui:43
+msgid "Holiday"
+msgstr ""
+
+#: ui/calendar.ui:50
+msgid "Show Week Numbers"
+msgstr ""
+
+#: ui/calendar.ui:66
+#, fuzzy
+msgid "Create entry"
+msgstr "Huidig wachtwoord:"
+
+#: ui/calendar.ui:78
+#, fuzzy
+msgid "Create milestone"
+msgstr "Begindatum"
+
+#: ui/chart.ui:45
+#, fuzzy
+msgid "Style"
+msgstr "Titel"
+
+#: ui/chart.ui:62
+msgid "Line"
+msgstr ""
+
+#: ui/chart.ui:67
+msgid "Bars"
+msgstr ""
+
+#: ui/chart.ui:91
+msgid "Data Source"
+msgstr ""
+
+#: ui/chart.ui:125
+msgid "x-Axis Column"
+msgstr ""
+
+#: ui/chart.ui:142
+msgid "y-Axis Column"
+msgstr ""
+
+#: ui/chart.ui:165
+msgid "Organization"
+msgstr ""
+
+#: ui/chart.ui:182
+#, fuzzy
+msgid "Group by"
+msgstr "Groeperen per label"
+
+#: ui/chart.ui:190
+#, fuzzy
+msgid "Day"
+msgstr "Dagboek"
+
+#: ui/chart.ui:191
+msgid "Week"
+msgstr ""
+
+#: ui/chart.ui:192
+#, fuzzy
+msgid "Month"
+msgstr "Maandelijks"
+
+#: ui/chart.ui:193
+#, fuzzy
+msgid "Year"
+msgstr "Jaarlijks"
+
+#: ui/chart.ui:205
+msgid "Combine"
+msgstr ""
+
+#: ui/chart.ui:213
+#, fuzzy
+msgid "Cumulative: Periodic"
+msgstr "Cumulatief"
+
+#: ui/chart.ui:214
+#, fuzzy
+msgid "Cumulative: Continuous"
+msgstr "Cumulatief"
+
+#: ui/chart.ui:230
+#, fuzzy
+msgid "Advanced Options"
+msgstr "Actie"
+
+#: ui/chart.ui:270
+#, fuzzy
+msgid "Underlay"
+msgstr "Grafiekonderlaag"
+
+#: ui/chart.ui:293
+msgid "Filter Table Rows"
+msgstr ""
+
+#: ui/chart.ui:310
+msgid "Column"
+msgstr ""
+
+#: ui/chart.ui:327
+msgid "Value = "
+msgstr ""
+
+#: ui/col_opt_arithmetic.ui:108
+msgid "Operand A"
+msgstr ""
+
+#: ui/col_opt_arithmetic.ui:120 ui/col_opt_arithmetic.ui:157
+msgid "Function to modify the column value"
+msgstr ""
+
+#: ui/col_opt_arithmetic.ui:145
+msgid "Operand B"
+msgstr ""
+
+#: ui/col_opt_arithmetic.ui:181
+msgid "Format as"
+msgstr ""
+
+#: ui/col_opt_duration.ui:13
+#, fuzzy
+msgid "Begin Date"
+msgstr "Begindatum"
+
+#: ui/col_opt_duration.ui:21 ui/col_opt_duration.ui:47 ui/col_opt_date.ui:21
+#, fuzzy
+msgid "Start Date"
+msgstr "Gestart"
+
+#: ui/col_opt_duration.ui:23 ui/col_opt_duration.ui:49 ui/col_opt_date.ui:23
+msgid "Last Change Date"
+msgstr ""
+
+#: ui/col_opt_duration.ui:24 ui/col_opt_duration.ui:50 ui/col_opt_date.ui:24
+#, fuzzy
+msgid "Finish Date"
+msgstr "Bewerkingsdatum"
+
+#: ui/col_opt_duration.ui:25 ui/col_opt_duration.ui:51
+msgid "Now"
+msgstr ""
+
+#: ui/col_opt_duration.ui:26 ui/col_opt_duration.ui:52
+msgid "1st Column on Left"
+msgstr ""
+
+#: ui/col_opt_duration.ui:27 ui/col_opt_duration.ui:53
+msgid "2nd Column on Left"
+msgstr ""
+
+#: ui/col_opt_duration.ui:39
+#, fuzzy
+msgid "End Date"
+msgstr "Bewerkingsdatum"
+
+#: ui/col_opt_duration.ui:65 ui/col_opt_size.ui:13 ui/col_opt_date.ui:13
+#: ui/dlg_export.ui:76 ui/po_entry.ui:180
+#, fuzzy
+msgid "Type"
+msgstr "Export Type:"
+
+#: ui/col_opt_duration.ui:73
+msgid "Calendar Days"
+msgstr ""
+
+#: ui/col_opt_duration.ui:74
+msgid "Work Days"
+msgstr ""
+
+#: ui/col_opt_size.ui:21
+#, fuzzy
+msgid "Char Count"
+msgstr "Grafiek"
+
+#. <item translatable="yes">Word Count</item> TODO: v3.1 or later
+#: ui/col_opt_size.ui:23
+#, fuzzy
+msgid "Paragraph Count"
+msgstr "Paragraaf"
+
+#: ui/col_opt_bool.ui:14
+#, fuzzy
+msgid "Condition"
+msgstr "Definitie"
+
+#: ui/col_opt_bool.ui:20
+msgid "True if satisfies the selected filter"
+msgstr ""
+
+#: ui/col_opt_date.ui:35
+msgid "Customize Format"
+msgstr ""
+
+#: ui/col_opt_date.ui:41
+msgid ""
+"Y: year\n"
+"M: month number\n"
+"n: month name\n"
+"D: day\n"
+"d: week day\n"
+"W: week no\n"
+"h: hour\n"
+"m: minute\n"
+"s: second\n"
+"F: date\n"
+"T: time"
+msgstr ""
+
+#: ui/col_opt_subtag.ui:13
+msgid "Sub tag of"
+msgstr ""
+
+#: ui/col_opt_subtag.ui:21
+#, fuzzy
+msgid "Parent tag"
+msgstr "Huidig wachtwoord:"
+
+#: ui/col_opt_subtag.ui:32
+#, fuzzy
+msgid "Select"
+msgstr "Verwijder Set"
+
+#: ui/col_opt_subtag.ui:40
+msgid "First Occuring"
+msgstr ""
+
+#: ui/col_opt_subtag.ui:41
+msgid "Last Occuring"
+msgstr ""
+
+#: ui/col_opt_subtag.ui:42
+msgid "Least in Order"
+msgstr ""
+
+#: ui/col_opt_subtag.ui:43
+msgid "Greatest in Order"
+msgstr ""
+
+#: ui/col_opt_subtag.ui:44 ui/lifeograph.ui:480
+msgid "All"
+msgstr ""
+
+#: ui/col_opt_tag_value.ui:33
+#, fuzzy
+msgid "Calculate"
+msgstr "Cumulatief"
+
+#: ui/col_opt_tag_value.ui:41
+msgid "Total Planned"
+msgstr ""
+
+#: ui/col_opt_tag_value.ui:42
+msgid "Total Realized"
+msgstr ""
+
+#: ui/col_opt_tag_value.ui:43
+msgid "Total Remaining"
+msgstr ""
+
+#: ui/col_opt_tag_value.ui:44
+#, fuzzy
+msgid "Average Planned"
+msgstr "Gemiddelde"
+
+#: ui/col_opt_tag_value.ui:45
+#, fuzzy
+msgid "Average Realized"
+msgstr "Gemiddelde"
+
+#: ui/col_opt_tag_value.ui:46
+msgid "Average Remaining"
+msgstr ""
+
+#: ui/col_opt_tag_value.ui:47
+#, fuzzy
+msgid "Completion Percentage"
+msgstr "Voltooid"
+
+#: ui/col_opt_text.ui:13
+msgid "Field"
+msgstr ""
+
+#: ui/col_opt_text.ui:30
+msgid "Include"
+msgstr ""
+
+#: ui/col_opt_text.ui:42
+#, fuzzy
+msgid "Number or Date"
+msgstr "November"
+
+#: ui/col_opt_text.ui:48
+#, fuzzy
+msgid "Plain text"
+msgstr "Plattetekst bestand"
+
+#: ui/col_opt_text.ui:54
+#, fuzzy
+msgid "Tags within the text"
+msgstr "Heeft de thema"
+
+#: ui/col_opt_text.ui:60
+msgid "Dates within the text"
+msgstr ""
+
+#: ui/col_opt_text.ui:66
+msgid "Comments within the text"
+msgstr ""
+
+#: ui/col_opt_text.ui:72
+msgid "Indentations"
+msgstr ""
+
+#: ui/dlg_export.ui:42
+msgid "Export"
+msgstr ""
+
+#: ui/dlg_export.ui:66
+#, fuzzy
+msgid "Content"
+msgstr "Doorgaan"
+
+#: ui/dlg_export_opts_log.ui:33 ui/lifeograph-2.ui:47
+#, fuzzy
+msgid "Password"
+msgstr "Wachtwoord:"
+
+#: ui/dlg_export_opts_log.ui:43 ui/lifeograph.ui:947 ui/lifeograph-2.ui:59
+#, fuzzy
+msgid "Confirm"
+msgstr "Bevestigen:"
+
+#: ui/dlg_filter.ui:41 ui/dlg_smartadd.ui:51 ui/dlg_sync.ui:43
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: ui/dlg_filter.ui:57
+msgid "Apply & Close"
+msgstr ""
+
+#: ui/dlg_gettext.ui:34
+#, fuzzy
+msgid "Please enter a name"
+msgstr "Voer een nieuwe wachtwoord in"
+
+#: ui/dlg_smartadd.ui:38
+msgid "Smart Add"
+msgstr ""
+
+#: ui/dlg_smartadd.ui:56
+msgid "Clear"
+msgstr ""
+
+#: ui/dlg_sync.ui:49
+msgid "Go"
+msgstr ""
+
+#: ui/dlg_sync.ui:60
+#, fuzzy
+msgid "Scheme"
+msgstr "Stijl"
+
+#: ui/dlg_sync.ui:70
+#, fuzzy
+msgid "Filters"
+msgstr "Filteren"
+
+#: ui/dlg_sync.ui:120
+msgid "Apply to Similar"
+msgstr ""
+
+#: ui/dlg_sync.ui:125
+msgid "Apply action changes to all similar elements"
+msgstr ""
+
+#: ui/dlg_sync.ui:139
+#, fuzzy
+msgid "I"
+msgstr "ID"
+
+#: ui/dlg_sync.ui:140
+msgid "Ignore"
+msgstr ""
+
+#: ui/dlg_sync.ui:146
+msgid "A"
+msgstr ""
+
+#: ui/dlg_sync.ui:147
+#, fuzzy
+msgid "Add remote"
+msgstr "Set_Toevoegen"
+
+#: ui/dlg_sync.ui:153
+#, fuzzy
+msgid "O"
+msgstr "OF"
+
+#: ui/dlg_sync.ui:154
+#, fuzzy
+msgid "Overwrite local"
+msgstr "Overschrijven"
+
+#: ui/dlg_sync.ui:167
+#, fuzzy
+msgid "Tag Imported Entries"
+msgstr "Favoriet"
+
+#: ui/dlg_sync.ui:218
+msgid "Show New"
+msgstr ""
+
+#: ui/dlg_sync.ui:222
+msgid "Show Changed"
+msgstr ""
+
+#: ui/dlg_sync.ui:228
+msgid "Show Accepted"
+msgstr ""
+
+#: ui/dlg_sync.ui:232
+msgid "Show Ignored"
+msgstr ""
+
+#: ui/dlg_sync.ui:238
+msgid "Only Show Different Details"
+msgstr ""
+
+#: ui/dlg_sync.ui:258
+#, fuzzy
+msgid "Changed"
+msgstr "Wachtwoord wijzigen"
+
+#: ui/dlg_sync.ui:271
+msgid "New"
+msgstr ""
+
+#: ui/dlg_sync.ui:333
+msgid "Apply Scheme"
+msgstr ""
+
+#: ui/flt_range.ui:9
+msgid "Include or exclude the lower bound"
+msgstr ""
+
+#: ui/flt_range.ui:22
+msgid "Lower bound"
+msgstr ""
+
+#: ui/flt_range.ui:37
+msgid "Upper bound"
+msgstr ""
+
+#: ui/flt_range.ui:43
+msgid "Include or exclude the upper bound"
+msgstr ""
+
+#: ui/flt_subtag.ui:10
+msgid "First"
+msgstr ""
+
+#: ui/flt_subtag.ui:11
+#, fuzzy
+msgid "Last"
+msgstr "Laatst gelezen"
+
+#: ui/flt_subtag.ui:12
+msgid "Highest"
+msgstr ""
+
+#: ui/flt_subtag.ui:13
+msgid "Lowest"
+msgstr ""
+
+#: ui/flt_subtag.ui:19
+msgid "Subtag of"
+msgstr ""
+
+#: ui/flt_subtag.ui:24 ui/flt_subtag.ui:40
+msgid "Only include paragraphs with this tag"
+msgstr ""
+
+#: ui/flt_subtag.ui:29
+#, fuzzy
+msgid "Parent Tag"
+msgstr "Huidig wachtwoord:"
+
+#: ui/flt_subtag.ui:45
+msgid "Child Tag"
+msgstr ""
+
+#: ui/flt_text.ui:9
+#, fuzzy
+msgid "Contains text"
+msgstr "Doorgaan"
+
+#: ui/flt_text.ui:21 ui/lifeograph.ui:444
+msgid "Match case"
+msgstr ""
+
+#: ui/flt_text.ui:33
+msgid "Anywhere"
+msgstr ""
+
+#: ui/flt_text.ui:34
+#, fuzzy
+msgid "In the name"
+msgstr "Nieuw thema"
+
+#: ui/lifeograph.ui:34
+msgid "Help"
+msgstr ""
+
+#: ui/lifeograph.ui:40 ui/preferences.ui:28
+msgid "Preferences"
+msgstr ""
+
+#: ui/lifeograph.ui:44
+msgid "About"
+msgstr ""
+
+#: ui/lifeograph.ui:48
+msgid "Quit"
+msgstr ""
+
+#: ui/lifeograph.ui:63
+msgid "Open the Folder Containing the Diary"
+msgstr ""
+
+#: ui/lifeograph.ui:68
+msgid "Export/Save As..."
+msgstr ""
+
+#: ui/lifeograph.ui:73
+msgid "Synchronize/Merge..."
+msgstr ""
+
+#: ui/lifeograph.ui:80
+#, fuzzy
+msgid "Empty the Trash..."
+msgstr "Leeg de prullenbak"
+
+#: ui/lifeograph.ui:85
+msgid "Encrypt..."
+msgstr "Versleutelen…"
+
+#: ui/lifeograph.ui:95
+msgid "Update All Date Separators in the Diary"
+msgstr ""
+
+#: ui/lifeograph.ui:126
+msgid "Diary default value for spell checking"
+msgstr ""
+
+#: ui/lifeograph.ui:127
+msgid "Spell Checking"
+msgstr ""
+
+#: ui/lifeograph.ui:160
+#, fuzzy
+msgid "Startup Action"
+msgstr "Actie"
+
+#: ui/lifeograph.ui:167
+msgid "Show Most Current Entry"
+msgstr ""
+
+#: ui/lifeograph.ui:168
+msgid "Remember Last Entry"
+msgstr ""
+
+#: ui/lifeograph.ui:169
+msgid "Always Show a Fixed Entry"
+msgstr ""
+
+#: ui/lifeograph.ui:181
+msgid "Item to Show"
+msgstr ""
+
+#: ui/lifeograph.ui:198
+#, fuzzy
+msgid "Close without Saving..."
+msgstr "_Uitloggen zonder op te slaan"
+
+#: ui/lifeograph.ui:202
+msgid "Disable Auto Close for This Session"
+msgstr ""
+
+#: ui/lifeograph.ui:216
+msgid "Standard Diary Report"
+msgstr ""
+
+#: ui/lifeograph.ui:288
+#, fuzzy
+msgid "Diaries"
+msgstr "Dagboekbestand"
+
+#: ui/lifeograph.ui:409
+msgid "Calendar"
+msgstr ""
+
+#: ui/lifeograph.ui:422 ui/lifeograph.ui:439
+#, fuzzy
+msgid "Search"
+msgstr "Maart"
+
+#: ui/lifeograph.ui:469
+msgid "Enter text to replace matches with"
+msgstr "Geef tekst ter vervanging van"
+
+#: ui/lifeograph.ui:475 ui/tv_diary.ui:352
+msgid "Replace"
+msgstr "Vervangen"
+
+#: ui/lifeograph.ui:482
+#, fuzzy
+msgid "Replace all"
+msgstr "Alles vervangen"
+
+#: ui/lifeograph.ui:505
+#, fuzzy
+msgid "Tables"
+msgstr "Tabel"
+
+#: ui/lifeograph.ui:539 ui/lifeograph.ui:611
+msgid "Properties"
+msgstr ""
+
+#: ui/lifeograph.ui:601
+msgid "Zoom level"
+msgstr ""
+
+#: ui/lifeograph.ui:635
+#, fuzzy
+msgid "Themes"
+msgstr "Stijl"
+
+#: ui/lifeograph.ui:691
+#, fuzzy
+msgid "Map"
+msgstr "Mei"
+
+#: ui/lifeograph.ui:772
+msgid "Label"
+msgstr ""
+
+#: ui/lifeograph.ui:782
+msgid "Add an existing diary file"
+msgstr ""
+
+#: ui/lifeograph.ui:789
+#, fuzzy
+msgid "Create New"
+msgstr "Nieuw label aanmaken"
+
+#: ui/lifeograph.ui:799 ui/lifeograph.ui:807
+msgid "Go back in the browsing history"
+msgstr ""
+
+#: ui/lifeograph.ui:818 ui/po_entry.ui:7
+msgid "Add"
+msgstr ""
+
+#: ui/lifeograph.ui:819
+#, fuzzy
+msgid "Quick add a new entry"
+msgstr "Dubbelklik op een dag om een nieuw item aan te maken"
+
+#: ui/lifeograph.ui:848 ui/po_theme.ui:35
+#, fuzzy
+msgid "Edit"
+msgstr "Bewerkingsdatum"
+
+#: ui/lifeograph.ui:857
+msgid "Close"
+msgstr ""
+
+#: ui/lifeograph.ui:859
+#, fuzzy
+msgid "Save close the diary"
+msgstr "Een kopie van het dagboek opslaan"
+
+#: ui/lifeograph.ui:957
+#, fuzzy
+msgid "New Password"
+msgstr "Nieuw wachtwoord:"
+
+#: ui/lifeograph.ui:976
+msgid "Authenticate"
+msgstr "Authenticeren"
+
+#: ui/lifeograph.ui:1037
+msgid "Sort by"
+msgstr ""
+
+#: ui/lifeograph.ui:1061
+#, fuzzy
+msgid "Save"
+msgstr "_Opslaan"
+
+#: ui/lifeograph.ui:1068
+#, fuzzy
+msgid "Read"
+msgstr "Laatst gelezen"
+
+#: ui/lifeograph-2.ui:28
+#, fuzzy
+msgid "Where to Save The Diary?"
+msgstr "Waar wilt u het dagboek opslaan?"
+
+#: ui/lifeograph-2.ui:91
+#, fuzzy
+msgid "Encrypt Diary Content"
+msgstr "Versleuteld dagboek bestand"
+
+#: ui/lifeograph-2.ui:111
+msgid ""
+"Knowledge is a single point which the ignorant have multiplied.\n"
+"~Attributed to Ali Ibn Abi Talib"
+msgstr ""
+
+#: ui/lifeograph-2.ui:124
+msgid "Welcome to Lifeograph, a parametric note taking application!"
+msgstr ""
+
+#: ui/lifeograph-2.ui:137
+msgid ""
+"If this is your first time with the program, click here to start right away"
+msgstr ""
+
+#: ui/lifeograph-2.ui:153
+#, fuzzy
+msgid "Copyright (C) 2007-2024 Ahmet Öztürk"
+msgstr "Copyright (C) 2007-2010 Ahmet Öztürk"
+
+#: ui/lifeograph-2.ui:156
+msgid "Web Site"
+msgstr ""
+
+#: ui/map.ui:29
+msgid "Copy to Clipboard"
+msgstr ""
+
+#: ui/map.ui:35
+msgid "Path"
+msgstr ""
+
+#: ui/map.ui:37
+msgid "Add Point"
+msgstr ""
+
+#: ui/map.ui:42
+msgid "Insert Point before Selected"
+msgstr ""
+
+#: ui/map.ui:47
+#, fuzzy
+msgid "Move Selected Point Here"
+msgstr "Geselecteerd bestand kan niet worden gelezen"
+
+#: ui/map.ui:54
+#, fuzzy
+msgid "Remove Selected Point"
+msgstr "Verwijder Set"
+
+#: ui/map.ui:59
+msgid "Clear Path"
+msgstr ""
+
+#: ui/map.ui:65
+msgid "Other Entries"
+msgstr ""
+
+#: ui/map.ui:67
+msgid "Show Locations"
+msgstr ""
+
+#: ui/po_entry.ui:12
+msgid "Parent"
+msgstr ""
+
+#: ui/po_entry.ui:16
+msgid "Sibling"
+msgstr ""
+
+#: ui/po_entry.ui:20
+msgid "Child"
+msgstr ""
+
+#: ui/po_entry.ui:24 ui/po_theme.ui:40
+msgid "Duplicate"
+msgstr ""
+
+#: ui/po_entry.ui:30
+#, fuzzy
+msgid "Merge Selected"
+msgstr "Verwijder Set"
+
+#: ui/po_entry.ui:35
+msgid "Sort Siblings"
+msgstr ""
+
+#: ui/po_entry.ui:40
+msgid "A-Z"
+msgstr ""
+
+#: ui/po_entry.ui:44
+msgid "Z-A"
+msgstr ""
+
+#: ui/po_entry.ui:48
+msgid "Earliest First"
+msgstr ""
+
+#: ui/po_entry.ui:52
+#, fuzzy
+msgid "Latest First"
+msgstr "Filteren"
+
+#: ui/po_entry.ui:56
+msgid "Shortest First"
+msgstr ""
+
+#: ui/po_entry.ui:60
+msgid "Longest First"
+msgstr ""
+
+#: ui/po_entry.ui:79
+msgid "Move to Trash"
+msgstr ""
+
+#: ui/po_entry.ui:84
+msgid "Restore"
+msgstr ""
+
+#: ui/po_entry.ui:89 ui/po_theme.ui:47
+#, fuzzy
+msgid "Dismiss..."
+msgstr "_Verwerpen"
+
+#: ui/po_entry.ui:99
+msgid "Print..."
+msgstr ""
+
+#: ui/po_entry.ui:132
+msgid "To Do"
+msgstr ""
+
+#: ui/po_entry.ui:143
+msgid "In Progress"
+msgstr ""
+
+#: ui/po_entry.ui:201
+msgid "Color as a tag and calendar or chart background"
+msgstr ""
+
+#: ui/po_entry.ui:238
+#, fuzzy
+msgid "Unitless"
+msgstr "Onbenoemde set"
+
+#: ui/po_entry.ui:251
+msgid "Spellchecking"
+msgstr ""
+
+#: ui/po_entry.ui:279
+msgid "Hidden"
+msgstr ""
+
+#: ui/po_entry.ui:280
+msgid "Normal"
+msgstr ""
+
+#: ui/po_entry.ui:281 ui/tv_diary.ui:158
+#, fuzzy
+msgid "Highlighted"
+msgstr "Markeer:"
+
+#: ui/po_theme.ui:52
+msgid "Reset to default"
+msgstr ""
+
+#: ui/po_theme.ui:59
+msgid "Assign to Open Entry"
+msgstr ""
+
+#: ui/po_theme.ui:64
+#, fuzzy
+msgid "Assign to Selected Entries"
+msgstr "Geselecteerd bestand kan niet worden gelezen"
+
+#: ui/preferences.ui:44
+msgid "Privacy"
+msgstr ""
+
+#: ui/preferences.ui:65
+msgid "Save Diary and Close When Idle"
+msgstr ""
+
+#: ui/preferences.ui:73
+#, fuzzy
+msgid "Disabled"
+msgstr "Tabel"
+
+#: ui/preferences.ui:74
+msgid "For 30 Seconds"
+msgstr ""
+
+#: ui/preferences.ui:75
+msgid "For 45 Seconds"
+msgstr ""
+
+#: ui/preferences.ui:76
+msgid "For 1 Minute"
+msgstr ""
+
+#: ui/preferences.ui:77
+msgid "For 1½ Minute"
+msgstr ""
+
+#: ui/preferences.ui:78
+msgid "For 2 Minutes"
+msgstr ""
+
+#: ui/preferences.ui:79
+msgid "For 3 Minutes"
+msgstr ""
+
+#: ui/preferences.ui:80
+msgid "For 5 Minutes"
+msgstr ""
+
+#: ui/preferences.ui:81
+msgid "For 10 Minutes"
+msgstr ""
+
+#: ui/preferences.ui:82
+msgid "For 20 Minutes"
+msgstr ""
+
+#: ui/preferences.ui:83
+msgid "For 30 Minutes"
+msgstr ""
+
+#: ui/preferences.ui:101
+msgid "Auto Backups"
+msgstr ""
+
+#: ui/preferences.ui:123
+msgid "Create Daily Backups on Save"
+msgstr ""
+
+#: ui/preferences.ui:155
+msgid "Backup Folder"
+msgstr ""
+
+#: ui/preferences.ui:160
+msgid "Select The Folder for Daily Backups"
+msgstr ""
+
+#: ui/preferences.ui:179
+#, fuzzy
+msgid "Locale"
+msgstr "Plaatselijk"
+
+#: ui/preferences.ui:200
+msgid "Date Order and Separator"
+msgstr ""
+
+#: ui/preferences.ui:211
+msgid "Year Month Day"
+msgstr ""
+
+#: ui/preferences.ui:212
+msgid "Day Month Year"
+msgstr ""
+
+#: ui/preferences.ui:213
+msgid "Month Day Year"
+msgstr ""
+
+#: ui/preferences.ui:220
+msgid ". (Dot)"
+msgstr ""
+
+#: ui/preferences.ui:221
+msgid "/ (Slash)"
+msgstr ""
+
+#: ui/preferences.ui:222
+msgid "- (Dash)"
+msgstr ""
+
+#: ui/preferences.ui:242
+msgid "First Day of the Week"
+msgstr ""
+
+#: ui/preferences.ui:283
+msgid "Preferred Units"
+msgstr ""
+
+#: ui/preferences.ui:294
+msgid "Metric"
+msgstr ""
+
+#: ui/preferences.ui:300
+msgid "Imperial"
+msgstr ""
+
+#: ui/preferences.ui:320
+msgid "Appearance"
+msgstr ""
+
+#: ui/preferences.ui:341
+msgid "Prefer Dark Gtk+ Theme"
+msgstr ""
+
+#: ui/print.ui:39
+msgid "What to Print?"
+msgstr ""
+
+#: ui/print.ui:48
+#, fuzzy
+msgid "Only Current Entry"
+msgstr "Huidig wachtwoord:"
+
+#: ui/print.ui:54
+#, fuzzy
+msgid "All Filtered Entries"
+msgstr "Alle bestanden"
+
+#: ui/print.ui:60
+#, fuzzy
+msgid "Entire Diary"
+msgstr "Leeg dagboek"
+
+#: ui/print.ui:66
+msgid "Every Entry Begins on a New Page"
+msgstr ""
+
+#: ui/print.ui:78
+#, fuzzy
+msgid "Text Options"
+msgstr "Actie"
+
+#: ui/print.ui:87
+msgid "Use Theme Fonts in Entries"
+msgstr ""
+
+#: ui/print.ui:101
+#, fuzzy
+msgid "Use Custom Theme Colors"
+msgstr "Aangepast thema gebruiken"
+
+#: ui/print.ui:107
+msgid "Page Margins"
+msgstr ""
+
+#: ui/print.ui:120
+msgid "Full"
+msgstr ""
+
+#: ui/print.ui:126
+msgid "Half"
+msgstr ""
+
+#: ui/table.ui:7
+msgid "Show Order Column"
+msgstr ""
+
+#: ui/table.ui:11
+msgid "Group Lines"
+msgstr ""
+
+#: ui/table.ui:28
+msgid "Copy as Tab Delimited Text"
+msgstr ""
+
+#: ui/table.ui:53
+msgid "Basics"
+msgstr ""
+
+#: ui/table.ui:62
+#, fuzzy
+msgid "Date & Time"
+msgstr "Labelnaam"
+
+#: ui/table.ui:64
+msgid "Size"
+msgstr ""
+
+#: ui/table.ui:65
+#, fuzzy
+msgid "Number"
+msgstr "November"
+
+#: ui/table.ui:66
+msgid "True / False"
+msgstr ""
+
+#: ui/table.ui:67
+#, fuzzy
+msgid "Tag Value"
+msgstr "Labelnaam"
+
+#: ui/table.ui:68
+msgid "Has Which Sub Tag"
+msgstr ""
+
+#: ui/table.ui:69
+#, fuzzy
+msgid "Completion"
+msgstr "Voltooid"
+
+#: ui/table.ui:70
+#, fuzzy
+msgid "Todo Status"
+msgstr "Status"
+
+#: ui/table.ui:71
+#, fuzzy
+msgid "Gantt Chart"
+msgstr "Grafiek"
+
+#: ui/table.ui:72
+msgid "Path Length in Map"
+msgstr ""
+
+#: ui/table.ui:74
+msgid "Arithmetic"
+msgstr ""
+
+#: ui/table.ui:87
+msgid "Sorting"
+msgstr ""
+
+#: ui/table.ui:104
+msgid "Ascending"
+msgstr ""
+
+#: ui/table.ui:111
+msgid "Descending"
+msgstr ""
+
+#: ui/table.ui:120
+msgid "Combine identical cells"
+msgstr ""
+
+#: ui/table.ui:132
+msgid "Extras"
+msgstr ""
+
+#: ui/table.ui:143
+msgid "Get Value From"
+msgstr ""
+
+#: ui/table.ui:153 ui/table.ui:165
+msgid "First Parent Satisfying..."
+msgstr ""
+
+#: ui/table.ui:154 ui/table.ui:166
+msgid "Grandparent"
+msgstr ""
+
+#: ui/table.ui:155 ui/table.ui:167
+#, fuzzy
+msgid "Parent Entry"
+msgstr "Huidig wachtwoord:"
+
+#: ui/table.ui:156 ui/table.ui:168
+msgid "Itself"
+msgstr ""
+
+#: ui/table.ui:157
+msgid "First Paragraph Satisfying..."
+msgstr ""
+
+#: ui/table.ui:158
+msgid "Last Paragraph Satisfying..."
+msgstr ""
+
+#: ui/table.ui:169
+msgid "Previous Paragraph Satisfying..."
+msgstr ""
+
+#: ui/table.ui:170
+msgid "Next Paragraph Satisfying..."
+msgstr ""
+
+#: ui/table.ui:198
+msgid "Show as"
+msgstr ""
+
+#: ui/table.ui:215
+msgid "Satisfying"
+msgstr ""
+
+#: ui/table.ui:232
+msgid "Summary Function"
+msgstr ""
+
+#: ui/table.ui:250
+#, fuzzy
+msgid "Coloring"
+msgstr "Kleur"
+
+#: ui/table.ui:267
+msgid "Negative values are RED"
+msgstr ""
+
+#: ui/table.ui:274
+msgid "From small to big, from RED to GREEN"
+msgstr ""
+
+#: ui/table.ui:281
+msgid "From small to big, from GREEN to RED"
+msgstr ""
+
+#: ui/table.ui:310
+msgid "Move column to left"
+msgstr ""
+
+#: ui/table.ui:320
+msgid "Add a column to left"
+msgstr ""
+
+#: ui/table.ui:326
+#, fuzzy
+msgid "Remove column"
+msgstr "_Verwijder van blad"
+
+#: ui/table.ui:332
+msgid "Add a column to right"
+msgstr ""
+
+#: ui/table.ui:340
+msgid "Move column to right"
+msgstr ""
+
+#: ui/table.ui:380
+#, fuzzy
+msgid "Entry Filter"
+msgstr "Filteren"
+
+#: ui/table.ui:400
+#, fuzzy
+msgid "Paragraph Filter"
+msgstr "Paragraaf"
+
+#: ui/tv_diary.ui:34
+msgid "Expand selection"
+msgstr ""
+
+#: ui/tv_diary.ui:58
+msgid "Cut"
+msgstr ""
+
+#: ui/tv_diary.ui:65
+#, fuzzy
+msgid "Copy"
+msgstr "Groeperen per datum"
+
+#: ui/tv_diary.ui:72
+msgid "Paste"
+msgstr ""
+
+#: ui/tv_diary.ui:83
+msgid "Show more"
+msgstr ""
+
+#: ui/tv_diary.ui:106
+msgid "Bold"
+msgstr ""
+
+#: ui/tv_diary.ui:120
+msgid "Italic"
+msgstr ""
+
+#: ui/tv_diary.ui:132
+msgid "Underlined"
+msgstr ""
+
+#: ui/tv_diary.ui:144
+msgid "Strikethrough"
+msgstr ""
+
+#: ui/tv_diary.ui:174
+msgid "Insert link"
+msgstr ""
+
+#: ui/tv_diary.ui:181
+msgid "Insert smiley"
+msgstr ""
+
+#: ui/tv_diary.ui:188
+msgid "Insert image"
+msgstr ""
+
+#: ui/tv_diary.ui:195 ui/tv_diary.ui:202
+#, fuzzy
+msgid "Insert chart"
+msgstr "Grafiek"
+
+#: ui/tv_diary.ui:225
+msgid "Sentence case"
+msgstr ""
+
+#: ui/tv_diary.ui:236
+#, fuzzy
+msgid "Title Case"
+msgstr "Titel"
+
+#: ui/tv_diary.ui:247
+msgid "lower case"
+msgstr ""
+
+#: ui/tv_diary.ui:258
+msgid "UPPER CASE"
+msgstr ""
+
+#: ui/tv_diary.ui:274
+msgid "Comment"
+msgstr ""
+
+#: ui/tv_diary.ui:284
+#, fuzzy
+msgid "Subscript"
+msgstr "Definitie"
+
+#: ui/tv_diary.ui:296
+#, fuzzy
+msgid "Superscript"
+msgstr "Definitie"
+
+#: ui/tv_diary.ui:324
+msgid "Spelling"
+msgstr ""
+
+#: ui/tv_diary.ui:373
+msgid "Decrease indent"
+msgstr ""
+
+#: ui/tv_diary.ui:404
+msgid "Increase indent"
+msgstr ""
+
+#: ui/tv_diary.ui:422
+msgid "H0"
+msgstr ""
+
+#: ui/tv_diary.ui:423
+msgid "Normal text"
+msgstr ""
+
+#: ui/tv_diary.ui:430
+#, fuzzy
+msgid "Subsubheading"
+msgstr "Subhoofd:"
+
+#: ui/tv_diary.ui:446
+#, fuzzy
+msgid "Subheading"
+msgstr "Subhoofd:"
+
+#: ui/tv_diary.ui:465
+msgid "Plain"
+msgstr ""
+
+#: ui/tv_diary.ui:476
+msgid "To do"
+msgstr ""
+
+#: ui/tv_diary.ui:488
+msgid "In progress"
+msgstr ""
+
+#: ui/tv_diary.ui:531
+msgid "Bullet list"
+msgstr ""
+
+#: ui/tv_diary.ui:543
+#, fuzzy
+msgid "Numbered list"
+msgstr "November"
+
+#: ui/tv_diary.ui:555
+msgid "Letter list"
+msgstr ""
+
+#: ui/tv_diary.ui:567
+#, fuzzy
+msgid "Roman number list"
+msgstr "November"
+
+#: ui/tv_diary.ui:584
+msgid "Use Small Letters"
+msgstr ""
+
+#: ui/tv_diary.ui:604
+msgid "Horizontal Rule"
+msgstr ""
+
+#: ui/tv_diary.ui:621
+msgid "Code"
+msgstr ""
+
+#: ui/tv_diary.ui:638
+msgid "Quotation"
+msgstr ""
+
+#: ui/tv_diary_edit_chart.ui:25
+#, fuzzy
+msgid "Edit Chart"
+msgstr "Hoofdstukken aanpassen"
+
+#: ui/tv_diary_edit_chart.ui:36 ui/tv_diary_edit_image.ui:39
+#: ui/tv_diary_edit_table.ui:36
+#, fuzzy
+msgid "Remove image"
+msgstr "Verwijder Hoofdstuk"
+
+#: ui/tv_diary_edit_chart.ui:54 ui/tv_diary_edit_table.ui:55
+#, fuzzy
+msgid "Open chart"
+msgstr "Nieuw Diagram"
+
+#: ui/tv_diary_edit_chart.ui:71 ui/tv_diary_edit_image.ui:77
+msgid "Smallest"
+msgstr ""
+
+#: ui/tv_diary_edit_chart.ui:83 ui/tv_diary_edit_image.ui:89
+msgid "Biggest"
+msgstr ""
+
+#: ui/tv_diary_edit_image.ui:28
+#, fuzzy
+msgid "Edit Image"
+msgstr "Label bewerken"
+
+#: ui/tv_diary_edit_image.ui:64
+msgid "Open image"
+msgstr ""
+
+#: ui/tv_diary_edit_image.ui:96
+msgid "Copy Image File to rel:/"
+msgstr ""
+
+#: ui/tv_diary_edit_link.ui:19
+#, fuzzy
+msgid "Edit Link"
+msgstr "Bewerkingsdatum"
+
+#: ui/tv_diary_edit_link.ui:30
+#, fuzzy
+msgid "Remove link"
+msgstr "Verwijderen uit lijst"
+
+#: ui/tv_diary_edit_link.ui:63
+msgid "Evaluated"
+msgstr ""
+
+#: ui/tv_diary_edit_link.ui:88
+msgid "Go to link"
+msgstr ""
+
+#: ui/tv_diary_edit_table.ui:25
+#, fuzzy
+msgid "Edit Table"
+msgstr "Label bewerken"
+
+#: ui/tv_diary_edit_table.ui:63
+msgid "Expand All"
+msgstr ""
+
+#: ui/tv_diary_edit_tag.ui:20
+msgid "Edit Tag"
+msgstr "Label bewerken"
+
+#: ui/tv_diary_edit_tag.ui:31
+#, fuzzy
+msgid "Remove tag"
+msgstr "Verwijder Hoofdstuk"
+
+#: ui/tv_diary_edit_tag.ui:49
+#, fuzzy
+msgid "Go to tag"
+msgstr "Ga naar volgende overeenkomst"
+
+#: ui/widget_entry_picker.ui:32
+msgid "Under"
+msgstr ""
+
+#: ui/widget_entry_picker.ui:45
+msgid "Create a new entry (Ctrl + Enter)"
+msgstr ""
+
+#: ui/widget_filter_picker.ui:15
+msgid "label"
+msgstr ""
+
+#: ui/widget_picker.ui:31
+#, fuzzy
+msgid "Add New"
+msgstr "Set_Toevoegen"
+
+#: ui/widget_picker.ui:39
+#, fuzzy
+msgid "Search in the list"
+msgstr "Nieuw filter"
+
+#~ msgid "Chapter"
+#~ msgstr "Hoofdstuk"
+
+#~ msgid "_DISMISS!"
+#~ msgstr "_VERWERP!"
+
+#~ msgid "Select Image File"
+#~ msgstr "Selecteer afbeeldingbestand"
+
+#~ msgid "Chapter with %1 words spanning %2 days in %3"
+#~ msgstr "Hoofdstuk met %1 woorden verspreid over %2 dagen in %3"
+
+#~ msgid "Apply"
+#~ msgstr "Toepassen"
+
+#~ msgid "Is NOT"
+#~ msgstr "Niet"
+
+#~ msgid "Is"
+#~ msgstr "Is"
+
+#~ msgid "Between Dates"
+#~ msgstr "Tussen datums"
+
+#~ msgid "Has Tag"
+#~ msgstr "Heeft Tag"
+
+#~ msgid "Has Theme"
+#~ msgstr "Heeft Thema"
+
+#~ msgid "Start"
+#~ msgstr "Start"
+
+#~ msgid "Chapters:"
+#~ msgstr "Hoofdstukken"
+
+#~ msgid "Add C_hapter"
+#~ msgstr "C_hoofdstuk Toevoegen"
+
+#~ msgid "Untitled chapter"
+#~ msgstr "Onbenoemd hoofdstuk"
+
+#~ msgid "File:"
+#~ msgstr "Bestand:"
+
+#~ msgid "Browse..."
+#~ msgstr "Bladeren…"
+
+#~ msgid "_Add Password"
+#~ msgstr "_Wachtwoord toevoegen"
+
+#~ msgid "C_hange Password"
+#~ msgstr "C_wijzig Wachtwoord"
+
+#~ msgid "<b>Colors:</b>"
+#~ msgstr "<b>Kleuren:</b>"
+
+#~ msgid "Font:"
+#~ msgstr "Lettertype :"
+
+#~ msgid "Edit Theme"
+#~ msgstr "Thema aanpassen"
+
+#~ msgid "Heading:"
+#~ msgstr "Hoofd:"
+
+#~ msgid "Confirm New Password:"
+#~ msgstr "Bevestig nieuw wachtwoord"
+
+#~ msgid "Chapter Sets:"
+#~ msgstr "Hoofdstuk Sets:"
+
+#~ msgid "Unencrypted Diary File"
+#~ msgstr "Niet versleuteld dagboek bestand"
+
+#~ msgid "<i>Untagged Entry</i>"
+#~ msgstr "<i>blad zonder labels</i>"
+
+#~ msgid "_Create A New Diary..."
+#~ msgstr "_Maak een Nieuw Dagboek..."
+
+#~ msgid "_Browse For a Diary..."
+#~ msgstr "_Bladeren Voor een Dagboek..."
+
+#~ msgid "Welcome new user!"
+#~ msgstr "Welkom nieuwe gebruiker!"
+
+#~ msgid "Select or Create a Diary"
+#~ msgstr "Selecteer of Maak een Dagboek"
+
+#~ msgid "Enter text to be filtered"
+#~ msgstr "Geeft tekst in de filter in"
+
+#~ msgid "Found in <b>%1</b> of <b>%2</b> entrie(s)"
+#~ msgstr "Gevonden in <b>%1</b> van de <b>%2</b> bladen"
+
+#~ msgid "<<<%1 SECONDS TO LOG OUT>>>"
+#~ msgstr "<<<%1 SECONDEN VOOR UITLOGGEN>>>"
+
+#~ msgid "Tools"
+#~ msgstr "Hulpmiddelen"
+
+#~ msgid "_Continue"
+#~ msgstr "_Verder"
+
+#~ msgid "Redo"
+#~ msgstr "Opnieuw uitvoeren"
+
+#~ msgid "Go to the next entry in the list"
+#~ msgstr "Ga naar het volgende item in de lijst"
+
+#~ msgid "Next"
+#~ msgstr "Volgende"
+
+#~ msgid "Go to the previous entry in the list"
+#~ msgstr "Ga naar het vorige item in de lijst"
+
+#~ msgid "Today"
+#~ msgstr "Vandaag"
+
+#~ msgid "Go to today (creates a new entry if there isn't any)"
+#~ msgstr "Ga naar vandaag (maakt een nieuw item aan indien er geen bestaat)"
+
+#~ msgid "Diary:"
+#~ msgstr "Dagboek:"
+
+#~ msgid "Diary Files (*.diary)"
+#~ msgstr "Dagboekbestanden (*.diary)"
+
+#~ msgid ""
+#~ "Selected diary is not compatible with this version of Lifeograph. Please "
+#~ "select another file..."
+#~ msgstr ""
+#~ "Het geselecteerde dagboek kan niet geopend worden met deze versie van "
+#~ "Lifeograph. Gelieve een ander bestand te kiezen..."
+
+#~ msgid "Go to previous match"
+#~ msgstr "Ga naar vorige overeenkomst"
+
+#~ msgid "Next Match"
+#~ msgstr "Volgende overeenkomst"
+
+#~ msgid "Previous Match"
+#~ msgstr "Vorige overeenkomst"
+
+#~ msgid ""
+#~ "Knowing others is intelligence;\n"
+#~ "knowing yourself is true wisdom.\n"
+#~ "Mastering others is strength;\n"
+#~ "mastering yourself is true power.\n"
+#~ "\n"
+#~ "<i>--Lao Tzu</i>"
+#~ msgstr ""
+#~ "Anderen kennen is intelligentie,\n"
+#~ "jezelf kennen is ware wijsheid.\n"
+#~ "Meesterschap over anderen is krachtig,\n"
+#~ "meesterschap over jezelf is ware kracht.\n"
+#~ "\n"
+#~ "<i>--Lao Tzu</i>"
+
+#~ msgid "Remove from _Favorites"
+#~ msgstr "Verwijderen uit _Favorieten"
+
+#~ msgid "Failed to open diary. Please select anoter file..."
+#~ msgstr ""
+#~ "Het openen van het dagboek is mislukt. Gelieve een ander bestand te "
+#~ "kiezen..."
+
+#~ msgid "Unencrypted diary. Press OK to open"
+#~ msgstr "Niet versleuteld dagboek. Kies OK om te openen"
+
+#~ msgid "_Delete Tag"
+#~ msgstr "_Verwijder label"
+
+#~ msgid "Are you sure, you want to delete selected tag?"
+#~ msgstr "Bent u zeker dat u het geselecteerde label wilt verwijderen?"
+
+#~ msgid "Are you sure, you want to dismiss?"
+#~ msgstr "Bent u zeker dat u dit wenst te verwerpen?"
+
+#~ msgid "Add to _Favorites"
+#~ msgstr "Toevoegen aan _Favorieten"
+
+#~ msgid "Launchpad Page"
+#~ msgstr "Launchpad Pagina"
+
+#~ msgid "Log out"
+#~ msgstr "Afmelden"
+
+#~ msgid "Replace all matches throughout entire diary"
+#~ msgstr "Vervang overeenkomsten in het hele dagboek"
+
+#~ msgid "Replace selected (if any) or next match"
+#~ msgstr ""
+#~ "Vervang het geselecteerde (indien van toepassing) of de volgende "
+#~ "overeenkomst"
+
+#~ msgid "_Edit Tag"
+#~ msgstr "_Aanpassen Label"
+
+#~ msgid ""
+#~ "You are about to open an old diary that has to be upgraded to the new "
+#~ "format. \n"
+#~ "\n"
+#~ "It is STRONGLY recommended to back up any diary before upgrading.\n"
+#~ "\n"
+#~ "After you upgrade a diary, you won't be able to open it in a previous "
+#~ "version of Lifeograph."
+#~ msgstr ""
+#~ "U staat op het punt een oud dagboek te openen dat moet worden geupgrade "
+#~ "naar het nieuwe formaat.\n"
+#~ "\n"
+#~ "Het is TEN STERKSTE aangeraden om een reservekopij te maken van uw "
+#~ "dagboek alvorens u de upgrade uitvoert.\n"
+#~ "\n"
+#~ "Na het upgraden van uw dagboek zal u het niet meer kunnen openen in een "
+#~ "vorige versie van Lifeograph."
+
+#~ msgid "<i>Untagged</i>"
+#~ msgstr "<i>Ongelabeld</i>"
+
+#~ msgid "<i>Earlier Entries</i>"
+#~ msgstr "<i>Eerdere bladen</i>"
+
+#~ msgid ""
+#~ "%1\n"
+#~ "\n"
+#~ "%2 Entries"
+#~ msgstr ""
+#~ "%1\n"
+#~ "\n"
+#~ "%2 Bladen"
+
+#~ msgid ""
+#~ "Your changes will be backed up in \"%1.~backup~\". If you exit normally, "
+#~ "your diary is saved automatically."
+#~ msgstr ""
+#~ "Een backup van uw aanpassingen zal in \"%1.~backup~\" geplaatst worden. "
+#~ "Indien u de toepassing normaal verlaat, wordt uw dagboek automatisch "
+#~ "opgeslaan."
+
+#~ msgid "Group by Chapters: %1"
+#~ msgstr "Groeperen per hoofdstuk: %1"
+
+#~ msgid "_Change Password..."
+#~ msgstr "_Aanpassen wachtwoord"
+
+#~ msgid "Log out Automatically on _Idle"
+#~ msgstr "Automatisch afmelden _indien even niet gebruikt"
+
+#~ msgid "_Edit Chapters..."
+#~ msgstr "_Aanpassen hoofdstukken..."
+
+#~ msgid "E_xport/Backup Current Diary..."
+#~ msgstr "E_xporteren/Reservekopij nemen Huidig Dagboek..."

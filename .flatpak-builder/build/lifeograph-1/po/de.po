@@ -1,0 +1,3373 @@
+# German translation for lifeograph
+# Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
+# This file is distributed under the same license as the lifeograph package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lifeograph\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-03 21:59+0300\n"
+"PO-Revision-Date: 2017-06-20 16:55+0000\n"
+"Last-Translator: Dave Tuchovski <Unknown>\n"
+"Language-Team: German <de@li.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2018-09-30 15:40+0000\n"
+"X-Generator: Launchpad (build 18783)\n"
+
+#: net.sourceforge.Lifeograph.desktop.in:5
+#: net.sourceforge.Lifeograph.metainfo.xml.in:7
+msgid "Lifeograph"
+msgstr "Lifeograph"
+
+#: net.sourceforge.Lifeograph.desktop.in:6 src/diaryelements/diarydata.cpp:77
+msgid "Diary"
+msgstr "Tagebuch"
+
+#: net.sourceforge.Lifeograph.desktop.in:7
+msgid "Keep a private journal of your life"
+msgstr "Führe ein privates Tagebuch über dein Leben"
+
+#: net.sourceforge.Lifeograph.desktop.in:8
+msgid "journal;note;to-do;tag;statistics;"
+msgstr "Notiz;Stichwort;Statistik;"
+
+#: net.sourceforge.Lifeograph.desktop.in:19
+msgid "Open a New Window"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.desktop.in:23
+msgid "Open a New Read-Only Window"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:8
+msgid "Advanced personal note taking application"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:11
+msgid ""
+"Lifeograph is a powerful note-taking application that can be used to keep an "
+"encrypted diary, to plan a journey, to manage todos and long term goals, to "
+"write down ideas in an organized way, to track regular activities and many "
+"more. Lifeograph strives to deliver an abundance of advanced features in a "
+"clean and streamlined user interface."
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:17
+msgid "Main features of Lifeograph:"
+msgstr "Hauptmerkmale von Lifeograph"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:21
+msgid "Completely local workflow: all data is owned solely by the user"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:22
+msgid "Encrypted (with AES256) and unencrypted diaries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:23
+msgid "Powerful and intuitive parametric tagging system"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:24
+msgid "Todo management system"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:25
+msgid ""
+"WYSIWYG rich text formatting (i.e. no separate edit &amp; preview modes)"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:26
+msgid "Image thumbnails, tables, and charts in entries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:27
+msgid "Searching and replacing of text"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:28
+msgid "Advanced filtering of entries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:29
+msgid "Integrated map for travel notes and planning"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:30
+msgid ""
+"Live tables that are created on the fly based on the user defined rules "
+"which can also be pasted into spread-sheet programs"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:31
+msgid "Live statistical charts that are created from the values in the tables"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:32
+msgid "Themes in text editor, including background images"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:33
+msgid "Favorite entries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:34
+msgid "Spell checking"
+msgstr "Rechtschreibprüfung"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:35
+msgid "Links between entries and to URIs"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:36
+msgid ""
+"Automatically created back-links to entries referring to the current entry"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:37
+msgid "Printing individual entries or whole diaries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:38
+msgid ""
+"Automatically logs out when not used for some time (to protect your diary "
+"when you forget to log out)"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:39
+msgid "Multiple automatic backups to prevent data loss"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:45
+msgid "Editing screen"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:49
+msgid "Integrated map"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:53 ui/lifeograph.ui:573
+msgid "Charts"
+msgstr "Grafiken"
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:65
+msgid ""
+"New main icon that reflects the improved functionality as a second brain"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:66
+msgid "UI upgraded to GTK4 replacing the deprecated UI elements with new ones"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:67
+msgid ""
+"All file I/O is moved to Gio for compatibility with network addresses and "
+"virtual drives, etc..."
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:68
+msgid ""
+"Wiki style formatting markup is largely omitted in favor of a WYSIWYG style "
+"formatting system [[inline comments are an exception]]"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:69
+msgid ""
+"Paragraph folding that creates folds automatically based on heading and "
+"indentation levels"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:70
+msgid ""
+"New references button that pops up a list of referencing entries/paragraphs "
+"for the current entry (a.k.a back-links)"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:71
+msgid ""
+"Context-sensitive right-click menu that displays specific options for tags, "
+"images, dates, etc. based on the cursor location"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:72
+msgid "Tables can also be inserted into the entries now"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:73
+msgid "Added buttons for visiting link items to the right-click popover menu"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:74
+msgid "Added horizontal rules which can also be combined with text"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:75
+msgid ""
+"Entries can now be ordered, grouped, and arranged freely, irrespective of "
+"the their types"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:76
+msgid "Added an option to merge selected entries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:77
+msgid "Added many new filterers"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:78
+msgid "All filters can be negated now"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:79
+msgid "Table columns are resizable now"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:80
+msgid "Many new column types added"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:81
+msgid "Group lines in a hierarchical view by any column"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:82
+msgid "Conditional coloring of cell values"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:83
+msgid "Completion columns show a progress bar in the background"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:84
+msgid ""
+"Option to combine identical consequent cells in a column to get cleaner "
+"tables"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:85
+msgid "Added a new vertical bars style to charts"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:86
+msgid ""
+"A basic inline table was added to allow creation of basic charts without "
+"creating a table first"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:87
+msgid "Added navigation icons to the calendar widget"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:88
+msgid "Added the ability to mark custom days as holidays"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:89
+msgid "Added the ability to change the first day of the week"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:90
+msgid "Searching is multi-threaded now for speed gains and responsiveness"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:91
+msgid "Migrated from libchamplain to libshumate which also works under Windows"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:92
+msgid "Many many more. See the NEWS for a complete list"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:97
+#: net.sourceforge.Lifeograph.metainfo.xml.in:104
+#: net.sourceforge.Lifeograph.metainfo.xml.in:110
+msgid "Bug fixes"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:98
+msgid "Added Danish translation"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:99
+msgid "Updated Simplified Chinese, Dutch, French, and Italian translations"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:105
+msgid "Updated Italian translation"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:115
+msgid "Unified different elements such as chapters and tags into entry"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:116
+msgid "New inline tags that are assigned to the paragraphs as well as entries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:117
+msgid "New integrated map to assign locations and travel paths to entries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:118
+msgid "New custom calendar widget that integrates with the program more nicely"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:119
+msgid "New table view for very basic spreadsheet like functionality"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:120
+msgid "Completion percentages for entries"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:121
+msgid "Support for background images in the entry editor"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:122
+msgid "a new toolbar-like right-click popover that replaced the toolbar"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:123
+msgid "Vastly more capable text search and entry list filtering"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:124
+msgid "Printing system improvements"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:125
+msgid "Both functionally and visually improved charts"
+msgstr ""
+
+#: net.sourceforge.Lifeograph.metainfo.xml.in:126
+msgid "Many many more"
+msgstr ""
+
+#: x-lifeographdiary.xml.in:4
+msgid "Lifeograph diary"
+msgstr "Lifeograph Tagebuch"
+
+#: src/app_window.cpp:637
+msgid "%1 SECONDS TO CLOSE"
+msgstr "%1 SEKUNDEN BIS ZUM SCHLIESSEN"
+
+#: src/app_window.cpp:692
+msgid "Diary couldn't be saved. A rescue copy is saved at the location below:"
+msgstr ""
+
+#: src/app_window.cpp:694 src/printing.cpp:301
+msgid "_Close"
+msgstr ""
+
+#: src/app_window.cpp:702
+msgid "Are you sure you want to close the diary without saving?"
+msgstr "Willst du dich wirklich schließen, ohne zu speichern?"
+
+#: src/app_window.cpp:705
+msgid ""
+"Your changes will be backed up in %1. If you exit normally, your diary is "
+"saved automatically."
+msgstr ""
+"Deine Änderungen werden in %1 gespeichert. Wenn du normal beendest, wird "
+"dein Tagebuch automatisch gespeichert."
+
+#: src/app_window.cpp:710
+msgid "Close _without Saving"
+msgstr "_Schließen ohne zu Speichern"
+
+#: src/app_window.cpp:779
+msgid "Are you sure, you want to dismiss %1?"
+msgstr "Sicher, dass %1 gelöscht werden soll?"
+
+#. must come before add_extra_info
+#: src/app_window.cpp:784
+msgid "This operation cannot be undone!"
+msgstr "Diese Handlung kann nicht rückgängig gemacht werden"
+
+#: src/app_window.cpp:785
+msgid "_Dismiss"
+msgstr "_Verwerfen"
+
+#: src/dialogs/dialog_export.cpp:275
+msgid "Lifeograph Diary File"
+msgstr "Lifeograph Tagebuch Datei"
+
+#: src/dialogs/dialog_export.cpp:323
+msgid "Where to Save the Diary File?"
+msgstr "Wo soll das Tagebuchdatei gespeichert werden?"
+
+#: src/dialogs/dialog_export.cpp:341
+msgid "Plain Text File"
+msgstr "Einfache Textdatei"
+
+#. TRANSLATORS: this is the title of file chooser dialog for saving a new diary
+#: src/dialogs/dialog_export.cpp:352
+msgid "Where to Save the Text File?"
+msgstr "Wo soll die Textdatei gespeichert werden?"
+
+#: src/dialogs/dialog_password.cpp:121
+msgid "Continue"
+msgstr "Fortsetzen"
+
+#: src/dialogs/dialog_password.cpp:124
+msgid "Add Password"
+msgstr "Passwort hinzufügen"
+
+#: src/dialogs/dialog_password.cpp:127
+msgid "Change Password"
+msgstr "Passwort ändern"
+
+#: src/dialogs/dialog_password.cpp:141 ui/lifeograph.ui:901
+msgid "Please enter password"
+msgstr "Bitte Password eingeben"
+
+#: src/dialogs/dialog_password.cpp:144
+msgid "Please enter a new password"
+msgstr "Bitte ein neues Passwort eingeben"
+
+#: src/dialogs/dialog_password.cpp:147
+msgid "Please enter the current and new passwords"
+msgstr "Bitte aktuelles und neues Passwort eingeben"
+
+#: src/dialogs/dialog_password.cpp:233
+msgid "Wrong password. Please retry..."
+msgstr "Falsches Passwort, bitte wiederholen..."
+
+#: src/dialogs/dialog_sync.cpp:82 src/dialogs/dialog_sync.cpp:165
+#: src/strings.hpp:180 src/ui_login.cpp:64 ui/lifeograph.ui:1054 ui/table.ui:42
+msgid "Name"
+msgstr "Name"
+
+#: src/dialogs/dialog_sync.cpp:83
+msgid "Status"
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:85
+msgid "Action"
+msgstr "Aktion"
+
+#: src/dialogs/dialog_sync.cpp:87
+msgid "Local"
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:88
+msgid "Remote"
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:191
+msgid "Click to select a diary file..."
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:251
+msgid "Select a diary file for synchronizing"
+msgstr "Wählen Sie eine Tagebuchdatei zur Synchronisierung aus"
+
+#: src/dialogs/dialog_sync.cpp:280
+msgid "Selected file does not seem to be a valid diary"
+msgstr "Ausgewählte Datei scheint kein gültiges Tagebuchformat zu haben."
+
+#: src/dialogs/dialog_sync.cpp:284 src/dialogs/dialog_sync.cpp:299
+msgid "Selected file cannot be read"
+msgstr "Ausgewählte Datei kann nicht eingelesen werden."
+
+#: src/dialogs/dialog_sync.cpp:326
+msgid "Please select what to import/sync and press Go"
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:649 src/strings.hpp:186
+msgid "Options"
+msgstr "Einstellungen"
+
+#: src/dialogs/dialog_sync.cpp:699
+msgid "DIARY"
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:700
+msgid "ENTRIES"
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:701
+msgid "THEMES"
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:702
+msgid "FILTERS"
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:703
+msgid "CHARTS"
+msgstr ""
+
+#: src/dialogs/dialog_sync.cpp:704
+msgid "TABLES"
+msgstr ""
+
+#. chapter category
+#: src/diaryelements/diary.cpp:1319 src/diaryelements/diary.cpp:1687
+#: src/diaryelements/diary.cpp:1694
+msgid "Chapter Category:"
+msgstr "Kapitel-Kategorie:"
+
+#: src/diaryelements/diary.cpp:2954
+msgid "New Entry"
+msgstr "Neuer Eintrag"
+
+#: src/diaryelements/diarydata.cpp:76 src/strings.hpp:193 ui/table.ui:73
+msgid "Theme"
+msgstr "Stil"
+
+#: src/diaryelements/diarydata.cpp:76
+msgid "Filter"
+msgstr "Filter"
+
+#: src/diaryelements/diarydata.cpp:76
+msgid "Chart"
+msgstr "Grafik"
+
+#: src/diaryelements/diarydata.cpp:76 ui/chart.ui:108
+msgid "Table"
+msgstr "Tabelle"
+
+#: src/diaryelements/diarydata.cpp:77 src/strings.hpp:208 ui/table.ui:366
+msgid "Paragraph"
+msgstr "Absatz"
+
+#: src/diaryelements/diarydata.cpp:77 ui/table.ui:361
+#: ui/tv_diary_edit_link.ui:75
+msgid "Entry"
+msgstr "Eintrag"
+
+#: src/diaryelements/entry.cpp:1536
+msgid "Created"
+msgstr "Erstellt"
+
+#: src/diaryelements/entry.cpp:1537
+msgid "Edited"
+msgstr "Bearbeitet"
+
+#: src/diaryelements/entry.cpp:1539 ui/table.ui:63
+msgid "Duration"
+msgstr "Dauer"
+
+#: src/helpers.cpp:292
+msgid "day(s)"
+msgstr "Tag(e)"
+
+#: src/helpers.cpp:751
+msgid "FAILED"
+msgstr "FEHLGESCHLAGEN"
+
+#: src/helpers.cpp:1794 src/helpers.cpp:1817
+msgid "All Files"
+msgstr "Alle Dateien"
+
+#: src/helpers.cpp:1819
+msgid "Image Files"
+msgstr "Bilddateien"
+
+#: src/helpers.cpp:1840
+msgid "Diary files"
+msgstr "Tagebuchdateien"
+
+#: src/helpers.hpp:871
+msgid "_Cancel"
+msgstr "_Abbrechen"
+
+#: src/lifeograph.cpp:56
+msgid "Name Only"
+msgstr "Nur Name"
+
+#: src/lifeograph.cpp:57
+msgid "Name - Description"
+msgstr "Name - Beschreibung"
+
+#: src/lifeograph.cpp:58
+msgid "Number - Name"
+msgstr "Nummer - Name"
+
+#: src/lifeograph.cpp:59
+msgid "Date - Name"
+msgstr "Datum - Name"
+
+#: src/lifeograph.cpp:60
+msgid "Milestone"
+msgstr "Meilenstein"
+
+#: src/printing.cpp:301
+msgid "Printing failed"
+msgstr "Drucken fehlgeschlagen"
+
+#: src/strings.hpp:143 ui/dlg_sync.ui:292 ui/dlg_sync.ui:319
+msgid "ADD"
+msgstr "HINZUFÜGEN"
+
+#: src/strings.hpp:144
+msgid "All Entries"
+msgstr "Alle Einträge"
+
+#: src/strings.hpp:145
+msgid "All Paragraphs"
+msgstr "Alle Absätze"
+
+#: src/strings.hpp:146 ui/po_entry.ui:124
+msgid "Auto"
+msgstr "Automatisch"
+
+#: src/strings.hpp:147 ui/chart.ui:215
+msgid "Average"
+msgstr "Durchschnittlich"
+
+#: src/strings.hpp:148
+msgid "Background Image"
+msgstr "Hintergrundbild"
+
+#: src/strings.hpp:149
+msgid "Boolean"
+msgstr "Boolescher Wert"
+
+#: src/strings.hpp:150 ui/po_entry.ui:159 ui/tv_diary.ui:512
+msgid "Canceled"
+msgstr "Storniert"
+
+#: src/strings.hpp:151
+msgid "Category"
+msgstr "Kategorie"
+
+#: src/strings.hpp:152
+msgid "CHANGED"
+msgstr "GEÄNDERT"
+
+#: src/strings.hpp:153
+msgid "Chart Intervals"
+msgstr ""
+
+#: src/strings.hpp:154
+msgid "Chart Underlay"
+msgstr ""
+
+#: src/strings.hpp:155 ui/po_entry.ui:196
+msgid "Color"
+msgstr "Farbe"
+
+#: src/strings.hpp:156 ui/po_entry.ui:271
+msgid "Comment Style"
+msgstr "Kommentarstil"
+
+#: src/strings.hpp:157 ui/lifeograph.ui:143
+msgid "Completion Tag"
+msgstr "Fertigstellung Stichwort"
+
+#: src/strings.hpp:158 ui/col_opt_duration.ui:22 ui/col_opt_duration.ui:48
+#: ui/col_opt_date.ui:22
+msgid "Creation Date"
+msgstr "Erstellungsdatum"
+
+#: src/strings.hpp:159
+msgid "Cumulative"
+msgstr "Kumulativ"
+
+#: src/strings.hpp:160
+msgid "Current Entry"
+msgstr "Aktueller Eintrag"
+
+#: src/strings.hpp:161
+msgid "Current Entry + Descendants"
+msgstr "Aktueller Eintrag + Nachkommen"
+
+#: src/strings.hpp:162
+msgid "Date"
+msgstr "Datum"
+
+#: src/strings.hpp:163
+msgid "Definition"
+msgstr "Beschreibung"
+
+#: src/strings.hpp:164
+msgid "DELETED"
+msgstr "GELÖSCHT"
+
+#: src/strings.hpp:165 ui/po_entry.ui:151 ui/tv_diary.ui:500
+msgid "Done"
+msgstr "Erledigt"
+
+#: src/strings.hpp:166 ui/tv_diary_edit_date.ui:19
+msgid "Edit Date"
+msgstr "Datum Bearbeiten"
+
+#: src/strings.hpp:167 ui/po_entry.ui:168
+msgid "Favorite"
+msgstr "Favorit"
+
+#: src/strings.hpp:168
+msgid "List Filter"
+msgstr "Listenfilter"
+
+#: src/strings.hpp:169
+msgid "Search Filter"
+msgstr "Suchfilter"
+
+#: src/strings.hpp:170
+msgid "Format"
+msgstr "Format"
+
+#: src/strings.hpp:171
+msgid "ID"
+msgstr ""
+
+#: src/strings.hpp:172 ui/dlg_sync.ui:286 ui/dlg_sync.ui:313
+msgid "IGNORE"
+msgstr "IGNORIEREN"
+
+#: src/strings.hpp:173
+msgid "INTACT"
+msgstr "INTAKT"
+
+#: src/strings.hpp:174
+msgid "Language"
+msgstr "Sprache"
+
+#: src/strings.hpp:175
+msgid "Last Entry"
+msgstr "Letzter Eintrag"
+
+#: src/strings.hpp:176
+msgid "Location"
+msgstr "Speicherort"
+
+#: src/strings.hpp:177
+msgid "Map Path"
+msgstr "Kartenpfad"
+
+#: src/strings.hpp:178
+msgid "Monthly"
+msgstr "Monatlich"
+
+#: src/strings.hpp:179
+msgid "N/A"
+msgstr "N/A"
+
+#: src/strings.hpp:181
+msgid "NEW"
+msgstr "NEU"
+
+#: src/strings.hpp:182
+msgid "New Column"
+msgstr "Neue Spalte"
+
+#: src/strings.hpp:183 ui/lifeograph.ui:519
+msgid "New Table"
+msgstr "Neue Tabelle"
+
+#: src/strings.hpp:184
+msgid "No"
+msgstr "Keine"
+
+#: src/strings.hpp:185 src/widgets/widget_chart.cpp:312
+#: src/widgets/widget_chart.cpp:339 src/widgets/widget_chart.cpp:401
+#: ui/widget_entry_picker.ui:38
+msgid "None"
+msgstr "Keine"
+
+#: src/strings.hpp:187
+msgid "OTHER"
+msgstr "ANDERE"
+
+#: src/strings.hpp:188 ui/dlg_sync.ui:298
+msgid "OVERWRITE"
+msgstr "ÜBERSCHREIBEN"
+
+#: src/strings.hpp:189
+msgid "Progressed"
+msgstr "Fortgeschritten"
+
+#: src/strings.hpp:190
+msgid "Startup Entry"
+msgstr "Starteintrag"
+
+#: src/strings.hpp:191
+msgid "Title Style"
+msgstr "Titelstil"
+
+#: src/strings.hpp:192
+msgid "Type Name"
+msgstr "Typname"
+
+#: src/strings.hpp:194
+msgid "Theme Base"
+msgstr ""
+
+#: src/strings.hpp:195
+msgid "Theme Font"
+msgstr "Thema Schriftart"
+
+#: src/strings.hpp:196
+msgid "Theme Heading"
+msgstr "Thema Überschrift"
+
+#: src/strings.hpp:197
+msgid "Theme Highlight"
+msgstr ""
+
+#: src/strings.hpp:198
+msgid "Theme Subheading"
+msgstr "Stil Untertitel"
+
+#: src/strings.hpp:199
+msgid "Theme Text"
+msgstr "Thema Text"
+
+#: src/strings.hpp:200
+msgid "Todo"
+msgstr "Aufgabe"
+
+#: src/strings.hpp:201
+msgid "Trashed"
+msgstr "im Papierkorb"
+
+#: src/strings.hpp:202 ui/po_entry.ui:214
+msgid "Unit"
+msgstr "Einheit"
+
+#: src/strings.hpp:203
+msgid "Value Type"
+msgstr "Werttyp"
+
+#: src/strings.hpp:204
+msgid "Yearly"
+msgstr "Jährlich"
+
+#: src/strings.hpp:205
+msgid "Yes"
+msgstr "Ja"
+
+#: src/strings.hpp:207 ui/col_opt_tag_value.ui:13 ui/col_opt_tag_value.ui:20
+msgid "Tag"
+msgstr "Stichwort"
+
+#: src/strings.hpp:213
+msgid "January"
+msgstr "Januar"
+
+#: src/strings.hpp:214
+msgid "February"
+msgstr "Februar"
+
+#: src/strings.hpp:215
+msgid "March"
+msgstr "März"
+
+#: src/strings.hpp:216
+msgid "April"
+msgstr "April"
+
+#: src/strings.hpp:217
+msgid "May"
+msgstr "Mai"
+
+#: src/strings.hpp:218
+msgid "June"
+msgstr "Juni"
+
+#: src/strings.hpp:219
+msgid "July"
+msgstr "Juli"
+
+#: src/strings.hpp:220
+msgid "August"
+msgstr "August"
+
+#: src/strings.hpp:221
+msgid "September"
+msgstr "September"
+
+#: src/strings.hpp:222
+msgid "October"
+msgstr "Oktober"
+
+#: src/strings.hpp:223
+msgid "November"
+msgstr "November"
+
+#: src/strings.hpp:224
+msgid "December"
+msgstr "Dezember"
+
+#: src/strings.hpp:229 ui/preferences.ui:250
+msgid "Sunday"
+msgstr ""
+
+#: src/strings.hpp:230 ui/preferences.ui:251
+msgid "Monday"
+msgstr ""
+
+#: src/strings.hpp:231 ui/preferences.ui:252
+msgid "Tuesday"
+msgstr ""
+
+#: src/strings.hpp:232 ui/preferences.ui:253
+msgid "Wednesday"
+msgstr ""
+
+#: src/strings.hpp:233 ui/preferences.ui:254
+msgid "Thursday"
+msgstr ""
+
+#: src/strings.hpp:234 ui/preferences.ui:255
+msgid "Friday"
+msgstr ""
+
+#: src/strings.hpp:235 ui/preferences.ui:256
+msgid "Saturday"
+msgstr ""
+
+#: src/strings.hpp:246 ui/lifeograph-2.ui:154
+msgid "Personal, digital diary"
+msgstr "Persönliches, digitales Tagebuch"
+
+#: src/strings.hpp:249
+msgid "Changes could not be written to diary!"
+msgstr "Die Veränderungen konnten nicht in das Tagebuch übernommen werden!"
+
+#: src/strings.hpp:252
+msgid "Check if you have write permissions on the file and containing folder"
+msgstr ""
+"Überprüfe bitte, ob du Schreibzugriff auf die Datei und den beinhaltenden "
+"Ordner hast"
+
+#: src/strings.hpp:256 ui/print.ui:132 ui/table.ui:97 ui/table.ui:260
+msgid "Off"
+msgstr "Aus"
+
+#. TRANSLATORS: title of an empty diary entry
+#: src/strings.hpp:260
+msgid "<empty entry>"
+msgstr "<Leerer Eintrag>"
+
+#: src/strings.hpp:263
+msgid "Please enter password for selected diary..."
+msgstr "Bitte Passwort für das ausgewählte Tagebuch eingeben..."
+
+#: src/strings.hpp:266
+msgid "Program logged out to protect your privacy. Please re-enter password..."
+msgstr ""
+"Das Programm hat dich ausgeloggt, um deine Privatsphäre zu schützen. Bitte "
+"gebe dein Passwort nochmal ein..."
+
+#: src/strings.hpp:270
+msgid ""
+"Selected diary is in an older format which is not compatible with this "
+"version of Lifeograph. Please select another file..."
+msgstr ""
+"Das ausgewählte Tagebuch ist in einem älteren Format, das nicht mit dieser "
+"Version von Lifeograph kompatibel ist. Wähle bitte eine andere Datei..."
+
+#: src/strings.hpp:275
+msgid ""
+"Selected diary is in a newer format which is not compatible with this "
+"version of Lifeograph. Please consider upgrading your program."
+msgstr ""
+"Das ausgewählte Tagebuch ist in einem neueren Format, das nicht mit dieser "
+"Version von Lifeograph kompatibel ist. Installiere eine neuere Version, um "
+"die Datei zu öffnen."
+
+#: src/strings.hpp:280
+msgid ""
+"Selected file is not a valid Lifeograph diary. Please select another file..."
+msgstr ""
+"Die ausgewählte Datei ist kein gültiges Lifeograph Tagebuch. Bitte wähle "
+"eine andere Datei aus..."
+
+#: src/strings.hpp:285
+msgid "Selected file is not found. Please select another file..."
+msgstr ""
+"Die ausgewählte Datei nicht gefunden. Bitte wähle eine andere Datei aus..."
+
+#: src/strings.hpp:289
+msgid ""
+"Selected file is not readable. Please check file permissions or select "
+"another file..."
+msgstr ""
+"Die ausgewählte Datei kann nicht gelesen werden. Bitte wähle eine andere "
+"Datei aus..."
+
+#: src/strings.hpp:293
+msgid "You do not have permission to change this file."
+msgstr ""
+
+#: src/strings.hpp:296
+msgid ""
+"Selected file is locked which means either it is being edited by another "
+"instance of Lifeograph or the last session with it did not finish correctly. "
+"This file cannot be opened as long as the lock file (%1) is there."
+msgstr ""
+"Die Datei ist gesperrt, d.h. sie wird entweder von einer anderen Instanz von "
+"Lifeograph bearbeitet oder die letzte Sitzung wurde nicht korrekt beendet. "
+"Diese Datei kann nicht geöffnet werden, solange die Sperrdatei (%1) "
+"vorhanden ist."
+
+#: src/strings.hpp:303
+msgid ""
+"You are about to open an old diary that will be upgraded to the new format.\n"
+"\n"
+"Lifeograph will create a backup copy of the current diary for you in the "
+"same directory. Please keep that copy until you are sure that everything is "
+"all right."
+msgstr ""
+"Du bist dabei, ein altes Tagebuch zu öffnen, das in das neue Format von "
+"Lifeograph konvertiert wird.\n"
+"\n"
+"Lifeograph wird eine Sicherungskopie des altes Tagebuches anfertigen und "
+"diese im gleichen Verzeichnis speichern. Hebe bitte diese Kopie auf, bis Du "
+"völlig sicher bist, dass alles in Ordnung ist."
+
+#: src/strings.hpp:309
+msgid "Failed to open diary. Please select another file..."
+msgstr ""
+"Beim Öffnen des Tagebuchs ist ein Fehler aufgetreten. Bitte wähle eine "
+"andere Datei aus..."
+
+#: src/strings.hpp:313
+msgid "Press Open to continue"
+msgstr "Drücke Öffnen, um fortzufahren"
+
+#: src/strings.hpp:316
+msgid "Last Read"
+msgstr "Zuletzt gelesen"
+
+#: src/strings.hpp:319
+msgid "Last Saved"
+msgstr "Zuletzt gespeichert"
+
+#: src/strings.hpp:322
+msgid "(Drop a tag here to filter)"
+msgstr "(Hier ein Stichwort ablegen um zu filtern)"
+
+#: src/strings.hpp:325 ui/lifeograph.ui:90
+msgid "Change Password..."
+msgstr "Passwort ändern..."
+
+#. TRANSLATORS: e.g. Tag with 5 entries
+#: src/strings.hpp:329
+msgid "%1 with %2 entrie(s)"
+msgstr "%1 mit %2 Einträgen"
+
+#: src/strings.hpp:332
+msgid "Tag with %1 entrie(s). Average value = %2"
+msgstr "Stichwort mit %1 Einträgen. Durchschnittlicher Wert = %2"
+
+#: src/strings.hpp:335
+msgid "Tag with %1 entrie(s). Total value = %2"
+msgstr "Stichwort mit %1 Einträgen. Gesamter Wert = %2"
+
+#: src/strings.hpp:338
+msgid "New theme"
+msgstr "Neuer Stil"
+
+#: src/strings.hpp:341
+msgid "New chapter"
+msgstr "Neuer Abschnitt"
+
+#: src/strings.hpp:344
+msgid "New category"
+msgstr "Neue Kategorie"
+
+#: src/strings.hpp:347
+msgid "Default"
+msgstr "Standard"
+
+#: src/strings.hpp:350
+msgid "<Default>"
+msgstr "<Standard>"
+
+#: src/strings.hpp:353
+msgid "Diary Report"
+msgstr "Tagebuchbericht"
+
+#: src/ui_diary.cpp:484
+msgid "Are You Sure You Want to Upgrade The Diary?"
+msgstr "Bist du sicher, dass du das Tagebuch upgraden willst?"
+
+#: src/ui_diary.cpp:486
+msgid "Upgrade The Diary"
+msgstr "Aktualisiere das Tagebuch"
+
+#. this should never occur?
+#: src/ui_diary.cpp:502
+msgid "Cannot edit a read-only diary"
+msgstr ""
+
+#: src/ui_diary.cpp:730
+msgid "Are You Sure You Want to Empty The Trash?"
+msgstr "Möchten Sie den Papierkorb Wirklich Leeren?"
+
+#: src/ui_diary.cpp:731
+msgid "Empty The Trash"
+msgstr "Papierkorb Leeren"
+
+#: src/ui_entry.cpp:330
+msgid "word(s)"
+msgstr "Wort(er)"
+
+#: src/ui_entry.cpp:540
+msgid "Also dismiss child entries"
+msgstr "Auch untergeordnete Einträge verwerfen"
+
+#: src/ui_extra.cpp:134 src/ui_extra.cpp:136 ui/lifeograph.ui:584
+msgid "New Chart"
+msgstr "Neue Grafik"
+
+#: src/ui_extra.cpp:589
+msgid "<b>%1</b> instances found"
+msgstr ""
+
+#: src/ui_extra.cpp:592
+msgid "Search text within entries"
+msgstr ""
+
+#: src/ui_login.cpp:242
+msgid "Error querying file"
+msgstr ""
+
+#: src/ui_login.cpp:484
+msgid "Removed diary: %1"
+msgstr "Tagebuch entfernt: %1"
+
+#: src/ui_login.cpp:486
+msgid "Undo"
+msgstr ""
+
+#: src/ui_login.cpp:502
+msgid "Where to Save the New Diary?"
+msgstr "Wo soll das Tagebuch gespeichert werden?"
+
+#: src/ui_login.cpp:523
+msgid "Select the Diary File to Add"
+msgstr "Wählen Sie die Tagebuchdatei zum Hinzufügen aus"
+
+#: src/ui_login.cpp:531
+msgid "Unsaved changes from the last session detected"
+msgstr "Nicht gespeicherte Änderungen aus der letzten Sitzung erkannt"
+
+#: src/ui_login.cpp:532
+msgid "_Discard Unsaved Changes"
+msgstr "Nicht Gespeicherte Änderungen _Verwerfen"
+
+#: src/ui_login.cpp:535
+msgid "Continue with _Unsaved Changes"
+msgstr ""
+
+#: src/widgets/calendar.cpp:105
+msgid "DATE IS NOT SET"
+msgstr ""
+
+#: src/widgets/chart.cpp:574
+msgid "INSUFFICIENT DATA"
+msgstr "ZU WENIGE DATEN"
+
+#: src/widgets/table.cpp:490
+msgid "ADD COLUMNS"
+msgstr ""
+
+#: src/widgets/widget_chart.cpp:315
+msgid "Previous Year"
+msgstr "Vorjahr"
+
+#: src/widgets/widget_chart.cpp:398
+msgid "Count"
+msgstr "Anzahl"
+
+#: src/widgets/widget_entrypicker.cpp:120
+msgid "Create New Entry: %1"
+msgstr "Einen neuen Eintrag erstellen: %1"
+
+#: src/widgets/widget_filter.cpp:62
+msgid "Whose status is one of"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:219
+msgid "Is favorite"
+msgstr "Ist Favorit"
+
+#: src/widgets/widget_filter.cpp:229
+msgid "Is trashed"
+msgstr "Ist im Papierkorb"
+
+#: src/widgets/widget_filter.cpp:238
+msgid "Has the unit"
+msgstr "mit der Einheit"
+
+#: src/widgets/widget_filter.cpp:257
+msgid "Is entry"
+msgstr "Ist Eintrag"
+
+#: src/widgets/widget_filter.cpp:278
+msgid "Is descendant of"
+msgstr "Ist ein Nachkomme von"
+
+#: src/widgets/widget_filter.cpp:280
+msgid "Or itself"
+msgstr "Oder sich selbst"
+
+#: src/widgets/widget_filter.cpp:306
+msgid "Has the tag"
+msgstr "Mit dem Stichwort"
+
+#: src/widgets/widget_filter.cpp:407
+msgid "Planned"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:408
+msgid "Realized"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:409
+msgid "Remaining"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:475
+msgid "Has the theme"
+msgstr "Hat das Thema"
+
+#: src/widgets/widget_filter.cpp:541 src/widgets/widget_filter.cpp:593
+msgid "Between"
+msgstr "Zwischen"
+
+#: src/widgets/widget_filter.cpp:627
+msgid "Completion is in range"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:696
+msgid "Satisfies filter"
+msgstr "Erfüllt den Filter"
+
+#: src/widgets/widget_filter.cpp:704
+msgid "Is image"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:711
+msgid "Has map coordinates"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:721
+msgid "Title style is"
+msgstr ""
+
+#: src/widgets/widget_filter.cpp:757
+msgid "Heading level is"
+msgstr "Überschriftebene ist"
+
+#: src/widgets/widget_filter.cpp:908
+msgid "OR"
+msgstr "ODER"
+
+#: src/widgets/widget_filter.cpp:910
+msgid "AND"
+msgstr "UND"
+
+#: src/widgets/widget_map.cpp:251
+msgid "New Location"
+msgstr "Neuer Speicherort"
+
+#: src/widgets/widget_table.cpp:973 ui/table.ui:61
+msgid "Text"
+msgstr "Text"
+
+#. the same id and SRC_value as title
+#: src/widgets/widget_table.cpp:974 ui/tv_diary_edit_link.ui:52
+msgid "Uri"
+msgstr ""
+
+#: src/widgets/widget_table.cpp:978
+msgid "Title"
+msgstr "Titel"
+
+#: src/widgets/widget_table.cpp:979
+msgid "Ancestors + Title"
+msgstr ""
+
+#: src/widgets/widget_table.cpp:980
+msgid "Description"
+msgstr ""
+
+#: src/widgets/widget_table.cpp:1021
+msgid "Constant"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1583
+msgid "Image Not Found"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1713
+msgid "Click to expand the paragraph"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1716
+msgid "Click to collapse the paragraph"
+msgstr "Klicken, um den Absatz zu auszublenden"
+
+#: src/widgets/widget_textview.cpp:1723
+msgid "Click to edit entry properties"
+msgstr "Klicken, um die Eintragseigenschaften zu bearbeiten"
+
+#: src/widgets/widget_textview.cpp:1726
+msgid "Click to see list of entries tagged by this entry"
+msgstr ""
+"Klicken, um die Liste der mit diesem Eintrag markierten Einträge anzuzeigen"
+
+#: src/widgets/widget_textview.cpp:1736
+msgid "Entry text evaluated as link address"
+msgstr ""
+
+#: src/widgets/widget_textview.cpp:1752
+msgid "Right click to edit paragraph"
+msgstr "Rechtsklicken um den Absatz zu bearbeiten"
+
+#: src/widgets/widget_textview.cpp:1762
+msgid "Press Ctrl to follow the link"
+msgstr "Strg drücken, um der Verknüpfung zu folgen"
+
+#: src/widgets/widget_textview.cpp:1763
+msgid "Press Ctrl to select"
+msgstr "Mit Strg auswählen"
+
+#: src/widgets/widget_textviewedit.cpp:950
+msgid "Open"
+msgstr "Öffnen"
+
+#: src/widgets/widget_textviewedit.cpp:1044
+msgid "image"
+msgstr "Bild"
+
+#: src/widgets/widget_textviewedit.cpp:1262
+msgid "Add \"%1\" to Dictionary"
+msgstr "\"%1\" zum Wörterbuch hinzufügen"
+
+#: src/widgets/widget_textviewedit.cpp:1263
+msgid "Ignore All"
+msgstr "Alle Ignorieren"
+
+#: src/widgets/widget_textviewedit.cpp:1268
+msgid "no suggestions"
+msgstr "keine Vorschläge"
+
+#: src/widgets/widget_textviewsearch.cpp:94
+msgid "Please enter a search phrase"
+msgstr "Bitte geben Sie einen Suchbegriff ein"
+
+#: src/widgets/widget_textviewsearch.cpp:97
+msgid "No matches"
+msgstr "Keine Treffer"
+
+#: src/widgets/widget_textviewsearch.cpp:331
+msgid "Click to jump to"
+msgstr ""
+
+#: src/widgets/widget_textviewsearch.cpp:336
+msgid "Right click to replace"
+msgstr "Rechtsklick zum Ersetzen "
+
+#: src/widgets/widget_textviewtheme.cpp:267
+msgid "Select Image"
+msgstr "Bild Auswählen"
+
+#: src/widgets/widget_textviewtheme.cpp:379
+msgid "Click to edit the theme"
+msgstr ""
+
+#: ui/calendar.ui:30
+msgid "Copy Date"
+msgstr ""
+
+#: ui/calendar.ui:38
+msgid "Weekend Day"
+msgstr ""
+
+#: ui/calendar.ui:43
+msgid "Holiday"
+msgstr ""
+
+#: ui/calendar.ui:50
+msgid "Show Week Numbers"
+msgstr ""
+
+#: ui/calendar.ui:66
+msgid "Create entry"
+msgstr "Eintrag erstellen"
+
+#: ui/calendar.ui:78
+msgid "Create milestone"
+msgstr "Meilenstein erstellen"
+
+#: ui/chart.ui:45
+msgid "Style"
+msgstr "Stil"
+
+#: ui/chart.ui:62
+msgid "Line"
+msgstr "Linie"
+
+#: ui/chart.ui:67
+msgid "Bars"
+msgstr "Balken"
+
+#: ui/chart.ui:91
+msgid "Data Source"
+msgstr ""
+
+#: ui/chart.ui:125
+msgid "x-Axis Column"
+msgstr ""
+
+#: ui/chart.ui:142
+msgid "y-Axis Column"
+msgstr ""
+
+#: ui/chart.ui:165
+msgid "Organization"
+msgstr "Organisation"
+
+#: ui/chart.ui:182
+msgid "Group by"
+msgstr "Gruppieren nach"
+
+#: ui/chart.ui:190
+msgid "Day"
+msgstr "Tag"
+
+#: ui/chart.ui:191
+msgid "Week"
+msgstr "Woche"
+
+#: ui/chart.ui:192
+msgid "Month"
+msgstr "Monat"
+
+#: ui/chart.ui:193
+msgid "Year"
+msgstr "Jahr"
+
+#: ui/chart.ui:205
+msgid "Combine"
+msgstr "Kombinieren"
+
+#: ui/chart.ui:213
+msgid "Cumulative: Periodic"
+msgstr "Kumulativ: Periodisch"
+
+#: ui/chart.ui:214
+msgid "Cumulative: Continuous"
+msgstr "Kumulativ: Kontinuierlich"
+
+#: ui/chart.ui:230
+msgid "Advanced Options"
+msgstr "Erwaiterte Optionen"
+
+#: ui/chart.ui:270
+msgid "Underlay"
+msgstr "Unterlage"
+
+#: ui/chart.ui:293
+msgid "Filter Table Rows"
+msgstr ""
+
+#: ui/chart.ui:310
+msgid "Column"
+msgstr ""
+
+#: ui/chart.ui:327
+msgid "Value = "
+msgstr ""
+
+#: ui/col_opt_arithmetic.ui:108
+msgid "Operand A"
+msgstr ""
+
+#: ui/col_opt_arithmetic.ui:120 ui/col_opt_arithmetic.ui:157
+msgid "Function to modify the column value"
+msgstr ""
+
+#: ui/col_opt_arithmetic.ui:145
+msgid "Operand B"
+msgstr ""
+
+#: ui/col_opt_arithmetic.ui:181
+msgid "Format as"
+msgstr "Format als"
+
+#: ui/col_opt_duration.ui:13
+msgid "Begin Date"
+msgstr "Anfangsdatum"
+
+#: ui/col_opt_duration.ui:21 ui/col_opt_duration.ui:47 ui/col_opt_date.ui:21
+msgid "Start Date"
+msgstr "Anfangsdatum"
+
+#: ui/col_opt_duration.ui:23 ui/col_opt_duration.ui:49 ui/col_opt_date.ui:23
+msgid "Last Change Date"
+msgstr "Letztes Änderungsdatum"
+
+#: ui/col_opt_duration.ui:24 ui/col_opt_duration.ui:50 ui/col_opt_date.ui:24
+msgid "Finish Date"
+msgstr "Enddatum"
+
+#: ui/col_opt_duration.ui:25 ui/col_opt_duration.ui:51
+msgid "Now"
+msgstr "Jetzt"
+
+#: ui/col_opt_duration.ui:26 ui/col_opt_duration.ui:52
+msgid "1st Column on Left"
+msgstr "1. Spalte Links"
+
+#: ui/col_opt_duration.ui:27 ui/col_opt_duration.ui:53
+msgid "2nd Column on Left"
+msgstr "2. Spalte Links"
+
+#: ui/col_opt_duration.ui:39
+msgid "End Date"
+msgstr "Enddatum"
+
+#: ui/col_opt_duration.ui:65 ui/col_opt_size.ui:13 ui/col_opt_date.ui:13
+#: ui/dlg_export.ui:76 ui/po_entry.ui:180
+msgid "Type"
+msgstr "Typ"
+
+#: ui/col_opt_duration.ui:73
+msgid "Calendar Days"
+msgstr "Kalendertage"
+
+#: ui/col_opt_duration.ui:74
+msgid "Work Days"
+msgstr "Arbeitstage"
+
+#: ui/col_opt_size.ui:21
+msgid "Char Count"
+msgstr "Zeichenanzahl"
+
+#. <item translatable="yes">Word Count</item> TODO: v3.1 or later
+#: ui/col_opt_size.ui:23
+msgid "Paragraph Count"
+msgstr "Anzahl der Absätze"
+
+#: ui/col_opt_bool.ui:14
+msgid "Condition"
+msgstr "Bedingung"
+
+#: ui/col_opt_bool.ui:20
+msgid "True if satisfies the selected filter"
+msgstr ""
+
+#: ui/col_opt_date.ui:35
+msgid "Customize Format"
+msgstr ""
+
+#: ui/col_opt_date.ui:41
+msgid ""
+"Y: year\n"
+"M: month number\n"
+"n: month name\n"
+"D: day\n"
+"d: week day\n"
+"W: week no\n"
+"h: hour\n"
+"m: minute\n"
+"s: second\n"
+"F: date\n"
+"T: time"
+msgstr ""
+
+#: ui/col_opt_subtag.ui:13
+msgid "Sub tag of"
+msgstr ""
+
+#: ui/col_opt_subtag.ui:21
+msgid "Parent tag"
+msgstr "Übergeordnetes Stichwort"
+
+#: ui/col_opt_subtag.ui:32
+msgid "Select"
+msgstr "Auswählen"
+
+#: ui/col_opt_subtag.ui:40
+msgid "First Occuring"
+msgstr ""
+
+#: ui/col_opt_subtag.ui:41
+msgid "Last Occuring"
+msgstr ""
+
+#: ui/col_opt_subtag.ui:42
+msgid "Least in Order"
+msgstr ""
+
+#: ui/col_opt_subtag.ui:43
+msgid "Greatest in Order"
+msgstr ""
+
+#: ui/col_opt_subtag.ui:44 ui/lifeograph.ui:480
+msgid "All"
+msgstr "Alle"
+
+#: ui/col_opt_tag_value.ui:33
+msgid "Calculate"
+msgstr "Berechnen"
+
+#: ui/col_opt_tag_value.ui:41
+msgid "Total Planned"
+msgstr ""
+
+#: ui/col_opt_tag_value.ui:42
+msgid "Total Realized"
+msgstr "Realisierte Gesamtsumme"
+
+#: ui/col_opt_tag_value.ui:43
+msgid "Total Remaining"
+msgstr "Verbleibende Gesamtsumme"
+
+#: ui/col_opt_tag_value.ui:44
+msgid "Average Planned"
+msgstr "Durchschnittlich Geplant"
+
+#: ui/col_opt_tag_value.ui:45
+msgid "Average Realized"
+msgstr "Durchschnittlich Realisiert"
+
+#: ui/col_opt_tag_value.ui:46
+msgid "Average Remaining"
+msgstr "Durchschnittlich Verbleibend"
+
+#: ui/col_opt_tag_value.ui:47
+msgid "Completion Percentage"
+msgstr "Fertigstellungsgrad"
+
+#: ui/col_opt_text.ui:13
+msgid "Field"
+msgstr ""
+
+#: ui/col_opt_text.ui:30
+msgid "Include"
+msgstr ""
+
+#: ui/col_opt_text.ui:42
+msgid "Number or Date"
+msgstr "Nummer oder Datum"
+
+#: ui/col_opt_text.ui:48
+msgid "Plain text"
+msgstr "Reine Text"
+
+#: ui/col_opt_text.ui:54
+msgid "Tags within the text"
+msgstr "Stichworte innerhalb des Textes"
+
+#: ui/col_opt_text.ui:60
+msgid "Dates within the text"
+msgstr "Datum innerhalb des Textes"
+
+#: ui/col_opt_text.ui:66
+msgid "Comments within the text"
+msgstr "Kommentare innerhalb des Textes"
+
+#: ui/col_opt_text.ui:72
+msgid "Indentations"
+msgstr ""
+
+#: ui/dlg_export.ui:42
+msgid "Export"
+msgstr "Exportieren"
+
+#: ui/dlg_export.ui:66
+msgid "Content"
+msgstr "Umfang"
+
+#: ui/dlg_export_opts_log.ui:33 ui/lifeograph-2.ui:47
+msgid "Password"
+msgstr "Passwort"
+
+#: ui/dlg_export_opts_log.ui:43 ui/lifeograph.ui:947 ui/lifeograph-2.ui:59
+msgid "Confirm"
+msgstr "Bestätigen"
+
+#: ui/dlg_filter.ui:41 ui/dlg_smartadd.ui:51 ui/dlg_sync.ui:43
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: ui/dlg_filter.ui:57
+msgid "Apply & Close"
+msgstr ""
+
+#: ui/dlg_gettext.ui:34
+msgid "Please enter a name"
+msgstr "Bitte einen Namen eingeben"
+
+#: ui/dlg_smartadd.ui:38
+msgid "Smart Add"
+msgstr "Intelligentes Hinzufügen"
+
+#: ui/dlg_smartadd.ui:56
+msgid "Clear"
+msgstr "Löschen"
+
+#: ui/dlg_sync.ui:49
+msgid "Go"
+msgstr "Gehen"
+
+#: ui/dlg_sync.ui:60
+msgid "Scheme"
+msgstr "Schema"
+
+#: ui/dlg_sync.ui:70
+msgid "Filters"
+msgstr "Filter"
+
+#: ui/dlg_sync.ui:120
+msgid "Apply to Similar"
+msgstr ""
+
+#: ui/dlg_sync.ui:125
+msgid "Apply action changes to all similar elements"
+msgstr ""
+
+#: ui/dlg_sync.ui:139
+msgid "I"
+msgstr "I"
+
+#: ui/dlg_sync.ui:140
+msgid "Ignore"
+msgstr "Ignorieren"
+
+#: ui/dlg_sync.ui:146
+msgid "A"
+msgstr "H"
+
+#: ui/dlg_sync.ui:147
+msgid "Add remote"
+msgstr "Remote hinzufügen"
+
+#: ui/dlg_sync.ui:153
+msgid "O"
+msgstr "Ü"
+
+#: ui/dlg_sync.ui:154
+msgid "Overwrite local"
+msgstr "Lokales überschreiben"
+
+#: ui/dlg_sync.ui:167
+msgid "Tag Imported Entries"
+msgstr "Importierten Einträge Stichworte zuweisen"
+
+#: ui/dlg_sync.ui:218
+msgid "Show New"
+msgstr ""
+
+#: ui/dlg_sync.ui:222
+msgid "Show Changed"
+msgstr "Geändert Anzeigen"
+
+#: ui/dlg_sync.ui:228
+msgid "Show Accepted"
+msgstr "Akzeptiert Anzeigen"
+
+#: ui/dlg_sync.ui:232
+msgid "Show Ignored"
+msgstr "Ignoriert Anzeigen"
+
+#: ui/dlg_sync.ui:238
+msgid "Only Show Different Details"
+msgstr "Nur Andere Details Anzeigen"
+
+#: ui/dlg_sync.ui:258
+msgid "Changed"
+msgstr "Geändert"
+
+#: ui/dlg_sync.ui:271
+msgid "New"
+msgstr "Neu"
+
+#: ui/dlg_sync.ui:333
+msgid "Apply Scheme"
+msgstr "Schema anwenden"
+
+#: ui/flt_range.ui:9
+msgid "Include or exclude the lower bound"
+msgstr ""
+
+#: ui/flt_range.ui:22
+msgid "Lower bound"
+msgstr ""
+
+#: ui/flt_range.ui:37
+msgid "Upper bound"
+msgstr ""
+
+#: ui/flt_range.ui:43
+msgid "Include or exclude the upper bound"
+msgstr ""
+
+#: ui/flt_subtag.ui:10
+msgid "First"
+msgstr ""
+
+#: ui/flt_subtag.ui:11
+msgid "Last"
+msgstr ""
+
+#: ui/flt_subtag.ui:12
+msgid "Highest"
+msgstr ""
+
+#: ui/flt_subtag.ui:13
+msgid "Lowest"
+msgstr ""
+
+#: ui/flt_subtag.ui:19
+msgid "Subtag of"
+msgstr ""
+
+#: ui/flt_subtag.ui:24 ui/flt_subtag.ui:40
+msgid "Only include paragraphs with this tag"
+msgstr ""
+
+#: ui/flt_subtag.ui:29
+msgid "Parent Tag"
+msgstr ""
+
+#: ui/flt_subtag.ui:45
+msgid "Child Tag"
+msgstr ""
+
+#: ui/flt_text.ui:9
+msgid "Contains text"
+msgstr "Enthält Text"
+
+#: ui/flt_text.ui:21 ui/lifeograph.ui:444
+msgid "Match case"
+msgstr "Groß-/Kleinschreibung beachten"
+
+#: ui/flt_text.ui:33
+msgid "Anywhere"
+msgstr "Überall"
+
+#: ui/flt_text.ui:34
+#, fuzzy
+msgid "In the name"
+msgstr "Im Namen"
+
+#: ui/lifeograph.ui:34
+msgid "Help"
+msgstr "Hilfe"
+
+#: ui/lifeograph.ui:40 ui/preferences.ui:28
+msgid "Preferences"
+msgstr "Einstellungen"
+
+#: ui/lifeograph.ui:44
+msgid "About"
+msgstr "Info"
+
+#: ui/lifeograph.ui:48
+msgid "Quit"
+msgstr "Schließen"
+
+#: ui/lifeograph.ui:63
+msgid "Open the Folder Containing the Diary"
+msgstr ""
+
+#: ui/lifeograph.ui:68
+msgid "Export/Save As..."
+msgstr "Exportieren/Speichern Unter..."
+
+#: ui/lifeograph.ui:73
+msgid "Synchronize/Merge..."
+msgstr ""
+
+#: ui/lifeograph.ui:80
+msgid "Empty the Trash..."
+msgstr "Papierkorb Leeren"
+
+#: ui/lifeograph.ui:85
+msgid "Encrypt..."
+msgstr "Verschlüsseln…"
+
+#: ui/lifeograph.ui:95
+msgid "Update All Date Separators in the Diary"
+msgstr ""
+
+#: ui/lifeograph.ui:126
+msgid "Diary default value for spell checking"
+msgstr ""
+
+#: ui/lifeograph.ui:127
+msgid "Spell Checking"
+msgstr "Rechtschreibprüfung"
+
+#: ui/lifeograph.ui:160
+msgid "Startup Action"
+msgstr "Start-Ansicht"
+
+#: ui/lifeograph.ui:167
+msgid "Show Most Current Entry"
+msgstr "Zeige neusten Eintrag"
+
+#: ui/lifeograph.ui:168
+msgid "Remember Last Entry"
+msgstr "Letzten Eintrag Merken"
+
+#: ui/lifeograph.ui:169
+msgid "Always Show a Fixed Entry"
+msgstr "Zeige Immer Einen Bestimmten Eintrag"
+
+#: ui/lifeograph.ui:181
+msgid "Item to Show"
+msgstr "Zu zeigender Eintrag"
+
+#: ui/lifeograph.ui:198
+msgid "Close without Saving..."
+msgstr "Schließen ohne zu Speichern..."
+
+#: ui/lifeograph.ui:202
+msgid "Disable Auto Close for This Session"
+msgstr "Automatisches Schließen für diese Sitzung Deaktivieren"
+
+#: ui/lifeograph.ui:216
+msgid "Standard Diary Report"
+msgstr ""
+
+#: ui/lifeograph.ui:288
+msgid "Diaries"
+msgstr "Tagebücher"
+
+#: ui/lifeograph.ui:409
+msgid "Calendar"
+msgstr ""
+
+#: ui/lifeograph.ui:422 ui/lifeograph.ui:439
+msgid "Search"
+msgstr "Suchen"
+
+#: ui/lifeograph.ui:469
+msgid "Enter text to replace matches with"
+msgstr "Text eingeben, mit dem die Treffer ersetzt werden sollen"
+
+#: ui/lifeograph.ui:475 ui/tv_diary.ui:352
+msgid "Replace"
+msgstr "Ersetzen"
+
+#: ui/lifeograph.ui:482
+msgid "Replace all"
+msgstr "Alle ersetzen"
+
+#: ui/lifeograph.ui:505
+msgid "Tables"
+msgstr ""
+
+#: ui/lifeograph.ui:539 ui/lifeograph.ui:611
+msgid "Properties"
+msgstr ""
+
+#: ui/lifeograph.ui:601
+msgid "Zoom level"
+msgstr "Vergrößerungsstufe"
+
+#: ui/lifeograph.ui:635
+msgid "Themes"
+msgstr "Stile"
+
+#: ui/lifeograph.ui:691
+msgid "Map"
+msgstr "Landkarte"
+
+#: ui/lifeograph.ui:772
+msgid "Label"
+msgstr "Etikett"
+
+#: ui/lifeograph.ui:782
+msgid "Add an existing diary file"
+msgstr ""
+
+#: ui/lifeograph.ui:789
+msgid "Create New"
+msgstr "Neue erstellen"
+
+#: ui/lifeograph.ui:799 ui/lifeograph.ui:807
+msgid "Go back in the browsing history"
+msgstr "Zurück zu zuvor aufgerufenem Eintrag"
+
+#: ui/lifeograph.ui:818 ui/po_entry.ui:7
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: ui/lifeograph.ui:819
+msgid "Quick add a new entry"
+msgstr "Schnell einen neuen Eintrag hinzufügen"
+
+#: ui/lifeograph.ui:848 ui/po_theme.ui:35
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: ui/lifeograph.ui:857
+msgid "Close"
+msgstr ""
+
+#: ui/lifeograph.ui:859
+msgid "Save close the diary"
+msgstr "Tagebuch speichern und schließen"
+
+#: ui/lifeograph.ui:957
+msgid "New Password"
+msgstr "Neues Passwort"
+
+#: ui/lifeograph.ui:976
+msgid "Authenticate"
+msgstr "Authentifizierung"
+
+#: ui/lifeograph.ui:1037
+msgid "Sort by"
+msgstr "Sortieren nach"
+
+#: ui/lifeograph.ui:1061
+msgid "Save"
+msgstr "Speichern"
+
+#: ui/lifeograph.ui:1068
+msgid "Read"
+msgstr "Lesen"
+
+#: ui/lifeograph-2.ui:28
+msgid "Where to Save The Diary?"
+msgstr "Wo soll das Tagebuch gespeichert werden?"
+
+#: ui/lifeograph-2.ui:91
+msgid "Encrypt Diary Content"
+msgstr "Verschlüssele Tagebuchinhalt"
+
+#: ui/lifeograph-2.ui:111
+msgid ""
+"Knowledge is a single point which the ignorant have multiplied.\n"
+"~Attributed to Ali Ibn Abi Talib"
+msgstr ""
+"Wissen ist ein einziger Punkt, den die Unwissenden vervielfacht haben.\n"
+"~Ali Ibn Abi Talib zugeschrieben"
+
+#: ui/lifeograph-2.ui:124
+msgid "Welcome to Lifeograph, a parametric note taking application!"
+msgstr "Willkommen bei Lifeograph, eine Anwendung zum parametrischen Notieren!"
+
+#: ui/lifeograph-2.ui:137
+msgid ""
+"If this is your first time with the program, click here to start right away"
+msgstr ""
+"Wenn Sie das Programm zum ersten Mal verwenden, klicken Sie hier, um sofort "
+"zu beginnen"
+
+#: ui/lifeograph-2.ui:153
+msgid "Copyright (C) 2007-2024 Ahmet Öztürk"
+msgstr "Copyright (C) 2007-2024 Ahmet Öztürk"
+
+#: ui/lifeograph-2.ui:156
+msgid "Web Site"
+msgstr "Webseite"
+
+#: ui/map.ui:29
+msgid "Copy to Clipboard"
+msgstr ""
+
+#: ui/map.ui:35
+msgid "Path"
+msgstr ""
+
+#: ui/map.ui:37
+msgid "Add Point"
+msgstr ""
+
+#: ui/map.ui:42
+msgid "Insert Point before Selected"
+msgstr ""
+
+#: ui/map.ui:47
+msgid "Move Selected Point Here"
+msgstr "Ausgewählten Punkt Hierher Verschieben"
+
+#: ui/map.ui:54
+msgid "Remove Selected Point"
+msgstr "Ausgewählten Punkt Entfernen"
+
+#: ui/map.ui:59
+msgid "Clear Path"
+msgstr "Pfad Löschen"
+
+#: ui/map.ui:65
+msgid "Other Entries"
+msgstr "Weitere Einträge"
+
+#: ui/map.ui:67
+msgid "Show Locations"
+msgstr "Standorte Anzeigen"
+
+#: ui/po_entry.ui:12
+msgid "Parent"
+msgstr ""
+
+#: ui/po_entry.ui:16
+msgid "Sibling"
+msgstr "Geschwister"
+
+#: ui/po_entry.ui:20
+msgid "Child"
+msgstr "Kind"
+
+#: ui/po_entry.ui:24 ui/po_theme.ui:40
+msgid "Duplicate"
+msgstr ""
+
+#: ui/po_entry.ui:30
+msgid "Merge Selected"
+msgstr "Auswahl Zusammenführen"
+
+#: ui/po_entry.ui:35
+msgid "Sort Siblings"
+msgstr "Geschwister Sortieren"
+
+#: ui/po_entry.ui:40
+msgid "A-Z"
+msgstr ""
+
+#: ui/po_entry.ui:44
+msgid "Z-A"
+msgstr ""
+
+#: ui/po_entry.ui:48
+msgid "Earliest First"
+msgstr ""
+
+#: ui/po_entry.ui:52
+msgid "Latest First"
+msgstr ""
+
+#: ui/po_entry.ui:56
+msgid "Shortest First"
+msgstr ""
+
+#: ui/po_entry.ui:60
+msgid "Longest First"
+msgstr ""
+
+#: ui/po_entry.ui:79
+msgid "Move to Trash"
+msgstr ""
+
+#: ui/po_entry.ui:84
+msgid "Restore"
+msgstr "Wiederherstellen"
+
+#: ui/po_entry.ui:89 ui/po_theme.ui:47
+msgid "Dismiss..."
+msgstr "Verwerfen..."
+
+#: ui/po_entry.ui:99
+msgid "Print..."
+msgstr "Drucken..."
+
+#: ui/po_entry.ui:132
+msgid "To Do"
+msgstr "Aufgabe"
+
+#: ui/po_entry.ui:143
+msgid "In Progress"
+msgstr "In Bearbeitung"
+
+#: ui/po_entry.ui:201
+msgid "Color as a tag and calendar or chart background"
+msgstr ""
+
+#: ui/po_entry.ui:238
+msgid "Unitless"
+msgstr "Ohne Einheit"
+
+#: ui/po_entry.ui:251
+msgid "Spellchecking"
+msgstr "Rechtschreibprüfung"
+
+#: ui/po_entry.ui:279
+msgid "Hidden"
+msgstr ""
+
+#: ui/po_entry.ui:280
+msgid "Normal"
+msgstr "Normal"
+
+#: ui/po_entry.ui:281 ui/tv_diary.ui:158
+msgid "Highlighted"
+msgstr "Hervorhebung:"
+
+#: ui/po_theme.ui:52
+msgid "Reset to default"
+msgstr "Auf Standard zurücksetzen"
+
+#: ui/po_theme.ui:59
+msgid "Assign to Open Entry"
+msgstr ""
+
+#: ui/po_theme.ui:64
+msgid "Assign to Selected Entries"
+msgstr "Ausgewählten Einträgen Zuweisen"
+
+#: ui/preferences.ui:44
+msgid "Privacy"
+msgstr "Privatsphäre"
+
+#: ui/preferences.ui:65
+msgid "Save Diary and Close When Idle"
+msgstr "Bei Untätigkeit, Tagebuch Speichern und Schließen"
+
+#: ui/preferences.ui:73
+msgid "Disabled"
+msgstr ""
+
+#: ui/preferences.ui:74
+msgid "For 30 Seconds"
+msgstr ""
+
+#: ui/preferences.ui:75
+msgid "For 45 Seconds"
+msgstr ""
+
+#: ui/preferences.ui:76
+msgid "For 1 Minute"
+msgstr ""
+
+#: ui/preferences.ui:77
+msgid "For 1½ Minute"
+msgstr ""
+
+#: ui/preferences.ui:78
+msgid "For 2 Minutes"
+msgstr ""
+
+#: ui/preferences.ui:79
+msgid "For 3 Minutes"
+msgstr ""
+
+#: ui/preferences.ui:80
+msgid "For 5 Minutes"
+msgstr ""
+
+#: ui/preferences.ui:81
+msgid "For 10 Minutes"
+msgstr ""
+
+#: ui/preferences.ui:82
+msgid "For 20 Minutes"
+msgstr ""
+
+#: ui/preferences.ui:83
+msgid "For 30 Minutes"
+msgstr ""
+
+#: ui/preferences.ui:101
+msgid "Auto Backups"
+msgstr ""
+
+#: ui/preferences.ui:123
+msgid "Create Daily Backups on Save"
+msgstr ""
+
+#: ui/preferences.ui:155
+msgid "Backup Folder"
+msgstr ""
+
+#: ui/preferences.ui:160
+msgid "Select The Folder for Daily Backups"
+msgstr ""
+
+#: ui/preferences.ui:179
+msgid "Locale"
+msgstr ""
+
+#: ui/preferences.ui:200
+msgid "Date Order and Separator"
+msgstr ""
+
+#: ui/preferences.ui:211
+msgid "Year Month Day"
+msgstr "Jahr Monat Tag"
+
+#: ui/preferences.ui:212
+msgid "Day Month Year"
+msgstr "Tag Monat Jahr"
+
+#: ui/preferences.ui:213
+msgid "Month Day Year"
+msgstr "Monat Tag Jahr"
+
+#: ui/preferences.ui:220
+msgid ". (Dot)"
+msgstr ". (Punkt)"
+
+#: ui/preferences.ui:221
+msgid "/ (Slash)"
+msgstr "/ (Schrägstrich)"
+
+#: ui/preferences.ui:222
+msgid "- (Dash)"
+msgstr "- (Trennstrich)"
+
+#: ui/preferences.ui:242
+msgid "First Day of the Week"
+msgstr ""
+
+#: ui/preferences.ui:283
+msgid "Preferred Units"
+msgstr "Bevorzugte Einheiten"
+
+#: ui/preferences.ui:294
+msgid "Metric"
+msgstr ""
+
+#: ui/preferences.ui:300
+msgid "Imperial"
+msgstr ""
+
+#: ui/preferences.ui:320
+msgid "Appearance"
+msgstr "Darstellung"
+
+#: ui/preferences.ui:341
+msgid "Prefer Dark Gtk+ Theme"
+msgstr ""
+
+#: ui/print.ui:39
+msgid "What to Print?"
+msgstr "Was soll gedruckt werden?"
+
+#: ui/print.ui:48
+msgid "Only Current Entry"
+msgstr "Nur Aktueller Eintrag"
+
+#: ui/print.ui:54
+msgid "All Filtered Entries"
+msgstr "Alle gefilterten Einträge"
+
+#: ui/print.ui:60
+msgid "Entire Diary"
+msgstr "Gesamtes Tagebuch"
+
+#: ui/print.ui:66
+msgid "Every Entry Begins on a New Page"
+msgstr "Jeder Eintrag Beginnt auf einer Neuen Seite"
+
+#: ui/print.ui:78
+msgid "Text Options"
+msgstr "Text-Optionen"
+
+#: ui/print.ui:87
+msgid "Use Theme Fonts in Entries"
+msgstr "Verwende die Thema-Schriftarten für die Einträge"
+
+#: ui/print.ui:101
+msgid "Use Custom Theme Colors"
+msgstr "Benutzerdefinierte Designfarben Verwenden"
+
+#: ui/print.ui:107
+msgid "Page Margins"
+msgstr ""
+
+#: ui/print.ui:120
+msgid "Full"
+msgstr ""
+
+#: ui/print.ui:126
+msgid "Half"
+msgstr ""
+
+#: ui/table.ui:7
+msgid "Show Order Column"
+msgstr ""
+
+#: ui/table.ui:11
+msgid "Group Lines"
+msgstr ""
+
+#: ui/table.ui:28
+msgid "Copy as Tab Delimited Text"
+msgstr ""
+
+#: ui/table.ui:53
+msgid "Basics"
+msgstr ""
+
+#: ui/table.ui:62
+msgid "Date & Time"
+msgstr ""
+
+#: ui/table.ui:64
+msgid "Size"
+msgstr ""
+
+#: ui/table.ui:65
+msgid "Number"
+msgstr "Nummer"
+
+#: ui/table.ui:66
+msgid "True / False"
+msgstr "Richtig / Falsch"
+
+#: ui/table.ui:67
+msgid "Tag Value"
+msgstr "Stichwort-Wert"
+
+#: ui/table.ui:68
+msgid "Has Which Sub Tag"
+msgstr "Hat Welches Unterstichwort"
+
+#: ui/table.ui:69
+msgid "Completion"
+msgstr "Endfertigung"
+
+#: ui/table.ui:70
+msgid "Todo Status"
+msgstr "Aufgabenstatus"
+
+#: ui/table.ui:71
+msgid "Gantt Chart"
+msgstr "Gantt-Diagramm"
+
+#: ui/table.ui:72
+msgid "Path Length in Map"
+msgstr "Pfadlänge in der Karte"
+
+#: ui/table.ui:74
+msgid "Arithmetic"
+msgstr "Arithmetik"
+
+#: ui/table.ui:87
+msgid "Sorting"
+msgstr "Sortierung"
+
+#: ui/table.ui:104
+msgid "Ascending"
+msgstr "Aufsteigend"
+
+#: ui/table.ui:111
+msgid "Descending"
+msgstr "Absteigend"
+
+#: ui/table.ui:120
+msgid "Combine identical cells"
+msgstr ""
+
+#: ui/table.ui:132
+msgid "Extras"
+msgstr ""
+
+#: ui/table.ui:143
+msgid "Get Value From"
+msgstr ""
+
+#: ui/table.ui:153 ui/table.ui:165
+msgid "First Parent Satisfying..."
+msgstr ""
+
+#: ui/table.ui:154 ui/table.ui:166
+msgid "Grandparent"
+msgstr ""
+
+#: ui/table.ui:155 ui/table.ui:167
+msgid "Parent Entry"
+msgstr ""
+
+#: ui/table.ui:156 ui/table.ui:168
+msgid "Itself"
+msgstr ""
+
+#: ui/table.ui:157
+msgid "First Paragraph Satisfying..."
+msgstr ""
+
+#: ui/table.ui:158
+msgid "Last Paragraph Satisfying..."
+msgstr ""
+
+#: ui/table.ui:169
+msgid "Previous Paragraph Satisfying..."
+msgstr ""
+
+#: ui/table.ui:170
+msgid "Next Paragraph Satisfying..."
+msgstr ""
+
+#: ui/table.ui:198
+msgid "Show as"
+msgstr "Anzeigen als"
+
+#: ui/table.ui:215
+msgid "Satisfying"
+msgstr ""
+
+#: ui/table.ui:232
+msgid "Summary Function"
+msgstr "Zusammenfassungsfunktion"
+
+#: ui/table.ui:250
+msgid "Coloring"
+msgstr "Färbung"
+
+#: ui/table.ui:267
+msgid "Negative values are RED"
+msgstr ""
+
+#: ui/table.ui:274
+msgid "From small to big, from RED to GREEN"
+msgstr ""
+
+#: ui/table.ui:281
+msgid "From small to big, from GREEN to RED"
+msgstr ""
+
+#: ui/table.ui:310
+msgid "Move column to left"
+msgstr "Spalte nach links verschieben"
+
+#: ui/table.ui:320
+msgid "Add a column to left"
+msgstr "Füge links eine Spalte hinzu"
+
+#: ui/table.ui:326
+msgid "Remove column"
+msgstr "Spalte entfernen"
+
+#: ui/table.ui:332
+msgid "Add a column to right"
+msgstr "Füge rechts eine Spalte hinzu"
+
+#: ui/table.ui:340
+msgid "Move column to right"
+msgstr "Spalte nach rechts verschieben"
+
+#: ui/table.ui:380
+msgid "Entry Filter"
+msgstr "Eintragsfilter"
+
+#: ui/table.ui:400
+msgid "Paragraph Filter"
+msgstr "Absatzfilter"
+
+#: ui/tv_diary.ui:34
+msgid "Expand selection"
+msgstr ""
+
+#: ui/tv_diary.ui:58
+msgid "Cut"
+msgstr "Ausschneiden"
+
+#: ui/tv_diary.ui:65
+msgid "Copy"
+msgstr "Kopieren"
+
+#: ui/tv_diary.ui:72
+msgid "Paste"
+msgstr "Einfügen"
+
+#: ui/tv_diary.ui:83
+msgid "Show more"
+msgstr "Mehr anzeigen"
+
+#: ui/tv_diary.ui:106
+msgid "Bold"
+msgstr "Fett"
+
+#: ui/tv_diary.ui:120
+msgid "Italic"
+msgstr ""
+
+#: ui/tv_diary.ui:132
+msgid "Underlined"
+msgstr ""
+
+#: ui/tv_diary.ui:144
+msgid "Strikethrough"
+msgstr ""
+
+#: ui/tv_diary.ui:174
+msgid "Insert link"
+msgstr ""
+
+#: ui/tv_diary.ui:181
+msgid "Insert smiley"
+msgstr "Smiley einfügen"
+
+#: ui/tv_diary.ui:188
+msgid "Insert image"
+msgstr "Bild einfügen"
+
+#: ui/tv_diary.ui:195 ui/tv_diary.ui:202
+msgid "Insert chart"
+msgstr "Grafik einfügen"
+
+#: ui/tv_diary.ui:225
+msgid "Sentence case"
+msgstr ""
+
+#: ui/tv_diary.ui:236
+msgid "Title Case"
+msgstr ""
+
+#: ui/tv_diary.ui:247
+msgid "lower case"
+msgstr ""
+
+#: ui/tv_diary.ui:258
+msgid "UPPER CASE"
+msgstr ""
+
+#: ui/tv_diary.ui:274
+msgid "Comment"
+msgstr "Kommentar"
+
+#: ui/tv_diary.ui:284
+msgid "Subscript"
+msgstr ""
+
+#: ui/tv_diary.ui:296
+msgid "Superscript"
+msgstr ""
+
+#: ui/tv_diary.ui:324
+msgid "Spelling"
+msgstr "Rechtschreibung"
+
+#: ui/tv_diary.ui:373
+msgid "Decrease indent"
+msgstr ""
+
+#: ui/tv_diary.ui:404
+msgid "Increase indent"
+msgstr ""
+
+#: ui/tv_diary.ui:422
+msgid "H0"
+msgstr ""
+
+#: ui/tv_diary.ui:423
+msgid "Normal text"
+msgstr "Normaler Text"
+
+#: ui/tv_diary.ui:430
+msgid "Subsubheading"
+msgstr "Unteruntertitel"
+
+#: ui/tv_diary.ui:446
+msgid "Subheading"
+msgstr "Untertitel"
+
+#: ui/tv_diary.ui:465
+msgid "Plain"
+msgstr ""
+
+#: ui/tv_diary.ui:476
+msgid "To do"
+msgstr "Zu erledigen"
+
+#: ui/tv_diary.ui:488
+msgid "In progress"
+msgstr "In Bearbeitung"
+
+#: ui/tv_diary.ui:531
+#, fuzzy
+msgid "Bullet list"
+msgstr "Aufzählungsliste"
+
+#: ui/tv_diary.ui:543
+msgid "Numbered list"
+msgstr "Nummerierte Liste"
+
+#: ui/tv_diary.ui:555
+msgid "Letter list"
+msgstr "Buchstabenliste"
+
+#: ui/tv_diary.ui:567
+#, fuzzy
+msgid "Roman number list"
+msgstr "Römischen Zahlen Liste"
+
+#: ui/tv_diary.ui:584
+msgid "Use Small Letters"
+msgstr ""
+
+#: ui/tv_diary.ui:604
+msgid "Horizontal Rule"
+msgstr ""
+
+#: ui/tv_diary.ui:621
+msgid "Code"
+msgstr ""
+
+#: ui/tv_diary.ui:638
+msgid "Quotation"
+msgstr ""
+
+#: ui/tv_diary_edit_chart.ui:25
+msgid "Edit Chart"
+msgstr "Grafik bearbeiten"
+
+#: ui/tv_diary_edit_chart.ui:36 ui/tv_diary_edit_image.ui:39
+#: ui/tv_diary_edit_table.ui:36
+msgid "Remove image"
+msgstr "Bild wegwerfen"
+
+#: ui/tv_diary_edit_chart.ui:54 ui/tv_diary_edit_table.ui:55
+msgid "Open chart"
+msgstr "Grafik Öffnen"
+
+#: ui/tv_diary_edit_chart.ui:71 ui/tv_diary_edit_image.ui:77
+msgid "Smallest"
+msgstr ""
+
+#: ui/tv_diary_edit_chart.ui:83 ui/tv_diary_edit_image.ui:89
+msgid "Biggest"
+msgstr ""
+
+#: ui/tv_diary_edit_image.ui:28
+msgid "Edit Image"
+msgstr "Bild Bearbeiten"
+
+#: ui/tv_diary_edit_image.ui:64
+msgid "Open image"
+msgstr "Bild Öffnen"
+
+#: ui/tv_diary_edit_image.ui:96
+msgid "Copy Image File to rel:/"
+msgstr ""
+
+#: ui/tv_diary_edit_link.ui:19
+msgid "Edit Link"
+msgstr "Link Bearbeiten"
+
+#: ui/tv_diary_edit_link.ui:30
+msgid "Remove link"
+msgstr "Link wegwerfen"
+
+#: ui/tv_diary_edit_link.ui:63
+msgid "Evaluated"
+msgstr ""
+
+#: ui/tv_diary_edit_link.ui:88
+msgid "Go to link"
+msgstr ""
+
+#: ui/tv_diary_edit_table.ui:25
+msgid "Edit Table"
+msgstr "Tabelle Bearbeiten"
+
+#: ui/tv_diary_edit_table.ui:63
+msgid "Expand All"
+msgstr ""
+
+#: ui/tv_diary_edit_tag.ui:20
+msgid "Edit Tag"
+msgstr "Stichwort Bearbeiten"
+
+#: ui/tv_diary_edit_tag.ui:31
+msgid "Remove tag"
+msgstr "Stichwort wegwerfen"
+
+#: ui/tv_diary_edit_tag.ui:49
+msgid "Go to tag"
+msgstr "Zum Stichwort gehen"
+
+#: ui/widget_entry_picker.ui:32
+msgid "Under"
+msgstr "Unter"
+
+#: ui/widget_entry_picker.ui:45
+msgid "Create a new entry (Ctrl + Enter)"
+msgstr "Einen neuen Eintrag erstellen (Ctrl + Enter)"
+
+#: ui/widget_filter_picker.ui:15
+msgid "label"
+msgstr "Etikett"
+
+#: ui/widget_picker.ui:31
+msgid "Add New"
+msgstr ""
+
+#: ui/widget_picker.ui:39
+msgid "Search in the list"
+msgstr "Suche in der Liste"
+
+#~ msgid "Chapter"
+#~ msgstr "Kapitel"
+
+#~ msgid "Chapter Category"
+#~ msgstr "Kapitel-Kategorie"
+
+#~ msgid "_DISMISS!"
+#~ msgstr "_VERWERFEN!"
+
+#~ msgid "_Save"
+#~ msgstr "_Speichern"
+
+#~ msgid "Only Filtered Entries"
+#~ msgstr "Nur die gefilterten Einträge"
+
+#~ msgid "Select Image File"
+#~ msgstr "Ein Bild auswählen"
+
+#~ msgid "About Lifeograph"
+#~ msgstr "Über Lifeograph"
+
+#~ msgid "Favored"
+#~ msgstr "Favorit"
+
+#~ msgid "Chapter with %1 words spanning %2 days in %3"
+#~ msgstr "Kapitel mit %1 Worten an %2 Tagen in %3"
+
+#~ msgid "Entry with %1 word(s) in %2"
+#~ msgstr "Eintrag mit %1 Wort(en) in %2"
+
+#~ msgid "Completed"
+#~ msgstr "Fertiggestellt"
+
+#~ msgid "Apply"
+#~ msgstr "Verwenden"
+
+#~ msgid "Is NOT"
+#~ msgstr "Ist NICHT"
+
+#~ msgid "Is"
+#~ msgstr "Ist"
+
+#~ msgid "Has NOT the tag"
+#~ msgstr "Hat NICHT das Stichwort"
+
+#~ msgid "Has NOT the theme"
+#~ msgstr "Hat NICHT der Stil"
+
+#~ msgid "Is/Not"
+#~ msgstr "Ist/Nicht"
+
+#~ msgid "Between Entries"
+#~ msgstr "Zwischen die Einträge"
+
+#~ msgid "Has Tag"
+#~ msgstr "Hat das Stichwort"
+
+#~ msgid "Has Theme"
+#~ msgstr "Hat der Stil"
+
+#~ msgid "Start"
+#~ msgstr "Start"
+
+#~ msgid "Entries × Days"
+#~ msgstr "Einträge × Tage"
+
+#~ msgid "Chapters"
+#~ msgstr "Die Kapitel"
+
+#~ msgid "File"
+#~ msgstr "Datei"
+
+#~ msgid "Add Entry"
+#~ msgstr "Eintrag hinzufügen"
+
+#~ msgid "Free"
+#~ msgstr "Frei"
+
+#~ msgid "Hide Entries"
+#~ msgstr "Einträge verbergen"
+
+#~ msgid "Before"
+#~ msgstr "Vor"
+
+#~ msgid "This"
+#~ msgstr "diesem"
+
+#~ msgid "Create a New Diary..."
+#~ msgstr "Erstelle ein neues Tagebuch..."
+
+#~ msgid "Only search filtered entries"
+#~ msgstr "Nur suchen die gefilterten Einträge"
+
+#~ msgid "Today"
+#~ msgstr "Heute"
+
+#~ msgid ""
+#~ "Go to today (creates a new entry if there isn't any or when already at "
+#~ "today)"
+#~ msgstr ""
+#~ "Gehe zum heutigen Tag (erstellt einen neuen Eintrag, wenn dort keiner "
+#~ "existiert oder wenn bereits der heutige Tag markiert ist)"
+
+#~ msgid ""
+#~ "Knowing others is intelligence;\n"
+#~ "knowing yourself is true wisdom.\n"
+#~ "Mastering others is strength;\n"
+#~ "mastering yourself is true power.\n"
+#~ "\n"
+#~ "<i>Lao Tzu</i>"
+#~ msgstr ""
+#~ "Andere erkennen ist weise;\n"
+#~ "Sich selbst erkennen ist Erleuchtung.\n"
+#~ "Andere beherrschen erfordert Kraft;\n"
+#~ "Sich selbst beherrschen erfordert Stärke.\n"
+#~ "\n"
+#~ "<i>Lao Tzu</i>"
+
+#~ msgid "Make Default"
+#~ msgstr "Als Vorgabe verwenden"
+
+#~ msgid "Period"
+#~ msgstr "Zeitraum"
+
+#~ msgid "Tag view"
+#~ msgstr "Schlagwort"
+
+#~ msgid "seconds"
+#~ msgstr "Sekunden"
+
+#~ msgid "Order"
+#~ msgstr "Reihenfolge"
+
+#~ msgid "Separator"
+#~ msgstr "Separator"
+
+#~ msgid "Is NOT tagged by"
+#~ msgstr "Ohne Stichwort"
+
+#~ msgid "Is tagged by"
+#~ msgstr "Ohne Stichwort"
+
+#~ msgid "Colors"
+#~ msgstr "Farbe"
+
+#~ msgid "Font"
+#~ msgstr "Schrift"
+
+#~ msgid "Copyright (C) 2007-2019 Ahmet Öztürk"
+#~ msgstr "Copyright (C) 2007-2019 Ahmet Öztürk"
+
+#~ msgid "Show formatting popover in entry view"
+#~ msgstr "Zeige Formatierungs-Werkzeugleiste bei Einträgen"
+
+#~ msgid "Redo"
+#~ msgstr "Wiederherstellen"
+
+#~ msgid "TAGS"
+#~ msgstr "STICHWORTE"
+
+#~ msgid "Untagged"
+#~ msgstr "Ohne Stichworte"
+
+#~ msgid "Tag Category"
+#~ msgstr "Stichwort Kategorie"
+
+#~ msgid "Dated Chapter"
+#~ msgstr "Datumsbezogener Abschnitt"
+
+#~ msgid "Go to the previous entry in the list"
+#~ msgstr "Gehe zum vorherigen Eintrag in der Liste"
+
+#~ msgid "Next"
+#~ msgstr "Weiter"
+
+#~ msgid "Go to the next entry in the list"
+#~ msgstr "Gehe zum nächsten Eintrag in der Liste"
+
+#~ msgid "Previous Match"
+#~ msgstr "Vorheriger Treffer"
+
+#~ msgid "Go to previous match"
+#~ msgstr "Zum vorherigen Treffer gehen"
+
+#~ msgid "Next Match"
+#~ msgstr "Nächster Treffer"
+
+#~ msgid "Found in <b>%1</b> of <b>%2</b> entrie(s)"
+#~ msgstr "Gefunden in <b>%1</b> von <b>%2</b> Einträgen"
+
+#~ msgid "Filter and theme entries without tags"
+#~ msgstr ""
+#~ "Einträge filtern und gestalten, denen keine Stichworte zugeordnet sind"
+
+#~ msgid "Create New..."
+#~ msgstr "Neue erstellen..."
+
+#~ msgid "highlighted text"
+#~ msgstr "Hervorhebung"
+
+#~ msgid "link"
+#~ msgstr "Verknüpfung"
+
+#~ msgid "broken link"
+#~ msgstr "Fehlerhafte Verknüpfung"
+
+#~ msgid "match"
+#~ msgstr "Treffer"
+
+#~ msgid "Click on the parts to edit. Non-editable parts adapt automatically."
+#~ msgstr ""
+#~ "Klicke auf die Elemente, um sie zu ändern. Nicht anklickbare Elemente "
+#~ "passen sich automatisch an."
+
+#~ msgid "Also dismiss the entries associated with this tag"
+#~ msgstr ""
+#~ "Einträge, die mit diesem Stichwort verbunden sind, ebenfalls löschen"
+
+#~ msgid "Unlimited"
+#~ msgstr "Unbegrenzt"
+
+#~ msgid "Drop items here to change"
+#~ msgstr "Für Änderung Eintrag hier fallenlassen"
+
+#~ msgid "Tag category with %1 tags"
+#~ msgstr "Stichwort-Kategorie mit %1 Einträgen"
+
+#~ msgid "Dated Chapter with %1 entries in %2 days"
+#~ msgstr "Datumsbezogener Abschnitt mit %1 Einträgen an %2 Tagen"
+
+#~ msgid "Encrypted diary"
+#~ msgstr "Verschlüsseltes Tagebuch"
+
+#~ msgid "Unencrypted diary"
+#~ msgstr "Unverschlüsseltes Tagebuch"
+
+#~ msgid "More..."
+#~ msgstr "Mehr …"
+
+#~ msgid "Not To Do"
+#~ msgstr "Keine Aufgabe"
+
+#~ msgid "Hide"
+#~ msgstr "Verbergen"
+
+#~ msgid "Trash"
+#~ msgstr "Papierkorb"
+
+#~ msgid "Remove"
+#~ msgstr "Entfernen"
+
+#~ msgid "Regular"
+#~ msgstr "Normal"
+
+#~ msgid "Hide entries before this date"
+#~ msgstr "Einträge, vor diesem Datum, verstecken"
+
+#~ msgid "Hide entries after this date"
+#~ msgstr "Einträge, nach diesem Datum, verstecken"
+
+#~ msgid "More Options"
+#~ msgstr "Weitere Optionen"
+
+#~ msgid "Previous match"
+#~ msgstr "Vorheriger Treffer"
+
+#~ msgid "Next match"
+#~ msgstr "Nächster Treffer"
+
+#~ msgid "Toggle Filtering"
+#~ msgstr "Filter ein/aus"
+
+#~ msgid "Dismiss selected category"
+#~ msgstr "Markierte Kategorie verwerfen"
+
+#~ msgid "Graph"
+#~ msgstr "Diagramm"
+
+#~ msgid "List"
+#~ msgstr "Liste"
+
+#~ msgid "General"
+#~ msgstr "Allgemein"
+
+#~ msgid "Type & Unit"
+#~ msgstr "Typ & Einheit"
+
+#~ msgid "Actions"
+#~ msgstr "Aktionen"
+
+#~ msgid "Before logging out wait for"
+#~ msgstr "Bitte warte vor dem Abmelden für"
+
+#~ msgid "Justify Text on the Page"
+#~ msgstr "Text im Blocksatz ausdrucken"
+
+#~ msgid "Lifeograph:"
+#~ msgstr "Lifeograph"
+
+#~ msgid "lifeograph"
+#~ msgstr "lifeograph"
+
+#~ msgid "Entered password is wrong; please try again"
+#~ msgstr "Falsches Password, bitte neu eingeben"
+
+#~ msgid "Diary is ready for importing"
+#~ msgstr "Tagebuch kann eingelesen werden."
+
+#~ msgid "Untitled chapter"
+#~ msgstr "Unbenannter Abschnitt"
+
+#~ msgid "_Dismiss..."
+#~ msgstr "_Verwerfen..."
+
+#~ msgid "Import..."
+#~ msgstr "Importieren..."
+
+#~ msgid "Open a Diary File..."
+#~ msgstr "Öffne eine Tagebuch-Datei..."
+
+#~ msgid "Import"
+#~ msgstr "Importieren"
+
+#~ msgid "Diary File"
+#~ msgstr "Tagebuch-Datei"
+
+#~ msgid "Tags"
+#~ msgstr "Stichworte"
+
+#~ msgid "Create a _New Diary..."
+#~ msgstr "Erstelle ein _neues Tagebuch..."
+
+#~ msgid "Please select a date"
+#~ msgstr "Bitte ein Datum auswählen"
+
+#~ msgid "Create a new chapter on %1"
+#~ msgstr "Ein neues Datum für den %1 erstellen"
+
+#~ msgid "Re-enable Auto Logout"
+#~ msgstr "Auto-Logout wieder aktivieren"
+
+#~ msgid "Create a new entry on the selected day in the calendar"
+#~ msgstr "Neuen Eintrag am im Kalender markierten Tag erstellen"
+
+#~ msgid "Create a new numbered chapter"
+#~ msgstr "Erstelle einen neuen nummerierten Abschnitt"
+
+#~ msgid "Create a new free chapter"
+#~ msgstr "Erstelle einen neuen freien Abschnitt"
+
+#~ msgid "Sort by Size"
+#~ msgstr "Nach Größe sortieren"
+
+#~ msgid "Tools"
+#~ msgstr "Werkzeuge"
+
+#~ msgid "Chapter Sets:"
+#~ msgstr "Kapitelgruppen:"
+
+#~ msgid "Remove Chapter"
+#~ msgstr "Kapitel löschen"
+
+#~ msgid "Add C_hapter"
+#~ msgstr "_Kapitel hinzufügen"
+
+#~ msgid "Type:"
+#~ msgstr "Format:"
+
+#~ msgid "Browse..."
+#~ msgstr "Durchsuchen..."
+
+#~ msgid "File:"
+#~ msgstr "Datei:"
+
+#~ msgid "_Add Password"
+#~ msgstr "Passwort _hinzufügen"
+
+#~ msgid "C_hange Password"
+#~ msgstr "Passwort _ändern"
+
+#~ msgid "New Password:"
+#~ msgstr "Neues Passwort:"
+
+#~ msgid "Encrypted Diary File"
+#~ msgstr "Verschlüsselte Tagebuchdatei"
+
+#~ msgid "Unencrypted Diary File"
+#~ msgstr "Unverschlüsselte Tagebuchdatei"
+
+#~ msgid "Current Password:"
+#~ msgstr "Aktuelles Passwort:"
+
+#~ msgid "<b>Colors:</b>"
+#~ msgstr "<b>Farben:</b>"
+
+#~ msgid "Background:"
+#~ msgstr "Hintergrund:"
+
+#~ msgid "Confirm New Password:"
+#~ msgstr "Neues Passwort bestätigen:"
+
+#~ msgid "_Create A New Diary..."
+#~ msgstr "Ein neues Tagebuch _anlegen"
+
+#~ msgid "_Browse For a Diary..."
+#~ msgstr "Nach einem Tagebuch _suchen"
+
+#~ msgid "Diary Files (*.diary)"
+#~ msgstr "Tagebuchdateien (*.diary)"
+
+#~ msgid ""
+#~ "Selected diary is not compatible with this version of Lifeograph. Please "
+#~ "select another file..."
+#~ msgstr ""
+#~ "Das ausgewählte Tagebuch ist mit dieser Version von Lifeograph nicht "
+#~ "kompatibel. Bitte wähle eine andere Datei aus..."
+
+#~ msgid "Failed to open diary. Please select anoter file..."
+#~ msgstr ""
+#~ "Beim Öffnen des Tagebuchs ist ein Fehler aufgetreten. Bitte wähle eine "
+#~ "andere Datei aus..."
+
+#~ msgid "Unencrypted diary. Press OK to open"
+#~ msgstr "Ein unverschlüsseltes Tagebuch. Drücke OK um es zu öffnen"
+
+#~ msgid ""
+#~ "Knowing others is intelligence;\n"
+#~ "knowing yourself is true wisdom.\n"
+#~ "Mastering others is strength;\n"
+#~ "mastering yourself is true power.\n"
+#~ "\n"
+#~ "<i>--Lao Tzu</i>"
+#~ msgstr ""
+#~ "Andere erkennen ist weise;\n"
+#~ "Sich selbst erkennen ist Erleuchtung.\n"
+#~ "Andere beherrschen erfordert Kraft;\n"
+#~ "Sich selbst beherrschen erfordert Stärke."
+
+#~ msgid ""
+#~ "You are about to open an old diary that has to be upgraded to the new "
+#~ "format. \n"
+#~ "\n"
+#~ "It is STRONGLY recommended to back up any diary before upgrading.\n"
+#~ "\n"
+#~ "After you upgrade a diary, you won't be able to open it in a previous "
+#~ "version of Lifeograph."
+#~ msgstr ""
+#~ "Du bist gerade dabei, ein veraltetes Tagebuch zu öffnen, das auf das neue "
+#~ "Format upgegraded werden muss. \n"
+#~ "Es wird SEHR empfohlen, alle Tagebücher vor dem Upgrade zu sichern.\n"
+#~ "Nach dem Upgrade kannst du es in einer älteren Version von Lifeograph "
+#~ "nicht mehr öffnen."
+
+#~ msgid "Enter text to be filtered"
+#~ msgstr "Gib den Text ein, nach dem gefiltert werden soll"
+
+#~ msgid "Add to _Favorites"
+#~ msgstr "Zu _Favoriten hinzufügen"
+
+#~ msgid "_Edit Tag"
+#~ msgstr "_Bearbeite Tag"
+
+#~ msgid ""
+#~ "Your changes will be backed up in \"%1.~backup~\". If you exit normally, "
+#~ "your diary is saved automatically."
+#~ msgstr ""
+#~ "Deine Änderungen werden in \"%1.~backup~\" gesichert. Wenn du normal "
+#~ "beendest, wird dein Tagebuch automatisch gesichert."
+
+#~ msgid ""
+#~ "%1\n"
+#~ "\n"
+#~ "%2 Entries"
+#~ msgstr ""
+#~ "%1\n"
+#~ "\n"
+#~ "%2 Einträge"
+
+#~ msgid "<i>Untagged</i>"
+#~ msgstr "<i>Ungetagged</i>"
+
+#~ msgid "Group by Chapters: %1"
+#~ msgstr "Nach Kapiteln %1 gruppieren"
+
+#~ msgid "Empty Diary"
+#~ msgstr "Leeres Tagebuch"
+
+#~ msgid "_Continue"
+#~ msgstr "_Fortsetzen"
+
+#~ msgid "Diary:"
+#~ msgstr "Tagebuch:"
+
+#~ msgid "_Edit Chapters..."
+#~ msgstr "_Kapitel bearbeiten..."
+
+#~ msgid "_Change Password..."
+#~ msgstr "_Passwort ändern..."
+
+#~ msgid "Log out Automatically on _Idle"
+#~ msgstr "Automatisch bei Abwesenheit Ausloggen"
+
+#~ msgid "Create A New Tag"
+#~ msgstr "Neuen Tag erstellen"
+
+#~ msgid "Remove from list"
+#~ msgstr "Von der Liste entfernen"
+
+#~ msgid "<i>Untagged Entry</i>"
+#~ msgstr "<i>Eintrag ohne Schlagwörter</i>"
+
+#~ msgid "Launchpad Page"
+#~ msgstr "Launchpadseite"
+
+#~ msgid "Replace all matches throughout entire diary"
+#~ msgstr "Ersetze alle Treffer im gesamten Tagebuch"
+
+#~ msgid "Replace All"
+#~ msgstr "Alle ersetzen"
+
+#~ msgid "E_xport/Backup Current Diary..."
+#~ msgstr "E_xport/Backup Aktuelles Tagebuch.."
+
+#~ msgid "Untitled set"
+#~ msgstr "Unbenannte Gruppe"
+
+#~ msgid "Confirm:"
+#~ msgstr "Bestätigen:"
+
+#~ msgid "Font:"
+#~ msgstr "Schrift:"
+
+#~ msgid "Edit Theme"
+#~ msgstr "Thema bearbeiten"
+
+#~ msgid "Subheading:"
+#~ msgstr "Untertitel"
+
+#~ msgid "Heading:"
+#~ msgstr "Überschrift:"
+
+#~ msgid "Welcome new user!"
+#~ msgstr "Willkommen, neuer Benutzer!"
+
+#~ msgid "Select or Create a Diary"
+#~ msgstr "Tagebuch auswählen oder anlegen"
+
+#~ msgid "<<<%1 SECONDS TO LOG OUT>>>"
+#~ msgstr "<<<%1 Sekunden bis zum Ausloggen>>>"
+
+#~ msgid "Go to today (creates a new entry if there isn't any)"
+#~ msgstr ""
+#~ "Zu Heute gehen (erstellt einen neuen Eintrag, wenn noch keiner existiert)"
+
+#~ msgid "_Delete Tag"
+#~ msgstr "Schlagwort _entfernen"
+
+#~ msgid "Are you sure, you want to delete selected tag?"
+#~ msgstr "Willst du dieses Schlagwort wirklich löschen?"
+
+#~ msgid "Remove from _Favorites"
+#~ msgstr "Von _Favoriten entfernen"
+
+#~ msgid "Replace selected (if any) or next match"
+#~ msgstr "Ersetze markierten oder nächsten Treffer (falls vorhanden)"
+
+#~ msgid "<i>Earlier Entries</i>"
+#~ msgstr "<i>Frühere Einträge</i>"
+
+#~ msgid "Are you sure, you want to dismiss?"
+#~ msgstr "Bist Du sicher, dass Du den Eintrag verwerfen möchtest?"

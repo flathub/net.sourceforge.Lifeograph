@@ -1,0 +1,1448 @@
+LIFEOGRAPHDB
+V 3000
+E n
+Id5598284
+
+Do~~~
+Dp0
+Dsen_US
+Df10039
+Dl10008
+
+ID6160733
+T ~Lifeograph
+TfSans 10
+Tb#FFFFFFFFFFFF
+Tt#000000000000
+Th#B7B725252525
+Ts#96963F3F3F3F
+Tl#FFFFBBBBBBBB
+
+ID10004
+F __Chapter Category:Default
+F|
+
+ID9012508
+F A_Default
+F&
+
+ID1474402
+G ANew Chart
+Gt100
+Gx100
+Gy1048576
+Gu1048576
+Gf1048576
+Gv
+Go_BMP
+
+ID9772896
+M ADefault
+Mci100New Column
+McoX~~~~~~__SO_~~~~
+Mcx____P_~~~~~~~~T
+Mcw1
+McsA1
+Mo0E
+
+We1000001
+
+ID10010
+E __nEBN_~~~~~~~~202008090140423
+Ec202008090140423
+Ee202008090140423
+Ehr
+EpDBasics
+
+ID10039
+E __n_BN_~~~~~~~~201109130002044
+Ec201109130002044
+Ee202412290074627
+Ehu10010
+EpDWelcome to Lifeograph Manual!
+EfE0|0|
+EpDdocument version: 3.0a
+EpD
+Ep|B_E_0_____~~~~~WORK IN PROGRESS
+EpD
+EpDThis manual is aimed at being a complete guide about Lifeograph. It is distributed with Lifeograph. 
+EpD
+EpD
+EpDLifeograph website
+EfL0|18|http://lifeograph.sourceforge.net
+EpD
+EpD
+EpDThis work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+EfL30|95|http://creativecommons.org/licenses/by-sa/4.0/
+EpD
+EpD
+
+ID10036
+E __n_BN_~~~~~~~~201308030104404
+Ec201308030104404
+Ee202411160122125
+Eha10039
+EpDInterface (Login View)
+EpD
+Ep<__E_0I3___~~~~~rel://images/login.png
+EpD
+EpDLogin view allows one to choose the diary to open. It features a list of previously opened diaries for easy access.
+EpD
+Ep<S_E_0_____~~~~~Header bar buttons
+Ep<B_E_0_____~~~~~Add an existing diary File... (with Open icon)
+EpDOpens a file open dialog to select a diary file not available in the diary list. The diary will be added to the list.
+EpD
+Ep<B_E_0_____~~~~~Create New
+EpDOpens a file save dialog to enter the name, location, and optionally password for a new diary. Upon the completion of necessary info, an empty diary file will be opened.
+EpD
+Ep<B_E_0_____~~~~~Hamburger button
+EpDProvides menu items for sorting options, Preferences, Help, and Quit.
+EpD
+Ep<S_E_0_____~~~~~Diary List
+EpDContains previously opened diaries. At the first install, it will only contain the example diary file that is part of the Lifeograph package and contains the release history of Lifeograph.
+EpD
+Ep<B_E_0_____~~~~~Sorting
+EpDDiaries can be sorted by name, last save date, and last read date by clicking the date column header. Read option is useful for finding the diaries opened in read-only mode.
+EpD
+
+ID10035
+E __nEBN_~~~~~~~~201207030232910
+Ec201207030232910
+Ee202411160122623
+Eha10036
+EpDInterface (Editing)
+EpD
+Ep<__E_0I3___~~~~~rel://images/interface_legend.png
+EpD
+EpD
+Ep<S_E_0_____~~~~~1: Main tool bar (header bar)
+EpDLifeograph tries to follow the Gnome design guidelines and uses a "headerbar" to display its most used tools.
+EpD
+EpDFollowing items are provided in the header bar (from left to right):
+Ep<__E_1_____~~~~~A: Back: Go back in the browsing history
+EfB3|8|
+Ep<__E_1_____~~~~~A: Forward: Go forward in the browsing history
+EfB3|11|
+Ep<__E_1_____~~~~~B: Add: Quick add a new entry to today
+EfB3|7|
+Ep<__E_1_____~~~~~C: Current entry icon: Displays the current entry's icon per its to-do status.
+EfB3|22|
+Ep<__E_1_____~~~~~D: Menu arrow: Opens the entry popover for various operations on entry.
+EfB3|14|
+Ep<__E_1_____~~~~~E: Date and info: Display and edit the date of the current entry. Word count and diary name info. 
+EfB3|17|
+Ep<__E_1_____~~~~~F: Search button: Opens the bottom panel in search tab.
+EfB3|17|
+Ep<__E_1_____~~~~~G: Bottom panel button: Open the bottom panel in any tab of your selection.
+EfB3|23|
+Ep<__E_1_____~~~~~H: Diary button: change the sorting type of the entry list.
+EfB3|16|
+Ep<__E_1_____~~~~~K: Hamburger button: Opens a popover with sorting options and program-wide items such as help, preferences, about.
+EfB3|20|
+Ep<__E_1_____~~~~~L: Edit button: Enables editing the current diary.
+EfB3|15|
+Ep<__E_1_____~~~~~M: Log out: Close the current diary and return to the Login screen immediately after saving the diary.
+EfB3|11|
+Ep<_-E_2_____~~~~~Log out options (down arrow): Provides disable auto-logout for this session and log out without saving options.
+EfB0|29|
+Ep<S_E_0_____~~~~~2: Active entry panel
+EpDCentral part of the editing interface, consists of the entry text editor where its contents of the current entry can be read or edited.
+EfD107|112|10021
+Ep<S_E_0_____~~~~~3: Entry list
+EpDSee Entry list
+EfD4|14|9857393
+Ep<S_E_0_____~~~~~4: Bottom panel
+EpDContains extra functionality organized in tabs. Can be hidden when not needed.
+EpDContains following tabs:
+Ep<_-E_1_____~~~~~Calendar
+EfD0|8|53323184
+Ep<_-E_1_____~~~~~Search
+EfD0|6|10014
+Ep<_-E_1_____~~~~~Tables
+EfD0|6|2264330
+Ep<_-E_1_____~~~~~Charts
+EfD0|6|10033
+Ep<_-E_1_____~~~~~Themes
+EfD0|6|10006
+Ep<_-E_1_____~~~~~Map
+EfD0|3|86792505
+EpD
+Ep<S_E_0_____~~~~~Read and Edit modes
+EpDDiaries are normally opened in Read-Only Mode to ensure that nothing is changed inadvertently. Click the Edit button (or press F2) to enable editing.
+EfD31|45|10031
+EfB105|109|
+
+ID9857393
+E __n_BN_~~~~~~~~202011290232058
+Ec202011290232058
+Ee202411160125356
+Ehu10035
+EpDEntry list
+EpDLists the entries in the open diary in a hierarchical way. A filter can be selected from the overlaid button on the top right corner of the list (hidden when cursor is not in its vicinity) to limit the entries to be shown.
+EpDEntries can be grouped in any way the user sees fit for her use case.
+Ep<S_E_0_____~~~~~Operations
+Ep<_-E_1_____~~~~~Left clicking an entry opens it in the active entry panel.
+Ep<_-E_1_____~~~~~Entries can be dragged and dropped within the list to change the order and hierarchy.
+Ep<_-E_1_____~~~~~Right clicking on an entry opens a menu for some frequently used actions on entries.
+Ep<_-E_1_____~~~~~Multiple entries can be selected by holding down the Ctrl key.
+Ep<_-E_1_____~~~~~When multiple entries are selected right-click menu operations act on all of them.
+Ep<S_E_0_____~~~~~Naming types
+EpDEntries can be displayed in one of the following formats:
+Ep<_-E_1_____~~~~~Name only
+Ep<_-E_1_____~~~~~Name - Description
+Ep<_-E_1_____~~~~~Number - Name
+Ep<_-E_1_____~~~~~Date - Name
+Ep<_-E_1_____~~~~~Milestone
+EpDNumbering is handled automatically based on the position of the entry under its parent.
+Ep<S_E_0_____~~~~~Sorting
+EpDEntries can be sorted by dragging and dropping. In addition, sibling entries can be sorted by using the right click menu by alphabetical order, date or size.
+EpDPlease note that sorting only takes place at the time when user explicitly asks for it.  Lifeograph does not change the placement of entries in the list in the background as per a sorting preference. 
+EpD
+
+ID53323184
+E __n_NN_~~~~~~~~202411100084204
+Ec202411100084204
+Ee202412290135721
+Eha9857393
+EpDCalendar
+EpD
+EpDCalendar provides a month overview where days that have entries on them are marked.
+EpD
+Ep<_-E_1_____~~~~~Single click a day to to open the entry/entries on that day. 
+Ep<_-E_1_____~~~~~Double click a day to create an entry on that day.
+Ep<_-E_1_____~~~~~Right clicking on a day provides options for setting a day as holiday and showing week numbers.
+Ep<_-E_1_____~~~~~It is possible to set the weekend days for the active diary through the right click menu of the day headers.
+
+ID10030
+E __n_BN_~~~~~~~~201109130003317
+Ec201109130003317
+Ee202411170104405
+Eha10035
+EpDDiaries
+EpD
+EpDLifeograph supports working with multiple diary files. It remembers previously opened diaries and offers a list of them at the start-up for easy access.
+Ep<S_E_0_____~~~~~Creating a new diary
+EpDSee Interface (Login View)
+EfD4|26|10036
+Ep<S_E_0_____~~~~~Saving
+EpDDiaries are saved automatically on closing. Previous version of the diary is also kept as a backup file. For more information about backups see Backup Files.
+EfD144|156|10023
+Ep<S_E_0_____~~~~~Diary menu
+Ep<__E_0I3___~~~~~rel://images/diary_menu.png
+EpDDiary menu allows the user
+Ep<_-E_1_____~~~~~to open the containing folder of the diary in the file browser
+Ep<_-E_1_____~~~~~to check the file size
+Ep<_-E_1_____~~~~~to set spell checking language
+Ep<_-E_1_____~~~~~to assign a completion tag (entry)
+EfD12|22|10009
+Ep<_-E_1_____~~~~~to set the entry to be shown at login
+Ep<_-E_1_____~~~~~to add encryption to the diary
+Ep<_-E_1_____~~~~~to change the password if the diary is already encrypted
+Ep<_-E_1_____~~~~~to export/save as
+Ep<_-E_1_____~~~~~to synchronize with another diary file 
+Ep<S_E_0_____~~~~~Encryption
+EpDThere are two types of diaries: plain and encrypted.
+EpDTo encrypt a plain diary, all that is needed is adding a password to it.
+EpDLifeograph offers to add a password in the file dialog while creating a new diary. It is also possible to encrypt a plain diary afterwards via the Encrypt.. item in the diary menu.
+EfB147|156|
+EpDEncryption, once added, cannot be removed from a diary file. However, a non-encrypted copy can be saved via: Export/Save as menu item.
+EfB109|123|
+EfD109|133|10025
+Ep<S_E_0_____~~~~~Extension of diary files
+EpDDefault extension for diaries is .diary which will be appended automatically to the end of the name. This behavior, though, can be overridden via a hidden option.
+EfB33|39|
+EfD148|161|10017
+
+ID10021
+E __n_BN_~~~~~~~~201109130003516
+Ec201109130003516
+Ee202411170104919
+Eha10030
+EpDEntries
+EpD
+EpDEntries constitute the most essential unit of a diary. Each entry is a storage for text that can be used for various purposes such as recording daily activities, keeping to-do lists, tagging other entries, etc.
+EfD183|190|10005
+EpD
+Ep<__E_0I3___~~~~~rel://images/entry_menu.png
+EpD
+Ep<S_E_0_____~~~~~Creating entries
+EpDThere are many ways of creating new entries. You can
+Ep<_-E_1_____~~~~~click the Add button in the header bar to create a new entry
+EfB10|13|
+Ep<_-E_1_____~~~~~double click on a day in the calendar to create an entry on that date
+EfD29|37|53323184
+Ep<_-E_1_____~~~~~use the various shortcuts for creating certain types of entries
+EfD16|25|10008
+Ep<_-E_1_____~~~~~use the Smart Add dialog to create entries (or paragraphs) in an interactive way
+EfB8|17|
+Ep<_-E_1_____~~~~~use the right click menu of the entry list to create relatives of the a selected entry
+Ep<S_E_0_____~~~~~Properties of entries
+Ep<B_E_0_____~~~~~Todo status
+EpDSee To-do status and completion percentage
+EfD4|16|10013
+EfD21|42|10009
+Ep<B_E_0_____~~~~~Favorite
+EpDEntries can be marked as favorite from the icon menu. Favorite entries are marked with a heart icon in the entry list and can be filtered.
+Ep<B_E_0_____~~~~~Type
+Ep<B_E_0_____~~~~~Color
+EpDEntry colors are used as background in tags
+Ep<B_E_0_____~~~~~Unit
+EpDEntries can be assigned a unit such as km or mi. There are a number of stock units available via the drop down menu but any unit can be entered into the related field in the entry menu.
+EpDUnits, are just convenience labels in Lifeograph to be used in charts and no automatic conversion takes place if a unit is changed.
+Ep<S_E_0_____~~~~~Dismissing Entries
+EpDEntries cannot be dismissed directly but can be sent to trash first, using the related icon menu entry. Entries in the trash can be dismissed from the icon menu item specific to them.
+EpDAll trashed entries can be dismissed together using the Empty the Trash... item in the diary menu.
+EfB56|74|
+EfD83|97|10035
+Ep<S_E_0_____~~~~~Milestones
+EpDEntries marked as milestones are displayed distinctively in the entry list and their colors are used in the chart background. 
+
+ID10042
+E __n_BN_~~~~~~~~201811180145129
+Ec201811180145129
+Ee202411170091524
+Eha10021
+EpDEntry text formatting
+EpD
+Ep<S_E_0_____~~~~~Basics
+EpDLifeograph mostly parted ways with the wiki style formatting paradigm and now allows formatting in a word processor fashion.
+Ep<S_E_0_____~~~~~Paragraph-wide formatting
+Ep<B_E_0_____~~~~~Heading (Entry title)
+EpDFirst paragraph of an entry (i. e. any text before the first line break) is considered the title rendered in heading style. Color of heading is defined by  associated theme.
+Ep<B_E_0_____~~~~~Subheading
+EpDParagraphs starting with a single space (" ") are styled as subheading. Other formats and comments can be used normally in subheadings however using bold will make no difference as subheading style is already bold. Color of subheading comes from  associated theme.
+Ep<B_E_0_____~~~~~Subsubheading
+EpDParagraphs starting with double space ("  ") are styled as subsubheading. Color of subheading is derived from subheading color of the theme.
+Ep<B_E_0_____~~~~~Code
+EpDA monospaced font style and pale background color is applied to the paragraph.
+Ep<__E_0___C_~~~~~This is a code paragraph.
+Ep<B_E_0_____~~~~~Quotation
+EpDDenoted by a rectangle around the paragraphs.
+Ep<__EQ1_____~~~~~This is a quotation.
+Ep<S_E_0_____~~~~~Selection based formatting
+Ep<B_E_0_____~~~~~Bold / italic / underline / highlight / strikethrough
+Ep<_-E_1_____~~~~~Highlight color is defined by the theme applied.
+Ep<B_E_0_____~~~~~Comments
+EpDThere is a special markup type to denote comments in a text. Marking up comments this way has the benefit of toggling their visibility when needed. e.g. before taking a print out.
+EpD[[this is a comment]]
+Ep<B_E_0_____~~~~~Links
+EpDIt is possible to create links to other entries, dates, files, web sites, etc... in an entry. See Links for more info.
+EfD98|103|10012
+Ep<B_E_0_____~~~~~Inline tags
+EpDSee Tagging
+EfD4|11|10005
+Ep<S_E_0_____~~~~~Images
+EpDLinks to image files are automatically replaced by the thumbnail of the target image under following conditions:
+Ep<_-E_1_____~~~~~link should be start with file:// or rel://
+Ep<_-E_1_____~~~~~it should be placed in a dedicated paragraph i.e. there should be no other character in the paragraph other than link text, including space characters.
+EpD
+EpDPlease note that image files are not saved within diary files. Although they appear as images inside the entries, they are still just links to external files. 
+EpD
+EpD
+
+ID10006
+E __n_BN_~~~~~~~~201109130003045
+Ec201109130003045
+Ee202011300000053
+Eha10042
+EpDThemes
+EpD
+EpDTheme system is a means to customize the look of the entries. It is possible to change the font and colors of entries via themes. Themes are defined within "theme tags" i.e. tags that have their own themes. Entries not associated with any tag normally use the default system theme.
+Ep<S_E_0_____~~~~~Creating new themes
+EpDNew themes can also be created by copying existing ones from other tags.
+Ep<S_E_0_____~~~~~Editing themes
+EpDThemes can be edited from the dedicated tab in the bottom panel. Right-click on a theme in the list and click the edit button. The WYSIWYG theme editor opens with clickable links for editing user-defined aspects of the theme. Please note that not editable colors of the theme adopt automatically to the selected colors.
+Ep<S_E_0_____~~~~~Assigning themes to entries
+EpDJust right click on the theme and select Assign to Open Entry.
+EfB41|61|
+EpDYou can also drag and drop the theme onto the entry text editor to assign it to the current entry as well as onto any entry in the entry list.
+
+ID10013
+E __P_BN_~~~~~~~~201203040231558
+Ec201203040231558
+Ee202411170104346
+Eha10006
+EpDTo-do status
+EpD
+EpDEntries and entry derivatives (such as chapters) can be assigned a to-do status to indicate their status in the entry list.
+EpD
+EpDThere are four states a to-do item can be in:
+Ep<_-E_1_____~~~~~Open
+Ep<_-E_1_____~~~~~In progress
+Ep<_-E_1_____~~~~~Done
+Ep<_-E_1_____~~~~~Canceled
+EpD
+EpDBy default, completion status of an entry is determined from its content, i.e. presence and status of to-do items in it. 
+EfD102|113|10013
+EpD
+EpDe.g. an entry containing following items will be OPEN:
+EpD
+Ep<_OE_1_____~~~~~item 1
+Ep<_OE_1_____~~~~~item 2
+EpD
+EpDwhereas an entry with the following will be IN PROGRESS:
+Ep<_OE_1_____~~~~~item1
+Ep<_+E_1_____~~~~~item 2
+EpD
+EpDCompletion status of an can also be set explicitly so that it will no longer be dependent on its contents.
+EpD
+EpDEntries can be filtered as per their to-do statuses.
+EfD15|23|3885947
+
+ID10009
+E __n_BN_~~~~~~~~201407290154353
+Ec201407290154353
+Ee202411170083936
+Eha10013
+EpDCompletion percentage
+EpD
+EpDLifeograph can automatically calculate and display a completion percentage for entries based on values of a tag of the user's choosing.
+EpD
+EpDThe completion tag is set in the diary menu. 
+EfD33|43|10035
+EpD
+EpDThe calculated percentage is displayed next to an entry name in the entries list. Active entry's completion can also be checked from its header bar menu.
+EpD
+EpDEntries can be filtered based on their completion percentages.
+EfD15|23|3885947
+EpD
+EpDCompletion percentage is totally independent from the to-do status. So, an entry can be marked Done while its completion is at 0%.
+EfB95|99|
+EfB127|129|
+
+ID10014
+E __n_BN_~~~~~~~~201203040231740
+Ec201203040231740
+Ee202012030223730
+Eha10009
+EpDText Searching and Replacing
+EpD
+Ep<S_E_0_____~~~~~Searching
+EpDSearching panel is opened with the Ctrl+F shortcut. When some text is entered into the search box, all paragraphs containing the text are listed. Clicking on the highlighted matches in the list opens the related entry.
+EpD
+EpDYou can also iterate over the search results with F3 and Shift+F3 going forwards and backwards, respectively.
+EpD
+Ep<S_E_0_____~~~~~Replacing
+Ep<_-E_1_____~~~~~Matches can be replaced with the text in the replace box by right clicking onto them and selecting Replace.
+EfB99|106|
+Ep<_-E_1_____~~~~~Use the All button to replace all matches at once.
+EfB8|11|
+EpD
+Ep<S_E_0_____~~~~~Searching the entire diary
+EpDBy default text search is only done in the filtered entries. To expand the search to the entire diary uncheck the check-button with the funnel icon.
+
+ID10008
+E __n_BN_~~~~~~~~201109130002457
+Ec201109130002457
+Ee202504120113012
+Eha10014
+EpDKeyboard Shortcuts
+EpD
+Ep<S_E_0_____~~~~~General
+Ep<_-E_1_____~~~~~Log out: Ctrl + Escape
+EfB0|8|
+Ep<_-E_1_____~~~~~Enable editing: F2
+EfB0|15|
+Ep<_-E_1_____~~~~~Print: Ctrl + P
+EfB0|6|
+Ep<_-E_1_____~~~~~Start searching: Ctrl + F
+EfB0|16|
+Ep<_-E_1_____~~~~~Go to next match: F3
+EfB0|17|
+Ep<_-E_1_____~~~~~Go to previous match: Shift + F3
+EfB0|21|
+Ep<_-E_1_____~~~~~Replace selection: F4
+EfB0|18|
+EpD
+Ep<_-E_1_____~~~~~Refresh the active screen: F5
+EfB0|26|
+Ep<_-E_1_____~~~~~Move input focus between the text editor and the entry list: Ctrl + Tab
+EfB0|60|
+EpD
+Ep<_-E_1_____~~~~~Show Calendar Panel: Ctrl + 1
+EfB0|20|
+Ep<_-E_1_____~~~~~Show Search panel: Ctrl + 2
+EfB0|18|
+Ep<_-E_1_____~~~~~Show Table panel: Ctrl + 3
+EfB0|17|
+EfD5|16|2264330
+Ep<_-E_1_____~~~~~Show Chart panel: Ctrl + 4
+EfB0|17|
+EfD5|16|10033
+Ep<_-E_1_____~~~~~Show Theme Panel: Ctrl + 5
+EfB0|17|
+EfD5|16|10006
+Ep<_-E_1_____~~~~~Show Map Panel: Ctrl + 6
+EfB0|15|
+EfD5|14|86792505
+Ep<_-E_1_____~~~~~Hide Bottom Panel: Ctrl + 0
+EfB0|18|
+EpD
+Ep<S_E_0_____~~~~~Text Editing
+Ep<_-E_1_____~~~~~Undo: Ctrl + Z
+EfB0|5|
+Ep<_-E_1_____~~~~~Redo: Ctrl + Shift + Z
+EfB0|5|
+Ep<_-E_1_____~~~~~Show context menu: Ctrl + Shift + Space
+EfB0|18|
+EfH19|39|
+Ep<_-E_1_____~~~~~Search selected text: Alt + S
+EfB0|21|
+EfH22|29|
+Ep<B_E_0_____~~~~~Basic Formatting
+Ep<_-E_1_____~~~~~Expand selection: Alt + M
+EfB0|17|
+EfH18|25|
+Ep<__E_1_____~~~~~
+Ep<_-E_1_____~~~~~Bold: Ctrl + B
+EfB0|5|
+EfH6|14|
+Ep<_-E_1_____~~~~~Highlight: Ctrl + H
+EfB0|10|
+EfH11|19|
+Ep<_-E_1_____~~~~~Italic: Ctrl + I
+EfB0|7|
+EfH8|16|
+Ep<_-E_1_____~~~~~Underline: Ctrl + U
+EfB0|10|
+EfH11|19|
+Ep<_-E_1_____~~~~~Strike-through: Ctrl + S
+EfB0|15|
+EfH16|24|
+Ep<B_E_0_____~~~~~Tagging & Linking
+Ep<_-E_1_____~~~~~Show completion menu (Tagging): Ctrl + Space
+EfB0|31|
+EfH32|44|
+Ep<_-E_1_____~~~~~Show completion menu (Linking): Ctrl + <
+EfB0|31|
+EfH32|40|
+Ep<_-E_1_____~~~~~Add link to entry: Ctrl + >
+EfB0|18|
+EfH19|27|
+Ep<_-E_1_____~~~~~Add evaluated Link: Ctrl + L
+EfB0|19|
+EfH20|28|
+Ep<_-E_1_____~~~~~Go to link cursor is in: Alt + G
+EfB0|24|
+EfH25|32|
+Ep<B_E_0_____~~~~~Insertion
+Ep<_-E_1_____~~~~~Insert Comment: Alt + C
+EfB0|15|
+EfH16|23|
+Ep<_-E_1_____~~~~~Insert current date: Alt + D
+EfB0|20|
+EfH21|28|
+Ep<_-E_1_____~~~~~Insert current date and time: Alt + Shift + D
+EfB0|29|
+EfH30|45|
+Ep<_-E_1_____~~~~~Insert horizontal rule: Alt +Shift + R
+EfB0|23|
+EfH24|38|
+Ep<_-E_1_____~~~~~Insert space after the cursor: Shift + Space
+EfB0|30|
+EfH31|44|
+Ep<B_E_0_____~~~~~Paragraph Formatting
+Ep<_-E_1_____~~~~~Indent: Alt + I
+EfB0|7|
+EfH8|15|
+Ep<_-E_1_____~~~~~Unindent: Alt + U
+EfB0|9|
+EfH10|17|
+Ep<_-E_1_____~~~~~Insert empty line above: Alt + L
+EfB0|24|
+EfH25|32|
+Ep<_-E_1_____~~~~~Erase empty line above: Alt + Shift + L
+EfB0|23|
+EfH24|39|
+Ep<_-E_1_____~~~~~Add empty line below: Alt + Enter
+EfB0|21|
+EfH22|33|
+Ep<_-E_1_____~~~~~Erase current paragraph: Alt + E
+EfB0|24|
+EfH25|32|
+Ep<_-E_1_____~~~~~Duplicate current paragraph: Alt + 2
+EfB0|28|
+EfH29|36|
+Ep<_-E_1_____~~~~~Move current paragraph up: Alt + Up
+EfB0|26|
+EfH27|35|
+Ep<_-E_1_____~~~~~Move current paragraph down: Alt + Down
+EfB0|28|
+EfH29|39|
+Ep<_-E_1_____~~~~~Join paragraphs: Alt + J
+EfB0|16|
+EfH17|24|
+Ep<_-E_1_____~~~~~Toggle collapsed state of the current paragraph: Alt + A
+EfB0|48|
+EfH49|56|
+Ep<_-E_1_____~~~~~Toggle collapsed state of all paragraphs: Alt + Shift + A
+EfB0|41|
+EfH42|57|
+Ep<_-E_1_____~~~~~Change paragraph subheading level: Alt + H
+EfB0|34|
+EfH35|42|
+Ep<_-E_1_____~~~~~Set paragraph as dot list item: Alt + *
+EfB0|31|
+EfH32|39|
+Ep<_-E_1_____~~~~~Set paragraph as numbered list item: Alt + 1
+EfB0|36|
+EfH37|44|
+Ep<_-E_1_____~~~~~Change paragraph to-do status: Alt + T
+EfB0|30|
+EfH31|38|
+Ep<_-E_1_____~~~~~Set paragraph as quote: Alt + Q
+EfB0|23|
+EfH24|31|
+Ep<_-E_1_____~~~~~Toggle paragraph horizontal rule: Alt + R
+EfB0|33|
+EfH34|41|
+Ep<_-E_1_____~~~~~Set paragraph as plain: Alt + 0 (zero)
+EfB0|23|
+EfH24|31|
+Ep<B_E_0_____~~~~~Advanced Editing
+Ep<_-E_1_____~~~~~Beautify the current / selected paragraph(s): Alt + F
+EfB0|45|
+EfH46|53|
+Ep<_-E_1_____~~~~~Beautify the whole entry: Alt + Shift + F
+EfB0|25|
+EfH26|41|
+Ep<_-E_1_____~~~~~Forward date 1 day: Alt + + [[Plus sign]]
+EfB0|19|
+EfH20|27|
+Ep<_-E_1_____~~~~~Backward date 1 day: Alt + - [[Minus sign]]
+EfB0|20|
+EfH21|28|
+EpD
+EpDHighlighted shortcuts can only be used when focus is on entry text.
+EfH0|11|
+EpD
+Ep<S_E_0_____~~~~~Navigation
+Ep<_-E_1_____~~~~~Go to the previous entry in the list: Ctrl + Page Down
+EfB0|37|
+Ep<_-E_1_____~~~~~Go to the next entry in the list: Ctrl + Page Up
+EfB0|33|
+Ep<_-E_1_____~~~~~Go to the previous entry in browsing history: Alt + Left
+EfB0|45|
+Ep<_-E_1_____~~~~~Go to the next entry in browsing history: Alt + Right
+EfB0|41|
+EpD
+Ep<_-E_1_____~~~~~Go to today: Ctrl + T
+EfB0|12|
+Ep<_-E_1_____~~~~~Jump to current entry in the list: Ctrl + J
+EfB0|34|
+Ep<_-E_1_____~~~~~Go to last entry of the previous session: Ctrl + O
+EfB0|41|
+Ep<S_E_0_____~~~~~Adding New Entry
+Ep<_-E_1_____~~~~~Add numbered entry: Ctrl + N
+EfB0|19|
+Ep<_-E_1_____~~~~~Add to-do entry: Ctrl + D
+EfB0|16|
+Ep<_-E_1_____~~~~~Duplicate Entry: Ctrl + Shift + R
+EfB0|16|
+
+ID10011
+E __nEBN_~~~~~~~~202008090140423
+Ec202008090140423
+Ee202008090140423
+Eha10010
+EpDIntermediate
+
+ID10012
+E __n_BN_~~~~~~~~201212010000000
+Ec201202180222846
+Ee202411170092636
+Ehu10011
+EpDLinks
+EpD
+EpDLinks can be given to many types of objects, such as dates, web sites, email addresses, and diary elements.
+EpDLinks can be followed by holding Ctrl key when clicking on them. This behavior is reversed in the Read-Only Mode.
+EpD
+Ep<S_E_0_____~~~~~Automatic links
+EpDCertain expressions are recognized and automatically converted into links such as
+Ep<_-E_1_____~~~~~urls starting with
+Ep<_-E_2_____~~~~~http://
+Ep<_-E_2_____~~~~~https://
+Ep<_-E_2_____~~~~~ftp://
+Ep<_-E_2_____~~~~~file://
+Ep<_-E_1_____~~~~~e-mail addresses with @ sign
+Ep<_-E_1_____~~~~~dates in YYYY.MM.DD format (Note that besides dots, slashes and dashes can also be used as separators in dates). Clicking a date opens the calendar view on that date.
+EpDe.g.:
+Ep<__E_1_____~~~~~http://launchpad.net/lifeograph
+Ep<__E_1_____~~~~~e-mail@address.com
+Ep<__E_1_____~~~~~2012.12.01, 2012/12/01, 2012-12-01
+EpD
+Ep<B_E_0_____~~~~~Relative paths
+EpDFor file links, rather than providing a full path, it is also possible to enter link paths relative to the location of the diary. Such links are formed by using a special prefix:
+Ep<__E_1_____~~~~~rel://
+EpD
+EpDe.g.:
+Ep<__E_1_____~~~~~rel://example.diary
+EpD
+Ep<S_E_0_____~~~~~Custom links
+EpDBesides special tokens, any selection of text can be converted into a link by adding a target from the context menu. Types of this kind of links are Uri, Evaluated, and Entry.
+Ep<S_E_0_____~~~~~Tags
+EpDTags also work like links to target entries in terms of click / Ctrl+click behavior.
+
+ID10015
+E __P_BN_~~~~~~~~201203040234404
+Ec201203040234404
+Ee202011300213305
+Eha10012
+EpDLists in Entries
+EpD
+EpDIf you indent the line, either by Alt-I or <tab>, you can create different kinds of lists depending on the first character(s) you type:
+EpD
+Ep<_-E_1_____~~~~~Bullet lists by typing '*'.
+Ep<_-E_1_____~~~~~Dash lists by typing '-'
+Ep<_-E_1_____~~~~~Enumerated lists by typing a number followed by '.', ')', or '-'.
+EpD
+EpDIt is also possible to convert the current line (or multiple lines at once when text selection covers multiple lines) to bullet or check list items by using the dedicated buttons in the Entry formatting toolbar.
+EpD
+EpDYou can make an item a sub item by increasing the indentation level.
+EpD
+Ep<S_E_0_____~~~~~Bullet lists / dash lists
+EpD
+Ep<_-E_1_____~~~~~Item 1
+Ep<_-E_1_____~~~~~Item 2
+EpD
+Ep<_-E_1_____~~~~~item 1
+Ep<_-E_2_____~~~~~sub item 1.1
+Ep<_-E_1_____~~~~~item 2
+EpD
+Ep<S_E_0_____~~~~~Checklists
+EpDLifeograph has basic checklist support. Each checklist item may have one of the four possible states:
+EpD
+Ep<_OE_1_____~~~~~not finished
+Ep<_~E_1_____~~~~~in progress
+Ep<_+E_1_____~~~~~finished
+Ep<_XE_1_____~~~~~canceled
+Ep<_XE_1_____~~~~~deferred
+EpD
+EpDState of an item can be changed by clicking on the check box of it. Highlight and strike-through styles are applied automatically for finished and canceled items, respectively; while not finished items are rendered bold.
+EpD
+Ep<S_E_0_____~~~~~Numbered lists
+EpDLifeograph has very basic support for numbered lists in that it automatically inserts the next number to the beginning of a new line if previous line is a valid numbered list line i.e. starts with a <tab><number><separator> sequence where separator is "  " "- " or " . " .
+EfB253|259|
+EfB267|268|
+EpD
+Ep<_1E_1_____~~~~~item 1
+Ep<_1E_1_____~~~~~item 2
+Ep<_1E_1_____~~~~~item 3
+EpD
+
+ID10002
+E __n_BN_~~~~~~~~201608200164907
+Ec201608200164907
+Ee202012030220931
+Eha10015
+EpDAuto Correction
+EpD
+EpDFollowing char sequences are automatically corrected by Lifeograph when entered into the entry editor:
+EpD
+EpD(there is a space between every single character for clarity. Actual space characters are shown as <SPACE>)
+EpD
+Ep<__E_1___C_~~~~~<TAB> * <SPCAE>
+Ep<__E_1_____~~~~~is corrected to  <TAB> • <SPACE> (only at the beginning of a line)
+EfH17|32|
+EpD
+Ep<__E_1___C_~~~~~- - -
+Ep<__E_1_____~~~~~is replaced with — (mdash)
+EfH17|18|
+
+ID10027
+E __n_BN_~~~~~~~~201212020135009
+Ec201212020135009
+Ee202411170103904
+Eha10002
+EpDSpell Checking
+EpD
+EpDLifeograph supports spell-checking utilizing Enchant library.
+EfI45|52|
+EpD
+EpDTo enable spell checking, open the diary menu and select a language from the Spell Checking combo box.
+EfD31|45|10035
+EfB77|91|
+EpD
+EpDIf needed, spell checking preference set for the diary can be overridden for any particular entry. To do this, go to the desired entry, and open the entry menu, and select the desired option from the Spell Checking combo box.
+EfD145|159|10035
+EfB200|214|
+EpDThe Diary Default option removes the override from the entry.
+EfB4|17|
+
+ID10005
+E __n_BN_~~~~~~~~201109130003054
+Ec201109130003054
+Ee202411170104536
+Eha10027
+EpDTagging
+EpD
+EpDStarting with Lifeograph 2.0 tags are not distinct entities than entries. Entries tag other entries when they are referenced by their name in a special way i.e. :between two colons: in the entry text.
+EpD
+EpDEntries can be inserted as tags to the current entry by dragging & dropping them onto the entry text or by typing their name. Ctrl + Space shortcut can be used to display the automatic complete popup with a list of matching tags. 
+EpD
+EpDWhile all tags in an entry, no matter where they occur in the text, are regarded associated with the entry, paragraphs are only associated with the tags added to them. So, for some purposes it may be necessary to add the same tag multiple times into an entry.
+EpD
+Ep<S_E_0_____~~~~~Directly creating new entries while tagging
+EpDIt is possible to create new entries directly through the auto-complete popover fro tags (Ctrl+Space). Entries created this way are of the type Free Entry.
+EfI144|154|
+EpD
+Ep<S_E_0_____~~~~~Assigning values to tags (a.k.a parametric tags)
+EpDWith parametric tags, it is possible to give numeric values to tags to clarify the amount, rate or degree of the entry with respect to the tag.
+EpD
+EpDContinuing from the previous example, instead of a boolean tag called "hot", we can create a parametric tag "temperature" and specify the actual temperatures as its value for individual entries. e.g.: temperature=27°C (Please note that unit is optional).
+EfT201|212|5946103
+EpD
+EpDThe syntax for assigning values to tags is :<TAG NAME>: =<VALUE>.
+EfI43|64|
+EpD
+EpDPlease note that when the value is omitted tag assumes a value of 1.
+EpD
+Ep<S_E_0_____~~~~~Planned values vs. realized values
+EpDIt is also possible to specify a planned value for a tag to gauge the level of accomplishment of a goal. These values can be added as an underlay to Charts and as columns into Tables .
+EfD149|155|10033
+EfD176|182|2264330
+EpD
+EpDThe syntax for assigning planned values to tags is :<TAG NAME>: =<REALIZED VALUE>/<PLANNED VALUE>.
+EfI51|97|
+EpD
+EpDe.g.: running=7/8 km
+EfT6|13|9791957
+EpD
+
+ID3885947
+E __n_BN_~~~~~~~~202010180145826
+Ec202010180145826
+Ee202012030230950
+Eha10005
+EpDFiltering
+EpD
+EpDThe active filter determines which entries are shown in the entry list. Any number of filters can be defined in a diary.
+EpDThe last selected filter will be saved in the diary file and will be applied when the file is opened again.
+EpD
+Ep<__E_0I3___~~~~~rel://images/filtering.png
+EpD
+Ep<S_E_0_____~~~~~Creating a filter
+EpDTo create a new filter, click the down arrow beside the filter name and and click the + button. Type in a new name in the name editor.
+EfB86|87|
+EpD
+Ep<S_E_0_____~~~~~Editing a filter
+EpDThe plus menu opens up the menu to choose from the available filterers. There is no limit for the number of filterers in a filter.
+EpDBy default, filterers are combined by AND operation. This can be changed to OR by clicking the AND button.
+EfI38|41|
+EfI76|78|
+EfB95|98|
+EpDTo remove a filterer, just click the minus button at the begining of the filterer.
+EpD
+Ep<S_E_0_____~~~~~Reverting & applying
+EpDChanges in a filter will not be saved unless applied by clicking the apply button in the toolbar.
+EpDIt is possible to revert a filter to its savedd state by clicking the revert button in the toolbar.
+EpD
+Ep<S_E_0_____~~~~~2nd level of filterers
+EpDThe special filterer Subgroup adds a second level of filterers that can be combined with OR operation if the first operator is AND or vice versa.
+EfB21|29|
+EfI89|91|
+EfI127|130|
+
+ID10025
+E __n_BN_~~~~~~~~201207040221901
+Ec201207040221901
+Ee202411170091858
+Eha3885947
+EpDExporting (Saving a Copy of) the Diary
+EpD
+EpDIt is possible to save a complete or partial copy of the current diary as either another diary file or as a plain text file.
+EpD
+EpDExport dialog can be opened from the icon menu of the diary view.
+EfD54|64|10035
+EpD
+EpDLifeograph will ask for the password before exporting an encrypted diary.
+EpD
+Ep<S_E_0_____~~~~~Exporting to plain text file
+EpDPlain text files can be used as a future-proof back-up format or for sharing diaries with other people who do not use Lifeograph.
+EpD
+Ep<S_E_0_____~~~~~Exporting to a Lifeograph diary file
+EpDThis can be used for saving a copy of the current diary either as a whole or partially as per the active entry filters. Encryption is optional and a different password can be selected than that of the original file.
+EpD
+Ep<S_E_0_____~~~~~Exporting to PDF
+EpDAlthough Lifeograph does not support exporting to PDF directly, printing to file facility can be used for that very purpose.
+
+ID10028
+E __n_BN_~~~~~~~~201212080112202
+Ec201212080112202
+Ee202411170103749
+Eha10025
+EpDSyncing / Importing
+EpD
+Ep<__E_0I3___~~~~~rel://images/synchronization.png
+EpD
+EpDIt is possible to merge diaries by importing entries, tags, and chapters from another diary.
+EpD
+EpDSync dialog can be opened from the diary menu.
+EfD35|45|10035
+EpD
+EpDIt is also possible to add a certain tag to all imported entries in order to be able to differentiate them after they are merged with other entries in the target diary.
+EpDstub
+EfT0|4|10016
+
+ID10019
+E __n_BN_~~~~~~~~201210010233555
+Ec201210010233555
+Ee202411170091634
+Eha10028
+EpDPrinting
+EpD
+Ep<S_E_0_____~~~~~Lifeograph specific options
+EpDLifeograph specific options can be found on the Lifeograph tab of the print dialog:
+EfB48|58|
+EpD
+Ep<__E_0I3___~~~~~rel://images/printing.png
+EpD
+Ep<S_E_0_____~~~~~What to print?
+EpDIt is possible to print the current entry, filtered entries (if there is an active filter) or the entire diary.
+EpD
+Ep<S_E_0_____~~~~~Text options
+EpDIt is also possible to print each entry in its theme's font or select a single font to be used in all of them.
+EpDIt is also possible to use a standard theme for printing or to use each entry's theme for each of them.
+
+ID10026
+E __n_BN_~~~~~~~~201210060193138
+Ec201210060193138
+Ee202411170103939
+Eha10019
+EpDPreferences
+EpD
+Ep<__E_0I3___~~~~~rel://images/preferences.png
+EpD
+Ep<S_E_0_____~~~~~Save diary and log out when idle
+EpDLifeograph can save the current diary and log out when a configurable time has passed without any user interaction. This only happens when the opened diary is encrypted.
+EpD
+EpDSpecify the duration to wait before logging out or disable the feature.
+EpD
+Ep<S_E_0_____~~~~~Auto Backups
+EpDTo prevent data loss, Lifeograph can save additional copies of edited diaries on a separate folder of your choosing. One backup file will be saved per day.
+EpD
+Ep<S_E_0_____~~~~~Locale
+Ep<B_E_0_____~~~~~Date order and separator
+EpDThe order of the date elements and the separators between them can be customized to get different options such as 31/12/2014, 12.31.2014, etc... Note that date links should always follow year-month-day order. the separator can be any of the three options, though.
+EpD
+Ep<B_E_0_____~~~~~Preferred units
+EpDSelect imperial or metric units to be displayed in the map for the path lengths. 
+EpD
+Ep<S_E_0_____~~~~~Formatting toolbar
+EpDFormatting toolbar (which is the one with bold, italic, etc... buttons) can be hidden to reclaim some more screen real estate. Note that, all the functionality in the toolbar is also accessible via Keyboard Shortcuts.
+EfD198|216|10008
+EpD
+Ep<S_E_0_____~~~~~Dark Gtk+ Theme
+EpDOptionally, Lifeograph can be used with the dark variant of the Gtk+ theme.
+
+ID10031
+E __n_BN_~~~~~~~~201308300164403
+Ec201308300164403
+Ee202411170214947
+Eha10026
+EpDRead-Only Mode
+EpD
+EpDLifeograph opens diaries in Read-only mode.
+EpD
+EpDEntering editing mode may not be possible if
+Ep<_-E_1_____~~~~~the user does not have write permissions on the diary file,
+Ep<_-E_1_____~~~~~Lifeograph is started with the --read-only option.
+EfI31|42|
+EpD
+Ep<S_E_0_____~~~~~Differences between Read and Edit modes
+EpDIn read-only mode,
+Ep<_-E_1_____~~~~~editing functionality elements are hidden, resulting in a simpler user interface,
+Ep<_-E_1_____~~~~~links are activated without pressing Ctrl and selected with pressing it,
+Ep<_-E_1_____~~~~~markup characters are always hidden,
+Ep<_-E_1_____~~~~~spell checking is always disabled.
+
+ID10033
+E __n_BN_~~~~~~~~201401250122450
+Ec201401250122450
+Ee202411170215838
+Eha10031
+EpDCharts
+EpD
+EpDLifeograph provides simple statistical graphics to visualize the data in the diary in various ways. Examples of data visualized in graphs include the number of entries over time and the value of a tag over time.
+EpD
+EpDCharts tab is found in the bottom panel:
+Ep<__E_0I3___~~~~~rel://images/charts.png
+EpD
+EpDTo be able to create a visual, entries related to a chart need to spread over two or more months (or years for yearly charts, and so on) or else INSUFFICIENT DATA message will be displayed.
+EfB145|162|
+EpD
+Ep<S_E_0_____~~~~~Creating a chart
+EpDUse the New Chart button to create a new chart. Any number of charts can be saved within a diary.
+EfI8|17|
+EpDThe information in chart needs to come from a table. 
+EpD
+Ep<S_E_0_____~~~~~y axis
+EpDFollowing values can be shown in the y axis:
+Ep<_-E_1_____~~~~~Entry Count in the period (week, month, or year)
+EfB0|11|
+Ep<_-E_1_____~~~~~Text Length of entries in the period
+EfB0|11|
+Ep<_-E_1_____~~~~~Path Length in Map for entries in the period
+EfB0|18|
+Ep<_-E_1_____~~~~~Entry Value for Tag for entries in the period
+EfB0|19|
+Ep<_-E_1_____~~~~~Paragraph Value for Tag for paragraphs in entries in the period
+EfB0|23|
+EpD
+EpDValues can be treated as cumulative or average in one of 3 ways
+Ep<_-E_1_____~~~~~Cumulative: Periodic: values added up within the period
+EfB0|21|
+Ep<_-E_1_____~~~~~Cumulative: Continuous: values are added up continuously
+EfB0|23|
+Ep<_-E_1_____~~~~~Average: sum of values are divided by value count per period, for period without any value, a value is assigned by interpolating the nearest periods that have a value.
+EfB0|8|
+EpDMore Info on Average vs Cumulative Charts.
+EfD0|41|10040
+EpD
+Ep<S_E_0_____~~~~~Tag
+EpDWhen in tag value modes, the tag for which the value will be calculated.
+EpD
+Ep<S_E_0_____~~~~~Paragraph filter
+EpDIf a tag is entered, value of the main tag (above) will only be taken into account for paragraphs that also have this tag.
+EpD
+Ep<S_E_0_____~~~~~Entry filter
+EpDOptionally, the domain of the graph will be limited to entries satisfying the selected filter here.
+Ep<S_E_0_____~~~~~Limit to entries that have the tag
+EpDRather than assigning zero value to entries without the main tag, ignore them.
+Ep<S_E_0_____~~~~~Period: weekly, monthly and yearly charts
+EpDCharts can be weekly, monthly or yearly according to the user's needs. This preference is saved in the diary for every individual item that has a graph.
+Ep<S_E_0_____~~~~~Underlays
+EpDIt is possible to underlay certain curves to the main curve as a dashed line to make comparisons.
+Ep<B_E_0_____~~~~~Previous year
+EpDWhen in weekly or monthly view, it is possible to underlay previous year so that the values in a certain month can be compared between years. 
+Ep<B_E_0_____~~~~~Planned
+EpDWhen in a tag value mode, planned value for the tag can be displayed together with the realized value.
+Ep<S_E_0_____~~~~~Scrolling
+EpDIf the entirety of a graph does not fit into the widget width at the current zoom level, a scroll bar will appear at the bottom with the complete graph line on it, highlighting the portion currently visible in the widget. This can be used to navigate along the timeline of the graph like a regular scroll bar.
+EpDIt is also possible to scroll using the mouse wheel.
+EpD
+Ep<S_E_0_____~~~~~Zooming
+EpDUsing the slider at the top right of the chart widget, it is possible to zoom in and out.
+
+ID6514194
+E __n_BN_~~~~~~~~201909050211133
+Ec201909050211133
+Ee202012050164111
+Eha10033
+EpDCharts in Entries
+EpD
+EpDTag charts can be inserted into entries by using the specific link type chart: as in the following example:
+EfI72|78|
+EpD
+Ep<__E_1___C_~~~~~chart:running
+EpD
+Ep<_-E_1_____~~~~~Please note that, for this type of links to work, the have to be the sole content of the paragraph i.e. no other text before or after them.
+Ep<_-E_1_____~~~~~Click on the link to open the related chart in the bottom panel.
+EpD
+Ep<__E_0C3___~~~~~chart:running
+EpD
+EpD
+Ep<S_E_0_____~~~~~Limitations
+EpDTags specified in the entry after the inline chart will not be included in the inline chart.
+
+ID2264330
+E __n_BN_~~~~~~~~202011190212709
+Ec202011190212709
+Ee202411170091725
+Eha6514194
+EpDTables
+EpD
+EpDIt is possible to extract certain values from the diary content and present them in a tabular format. Similar to charts, many tables can be defined in a diary file for different purposes.
+EpDThe contents of a table can be copied to clipboard as tab delimited text. This then can be pasted into a spreadsheet program. 
+Ep<__E_0I3___~~~~~rel://images/tables.png
+EpD
+Ep<S_E_0_____~~~~~Creating a table
+EpDClick the down arrow beside the table name and and click the + button. Type in a new name in the name editor.
+EfB61|62|
+EpD
+Ep<S_E_0_____~~~~~Adding columns to table
+EpDRight click anywhere on the table (but the table header) and click Add Column.
+EfB67|77|
+EpD
+Ep<S_E_0_____~~~~~Table options
+Ep<B_E_0_____~~~~~Group by first column
+EpDTable lines sharing the same value for the first column will be combined. Numeric values will be added up, string values will be concatenated.
+EpD
+Ep<B_E_0_____~~~~~Entry/paragraph (per table line)
+EpDDisplay one table line per entry or per paragraph.
+EpD
+Ep<B_E_0_____~~~~~Main filter
+EpDLimit table domain to entries satisfying a filter defined in the diary.
+EpD
+Ep<B_E_0_____~~~~~Paragraph filter (when in paragraph mode)
+EpDIf a tag is entered, table domain will be limited to paragraphs that have this tag.
+EpD
+Ep<S_E_0_____~~~~~Column options
+EpDRgight click on the header of a column to edit its name and other properties.
+EpD
+Ep<B_E_0_____~~~~~Column type
+Ep<_-E_1_____~~~~~Name: name of the entry the line corresponds to, or the paragraph is in.
+EfB0|5|
+Ep<_-E_1_____~~~~~Date: date of the entry the line corresponds to, or the paragraph is in. If no date is specified in the paragraph (in the YYYY-MM-DD format) than the date of the host entry of the paragraph.
+EfB0|5|
+Ep<_-E_1_____~~~~~Count: Number of entries/paragraphs combined in the line. Usually used with the Group by first column option.
+EfB0|6|
+EfB80|101|
+Ep<_-E_1_____~~~~~Tag Value: value of the tag selected for the entry or paragraph. It is possible to use total or average of realized/planned/remaining values.
+EfB0|10|
+Ep<_-E_1_____~~~~~Which Sub Tag: name of the sub tag of the selected tag the entry or paragraph is associated with. A sub tag is a child entry of a parent entry in the entry list hierarchy. In cases where an entry or paragraph is associated with more than one sub tag, the tag to display is determined per the following options:
+EfB0|13|
+EfD146|160|9857393
+Ep<_-E_2_____~~~~~First occuring: the sub tag closest to the begining.
+EfB0|15|
+Ep<_-E_2_____~~~~~Last occurring: the sub tag closes to the end.
+EfB0|15|
+Ep<_-E_2_____~~~~~Least in order: the sub tag listed above the others in the entry list in ascending order.
+EfB0|15|
+Ep<_-E_2_____~~~~~Greatest in order: the sub tag listed below the others in the entry list in ascending order.
+EfB0|18|
+Ep<_-E_1_____~~~~~Completion: completion value of the entry or the paragraph.
+EfB0|11|
+Ep<_-E_1_____~~~~~Path Length in Map: length of the path associated with the entry.
+EfB0|19|
+Ep<B_E_0_____~~~~~Conditional
+Ep<_-E_1_____~~~~~In tag value mode, the column will display the number of  entries / paragraphs whose value for the tag is equal to a given value or within a given range.
+Ep<_-E_1_____~~~~~In sub tag mode, the column will display the number of  entries / paragraphs whose sub tag satisfies the selected filter.
+EpD
+Ep<S_E_0_____~~~~~Moving and deleting columns
+EpDColumns can be moved or deleted using the 3 button at the bottom of the column menu.
+
+ID86792505
+E __n_BN_~~~~~~~~202411160000000
+Ec202411160122233
+Ee202411160122233
+Eha2264330
+EmLifeograph
+EpDMap
+
+ID10018
+E __nEBN_~~~~~~~~202008090140423
+Ec202008090140423
+Ee202008090140423
+Eha10011
+EpDAdvanced
+
+ID10023
+E __n_BN_~~~~~~~~201207030005824
+Ec201207030005824
+Ee202411170104006
+Ehu10018
+EpDBackup Files
+EpD
+EpDLifeograph saves two backup files. Both are saved in the same directory as the diary file. Their names are <DIARYNAME>.~LOCK~ and <DIARYNAME>.~previousversion~.
+EfB107|125|
+EfB130|159|
+EpDThe first one is saved twice a minute during an editing session and contains all unsaved changes up to that time. It is, however, deleted after logging out successfully.
+EpDThe second one is saved at log-out and is simply a backup of the diary before the last editing session.
+EpD
+Ep<S_E_0_____~~~~~Recovery after crashes
+EpD<DIARYNAME>.~LOCK~ is useful to recover unsaved changes after crashes. When, due to a crash or any other reason, a Lifeograph session ends improperly the .~LOCK~ file will not be removed. In that case, Lifeograph will refuse to open the original diary again complaining that it is locked.
+EfB0|18|
+EpDIf the presence of the lock is due to quitting improperly (rather than the file's being open in another instance of Lifeograph) you can rename the lock file and open it with Lifeograph to recover the unsaved changes. If you are sure that you don't want to restore the changes you can simply delete the lock file and open the original diary.
+EpD
+EpD<DIARYNAME>.~previousversion~ can be used to revert changes made in the last editing session.
+EfB0|29|
+EpD
+Ep<S_E_0_____~~~~~Daily backups
+EpDIf enabled in the Preferences, Lifeograph will also save daily backups of the diary in a separate folder. The id of the diary file is also appended in the name of the backup to avoid different diaries with the same name overwriting each other.
+EfD18|30|10026
+
+ID10034
+E __n_BN_~~~~~~~~201402010150120
+Ec201402010150120
+Ee201411110121217
+Eha10023
+EpDConfiguration File
+EpD
+EpDThe default path for the Lifeograph configuration file is XDG_CONFIG_HOME/lifeograph/lifeo.conf where XDG_CONFIG_HOME is equal to ~/.config on most systems.
+EfB58|95|
+EfB102|117|
+EfB130|139|
+EpD
+EpDLifeograph can be forced to use another configuration file than the default by setting the LIFEOGRAPH_CONFIG_FILE system variable.
+EfB91|113|
+EpD
+EpDe.g. if started with the following command-line Lifeograph will use the alternative configuration file specified (if the file does not exist, it will be created):
+EpD
+EpD$ LIFEOGRAPH_CONFIG_FILE=/home/user/.lifeo.conf2 lifeograph
+
+ID10017
+E __n_BN_~~~~~~~~201205210011735
+Ec201205210011735
+Ee202411170104244
+Eha10034
+EpDHidden Options
+EpD
+Ep<S_E_0_____~~~~~Diary file extension
+EpDTo override the default value (.diary) add a line to the configuration file starting with E.
+EfD57|75|10034
+EpDe.g. to change to .lifeograph (Please note that any custom extension should begin with a dot):
+EpD
+EpDE .lifeograph
+EpD
+EpDand to disable automatic appendage of an extension use just a dot:
+EpD
+EpDE .
+EpD
+Ep<S_E_0_____~~~~~Icon theme
+EpDLifeograph supports custom icon themes. To use a custom theme, put all the icons in it in a folder the icons folder and add the following line to the configuration file:
+EfD146|168|10034
+EpD
+EpDT Ribbla
+EpD
+Ep<S_E_0_____~~~~~Disable down-scaling in entry and tag lists
+EpDOn certain systems small fonts of entry and tag list may be undesirable. In such cases it is possible to disable the down-scaling in these widgets by adding the following line to the configuration file:
+EfD179|201|10034
+EpD
+EpDO big lists
+EpD
+
+ID10020
+E __n_BN_~~~~~~~~201207030000439
+Ec201207030000439
+Ee201907210195007
+Eha10017
+EpDCommand-line Options
+EpD
+Ep<S_E_0_____~~~~~SYNOPSIS
+Ep<__E_1___C_~~~~~lifeograph [--force-welcome] [--open, -o DIARY] [--read-only]
+EfI42|47|
+EpD
+Ep<S_E_0_____~~~~~OPTIONS
+EpD--open, -o DIARY
+EfB0|6|
+EfB8|10|
+EfI11|16|
+EpDSets  the  diary  file  to be opened. If the diary is encrypted, Lifeograph will start with a password prompt.
+EpD
+EpD--read-only, -r
+EfB0|11|
+EfB13|15|
+EpDRun in read-only mode where no change is allowed.  So, enabling edit is disabled.
+EpD
+EpD--read-only-single
+EfB0|18|
+EpDRun  for  viewing  a  single file. Logging out is not supported. Used for showing the manual.
+EpD
+EpD--ignore-locks
+EfB0|14|
+EpDEnables  opening locked diary files. Beware that if a diary file is locked it is probably being edited  by  another  instance  of Lifeograph or the last session with it did not finish correctly. In either case the lock file may contain unsaved changes.
+EpD
+EpD--force-welcome
+EfB0|15|
+EpDForces program to show  the  welcome  screen.  Normally  welcome screen is only shown on the first run of Lifeograph.
+
+ID10029
+E __n_BN_~~~~~~~~201301290213413
+Ec201301290213413
+Ee201301290215009
+Eha10020
+EpDEncryption
+EpD
+EpDLifeograph uses AES256 algorithm via libgcrypt for encrypted diaries.
+EfL16|32|http://en.wikipedia.org/wiki/Aes256
+EfL37|46|http://www.gnu.org/software/libgcrypt/
+EpD
+EpDThis is real encryption. So, there is no known way of recovering the data in an encrypted diary when its password is lost -except for trial and error.
+EpDstub
+EfT0|4|10016
+
+ID10032
+E __n_BN_~~~~~~~~201310290183811
+Ec201310290183811
+Ee202012050000955
+Eha10029
+EpDDiary File Version Support
+EpD
+EpDCurrent diary file version is 1030.
+EpD
+EpDBelow is a list showing which diary file versions can be opened and saved by a particular Lifeograph version.
+EpD
+Ep<S_E_0_____~~~~~Linux & Windows Desktop 2.0
+Ep<_-E_1_____~~~~~Opens: 1010-2000
+EfB0|6|
+Ep<_-E_1_____~~~~~Saves: 2000
+EfB0|6|
+EpD
+Ep<S_E_0_____~~~~~Linux & Windows Desktop 1.5 - 1.6
+Ep<_-E_1_____~~~~~Opens: 110-1050
+EfB0|6|
+Ep<_-E_1_____~~~~~Saves: 1050
+EfB0|6|
+EpD
+Ep<S_E_0_____~~~~~Android 0.8 - 0.9
+Ep<_-E_1_____~~~~~Opens: 1010-1040
+EfB0|6|
+Ep<_-E_1_____~~~~~Saves: 1050
+EfB0|6|
+EpD
+Ep<S_E_0_____~~~~~Linux Desktop 1.4 | Android 0.7 | Windows 0.4
+Ep<_-E_1_____~~~~~Opens: 110-1040
+EfB0|6|
+Ep<_-E_1_____~~~~~Saves: 1040
+EfB0|6|
+EpD
+Ep<S_E_0_____~~~~~Linux Desktop 1.3 | Android 0.6 | Windows 0.3
+Ep<_-E_1_____~~~~~Opens: 110-1030
+EfB0|6|
+Ep<_-E_1_____~~~~~Saves: 1030
+EfB0|6|
+EpD
+Ep<S_E_0_____~~~~~Linux Desktop 1.2 | Android 0.5 | Windows 0.2
+Ep<_-E_1_____~~~~~Opens: 110-1020
+EfB0|6|
+Ep<_-E_1_____~~~~~Saves: 1020
+EfB0|6|
+EpD
+Ep<S_E_0_____~~~~~1.1
+Ep<_-E_1_____~~~~~Opens: 56-1010
+EfB0|6|
+Ep<_-E_1_____~~~~~Saves: 1010
+EfB0|6|
+EpD
+Ep<S_E_0_____~~~~~0.11.0 - 1.0.1
+Ep<_-E_1_____~~~~~Opens: 56-110
+EfB0|6|
+Ep<_-E_1_____~~~~~Saves: 110
+EfB0|6|
+EpD
+Ep<S_E_0_____~~~~~0.7.4 - 0.10.0
+Ep<_-E_1_____~~~~~Opens: 56-74
+EfB0|6|
+Ep<_-E_1_____~~~~~Saves: 74
+EfB0|6|
+EpD
+Ep<S_E_0_____~~~~~0.7.3
+Ep<_-E_1_____~~~~~Opens: 56,73
+EfB0|6|
+Ep<_-E_1_____~~~~~Saves: 73
+EfB0|6|
+EpD
+Ep<S_E_0_____~~~~~0.7.1, 0.7.2
+Ep<_-E_1_____~~~~~Opens: 56
+EfB0|6|
+Ep<_-E_1_____~~~~~Saves: 56
+EfB0|6|
+EpD
+Ep<S_E_0_____~~~~~0.7.0
+Ep<_-E_1_____~~~~~Opens: 51-56
+EfB0|6|
+Ep<_-E_1_____~~~~~Saves: 56
+EfB0|6|
+EpD
+Ep<S_E_0_____~~~~~0.5.6 - 0.6.4
+Ep<_-E_1_____~~~~~Opens: 37-56
+EfB0|6|
+Ep<_-E_1_____~~~~~Saves: 56
+EfB0|6|
+
+ID10040
+E __n_BN_~~~~~~~~201608210174017
+Ec201608210174017
+Ee202012050164821
+Eha10032
+EpDMore Info on Average vs Cumulative Charts
+EpD
+Ep<S_E_0_____~~~~~Cumulative tags
+EpDValues of cumulative tags are summed to get the combined value. Example use cases include:
+Ep<_-E_1_____~~~~~money spent,
+Ep<_-E_1_____~~~~~distance traveled, 
+Ep<_-E_1_____~~~~~pages read, and so on.
+EpD
+Ep<S_E_0_____~~~~~Average Tags
+EpDFor some phenomena, summing individual values does not make any sense in that the values we give for them are mere measurements for a specific time. For such phenomena, combined value of multiple tags is calculated by taking the average.  Example use cases include:
+Ep<_-E_1_____~~~~~weight (e.g. during a diet),
+Ep<_-E_1_____~~~~~temperature,
+Ep<_-E_1_____~~~~~most medical data such as blood pressure, and so on.
+EpD
+Ep<S_E_0_____~~~~~Interpolation
+EpDAt the first glance, one may think that in some cases, tag values can be combined both as average and cumulative. Of course, it would make sense e.g. to have a graph showing the total number of pages read in months or the average number of pages per day in months.
+EpD
+EpDThe tricky part is how the empty days are regarded. They are given intermediate values by interpolating nearest values around them.
+EpD
+EpDFor example:
+Ep<__E_1_____~~~~~March 1st: Pages Read = 20 (actual entry)
+Ep<__E_1_____~~~~~April 1st: <No entry>
+EfB11|21|
+Ep<__E_1_____~~~~~May 1st: Pages Read = 30 (actual entry)
+EpDIn the above case when in average mode, the number of pages read will be shown as 25
+EfB82|84|
+EpDfor April (in the monthly mode) which will be contrary to the truth.
+EpD
+EpDAverage value makes perfect sense for the things that continue to occur whether we measure them or not. For other things, the only way to get correct results is explicitly creating tags for every single interval (week/month/year), even when the value is 0.
+EpD
+EpD
+
+ID8782705
+E __n_NN_~~~~~~~~202008090140423
+Ec202008090140423
+Ee202010180151357
+Eha10018
+EpDTAGS
+
+ID3271528
+E __n_NN_~~~~~~~~202008090140423
+Ec202008090140423
+Ee202008090140423
+Ehu8782705
+EpDneeds update
+
+ID10038
+E __n_NN_~~~~~~~~202008090140423
+Ec202008090140423
+Ee202008090140423
+Eha3271528
+EpDnew
+
+ID10016
+E __n_NN_~~~~~~~~202008090140423
+Ec202008090140423
+Ee202008090140423
+Eha10038
+EpDstub
+
+ID5946103
+E __n_NN_~~~~~~~~202011300215704
+Ec202011300215704
+Ee202011300215704
+Eha10016
+EpDtemperature
+
+ID9791957
+E __n_NN_~~~~~~~~202011300215708
+Ec202011300215708
+Ee202012050163816
+Eha5946103
+EpDrunning
+EpD
+EpD
+EpDValues for the graph are extracted from below:
+EpD2020-01-01 running=20
+EfT11|18|9791957
+EpD2020-02-01 running=30
+EfT11|18|9791957
+EpD2020-03-01 running=45
+EfT11|18|9791957
+EpD2020-04-01 running=55
+EfT11|18|9791957
+EpD2020-05-01 running=50
+EfT11|18|9791957
+EpD2020-06-01 running=50
+EfT11|18|9791957
+EpD2020-07-01 running=45
+EfT11|18|9791957
+EpD2020-08-01 running=55
+EfT11|18|9791957
+EpD2020-09-01 running=60
+EfT11|18|9791957
+EpD2020-10-01 running=65
+EfT11|18|9791957
+EpD2020-11-01 running=35
+EfT11|18|9791957
+EpD2020-12-01 running=30
+EfT11|18|9791957

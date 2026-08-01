@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <object class="GtkAdjustment" id="Adj_image_size">
+    <property name="upper">3</property>
+    <property name="value">3</property>
+    <property name="step-increment">1</property>
+    <property name="page-increment">1</property>
+  </object>
+  <object class="GtkBox" id="Bx_edit_table">
+    <property name="orientation">vertical</property>
+    <property name="spacing">3</property>
+    <child>
+      <object class="GtkBox">
+        <property name="margin-top">3</property>
+        <property name="spacing">5</property>
+        <child>
+          <object class="GtkSeparator">
+            <property name="valign">center</property>
+            <property name="hexpand">1</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="label" translatable="yes">Edit Table</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkSeparator">
+            <property name="valign">center</property>
+            <property name="hexpand">1</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="B_remove">
+            <property name="tooltip-text" translatable="yes">Remove image</property>
+            <property name="has-frame">False</property>
+            <property name="icon-name">edit-delete-symbolic</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkBox">
+        <property name="spacing">3</property>
+        <child>
+          <object class="GtkComboBoxText" id="CB_table">
+            <property name="width-request">250</property>
+            <property name="hexpand">1</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="B_open">
+            <property name="receives-default">1</property>
+            <property name="tooltip-text" translatable="yes">Open chart</property>
+            <property name="icon-name">go-next</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckButton" id="CB_expand_all">
+        <property name="label" translatable="yes">Expand All</property>
+      </object>
+    </child>
+  </object>
+</interface>

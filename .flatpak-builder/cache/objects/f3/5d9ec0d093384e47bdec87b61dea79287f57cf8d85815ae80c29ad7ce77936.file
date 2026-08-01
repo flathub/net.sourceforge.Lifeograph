@@ -1,0 +1,12 @@
+prefix=/app
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: shumate-1.0
+Description: Map View for GTK
+Version: 1.4.0
+Requires: glib-2.0 >=  2.74.0, gobject-2.0 >=  2.74.0, gtk4
+Requires.private: gio-2.0 >=  2.74.0, cairo >=  1.4, sqlite3 >=  1.12.0, libsoup-3.0 >=  3.0, sysprof-capture-4, json-glib-1.0 >=  1.6, libprotobuf-c
+Libs: -L${prefix}/lib -lshumate-1.0
+Libs.private: -lm
+Cflags: -I${includedir}/shumate-1.0

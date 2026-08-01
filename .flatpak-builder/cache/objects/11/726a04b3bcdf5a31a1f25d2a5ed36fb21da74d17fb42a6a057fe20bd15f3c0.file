@@ -1,0 +1,20 @@
+prefix=/app
+datadir=${prefix}/share
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+exec_prefix=${prefix}
+datarootdir=${datadir}
+docdir=${datadir}/doc/glibmm-2.68
+doxytagfile=${docdir}/reference/glibmm-2.68.tag
+htmlrefdir=${docdir}/reference/html
+htmlrefpub=https://gnome.pages.gitlab.gnome.org/glibmm/
+
+Name: giomm
+Description: C++ wrapper for gio
+URL: https://gtkmm.gnome.org/
+Version: 2.84.0
+Requires: gio-2.0 >=  2.83.4, glibmm-2.68
+Requires.private: sigc++-3.0 >=  3.0.0, glib-2.0 >=  2.83.4, gobject-2.0 >=  2.83.4, gmodule-2.0 >=  2.83.4, gio-unix-2.0 >=  2.83.4
+Libs: -L${libdir} -lgiomm-2.68
+Cflags: -I${includedir}/giomm-2.68 -I${libdir}/giomm-2.68/include
